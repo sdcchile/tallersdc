@@ -13,6 +13,9 @@ link-citations: yes
 urlcolor: blue
 github-repo: rstudio/bookdown-demo
 description: "Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile."
+url: 'https\://www.ine.cl/'
+apple-touch-icon: "Imagenes/Logo_INE2.png"
+apple-touch-icon-size: 120
 ---
 
 
@@ -38,18 +41,25 @@ Esta guía se basa en Statistical Disclosure Control: A Practice Guide @benschop
 ¡Esperamos que esta guía lo ayude en su viaje hacia la implementación de procesos de control a la divulgación estadística en su organización!
 
 ## Autores de esta guía
-Jonathan González Mejías, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
 
-José Bustos Melo, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+ * **Jonathan González Mejías**, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
 
-Julio Guerrero Rojas, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+ * **José Bustos Melo**, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
 
-Lissette Bastías Navarro, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+ * **Julio Guerrero Rojas**, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
 
-Nicolás Berhó Montalvo, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
+ * **Lissette Bastías Navarro**, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+
+ * **Nicolás Berhó Montalvo**, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
 
 ## Reconocimientos
-Aquí escribir si se quiere agradecer o reconocer la colaboración de alguna persona o equipo.
 
+Este proyecto conjunto es un testimonio del esfuerzo colaborativo que comenzó a gestarse a finales de 2019, en el cual participaron activamente los analistas de la Subdirección Técnica (SDT) y del Departamento de Metodologías e Innovación Estadística (DMIE). Durante esta travesía, se realizaron reuniones estratégicas que permitieron explorar y analizar las diversas formas de anonimización históricamente empleadas por nuestros equipos. Estas discusiones fueron fundamentales para identificar puntos comunes y optimizar nuestros esfuerzos, evitando la duplicación de tareas y enfocando nuestros recursos de manera eficiente.
 
+La coordinación y organización de este arduo trabajo estuvieron a cargo del DMIE, bajo la hábil dirección de Denisse López. Reconocemos su liderazgo y dedicación en la conducción de este proyecto.
 
+Este logro no habría sido posible sin la valiosa colaboración de cada persona involucrada en el proceso, ya sea de forma directa o indirecta. Valoramos y agradecemos profundamente a todos los miembros del equipo y a nuestro Instituto Nacional de Estadísticas (INE) en su conjunto. Sin duda, este es un esfuerzo colectivo que fortalece nuestra institución y enriquece nuestro compromiso con la excelencia en estadísticas.
+
+Aunque no es posible mencionar a cada analista en particular, queremos expresar nuestra sincera gratitud a todos aquellos que aportaron su tiempo, conocimientos y dedicación para hacer de este proyecto una realidad. Cada contribución, por pequeña que parezca, ha sido fundamental en la consecución de este importante trabajo. Juntos, hemos construido un proyecto sólido que nos impulsa hacia adelante en nuestra misión de generar datos precisos y relevantes para nuestra sociedad.
+
+Nuestro agradecimiento se extiende a cada uno de ustedes y a todas las personas que, de una u otra manera, han contribuido a este proyecto. Su esfuerzo y colaboración han sido esenciales y apreciadas en todo momento. Seguimos comprometidos con nuestra labor y esperamos seguir trabajando juntos en futuros proyectos que beneficien a nuestra institución y a la comunidad en general.
