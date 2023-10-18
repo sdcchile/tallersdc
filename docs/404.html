@@ -4,23 +4,23 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | YOUR TITLE HERE</title>
-  <meta name="description" content="Page not found | YOUR TITLE HERE" />
+  <title>Page not found | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | YOUR TITLE HERE" />
+  <meta property="og:title" content="Page not found | Guía para el Control de Divulgación Estadística en Microdatos" />
   <meta property="og:type" content="book" />
-  
-  
-  
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | YOUR TITLE HERE" />
+  <meta name="twitter:title" content="Page not found | Guía para el Control de Divulgación Estadística en Microdatos" />
   
-  
-  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
 
-<meta name="author" content="YOUR NAME HERE" />
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
 
 
 <meta name="date" content="2023-10-18" />
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
 
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -52,12 +52,102 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -73,14 +163,175 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">SHORT TITLE HERE</a></li>
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Down the rabbit-hole</a></li>
-<li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
-<li class="chapter" data-level="3" data-path="a-caucus-race-and-a-long-tale.html"><a href="a-caucus-race-and-a-long-tale.html"><i class="fa fa-check"></i><b>3</b> A caucus-race and a long tale</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -90,7 +341,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">YOUR TITLE HERE</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
           </h1>
         </div>
 
@@ -141,7 +392,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/edit/main/%s",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
 "text": "Edit"
 },
 "history": {
@@ -149,10 +400,10 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/YOUR GITHUB USERNAME/YOUR REPO NAME/blob/main/%s",
+"link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
 "search": {
 "engine": "fuse",
 "options": null
@@ -164,6 +415,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

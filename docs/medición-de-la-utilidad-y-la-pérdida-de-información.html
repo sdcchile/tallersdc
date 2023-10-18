@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 9 Medición de la utilidad y la pérdida de información | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 9 Medición de la utilidad y la pérdida de información | Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 9 Medición de la utilidad y la pérdida de información | Guía para el Control de Divulgación Estadística en Microdatos" />
+  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
+
+
+<meta name="date" content="2023-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="métodos-sdc.html"/>
+<link rel="next" href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="medición-de-la-utilidad-y-la-pérdida-de-información" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Capítulo 9</span> Medición de la utilidad y la pérdida de información<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Hoy en día, resolver la tensión entre la protección de la información personal y el suministro de datos es realmente un desafío que deben asumir las ONE. En esta situación, tres motivaciones empujan a las ONE a preservar la confidencialidad.</p>
+<p>SDC es un intercambio entre el riesgo de divulgación versus la pérdida de utilidad de los datos (siempre buscando minimizar este último), al tiempo que reduce el riesgo de divulgación a un nivel aceptable. La utilidad de los datos en este contexto significa la utilidad de los datos anonimizados para los análisis estadísticos de los usuarios finales, así como la validez de estos análisis cuando se realizan con datos anonimizados. El riesgo de divulgación y su medición se definirán más adelante en <a href="medición-de-riesgos.html#medición-de-riesgos">Medición de riesgos</a>.</p>
+<p>Para lograr este equilibrio entre minimizar el riesgo de divulgación y maximizar la utilidad de los datos para los usuarios finales, es necesario medir la utilidad de los datos después de la anonimización y compararla con la utilidad de los datos originales.</p>
+<p>En esta sección se busca describir las medidas que se pueden usar para comparar la utilidad de los datos antes y después de la anonimización, así como también cuantificar la pérdida de información. La pérdida de información es inversa a la utilidad de los datos: cuanto mayor sea la utilidad de los datos después de la anonimización, menor será la pérdida de información.</p>
+<blockquote>
+<p><strong>Nota</strong>
+1. Si los microdatos a anonimizar se basan en una muestra, los datos incurrirán en un error de muestreo. También pueden estar presentes otros errores en los datos, como un error de falta de respuesta.
+2. Los métodos discutidos aquí solo miden la pérdida de información causada por el proceso de anonimización en relación con los datos de la muestra original y no intentan medir el error causado por otras fuentes.</p>
+</blockquote>
+<p>La pérdida de información se evalúa con respecto a las necesidades y usos de los usuarios finales de los microdatos. Sin embargo, los diferentes usuarios de los datos anonimizados pueden tener usos muy diversos para los datos publicados y es posible que no sea posible recopilar una lista exhaustiva de los distintos usos. Es así que nos enfocaremos en la publicación de un conjunto de datos para evitar la divulgación no intencional. La publicación de múltiples conjuntos de datos anónimos para diferentes propósitos puede dar lugar a una divulgación no intencionada.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></p>
+<p>El proceso SDC se caracteriza por el balance entre el riesgo de divulgación y la utilidad de los datos para los usuarios finales. La escala riesgo-utilidad se extiende entre dos extremos:</p>
+<ol style="list-style-type: decimal">
+<li>No se difunden datos (riesgo cero de divulgación) y, por lo tanto, los usuarios no obtienen ninguna utilidad de los datos.</li>
+<li>Los datos se difunden sin ningún tratamiento y, por lo tanto, con el máximo riesgo de divulgación, pero con la máxima utilidad para el usuario (es decir, sin pérdida de información).</li>
+</ol>
+<p>El objetivo de un proceso SDC bien implementado es encontrar el punto óptimo en el que la utilidad para los usuarios finales se maximice a un nivel de riesgo aceptable.</p>
+<p>En el balance entre Riesgo y Utilidad que se muestra en la Figura @ref(fig:fig1_sec05), por un extremo, el triángulo corresponde a los datos sin procesar, los que no tienen pérdida de información, pero generalmente tienen un riesgo de divulgación más alto que el nivel aceptable. El otro extremo es el cuadrado, que corresponde a la no publicación de datos. En ese caso, no hay riesgo de divulgación, pero tampoco hay utilidad de los datos para los usuarios. Los puntos intermedios corresponden a diferentes opciones de métodos SDC y/o parámetros aplicados a diferentes variables. El proceso SDC busca
+métodos y parámetros, que son aplicados de una manera que produce una reducción del riesgo de forma muchas veces satisfactoria, minimizándose generalmente la pérdida de información.</p>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig1.png" alt="Balance riesgo-utilidad en un conjunto de datos." width="90%" />
+<p class="caption">
+(#fig:fig1_sec05)Balance riesgo-utilidad en un conjunto de datos.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.78.</p>
+<p>En las siguientes secciones, primero proponemos medidas generales de utilidad independientes del uso de datos, y luego presentamos un ejemplo de una medida específica útil para medir la pérdida de información con respecto a usos de datos específicos. Finalmente, mostramos cómo visualizar cambios en los datos causados por la anonimización y discutimos la selección de medidas de utilidad para un conjunto de datos en particular.</p>
+<div id="medidas-generales-de-utilidad-para-variables-continuas-y-categóricas" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Medidas generales de utilidad para variables continuas y categóricas<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las medidas generales de pérdida de información se pueden dividir en
+aquellas que comparan los valores reales de los datos sin procesar y los
+anonimizado, y aquellas que comparan las estadísticas de ambos conjuntos
+de datos. Todas las medidas son a posteriori, ya que miden la utilidad
+después de la anonimización y requieren tanto los datos originales como
+los anonimizados.</p>
+<p>Las medidas de utilidad son diferentes para variables categóricas y para
+las variables continuas.</p>
+<div id="variables-categóricas" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Variables categóricas<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="número-de-valores-faltantes" class="section level4 hasAnchor" number="9.1.1.1">
+<h4><span class="header-section-number">9.1.1.1</span> Número de valores faltantes<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#número-de-valores-faltantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Una medida informativa es comparar el número de valores faltantes en los datos. Los valores faltantes a menudo se producen después de la supresión y a mayor cantidad de aplicación de supresiones será mayor el grado de pérdida de información. Después de usar la función de supresión local en un objeto <code>sdcMicro</code> , la cantidad de supresiones para cada variable clave categórica se puede recuperar con la función print(), como se muestra en el Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque1lbn">9.1</a><a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a>. El argumento ‘ls’ en la función <code>print()</code> es la supresión local. La salida muestra el número absoluto y relativo de supresiones.</p>
+<div class="example">
+<p><span id="exm:bloque1lbn" class="example"><strong>Bloque 9.1  </strong></span>Uso de la función print() para recuperar el número total de supresiones para cada variable clave categórica</p>
+</div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-1" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(sdcInitial, <span class="at">k =</span> <span class="dv">5</span>, <span class="at">importance =</span> <span class="cn">NULL</span>)</span>
+<span id="cb109-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcInitial, <span class="st">&#39;ls&#39;</span>)</span>
+<span id="cb109-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Local Suppression:</span></span>
+<span id="cb109-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   KeyVar | Suppressions (#) | Suppressions (%)</span></span>
+<span id="cb109-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   URBRUR |                0 |            0.000</span></span>
+<span id="cb109-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   REGION |               81 |            4.050</span></span>
+<span id="cb109-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-9" aria-hidden="true" tabindex="-1"></a><span class="do">##    RELIG |                0 |            0.000</span></span>
+<span id="cb109-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  MARITAL |                0 |            0.000</span></span>
+<span id="cb109-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb109-11" aria-hidden="true" tabindex="-1"></a><span class="do">## --------------------------------------------------------------</span></span></code></pre></div>
+<p>Es posible contar y comparar el número de valores faltantes en los datos originales y los datos tratados. Esto puede ser útil para ver el aumento proporcional en el número de valores faltantes. Los valores faltantes
+también pueden tener otras fuentes, como la no respuesta. En el Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque2lbn">9.2</a> se muestran los valores faltantes para cada una de las variables clave categóricas en un objeto <code>sdcMicro</code>. Aquí se utiliza el supuesto que todos los valores faltantes están codificados como <code>NA</code>. Si los valores perdidos no están codificados como <code>NA</code>, sino otro valor, se debe utilizar el código de valores perdidos alternativo. Los resultados concuerdan con el número de valores faltantes introducidos por la supresión local en el ejemplo anterior, pero también muestran que la variable “RELIG” tiene 1000 valores faltantes en los datos originales.</p>
+<div class="example">
+<p><span id="exm:bloque2lbn" class="example"><strong>Bloque 9.2  </strong></span>Número de valores faltantes para cada variable clave categórica en un objeto <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacene los nombres de todas las variables clave categóricas en un vector</span></span>
+<span id="cb110-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-2" aria-hidden="true" tabindex="-1"></a>namesKeyVars <span class="ot">&lt;-</span> <span class="fu">names</span>(sdcInitial<span class="sc">@</span>manipKeyVars)</span>
+<span id="cb110-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Elaborar una matriz para almacenar el número de valores faltantes (NA) antes y después de la anonimización</span></span>
+<span id="cb110-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-5" aria-hidden="true" tabindex="-1"></a>NAcount <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="fu">length</span>(namesKeyVars))</span>
+<span id="cb110-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(NAcount) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&#39;NA&#39;</span>, namesKeyVars)) <span class="co"># column names</span></span>
+<span id="cb110-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(NAcount) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;initial&#39;</span>, <span class="st">&#39;treated&#39;</span>) <span class="co"># row names</span></span>
+<span id="cb110-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Recuento de NA en todas las variables clave (NOTA: solo se cuentan las codificadas como NA)</span></span>
+<span id="cb110-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(namesKeyVars)) {</span>
+<span id="cb110-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-11" aria-hidden="true" tabindex="-1"></a>  NAcount[<span class="dv">1</span>, i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(sdcInitial<span class="sc">@</span>origData[,namesKeyVars[i]]))</span>
+<span id="cb110-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-12" aria-hidden="true" tabindex="-1"></a>  NAcount[<span class="dv">2</span>, i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(sdcInitial<span class="sc">@</span>manipKeyVars[,i]))</span>
+<span id="cb110-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb110-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar resultados</span></span>
+<span id="cb110-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-16" aria-hidden="true" tabindex="-1"></a>NAcount</span>
+<span id="cb110-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-17" aria-hidden="true" tabindex="-1"></a><span class="do">## NAURBRUR NAREGION NARELIG NAMARITAL</span></span>
+<span id="cb110-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-18" aria-hidden="true" tabindex="-1"></a><span class="do">## inicial 0 0 1000 51</span></span>
+<span id="cb110-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb110-19" aria-hidden="true" tabindex="-1"></a><span class="do">## tratado 0 81 1000 51</span></span></code></pre></div>
+</div>
+<div id="número-de-registros-cambiados" class="section level4 hasAnchor" number="9.1.1.2">
+<h4><span class="header-section-number">9.1.1.2</span> Número de registros cambiados<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#número-de-registros-cambiados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Otra estadística útil es el número de registros modificados por variable. Estos se pueden contabilizar de forma similar a los valores perdidos e incluyen supresiones (es decir, cambios en los valores perdidos/<code>NA</code> en <code>R</code> ). El número de registros cambiados es un buen indicador del impacto de los métodos de anonimización en los datos. A
+continuación en el Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque3lbn">9.3</a> se muestra cómo calcular la cantidad de registros modificados para las variables PRAMmed.</p>
+<div class="example">
+<p><span id="exm:bloque3lbn" class="example"><strong>Bloque 9.3  </strong></span>Cálculo del número de registros modificados por variable</p>
+</div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Almacene los nombres de todas las variables del pram en un vector</span></span>
+<span id="cb111-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-2" aria-hidden="true" tabindex="-1"></a>namesPramVars <span class="ot">&lt;-</span> <span class="fu">names</span>(sdcInitial<span class="sc">@</span>manipPramVars)</span>
+<span id="cb111-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Marco para guardar la cantidad de registros modificados</span></span>
+<span id="cb111-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-5" aria-hidden="true" tabindex="-1"></a>recChanged <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(namesPramVars))</span>
+<span id="cb111-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(recChanged) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">&#39;RC&#39;</span>, namesPramVars))</span>
+<span id="cb111-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuenta del número de registros cambiados</span></span>
+<span id="cb111-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(namesPramVars)) <span class="co"># para todas las  variables clave</span></span>
+<span id="cb111-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-10" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb111-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-11" aria-hidden="true" tabindex="-1"></a>  comp <span class="ot">&lt;-</span> sdcInitial<span class="sc">@</span>origData[namesPramVars[j]] <span class="sc">!=</span></span>
+<span id="cb111-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-12" aria-hidden="true" tabindex="-1"></a>                              sdcInitial<span class="sc">@</span>manipPramVars[namesPramVars[j]]</span>
+<span id="cb111-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-13" aria-hidden="true" tabindex="-1"></a>  temp1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(comp, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># cambio en todas las variables sin NA</span></span>
+<span id="cb111-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-14" aria-hidden="true" tabindex="-1"></a>  temp2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(comp))        <span class="co"># contabiliza los NA en el vector</span></span>
+<span id="cb111-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-15" aria-hidden="true" tabindex="-1"></a>  temp3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(sdcInitial<span class="sc">@</span>origData[namesPramVars[j]])</span>
+<span id="cb111-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-16" aria-hidden="true" tabindex="-1"></a>               <span class="sc">+</span> <span class="fu">is.na</span>(sdcInitial<span class="sc">@</span>manipPramVars[namesPramVars[j]])<span class="sc">==</span><span class="dv">2</span>)</span>
+<span id="cb111-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ambos NA, sin cambios, contabilizados en temp2</span></span>
+<span id="cb111-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-18" aria-hidden="true" tabindex="-1"></a>  recChanged[j] <span class="ot">&lt;-</span> temp1 <span class="sc">+</span> temp2 <span class="sc">-</span> temp3</span>
+<span id="cb111-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb111-20"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-21"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar resultados</span></span>
+<span id="cb111-22"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-22" aria-hidden="true" tabindex="-1"></a>recChanged</span>
+<span id="cb111-23"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  RCWATER   RCROOF RCTOILET</span></span>
+<span id="cb111-24"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb111-24" aria-hidden="true" tabindex="-1"></a><span class="do">##      125       86      180</span></span></code></pre></div>
+</div>
+<div id="comparación-de-tablas-de-contingencia" class="section level4 hasAnchor" number="9.1.1.3">
+<h4><span class="header-section-number">9.1.1.3</span> Comparación de tablas de contingencia<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#comparación-de-tablas-de-contingencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Una forma útil de medir la pérdida de información en variables categóricas es comparar tabulaciones univariadas y, lo que es más interesante, tablas de contingencia (también tabulaciones cruzadas o tablas de doble entrada) entre pares de variables. Para mantener la validez analítica de un conjunto de datos, las tablas de contingencia
+deben permanecer aproximadamente iguales. La función <code>table()</code> produce tablas de contingencia de una o más variables. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque4lbn">9.4</a> a continuación crea una tabla de contingencia de las variables “REGION” y “URBRUR”. Observamos pequeñas diferencias entre las tablas antes y después de la anonimización.</p>
+<div class="example">
+<p><span id="exm:bloque4lbn" class="example"><strong>Bloque 9.4  </strong></span>Comparación de tablas de contingencia de variables categóricas</p>
+</div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla de contingencia (tabulación cruzada) de las variables region y urban/rural</span></span>
+<span id="cb112-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">table</span>(sdcInitial<span class="sc">@</span>origData[, <span class="fu">c</span>(<span class="st">&#39;REGION&#39;</span>, <span class="st">&#39;URBRUR&#39;</span>)]) <span class="co"># antes de la anonimización</span></span>
+<span id="cb112-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-3" aria-hidden="true" tabindex="-1"></a> <span class="do">##       URBRUR</span></span>
+<span id="cb112-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-4" aria-hidden="true" tabindex="-1"></a> <span class="do">## REGION   1   2</span></span>
+<span id="cb112-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-5" aria-hidden="true" tabindex="-1"></a> <span class="do">##      1 235  89</span></span>
+<span id="cb112-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-6" aria-hidden="true" tabindex="-1"></a> <span class="do">##      2 261  73</span></span>
+<span id="cb112-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-7" aria-hidden="true" tabindex="-1"></a> <span class="do">##      3 295  76</span></span>
+<span id="cb112-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-8" aria-hidden="true" tabindex="-1"></a> <span class="do">##      4 304  71</span></span>
+<span id="cb112-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-9" aria-hidden="true" tabindex="-1"></a> <span class="do">##      5 121 139</span></span>
+<span id="cb112-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-10" aria-hidden="true" tabindex="-1"></a> <span class="do">##      6 100 236</span></span>
+<span id="cb112-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">table</span>(sdcInitial<span class="sc">@</span>manipKeyVars[, <span class="fu">c</span>(<span class="st">&#39;REGION&#39;</span>, <span class="st">&#39;URBRUR&#39;</span>)]) <span class="co"># después de la anonimización</span></span>
+<span id="cb112-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-13" aria-hidden="true" tabindex="-1"></a> <span class="do">##       URBRUR</span></span>
+<span id="cb112-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-14" aria-hidden="true" tabindex="-1"></a> <span class="do">## REGION   1   2</span></span>
+<span id="cb112-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-15" aria-hidden="true" tabindex="-1"></a> <span class="do">##      1 235  89</span></span>
+<span id="cb112-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-16" aria-hidden="true" tabindex="-1"></a> <span class="do">##      2 261  73</span></span>
+<span id="cb112-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-17" aria-hidden="true" tabindex="-1"></a> <span class="do">##      3 295  76</span></span>
+<span id="cb112-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-18" aria-hidden="true" tabindex="-1"></a> <span class="do">##      4 304  71</span></span>
+<span id="cb112-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-19" aria-hidden="true" tabindex="-1"></a> <span class="do">##      5 105 130</span></span>
+<span id="cb112-20"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb112-20" aria-hidden="true" tabindex="-1"></a> <span class="do">##      6  79 201</span></span></code></pre></div>
+<p><span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span>proponen una medida de pérdida de información basada en tablas de contingencia, que cuantifica la distancia entre las tablas de contingencia en los datos originales y los tratados.
+Alternativamente, se pueden usar visualizaciones de la tabla de contingencia con gráficos de mosaico para comparar el impacto de los métodos de anonimización en las tabulaciones y tablas de contingencia (consulte la <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#gráficos-de-mosaico">Gráficos de mosaico</a>).</p>
+</div>
+</div>
+<div id="variables-continuas" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Variables continuas<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estadísticas-media-covarianza-correlación" class="section level4 hasAnchor" number="9.1.2.1">
+<h4><span class="header-section-number">9.1.2.1</span> Estadísticas: media, covarianza, correlación<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#estadísticas-media-covarianza-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Las estadísticas que caracterizan el conjunto de datos no deben cambiar después de la anonimización, como lo son la media, varianza, covarianza y la correlación entre las variables más importantes en el conjunto de
+datos. <span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span> da una visión general de las estadísticas que se pueden considerar. Para evaluar la pérdida de información causada por la anonimización, se deben comparar las estadísticas apropiadas para las variables continuas antes y después de la anonimización.</p>
+<p>Para evaluar la pérdida de utilidad se cuentan con varias formas de cálculo, por ejemplo, comparando medias y (co-)varianzas en los datos o comparando las distribuciones (multivariadas) de los datos. Especialmente los cambios en las correlaciones brindan información valiosa sobre la validez de los datos para las regresiones. Las
+funciones del paquete base <code>R</code> o cualquier otro paquete estadístico se pueden usar para hacer esto. Los siguientes son algunos ejemplos en <code>R</code>.</p>
+<p>Para calcular la media de cada variable numérica usamos la función <code>colMeans()</code>. Para ignorar los valores perdidos, es necesario utilizar la opción <code>na.rm = TRUE</code>. “numVars” es un vector con los nombres de las variables numéricas. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque5lbn">9.5</a> muestra cómo calcular las medias de todas las variables numéricas. Los datos no tratados se extraen de la ranura ‘origData’ del objeto <code>sdcMicro</code> y los datos anonimizados del <em>slot</em> ‘manipNumVars’, que contiene las variables numéricas manipuladas. Observamos pequeños cambios en cada una de las tres variables.</p>
+<div class="example">
+<p><span id="exm:bloque5lbn" class="example"><strong>Bloque 9.5  </strong></span>Comparando las medias de variables continuas</p>
+</div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos no tratados</span></span>
+<span id="cb113-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(sdcInitial<span class="sc">@</span>origData[, numVars], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb113-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="do">##       INC    INCRMT   INCWAGE</span></span>
+<span id="cb113-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  479.7710  961.0295 1158.1330</span></span>
+<span id="cb113-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="co"># datos anonimizados</span></span>
+<span id="cb113-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(sdcInitial<span class="sc">@</span>manipNumVars[, numVars], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb113-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-8" aria-hidden="true" tabindex="-1"></a><span class="do">##       INC    INCRMT   INCWAGE</span></span>
+<span id="cb113-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb113-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  489.6030  993.8512 1168.7561</span></span></code></pre></div>
+<p>De la misma manera, se pueden calcular las matrices de correlación y covarianza de las variables numéricas en el objeto <em>sdcMicro</em> a partir de los datos no tratados y anonimizados. Esto se muestra en el Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque6lbn">9.6</a>. Observamos que la varianza de cada variable (los elementos diagonales en la matriz de covarianza) ha aumentado por la anonimización. Estas funciones también permiten calcular intervalos de confianza en el caso de muestras. Las medias y las covarianzas de los subconjuntos de los datos tampoco deberían diferir. Un ejemplo es la media de ingresos por género, por grupo de edad o por región. Este tipo de características de los datos son importantes para el análisis.</p>
+<div class="example">
+<p><span id="exm:bloque6lbn" class="example"><strong>Bloque 9.6  </strong></span>Comparación de estructuras de covarianza y matrices de correlación de variables numéricas</p>
+</div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># datos no tratados</span></span>
+<span id="cb114-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(sdcInitial<span class="sc">@</span>origData[, numVars])</span>
+<span id="cb114-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="do">##               INC    INCRMT  INCWAGE</span></span>
+<span id="cb114-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="do">## INC     1645926.1  586975.6  2378901</span></span>
+<span id="cb114-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="do">## INCRMT   586975.6 6984502.3  1664257</span></span>
+<span id="cb114-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-6" aria-hidden="true" tabindex="-1"></a><span class="do">## INCWAGE 2378900.7 1664257.4 16169878</span></span>
+<span id="cb114-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(sdcInitial<span class="sc">@</span>origData[, numVars])</span>
+<span id="cb114-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-10" aria-hidden="true" tabindex="-1"></a><span class="do">##               INC    INCRMT   INCWAGE</span></span>
+<span id="cb114-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-11" aria-hidden="true" tabindex="-1"></a><span class="do">## INC     1.0000000 0.1731200 0.4611241</span></span>
+<span id="cb114-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-12" aria-hidden="true" tabindex="-1"></a><span class="do">## INCRMT  0.1731200 1.0000000 0.1566028</span></span>
+<span id="cb114-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-13" aria-hidden="true" tabindex="-1"></a><span class="do">## INCWAGE 0.4611241 0.1566028 1.0000000</span></span>
+<span id="cb114-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-15" aria-hidden="true" tabindex="-1"></a><span class="co"># datos anonimizados</span></span>
+<span id="cb114-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(sdcInitial<span class="sc">@</span>manipNumVars[, numVars])</span>
+<span id="cb114-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-17" aria-hidden="true" tabindex="-1"></a><span class="do">##               INC    INCRMT  INCWAGE</span></span>
+<span id="cb114-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-18" aria-hidden="true" tabindex="-1"></a><span class="do">## INC     2063013.1  649937.5  2382447</span></span>
+<span id="cb114-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-19" aria-hidden="true" tabindex="-1"></a><span class="do">## INCRMT   649937.5 8566169.1  1778985</span></span>
+<span id="cb114-20"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-20" aria-hidden="true" tabindex="-1"></a><span class="do">## INCWAGE 2382447.4 1778985.1 19925870</span></span>
+<span id="cb114-21"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-22"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(sdcInitial<span class="sc">@</span>manipNumVars[, numVars])</span>
+<span id="cb114-23"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-23" aria-hidden="true" tabindex="-1"></a><span class="do">##               INC    INCRMT   INCWAGE</span></span>
+<span id="cb114-24"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-24" aria-hidden="true" tabindex="-1"></a><span class="do">## INC     1.0000000 0.1546063 0.3715897</span></span>
+<span id="cb114-25"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-25" aria-hidden="true" tabindex="-1"></a><span class="do">## INCRMT  0.1546063 1.0000000 0.1361665</span></span>
+<span id="cb114-26"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb114-26" aria-hidden="true" tabindex="-1"></a><span class="do">## INCWAGE 0.3715897 0.1361665 1.0000000</span></span></code></pre></div>
+<p><span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span> propone varias medidas para la diferencia entre las matrices de covarianza y las de correlación. Estas medidas se basan en el error cuadrático medio, el error absoluto medio o la variación media de las celdas individuales. Nos referimos a <span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span> para obtener una descripción completa de estas medidas.</p>
+</div>
+<div id="medida-de-pérdida-de-información-il1s" class="section level4 hasAnchor" number="9.1.2.2">
+<h4><span class="header-section-number">9.1.2.2</span> Medida de pérdida de información IL1s<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medida-de-pérdida-de-información-il1s" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Alternativamente, también podemos comparar los datos reales y cuantificar la distancia entre el conjunto de datos original <span class="math inline">\(X\)</span> y el conjunto de datos tratado <span class="math inline">\(Z\)</span>. Aquí <span class="math inline">\(X\)</span> y <span class="math inline">\(Z\)</span> contienen sólo variables continuas. <span class="citation">(<a href="#ref-yancey2002" role="doc-biblioref">Yancey, Winkler, and Creecy 2002</a>)</span> introduce la medida de distancia IL1s, que es la suma de las distancias absolutas entre las observaciones correspondientes en los conjuntos de datos sin procesar y anónimos, que están estandarizados por la desviación estándar de las variables en los datos originales. Para las variables continuas en el conjunto de datos,
+la medida IL1s se define como:</p>
+<p><span class="math display">\[IL1s=\frac{1}{pn}\sum_{j=1}^{p} \sum_{i=1}^{n} \frac{|xij−zij|} {\sqrt2S_1} \]</span></p>
+<p>Donde <span class="math inline">\(p\)</span> es el número de variables continuas; <span class="math inline">\(n\)</span> es el número de registros en el conjunto de datos; <span class="math inline">\(xij\)</span> y <span class="math inline">\(zij\)</span>, son los valores antes y después de la anonimización de la variable <span class="math inline">\(j\)</span> e <span class="math inline">\(i\)</span>; Sj es la desviación estándar de la variable <span class="math inline">\(j\)</span> en los datos originales <span class="citation">(<a href="#ref-yancey2002" role="doc-biblioref">Yancey, Winkler, and Creecy 2002</a>)</span>.</p>
+<p>Cuando se usa <code>sdcMicro</code>, la medida de utilidad de datos IL1s se pueden calcular para todos los cuasi-identificadores numéricos con la función <code>dUtility()</code>, que se ilustra en el Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque7lbn">9.7</a> a
+continuación. En caso de ser necesario, también se puede calcular la medida en subconjuntos del conjunto completo de cuasi-identificadores numéricos. La función se llama <code>dUtility()</code>, pero devuelve una medida de pérdida de información. El resultado se guarda en la ranura de utilidad del objeto <code>sdcMicro</code> . El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque7lbn">9.7</a> a continuación ilustra cómo llamar al resultado.</p>
+<div class="example">
+<p><span id="exm:bloque7lbn" class="example"><strong>Bloque 9.7  </strong></span>Uso de <code>dUtility()</code> para calcular la medida de utilidad de datos de IL1 en <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluación de la medida IL1s para las variables en sdcMicro object sdcInitial</span></span>
+<span id="cb115-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">dUtility</span>(sdcInitial)</span>
+<span id="cb115-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados de IL1s</span></span>
+<span id="cb115-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-5" aria-hidden="true" tabindex="-1"></a>sdcInitial<span class="sc">@</span>utility<span class="sc">$</span>il1</span>
+<span id="cb115-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.2203791</span></span>
+<span id="cb115-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="co"># IL1s para un subconjunto numérico cuasi-identificadores</span></span>
+<span id="cb115-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-9" aria-hidden="true" tabindex="-1"></a>subset <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;INCRMT&#39;</span>, <span class="st">&#39;INCWAGE&#39;</span>, <span class="st">&#39;INCFARMBSN&#39;</span>)</span>
+<span id="cb115-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dUtility</span>(<span class="at">obj =</span> sdcInitial<span class="sc">@</span>origData[,subset], <span class="at">xm =</span> sdcInitial<span class="sc">@</span>manipNumVars[,subset],</span>
+<span id="cb115-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="at">method =</span> <span class="st">&#39;IL1&#39;</span>)</span>
+<span id="cb115-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb115-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.5641103</span></span></code></pre></div>
+<p>La medida es útil para comparar diferentes métodos. Cuanto menor sea el valor de la medida, más cerca estarán los valores de los valores originales y mayor será la utilidad.</p>
+<blockquote>
+<p><strong>Nota</strong>
+Esta medida está relacionada con las medidas de riesgo basadas en distancia e intervalos (ver la sección <a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas">Medidas de riesgo para variables continuas</a>)
+Cuanto mayor sea la distancia entre los valores originales y anonimizados, menor será la utilidad de los datos. Sin embargo, una mayor distancia también reduce el riesgo de re-identificación.</p>
+</blockquote>
+</div>
+<div id="valores-propios" class="section level4 hasAnchor" number="9.1.2.3">
+<h4><span class="header-section-number">9.1.2.3</span> Valores propios<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#valores-propios" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Otra forma de evaluar la pérdida de información es comparar los valores propios robustos de los datos antes y después de la anonimización. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque8lbn">9.8</a> ilustra cómo usar este enfoque con <code>sdcMicro</code> . Aquí “contVars” es un vector con los nombres de las variables continuas que nos interesan. “<code>obj</code>” es el argumento que
+especifica los datos no tratados y “<code>xm</code>” es el argumento que especifica los datos anonimizados. La salida de la función es la diferencia en valores propios. Por lo tanto, el valor mínimo es 0. Nuevamente, el uso principal es comparar diferentes métodos. Cuanto mayor sea el valor, mayores serán los cambios en los datos y la pérdida de información.</p>
+<div class="example">
+<p><span id="exm:bloque8lbn" class="example"><strong>Bloque 9.8  </strong></span>Uso de <code>dUtility()</code> para calcular valores propios en <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de valores para variables continuas</span></span>
+<span id="cb116-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dUtility</span>(<span class="at">obj =</span> sdcInitial<span class="sc">@</span>origData[,contVars],</span>
+<span id="cb116-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">xm =</span> sdcInitial<span class="sc">@</span>manipNumVars[,contVars], <span class="at">method =</span> <span class="st">&#39;eigen&#39;</span>)</span>
+<span id="cb116-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.482948</span></span>
+<span id="cb116-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparación de valores propios robustos de variables continuas*</span></span>
+<span id="cb116-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dUtility</span>(<span class="at">obj =</span> sdcInitial<span class="sc">@</span>origData[,contVars],</span>
+<span id="cb116-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">xm =</span> sdcInitial<span class="sc">@</span>manipNumVars[,contVars], <span class="at">method =</span> <span class="st">&#39;robeigen&#39;</span>)</span>
+<span id="cb116-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb116-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -4.297621e+14</span></span></code></pre></div>
+</div>
+</div>
+<div id="medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Medidas de utilidad basadas en las necesidades del usuario final<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>No se pueden catalogar todas las necesidades y usos de un determinado conjunto de datos. Sin embargo, algunos tipos de datos tienen usos similares o características importantes, que pueden evaluarse antes y después de la anonimización. Los ejemplos de “indicadores de evaluación comparativa” <span class="citation">(<a href="#ref-templ2014" role="doc-biblioref">Templ et al. 2014</a>)</span> son diferentes para cada conjunto de datos. Los ejemplos incluyen medidas de pobreza para conjuntos de datos de ingresos y tasas de asistencia escolar. A menudo, las ideas para seleccionar dichos indicadores provienen de los informes que publican
+los usuarios de datos basados en microdatos publicados anteriormente.</p>
+<p>Como guía es necesario comparar los indicadores calculados sobre los datos no tratados y los datos después de la anonimización con diferentes métodos. Si las diferencias entre los indicadores no son demasiado grandes, el conjunto de datos anonimizados puede publicarse. Se debe tener en cuenta que los indicadores calculados sobre muestras son estimaciones con cierta varianza e intervalo de confianza. Por lo tanto, para datos de muestra, es informativo comparar la superposición de los intervalos de confianza y/o evaluar si la estimación puntual calculada después de la anonimización está contenida dentro del intervalo de confianza de la estimación original. Ejemplos de indicadores de referencia y sus intervalos de confianza y cómo calcularlos en <code>R</code> se incluyen en los estudios de casos de estas directrices. Aquí damos el ejemplo del coeficiente GINI.</p>
+<p>El coeficiente de GINI es una medida de dispersión estadística, que a menudo se utiliza para medir la desigualdad de ingresos. Una forma de medir la pérdida de información en los datos de ingresos es comparar la distribución de ingresos, lo que se puede hacer fácilmente comparando los coeficientes de GINI. Varios paquetes de <code>R</code> tienen funciones para calcular el coeficiente GINI. Elegimos el paquete <code>laeken</code>, que calcula el coeficiente GINI como el área entre la línea de 45 grados y la curva de Lorenz. Para usar la función <code>gini()</code>, primero tenemos que instalar y cargar la paquete <code>laeken</code>. Para calcular el coeficiente de GINI para la variable, usamos los pesos de muestra en los datos. Esto se muestra en Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque9lbn">9.9</a>. El coeficiente de GINI de los datos de la muestra es una variable aleatoria. Por lo tanto, es útil construir un intervalo de confianza alrededor del coeficiente para evaluar la importancia de cualquier cambio en el coeficiente después de la anonimización. La función <code>gini()</code> calcula un intervalo de confianza de 1-alfa para el coeficiente de GINI mediante el uso de bootstrap.</p>
+<div class="example">
+<p><span id="exm:bloque9lbn" class="example"><strong>Bloque 9.9  </strong></span>Cálculo del coeficiente de GINI a partir de la variable de ingresos para determinar la desigualdad de ingresos</p>
+</div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficiente de Gini antes de la anonimización</span></span>
+<span id="cb117-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gini</span>(<span class="at">inc =</span> sdcInitial<span class="sc">@</span>origData[selInc,<span class="st">&#39;INC&#39;</span>],</span>
+<span id="cb117-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">weights =</span>  curW[selInc], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>value <span class="co"># antes</span></span>
+<span id="cb117-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 34.05928</span></span>
+<span id="cb117-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Coeficiente de Gini después de la anonimización</span></span>
+<span id="cb117-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gini</span>(<span class="at">inc =</span> sdcInitial<span class="sc">@</span>manipNumVars[selInc,<span class="st">&#39;INC&#39;</span>],</span>
+<span id="cb117-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">weights =</span> curW[selInc], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>value <span class="co"># después</span></span>
+<span id="cb117-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb117-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 67.13218</span></span></code></pre></div>
+</div>
+<div id="regresión" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> Regresión<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Además de comparar matrices de covarianza y correlación, las regresiones son una herramienta útil para evaluar si la estructura de los datos se mantiene después de la anonimización. Al comparar los parámetros de regresión, también es posible comparar relaciones entre variables no continuas (por ejemplo, al introducir variables ficticias o regresión con variables ordinales). Si se sabe con qué propósito y en qué campo se usan los datos, se pueden usar regresiones para comparar el cambio en los coeficientes y los intervalos de confianza.</p>
+<p>Un ejemplo de la regresión para evaluar la utilidad de los datos en los datos de ingresos es la ecuación de Mincer. La ecuación de Mincer explica los ingresos en función de la educación y la experiencia mientras controla otras variables. La ecuación de Mincer se utiliza a menudo para evaluar la brecha salarial de género y la desigualdad salarial de género mediante la inclusión de una variable ficticia de género. Aquí mostramos cómo evaluar el impacto de los métodos de anonimización en el coeficiente de género. Realizamos una regresión del
+ingreso logarítmico en una constante, una variable ficticia de género, años de educación, años de experiencia, años de experiencia al cuadrado y otros factores que influyen en el salario.</p>
+<p><span class="math display">\[ln(wage)=β_0+β_1gender+β_2education+β_3experience+β_3experience^2+βX\]</span></p>
+<p>El parámetro de interés aquí es <span class="math inline">\(β_1\)</span>, el efecto del género en el logaritmo del salario. <span class="math inline">\(X\)</span> es una matriz con varios otros factores que influyen en el salario y <span class="math inline">\(β\)</span> los coeficientes de estos factores. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque10lbn">9.10</a> ilustra cómo ejecutar una regresión de Mincer en <span class="math inline">\(R\)</span> usando la función <span class="math inline">\(ln()\)</span> y la evaluación de los coeficientes y los intervalos de confianza alrededor de los coeficientes. Realizamos la regresión como se especifica para los empleados asalariados con un salario positivo en los grupos de edad de
+15 a 65 años.</p>
+<div class="example">
+<p><span id="exm:bloque10lbn" class="example"><strong>Bloque 9.10  </strong></span>Estimación de la ecuación de Mincer (regresión) para evaluar la utilidad de los datos antes y después de la anonimización</p>
+</div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables de la ecuación de Mincer antes de la anonimización</span></span>
+<span id="cb118-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-2" aria-hidden="true" tabindex="-1"></a>Mlwage    <span class="ot">&lt;-</span> <span class="fu">log</span>(sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>wage) <span class="co"># salario de registro</span></span>
+<span id="cb118-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE if &#39;paid employee&#39;, else FALSE or NA</span></span>
+<span id="cb118-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-4" aria-hidden="true" tabindex="-1"></a>Mempstat  <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>empstat<span class="sc">==</span><span class="st">&#39;Paid employee&#39;</span></span>
+<span id="cb118-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-5" aria-hidden="true" tabindex="-1"></a>Mage      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>age    <span class="co"># edad en años</span></span>
+<span id="cb118-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-6" aria-hidden="true" tabindex="-1"></a>Meducy    <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>educy  <span class="co"># educación en años</span></span>
+<span id="cb118-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-7" aria-hidden="true" tabindex="-1"></a>Mexp      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>exp    <span class="co"># experiencia en años</span></span>
+<span id="cb118-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-8" aria-hidden="true" tabindex="-1"></a>Mexp2     <span class="ot">&lt;-</span> Mexp<span class="sc">^</span><span class="dv">2</span>                    <span class="co"># experiencia al cuadrado</span></span>
+<span id="cb118-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-9" aria-hidden="true" tabindex="-1"></a>Mgender   <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>gender <span class="co"># variable ficticia de género</span></span>
+<span id="cb118-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-10" aria-hidden="true" tabindex="-1"></a>Mwgt      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>wgt    <span class="co"># variable de género para la regresión</span></span>
+<span id="cb118-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-11" aria-hidden="true" tabindex="-1"></a>MfileB    <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2,</span>
+<span id="cb118-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-12" aria-hidden="true" tabindex="-1"></a>                                 Mgender, Mwgt))</span>
+<span id="cb118-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables de la ecuación de Mincer después de la anonimización</span></span>
+<span id="cb118-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-14" aria-hidden="true" tabindex="-1"></a>Mlwage    <span class="ot">&lt;-</span> <span class="fu">log</span>(sdcMincer<span class="sc">@</span>manipNumVars<span class="sc">$</span>wage) <span class="co"># salario de registro</span></span>
+<span id="cb118-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-15" aria-hidden="true" tabindex="-1"></a>Mempstat  <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>manipKeyVars<span class="sc">$</span>empstat<span class="sc">==</span><span class="st">&#39;Paid employee&#39;</span></span>
+<span id="cb118-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-16" aria-hidden="true" tabindex="-1"></a><span class="co"># TRUE if &#39;paid employee&#39;, else FALSE or NA</span></span>
+<span id="cb118-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-17" aria-hidden="true" tabindex="-1"></a>Mage      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>manipKeyVars<span class="sc">$</span>age    <span class="co"># edad en años</span></span>
+<span id="cb118-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-18" aria-hidden="true" tabindex="-1"></a>Meducy    <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>manipKeyVars<span class="sc">$</span>educy  <span class="co"># educación en años</span></span>
+<span id="cb118-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-19" aria-hidden="true" tabindex="-1"></a>Mexp      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>manipKeyVars<span class="sc">$</span>exp    <span class="co"># experiencia en años</span></span>
+<span id="cb118-20"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-20" aria-hidden="true" tabindex="-1"></a>Mexp2     <span class="ot">&lt;-</span> Mexp<span class="sc">^</span><span class="dv">2</span>                        <span class="co"># experiencia al cuadrado</span></span>
+<span id="cb118-21"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-21" aria-hidden="true" tabindex="-1"></a>Mgender   <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>manipKeyVars<span class="sc">$</span>gender <span class="co"># variable ficticia de género</span></span>
+<span id="cb118-22"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-22" aria-hidden="true" tabindex="-1"></a>Mwgt      <span class="ot">&lt;-</span> sdcMincer<span class="sc">@</span>origData<span class="sc">$</span>wgt        <span class="co"># variable de género para la regresión</span></span>
+<span id="cb118-23"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-23" aria-hidden="true" tabindex="-1"></a>MfileA    <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(Mlwage, Mempstat, Mage, Meducy, Mexp, Mexp2,</span>
+<span id="cb118-24"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-24" aria-hidden="true" tabindex="-1"></a>                                 Mgender, Mwgt))</span>
+<span id="cb118-25"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-26"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Fórmula de regresión</span></span>
+<span id="cb118-27"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-27" aria-hidden="true" tabindex="-1"></a>Mformula <span class="ot">&lt;-</span> <span class="st">&#39;Mlwage ~ Meducy + Mexp + Mexp2 + Mgender&#39;</span></span>
+<span id="cb118-28"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-29"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Regresión con la ecuación de Mincer</span></span>
+<span id="cb118-30"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-30" aria-hidden="true" tabindex="-1"></a>mincer1565B <span class="ot">&lt;-</span> <span class="fu">lm</span>(Mformula, <span class="at">data =</span> <span class="fu">subset</span>(MfileB,</span>
+<span id="cb118-31"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-31" aria-hidden="true" tabindex="-1"></a>MfileB<span class="sc">$</span>Mage <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> MfileB<span class="sc">$</span>Mage <span class="sc">&lt;=</span> <span class="dv">65</span> <span class="sc">&amp;</span> MfileB<span class="sc">$</span>Mempstat<span class="sc">==</span><span class="cn">TRUE</span> <span class="sc">&amp;</span></span>
+<span id="cb118-32"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-32" aria-hidden="true" tabindex="-1"></a>MfileB<span class="sc">$</span>Mlwage <span class="sc">!=</span> <span class="sc">-</span><span class="cn">Inf</span>), <span class="at">na.action =</span> na.exclude, <span class="at">weights =</span> Mwgt) <span class="co"># antes</span></span>
+<span id="cb118-33"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-33" aria-hidden="true" tabindex="-1"></a>mincer1565A <span class="ot">&lt;-</span> <span class="fu">lm</span>(Mformula,</span>
+<span id="cb118-34"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-34" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> <span class="fu">subset</span>(MfileA,</span>
+<span id="cb118-35"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-35" aria-hidden="true" tabindex="-1"></a>                                                MfileA<span class="sc">$</span>Mage <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> MfileA<span class="sc">$</span>Mage <span class="sc">&lt;=</span> <span class="dv">65</span> <span class="sc">&amp;</span></span>
+<span id="cb118-36"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-36" aria-hidden="true" tabindex="-1"></a>                                                MfileA<span class="sc">$</span>Mempstat<span class="sc">==</span><span class="cn">TRUE</span> <span class="sc">&amp;</span></span>
+<span id="cb118-37"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-37" aria-hidden="true" tabindex="-1"></a>                                MfileA<span class="sc">$</span>Mlwage <span class="sc">!=</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb118-38"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-38" aria-hidden="true" tabindex="-1"></a>                  <span class="at">na.action =</span> na.exclude, <span class="at">weights =</span> Mwgt) <span class="co"># después</span></span>
+<span id="cb118-39"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-40"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-40" aria-hidden="true" tabindex="-1"></a><span class="co"># los objetos mincer1565B y mincer1565A con los resultados</span></span>
+<span id="cb118-41"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-41" aria-hidden="true" tabindex="-1"></a><span class="co"># regresión antes y después de la anonimización</span></span>
+<span id="cb118-42"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-42" aria-hidden="true" tabindex="-1"></a>mincer1565B<span class="sc">$</span>coefficients <span class="co"># antes</span></span>
+<span id="cb118-43"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-43" aria-hidden="true" tabindex="-1"></a><span class="do">##   (Intercept)        Meducy          Mexp         Mexp2       Mgender</span></span>
+<span id="cb118-44"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-44" aria-hidden="true" tabindex="-1"></a><span class="do">##  3.9532064886  0.0212367075  0.0255962570 -0.0005682651 -0.4931289413</span></span>
+<span id="cb118-45"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-46"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-46" aria-hidden="true" tabindex="-1"></a>mincer1565A<span class="sc">$</span>coefficients <span class="co"># después</span></span>
+<span id="cb118-47"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-47" aria-hidden="true" tabindex="-1"></a><span class="do">##   (Intercept)        Meducy          Mexp         Mexp2       Mgender</span></span>
+<span id="cb118-48"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-48" aria-hidden="true" tabindex="-1"></a><span class="do">##  4.0526250282  0.0141090329  0.0326711056 -0.0007605492 -0.5393641862</span></span>
+<span id="cb118-49"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-50"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Intervalos de confianza al 95%</span></span>
+<span id="cb118-51"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-51" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="at">obj =</span> mincer1565B, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="co"># antes</span></span>
+<span id="cb118-52"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-52" aria-hidden="true" tabindex="-1"></a><span class="do">##                    2.5 %        97.5 %</span></span>
+<span id="cb118-53"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-53" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  3.435759991  4.4706529860</span></span>
+<span id="cb118-54"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-54" aria-hidden="true" tabindex="-1"></a><span class="do">## Meducy      -0.018860497  0.0613339120</span></span>
+<span id="cb118-55"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-55" aria-hidden="true" tabindex="-1"></a><span class="do">## Mexp         0.004602597  0.0465899167</span></span>
+<span id="cb118-56"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-56" aria-hidden="true" tabindex="-1"></a><span class="do">## Mexp2       -0.000971303 -0.0001652273</span></span>
+<span id="cb118-57"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-57" aria-hidden="true" tabindex="-1"></a><span class="do">## Mgender     -0.658085143 -0.3281727396</span></span>
+<span id="cb118-58"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-59"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-59" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(<span class="at">obj =</span> mincer1565A, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="co"># después</span></span>
+<span id="cb118-60"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-60" aria-hidden="true" tabindex="-1"></a><span class="do">##                   2.5 %        97.5 %</span></span>
+<span id="cb118-61"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-61" aria-hidden="true" tabindex="-1"></a><span class="do">## (Intercept)  3.46800378  4.6372462758</span></span>
+<span id="cb118-62"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Meducy      -0.03305743  0.0612754964</span></span>
+<span id="cb118-63"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-63" aria-hidden="true" tabindex="-1"></a><span class="do">## Mexp         0.01024867  0.0550935366</span></span>
+<span id="cb118-64"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-64" aria-hidden="true" tabindex="-1"></a><span class="do">## Mexp2       -0.00119162 -0.0003294784</span></span>
+<span id="cb118-65"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb118-65" aria-hidden="true" tabindex="-1"></a><span class="do">## Mgender     -0.71564602 -0.3630823543</span></span></code></pre></div>
+<p>Si las nuevas estimaciones caen dentro del intervalo de confianza original y los intervalos de confianza nuevos y originales se superponen en gran medida, los datos pueden considerarse válidos para este tipo de regresión después de la anonimización. La Figura @ref(fig:fig2__sec05) muestra las estimaciones puntuales y los intervalos de confianza para el coeficiente de género en este intercambio para un conjunto de datos de ingresos de muestra y varios métodos y parámetros de SDC. El punto rojo y la barra de confianza (en la parte superior) corresponden a las estimaciones de los datos no tratados, mientras que las otras barras de confianza corresponden a los métodos SDC con diferentes parámetros. La anonimización reduce el número de re-identificaciones esperadas en los datos (eje izquierdo) y las estimaciones puntuales y los intervalos de confianza varían mucho para los diferentes métodos SDC. Elegiríamos un método que reduzca el número esperado de identificaciones, sin cambiar el coeficiente de género y con una gran superposición del intervalo de confianza con el intervalo de confianza estimado a partir de los datos originales.</p>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig2.png" alt="Efecto de la anonimización en las estimaciones puntuales e intervalo de confianza del coeficiente de género en la ecuación de Mincer." width="90%" />
+<p class="caption">
+(#fig:fig2_sec05)Efecto de la anonimización en las estimaciones puntuales e intervalo de confianza del coeficiente de género en la ecuación de Mincer.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.90.</p>
+</div>
+</div>
+<div id="evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El uso de gráficos y otras técnicas de visualización, actúan como una buena forma de evaluar cuánto han cambiado los datos después de la anonimización ayudando a seleccionar las técnicas de anonimización adecuadas para los datos. Las visualizaciones pueden ser una herramienta útil para evaluar el impacto en la utilidad de los datos de los métodos de anonimización ya que facilitan la elección entre los métodos de anonimización. El lenguaje de programación <code>R</code> proporciona varias funciones y paquetes que pueden ayudar a visualizar los resultados de la
+anonimización. Esta sección enumera algunas de estas funciones y paquetes y proporciona ejemplos de código para ilustrar cómo implementarlos. Se mostrarán las siguientes formas:</p>
+<ul>
+<li>histogramas y gráficos de densidad</li>
+<li>diagrama de caja</li>
+<li>gráfico en mosaico</li>
+</ul>
+<p>Para hacer visualizaciones apropiadas, necesitamos usar los datos sin procesar y los datos anonimizados. Cuando se utiliza un objeto <code>sdcMicro</code> para el proceso de anonimización, los datos sin procesar se almacenan en la ranura “origData” del objeto y las variables anonimizadas están en las ranuras “manipKeyVars”, “manipPramVars”, “manipNumVars” y “manipStrataVar”. Consulte la sección <a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj">Objetos de la clase <code>sdcMicroObj</code></a> para obtener más información sobre los objetos <code>sdcMicro</code> , los <em>slots</em> y cómo acceder a ellos.</p>
+<div id="histogramas-y-gráficos-de-densidad" class="section level4 hasAnchor" number="9.2.0.1">
+<h4><span class="header-section-number">9.2.0.1</span> Histogramas y gráficos de densidad<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#histogramas-y-gráficos-de-densidad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Son útiles para realizar comparaciones rápidas de la distribución de variables antes y después de la anonimización. La ventaja de los histogramas es que los resultados son exactos. Sin embargo, la
+visualización depende de los anchos de las barras y el inicio de la primera barra. Los histogramas se pueden utilizar para variables continuas y semicontinuas. Los gráficos de densidad muestran la densidad del kernel de los datos; por lo tanto, la gráfica depende del kernel que se elija y si los datos se ajustan bien al kernel. Sin embargo, los gráficos de densidad son una buena herramienta para ilustrar el cambio de valores y rangos de valores de variables continuas.</p>
+<p>Los histogramas se pueden trazar con la función <code>hist()</code> y las densidades del kernel con las funciones <code>plot()</code> y <code>density()</code> en <code>R</code> . El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque11lbn">9.11</a> muestra ejemplos de cómo utilizar estas funciones para ilustrar los cambios en la variable “INC”, una variable de ingresos. La función <code>hist()</code> necesita como argumento los puntos de ruptura del histograma. Los resultados se muestran en la Figura @ref(fig:fig3_sec05) y la Figura @ref(fig:fig4_sec05). Los histogramas y los gráficos de densidad dan una indicación clara de cómo han cambiado los valores: la variabilidad de los datos ha aumentado y la forma de la distribución ha cambiado.</p>
+<div class="example">
+<p><span id="exm:bloque11lbn" class="example"><strong>Bloque 9.11  </strong></span>Trazado de histogramas y densidades kernel</p>
+</div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograma</span></span>
+<span id="cb119-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de histograma antes de la anonimización</span></span>
+<span id="cb119-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sdcInitial<span class="sc">@</span>origData<span class="sc">$</span>INC, <span class="at">breaks =</span> (<span class="dv">0</span><span class="sc">:</span><span class="dv">180</span>)<span class="sc">*</span><span class="fl">1e2</span>,</span>
+<span id="cb119-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span>  <span class="st">&quot;Histogram income - original data&quot;</span>)</span>
+<span id="cb119-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-6" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de histograma después de la anonimización (adición de ruido)</span></span>
+<span id="cb119-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sdcInitial<span class="sc">@</span>manipNumVars<span class="sc">$</span>INC, <span class="at">breaks =</span> (<span class="sc">-</span><span class="dv">20</span><span class="sc">:</span><span class="dv">190</span>)<span class="sc">*</span><span class="fl">1e2</span>,</span>
+<span id="cb119-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Histogram income - anonymized data&quot;</span>)</span>
+<span id="cb119-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-10" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de densidades</span></span>
+<span id="cb119-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-11" aria-hidden="true" tabindex="-1"></a><span class="co"># trazo de la curva de densidad original</span></span>
+<span id="cb119-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(sdcInitial<span class="sc">@</span>origData<span class="sc">$</span>INC), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8000</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.006</span>),</span>
+<span id="cb119-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Density income&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;income&quot;</span>)</span>
+<span id="cb119-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span> (<span class="at">new =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb119-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-16" aria-hidden="true" tabindex="-1"></a><span class="co"># trazo de la curva de densidad después de la anonimización (adición de ruido)</span></span>
+<span id="cb119-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(sdcInitial<span class="sc">@</span>manipNumVars<span class="sc">$</span>INC), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8000</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.006</span>),</span>
+<span id="cb119-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb119-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Density income&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;income&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig3.png" alt="Histogramas de ingresos antes y después de la anonimización." width="90%" />
+<p class="caption">
+(#fig:fig3_sec05)Histogramas de ingresos antes y después de la anonimización.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.88.</p>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig4.png" alt="Gráficas de densidad de ingresos antes y después de la anonimización." width="90%" />
+<p class="caption">
+(#fig:fig4_sec05)Gráficas de densidad de ingresos antes y después de la anonimización.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.89.</p>
+</div>
+<div id="diagramas-de-caja" class="section level4 hasAnchor" number="9.2.0.2">
+<h4><span class="header-section-number">9.2.0.2</span> Diagramas de caja<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#diagramas-de-caja" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Los diagramas de caja brindan una descripción general rápida de los cambios en la dispersión y los valores atípicos de las variables continuas antes y después de la anonimización. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque12lbn">9.12</a> a continuación muestra cómo generar diagramas de caja en <code>R</code> con la función <code>boxplot()</code>. resultado de la figura
+@ref(fig:fig5_sec05) muestra un ejemplo de una variable de gasto después de agregar ruido. El diagrama de caja muestra claramente que la variabilidad en la variable gasto aumentó como resultado de los métodos de anonimización aplicados.</p>
+<div class="example">
+<p><span id="exm:bloque12lbn" class="example"><strong>Bloque 9.12  </strong></span>Creación de diagramas de caja para variables continuas</p>
+</div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sdcObj<span class="sc">@</span>origData<span class="sc">$</span>TOTFOOD, sdcObj<span class="sc">@</span>manipNumVars<span class="sc">$</span>TOTFOOD,</span>
+<span id="cb120-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb120-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expenditure&quot;</span>)</span>
+<span id="cb120-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;before&#39;</span>, <span class="st">&#39;after&#39;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig5.png" alt="Ejemplo de diagramas de caja de una variable de gasto antes y después de la anonimización." width="90%" />
+<p class="caption">
+(#fig:fig5_sec05)Ejemplo de diagramas de caja de una variable de gasto antes y después de la anonimización.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.89.</p>
+</div>
+<div id="gráficos-de-mosaico" class="section level4 hasAnchor" number="9.2.0.3">
+<h4><span class="header-section-number">9.2.0.3</span> Gráficos de mosaico<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#gráficos-de-mosaico" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Los gráficos de mosaico univariados y multivariados son útiles para mostrar cambios en las tabulaciones de variables categóricas, especialmente cuando se comparan varios “escenarios” uno al lado del otro. Un escenario aquí se refiere a la elección de métodos de anonimización y sus parámetros. Con gráficos de mosaico podemos, por
+ejemplo, ver rápidamente el efecto de diferentes niveles de k-anonimato o diferencias en los vectores de importancia en el algoritmo de supresión local (ver la Sección <a href="métodos-sdc.html#sup-loc">Supresión local</a>.</p>
+<p>Ilustramos los cambios en las tabulaciones con un ejemplo de la variable “WATER” antes y después de aplicar PRAM. Podemos usar gráficos de mosaico para ver rápidamente los cambios de cada categoría. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque13lbn">9.13</a> muestra el código en <code>R</code> . La función <code>mosaicplot()</code> está disponible en el paquete base de <code>R</code>. Para graficar una tabulación, primero se debe hacer la tabulación con la función <code>table()</code>. Para mostrar las etiquetas en <code>mosaicplot()</code>, cambiamos la clase de las variables a ‘factor’. Al observar el gráfico de mosaico en la Figura @ref(fig:fig6_sec05), vemos que la PRAM invariante prácticamente no tiene influencia en la distribución univariante.</p>
+<div class="example">
+<p><span id="exm:bloque13lbn" class="example"><strong>Bloque 9.13  </strong></span>Creando mosaicos univariados</p>
+</div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recopilación de datos de la variable WATER antes y después de la anonimización</span></span>
+<span id="cb121-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="co"># asignación de etiquetas al gráfico</span></span>
+<span id="cb121-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-3" aria-hidden="true" tabindex="-1"></a>dataWater <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">cbind</span>(<span class="fu">table</span>(<span class="fu">factor</span>(sdcHH<span class="sc">@</span>origData<span class="sc">$</span>WATER,</span>
+<span id="cb121-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>),</span>
+<span id="cb121-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Pipe (own tap)&quot;</span>, <span class="st">&quot;Public standpipe&quot;</span>,</span>
+<span id="cb121-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-6" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Borehole&quot;</span>, <span class="st">&quot;Wells (protected)&quot;</span>,</span>
+<span id="cb121-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-7" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Wells (unprotected)&quot;</span>, <span class="st">&quot;Surface water&quot;</span>,</span>
+<span id="cb121-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-8" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Rain water&quot;</span>, <span class="st">&quot;Vendor/truck&quot;</span>, <span class="st">&quot;Other&quot;</span>))),</span>
+<span id="cb121-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-9" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">table</span>(<span class="fu">factor</span>(sdcHH<span class="sc">@</span>manipPramVars<span class="sc">$</span>WATER,</span>
+<span id="cb121-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-10" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>),</span>
+<span id="cb121-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Pipe (own tap)&quot;</span>, <span class="st">&quot;Public standpipe&quot;</span>,</span>
+<span id="cb121-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-12" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Borehole&quot;</span>, <span class="st">&quot;Wells (protected)&quot;</span>,</span>
+<span id="cb121-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-13" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Wells (unprotected)&quot;</span>, <span class="st">&quot;Surface water&quot;</span>,</span>
+<span id="cb121-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-14" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Rain water&quot;</span>, <span class="st">&quot;Vendor/truck&quot;</span>,<span class="st">&quot;Other&quot;</span>)))))</span>
+<span id="cb121-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-15" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(dataWater) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;before&quot;</span>, <span class="st">&quot;after&quot;</span>)</span>
+<span id="cb121-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-17" aria-hidden="true" tabindex="-1"></a><span class="co"># gráfico de mosaico</span></span>
+<span id="cb121-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb121-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(dataWater, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">color =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">las =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig6.png" alt="Gráfico de mosaico para ilustrar los cambios en la variable WATER." width="90%" />
+<p class="caption">
+(#fig:fig6_sec05)Gráfico de mosaico para ilustrar los cambios en la variable WATER.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.90.</p>
+<p>Usamos las variables “<em>gender</em>” y “<em>relationship status</em>” para ilustrar el uso de gráficos de mosaico para la ilustración de cambios en las tabulaciones univariadas introducidas por varios conjuntos de métodos de anonimización. La Tabla <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#tab:tbl3lbn">9.1</a> proporciona los métodos aplicados en cada escenario. El escenario 0, el escenario base, muestra las categorías originales de las variables de género y estado civil, mientras que los escenarios 1 a 6 muestran cambios en las categorías después de aplicar diferentes técnicas de anonimización. La tabla muestra una descripción de los métodos de anonimización utilizados en cada escenario. En total, visualizamos el impacto de seis conjuntos diferentes de métodos de anonimización. Podemos usar gráficos de mosaico para ver rápidamente qué conjunto de métodos tiene qué impacto en las variables de <em>gender</em> y <em>relationship status</em>, que se pueden usar para seleccionar el mejor escenario. Mirando los gráficos de mosaico en la Figura @ref(fig:fig7_sec05), vemos que los escenarios 2, 5 y 6 dan los cambios más pequeños para la variable de <em>gender</em> y los escenarios 3 y 4 para la variable de <em>relationship status</em>.</p>
+<table class="table table-striped" style>
+<caption>
+<span id="tab:tbl3lbn">Tabla 9.1: </span>Descripción de métodos de anonimización por escenario
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Escenario
+</th>
+<th style="text-align:left;">
+Descripción de los métodos de anonimización aplicados
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+0 (base)
+</td>
+<td style="text-align:left;">
+Datos originales sin tratamiento
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+1
+</td>
+<td style="text-align:left;">
+Recodificar age (intervalos de cinco años), más la supresión local (requerido k = 3, alta importancia en las variables de water, toilet y literacy)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+2
+</td>
+<td style="text-align:left;">
+Recodificar age (intervalos de cinco años), más supresión local (requerido k = 5, sin vector de importancia)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+3
+</td>
+<td style="text-align:left;">
+Recodificar la age (intervalos de cinco años), más la supresión local (requerido k = 3, alta importancia en toilet), al mismo tiempo que se recodifican las variables region, urban, education level y ocupation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+4
+</td>
+<td style="text-align:left;">
+Recodificar age (pasos de cinco años), más supresión local (requerido k = 5, alta importancia en water, toilet, y education level), al mismo tiempo que se recodifican variables de region, urban, education level y ocupation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+5
+</td>
+<td style="text-align:left;">
+Recodificar age (intervalos de cinco años), más supresión local (requerido k = 3, sin vector de importancia), microagregación (wealth index), al mismo tiempo que se recodifican variables de region, urban, education level y ocupation
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+6
+</td>
+<td style="text-align:left;">
+Recodificar age (intervalos de cinco años) más supresión local (requerido k=3, sin vector de importancia), literacy PRAM, al mismo tiempo que se recodifican variables de region, urban, education level y ocupation
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig7.png" alt="Comparación de variables de gender y relationship status tratadas versus no tratadas con gráficos de mosaico." width="90%" />
+<p class="caption">
+(#fig:fig7_sec05)Comparación de variables de gender y relationship status tratadas versus no tratadas con gráficos de mosaico.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.91</p>
+<p>PRAM preserva las distribuciones univariadas. Por lo tanto, en este caso es más interesante observar los gráficos de mosaico multivariado. Los diagramas de mosaico también son una herramienta poderosa para mostrar cambios en
+tabulaciones cruzadas/tablas de contingencia. El Bloque <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#exm:bloque14lbn">9.14</a> a continuación muestra cómo generar gráficos de mosaico para dos variables. Para comparar los cambios, necesitamos comparar dos gráficos diferentes. La Figura @ref(fig:fig8_sec05) y la Figura @ref(fig:fig9_sec05) ilustran que la PRAM no conserva las tablas
+de doble entrada en este caso.</p>
+<div class="example">
+<p><span id="exm:bloque14lbn" class="example"><strong>Bloque 9.14  </strong></span>Creando mosaicos multivariados</p>
+</div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Antes de la anonimización: tabla de contingencia y gráfico de mosaico</span></span>
+<span id="cb122-2"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-2" aria-hidden="true" tabindex="-1"></a>ROOFTOILETbefore <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">table</span>(<span class="fu">factor</span>(sdcHH<span class="sc">@</span>origData<span class="sc">$</span>ROOF, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">9</span>),</span>
+<span id="cb122-3"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Concrete/cement/ </span><span class="sc">\n</span><span class="st"> brick/stone&quot;</span>, <span class="st">&quot;Wood&quot;</span>,</span>
+<span id="cb122-4"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-4" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;Bamboo/thatch&quot;</span>, <span class="st">&quot;Tiles/shingles&quot;</span>,</span>
+<span id="cb122-5"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-5" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;Tin/metal sheets&quot;</span>, <span class="st">&quot;Other&quot;</span>)),</span>
+<span id="cb122-6"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-6" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">factor</span>(sdcHH<span class="sc">@</span>origData<span class="sc">$</span>TOILET, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>),</span>
+<span id="cb122-7"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-7" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Flush </span><span class="sc">\n</span><span class="st"> toilet&quot;</span>,</span>
+<span id="cb122-8"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-8" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;Improved </span><span class="sc">\n</span><span class="st"> pit </span><span class="sc">\n</span><span class="st"> latrine&quot;</span>,</span>
+<span id="cb122-9"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-9" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;Pit </span><span class="sc">\n</span><span class="st"> latrine&quot;</span>, <span class="st">&quot;No </span><span class="sc">\n</span><span class="st"> facility&quot;</span>,</span>
+<span id="cb122-10"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-10" aria-hidden="true" tabindex="-1"></a>                                              <span class="st">&quot;Other&quot;</span>))))</span>
+<span id="cb122-11"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(ROOFTOILETbefore, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb122-12"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-13"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Después de la anonimización: tabla de contingencia y gráfico de mosaico</span></span>
+<span id="cb122-14"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-14" aria-hidden="true" tabindex="-1"></a>ROOFTOILETafter <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">table</span>(<span class="fu">factor</span>(sdcHH<span class="sc">@</span>manipPramVars<span class="sc">$</span>ROOF, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">9</span>),</span>
+<span id="cb122-15"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Concrete/cement/ </span><span class="sc">\n</span><span class="st"> brick/stone&quot;</span>, <span class="st">&quot;Wood&quot;</span>,</span>
+<span id="cb122-16"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-16" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Bamboo/thatch&quot;</span>, <span class="st">&quot;Tiles/shingles&quot;</span>,</span>
+<span id="cb122-17"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-17" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Tin/metal sheets&quot;</span>, <span class="st">&quot;Other&quot;</span>)),</span>
+<span id="cb122-18"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-18" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">factor</span>(sdcHH<span class="sc">@</span>manipPramVars<span class="sc">$</span>TOILET, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>),</span>
+<span id="cb122-19"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-19" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Flush </span><span class="sc">\n</span><span class="st"> toilet&quot;</span>,</span>
+<span id="cb122-20"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-20" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Improved </span><span class="sc">\\</span><span class="st">n pit </span><span class="sc">\n</span><span class="st"> latrine&quot;</span>,</span>
+<span id="cb122-21"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-21" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Pit </span><span class="sc">\n</span><span class="st"> latrine&quot;</span>, <span class="st">&quot;No </span><span class="sc">\n</span><span class="st"> facility&quot;</span>,</span>
+<span id="cb122-22"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-22" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;Other&quot;</span>))))</span>
+<span id="cb122-23"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#cb122-23" aria-hidden="true" tabindex="-1"></a><span class="fu">mosaicplot</span>(ROOFTOILETafter, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">las =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig8.png" alt="Gráfico de mosaico de las variables ROOF e TOILET antes de la anonimización." width="90%" />
+<p class="caption">
+(#fig:fig8_sec05)Gráfico de mosaico de las variables ROOF e TOILET antes de la anonimización.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>,pág. 92.</p>
+<div class="figure" style="text-align: center">
+<img src="Imagenes/fig9.png" alt="Gráfico de mosaico de las variables ROOF e TOILET después de la anonimización." width="90%" />
+<p class="caption">
+(#fig:fig9_sec05)Gráfico de mosaico de las variables ROOF e TOILET después de la anonimización.
+</p>
+</div>
+<p><strong>Fuente:</strong> Imagen extraída de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág.93.</p>
+</div>
+<div id="elección-de-la-medida-de-utilidad" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Elección de la medida de utilidad<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Además de los requisitos de los usuarios sobre los datos, las medidas de utilidad deben elegirse de acuerdo con los tipos de variables y los métodos de anonimización empleados. Las medidas de utilidad empleadas pueden ser una combinación de medidas generales y específicas del usuario. Como se discutió anteriormente, se deben usar diferentes medidas de utilidad para datos continuos y categóricos. Además, algunas medidas de utilidad no son informativas después de que se hayan aplicado ciertos métodos de anonimización. Por ejemplo, después de aplicar
+métodos perturbativos que intercambian valores de datos, la comparación directa de valores no es útil porque dará la impresión de altos niveles de pérdida de información. En tales casos, es más informativo observar
+las medias, las covarianzas y los indicadores de evaluación comparativa que se pueden calcular a partir de los datos. Es más, es importante no solo centrarse en las características de las variables una por una, sino
+también en las interacciones entre las variables. Esto se puede hacer mediante tabulaciones cruzadas y regresiones. En general, al anonimizar datos muestreados, es recomendable calcular intervalos de confianza
+alrededor de las estimaciones para interpretar la magnitud de los cambios.</p>
+<blockquote>
+<p><strong>Nota:</strong> Para material de lectura recomendado sobre la medición de la
+utilidad y la pérdida de información ver <span class="citation">(<a href="#ref-dewaal1999" role="doc-biblioref">De Waal and Willenborg 1999</a>)</span>, <span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span> y <span class="citation">(<a href="#ref-domingo-ferrer2001" role="doc-biblioref">J. Domingo-Ferrer and Torra 2001</a>)</span>.</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-benschop2021" class="csl-entry">
+Benschop, Thijs, and Matthew Welch. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>26/07/2021</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+</div>
+<div id="ref-dewaal1999" class="csl-entry">
+De Waal, Ton, and Leon Willenborg. 1999. <span>“Information Loss Through Global Recoding and Local Suppression,”</span> January.
+</div>
+<div id="ref-domingo-ferrer2001" class="csl-entry">
+Domingo-Ferrer, J., and V. Torra. 2001. <span>“Disclosure Control Methods and Information Loss for Microdata.”</span> In, 91–110. <a href="https://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf">https://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf</a>.
+</div>
+<div id="ref-templ2014" class="csl-entry">
+Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen. 2014. <span>“Introduction to Statistical Disclosure Control (SDC),”</span> August.
+</div>
+<div id="ref-yancey2002" class="csl-entry">
+Yancey, William E., William E. Winkler, and Robert H. Creecy. 2002. <span>“Disclosure Risk Assessment in Perturbative Microdata Protection.”</span> In, edited by Josep Domingo-Ferrer, 2316:135–52. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/3-540-47804-3_11">https://doi.org/10.1007/3-540-47804-3_11</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="36">
+<li id="fn36"><p>Es posible liberar archivos de datos para diferentes grupos de usuarios, por ejemplo, PUF y SUF. Sin embargo, toda la información en el archivo menos detallado también debe incluirse en el archivo más detallado para evitar la divulgación no deseada. Los conjuntos de datos publicados en enclaves de datos se pueden personalizar para el usuario, ya que el riesgo de que se combinen con otra versión es cero.<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>Aquí, el objeto <code>sdcMicro</code> “sdcIntial” contiene un conjunto de datos con 2500 personas y 103 variables. Seleccionamos cuatro cuasi-identificadores categóricos: “URBRUR”, “REGION”, “RELIG” y “MARITAL” y varios cuasi-identificadores continuos relativos a ingresos y gastos. Para ilustrar la pérdida de utilidad, también aplicamos varios métodos SDC a este objeto <code>sdcMicro</code> , como supresión local, PRAM y adición de ruido aditivo.<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#fnref37" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="métodos-sdc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-utilidad_perdida.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

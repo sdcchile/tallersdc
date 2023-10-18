@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 10 Proceso Control a la Divulgación Estadística (SDC) INE 2021 | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 10 Proceso Control a la Divulgación Estadística (SDC) INE 2021 | Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 10 Proceso Control a la Divulgación Estadística (SDC) INE 2021 | Guía para el Control de Divulgación Estadística en Microdatos" />
+  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
+
+
+<meta name="date" content="2023-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="medición-de-la-utilidad-y-la-pérdida-de-información.html"/>
+<link rel="next" href="caso-de-estudio.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="proceso-control-a-la-divulgación-estadística-sdc-ine-2021" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Capítulo 10</span> Proceso Control a la Divulgación Estadística (SDC) INE 2021<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#proceso-control-a-la-divulgación-estadística-sdc-ine-2021" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-2" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Introducción<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta sección presenta el proceso SDC en una representación paso a paso y se puede utilizar como guía para el proceso SDC real, de acuerdo con los lineamientos INE 2021 (ver <span class="citation">(<a href="#ref-ine2021" role="doc-biblioref">Instituto Nacional de Estadísticas 2021b</a>)</span>). Sin embargo, debe tenerse en cuenta que, a menudo, es necesario saltar de un paso a otro y volver a los pasos anteriores durante el proceso SDC real, ya que no es necesariamente un proceso lineal paso a paso. Esta guía reúne las diferentes partes del proceso SDC como se discutió en las secciones anteriores y los enlaces a estas secciones. El estudio de caso en la siguiente sección sigue estos pasos. La Figura <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#fig:esquemaSDC">10.2</a> al final de esta sección presenta todo el proceso de forma esquemática.</p>
+</div>
+<div id="etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Etapa 6.4.1: Definiciones previas al proceso de anonimización<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El propósito de esta etapa es establecer los requerimientos necesarios para iniciar el subproceso de control a la divulgación, que incluye la revisión de insumos, revisión de las necesidades de los usuarios y características estadísticas prioritarias, y la determinación de la necesidad de protección de confidencialidad. Esto último, está estrechamente relacionado con la interpretación de las leyes y normas sobre este tema en Chile.</p>
+<p>Los procedimientos descritos para esta etapa aplican para todas las operaciones estadísticas y productos relacionados cuyo levantamiento de información y/o publicación sea realizado por el INE (muestras, censos, procesos de múltiples fuentes y registros estadísticos) que darán a conocer información al público general u otros usuarios.
+En esta etapa se debe revisar que no existan restricciones legales que impidan la publicación de los microdatos.
+Por otra parte, si el conjunto de datos no posee variables sensibles o variables de identificación (directa o indirecta), se pasa a la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos">Etapa 6.4.5: Generar reportes y liberar datos</a>.</p>
+<div id="definiciones-previas" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Definiciones previas<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Organización del proceso y equipo de trabajo</strong>: El trabajo del proceso SDC y los roles del equipo a cargo se deben organizar considerando las siguientes dos fases: diagnóstico e implementación. La fase de diagnóstico corresponde a la evaluación de riesgo de intrusión con los datos no tratados (originales o brutos), y permite juzgar si el conjunto de datos es lo suficientemente seguro para su publicación, mientras que la fase de implementación se refiere a la aplicación de métodos SDC y su evaluación, a fin de producir un conjunto de datos seguro para su publicación.</p></li>
+<li><p><strong>Revisión de insumos o productos estadísticos necesarios que permiten la ejecución del proceso</strong>: Se debe revisar que los insumos o productos estadísticos provenientes de los siguientes procesos en el mapa de procesos INE, segmento negocios<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a>: 2. “Diseño y planificación”, 5. “Procesamiento” y 6.3 “Interpretar y explicar los resultados”; necesarios para la ejecución de este subproceso, se encuentren completos y actualizados. Esto incluye la revisión de convenios, fichas metodológicas, manuales de usuarios, bases de datos, diccionario de variables, paquetes estadísticos, infraestructura y seguridad, entre otros.</p></li>
+</ul>
+</div>
+<div id="determinación-de-la-necesidad-de-protección-de-la-confidencialidad" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Determinación de la necesidad de protección de la confidencialidad<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Antes de iniciar el proceso SDC para un conjunto de microdatos, se debe determinar la necesidad de protección de la confidencialidad. Esto está estrechamente relacionado con la interpretación de las leyes y reglamentos sobre este tema en Chile. Un primer paso es determinar las unidades estadísticas en el conjunto de datos: si se trata de individuos, hogares o entidades legales, como empresas, es probable que sea necesario controlar la divulgación. También hay ejemplos de microdatos para los que no hay necesidad de control de divulgación. Los ejemplos podrían ser datos con observaciones climáticas y meteorológicas o datos con viviendas como unidades estadísticas. Sin embargo, aunque las unidades estadísticas primarias no sean personas físicas o jurídicas, los datos pueden contener información confidencial sobre personas físicas o jurídicas. Por ejemplo, un conjunto de datos con viviendas como unidades estadísticas primarias también puede contener información sobre las personas que viven en estas viviendas y sus ingresos o un conjunto de datos sobre hospitalizaciones puede incluir información sobre los pacientes hospitalizados. En estos casos, es probable que todavía sea necesaria la protección de la confidencialidad. Una opción para resolver esto es eliminar la información sobre las personas físicas y jurídicas en los conjuntos de datos para su publicación.</p>
+<p>Un conjunto de datos también puede contener más de un tipo de unidad estadística. El ejemplo estándar aquí es un conjunto de datos que contiene información sobre individuos y hogares. Otro ejemplo son los datos con empleados en empresas. Todos los tipos de unidades estadísticas presentes en el conjunto de datos deben ser considerados para la necesidad de SDC. Esto es especialmente importante en caso de que los datos tengan una estructura jerárquica, como individuos en hogares o empleados en empresas.</p>
+<p>Además, se debe evaluar si las variables contenidas en el conjunto de datos son de identificación, confidenciales o sensibles. Qué variables son sensibles o confidenciales depende nuevamente de la legislación aplicable y puede diferir sustancialmente de un país a otro. En caso de que el conjunto de datos incluya variables sensibles o confidenciales, es probable que se requiera SDC. El conjunto de variables sensibles y variables de identificación junto con las unidades estadísticas en el conjunto de datos determinan la necesidad de control de divulgación estadística.</p>
+<p>Por otra parte, se debe realizar una revisión normativa que pueda afectar o impedir la publicación de la información sujeta a anonimizar, esto incluye: identificar las restricciones actuales de publicación de la información, identificar acuerdos y restricciones de las particularidades establecidas en los convenios del INE con fuentes externas.</p>
+<p>Si no existen variables sensibles o variables de identificación en el conjunto de datos, o restricciones desde el marco legal normativo, la decisión es pasar a la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos">Etapa 6.4.5: Generar reportes y liberar datos</a>, según las características establecidas en la metodología de la operación estadística o convenio institucional, según corresponda a lo establecido en el proceso 2. “Diseño y planificación”. Por el contrario, en caso de que el conjunto de datos contenga variables sensibles o variables de identificación, y no haya restricciones desde el marco legal normativo, la decisión es llevar a cabo un proceso SDC.</p>
+</div>
+<div id="definición-de-las-características-de-las-bases-de-datos-a-preservar" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Definición de las características de las bases de datos a preservar<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este paso, analizamos los principales usos de los datos por parte de los usuarios finales del archivo de microdatos publicado. Los datos deben ser útiles para el tipo de análisis estadístico para el que se recopilaron y para el que se utilizan principalmente. Los usos y requisitos de los usuarios de datos serán diferentes para los diferentes tipos de publicación. Ponerse en contacto directamente con los usuarios de datos o buscar estudios y artículos científicos que utilicen datos similares puede resultar útil a la hora de recopilar esta información y realizar esta evaluación. Además, es importante comprender qué nivel de precisión necesitan los usuarios de datos y qué tipos de categorías se utilizan. Por ejemplo, en el caso de la recodificación global de la edad en años, uno podría recodificar la edad en grupos de 10 años, por ejemplo, <span class="math inline">\(0 – 9, 10 – 19, 20 – 29, ...\)</span>. Sin embargo, muchos indicadores relacionados con el mercado laboral usan categorías que abarcan el rango 15 – 65. Por lo tanto, construir categorías que coincidan con las categorías utilizadas para los indicadores hace que los datos sean mucho más útiles y, al mismo tiempo, reduce el riesgo de divulgación de manera similar. Este conocimiento es importante para la selección de medidas de utilidad apropiadas, que a su vez se utilizan para seleccionar los métodos SDC apropiados.</p>
+<p>La anonimización siempre conducirá a la pérdida de información y un archivo PUF tendrá una utilidad reducida.</p>
+<p>Las estadísticas calculadas a partir del archivo de microdatos anonimizados y publicados deberían producir resultados analíticos que concuerdan o casi concuerdan con las estadísticas publicadas previamente a partir de los datos originales. Si, por ejemplo, se calculó el promedio de ingresos de los hogares chilenos previamente a partir de estos datos y se publicó, el conjunto de datos anónimos publicado debería producir un resultado muy similar al resultado publicado oficialmente. Como mínimo, el resultado debe estar dentro de la región de confianza del resultado publicado. Puede darse el caso de que no todas las estadísticas publicadas puedan generarse a partir de los datos publicados. Si este es el caso, se debe elegir en qué indicadores y estadísticas enfocarse, e informar a los usuarios sobre cuáles se han seleccionado y por qué. Además, es importante definir porcentajes de variación permitidos por variable y niveles de desagregación geográfica o temática para las características estadísticas, a fin de medir la utilidad que compara los datos originales y los datos anonimizados, teniendo en cuenta la necesidad del usuario final para su análisis.</p>
+<p>Algunos ejemplos de características estadísticas a preservar son las siguientes:</p>
+<ul>
+<li>Propiedades globales de las variables, como promedios.</li>
+<li>Mantener cifras por nivel de desagregación geográfica o temática, como, por ejemplo, mantener para la variable grupos étnicos en los totales de cada categoría a nivel regional.</li>
+<li>Mantener correlaciones entre variables.</li>
+<li>Mantener tendencias de las variables a través del tiempo, por ejemplo, si los ingresos promedio de los hogares chilenos ha presentado un comportamiento decreciente en el primer trimestre de 2021, al publicar la base de datos anonimizada el equipo de trabajo desea garantizar que esta tendencia se conserve.</li>
+</ul>
+<p>Como se discutió en la Sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>, es necesario calcular medidas generales de utilidad que comparen los datos sin procesar y anonimizados, teniendo en cuenta la necesidad del usuario final para su análisis. En algunos casos, las medidas de utilidad pueden arrojar resultados contradictorios, por ejemplo, un determinado método SDC podría generar una menor pérdida de información para las cifras de la fuerza laboral pero una mayor pérdida de información para los índices relacionados con la educación. En tales casos, es posible que sea necesario clasificar los usos de los datos en orden de importancia y se debe documentar claramente para el usuario que la priorización de ciertas métricas sobre otras significa hará que algunas métricas ya no sean válidas. Esto puede ser necesario, ya que no es posible liberar varios archivos para diferentes usuarios. Este problema se presenta especialmente en estudios polivalentes. Para obtener más detalles sobre las medidas de utilidad, consulte la Sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>.</p>
+</div>
+</div>
+<div id="etapa-6.4.2-preparación-y-exploración-de-datos" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Etapa 6.4.2: Preparación y exploración de datos<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Después de evaluar la necesidad de un control de divulgación estadística, debemos preparar los datos y, si hay varios, combinar y considerar todos los archivos de datos relacionados. Luego exploramos las características y la estructura de los datos, que son importantes para los usuarios de los datos. La compilación de un inventario de estas características es importante para evaluar la utilidad de los datos después de la anonimización y producir un conjunto de datos anonimizados, que es útil para los usuarios finales.</p>
+<p>El primer paso en la preparación de datos es clasificar las variables como confidenciales o no confidenciales y eliminar identificadores directos como nombres completos, números de pasaporte, direcciones, números de teléfono y coordenadas GPS. En el caso de datos de encuestas, una inspección del cuestionario de la encuesta es útil para clasificar las variables. Además, es necesario seleccionar las variables que contienen información relevante para los usuarios finales y deben incluirse en el conjunto de datos para su publicación. En este punto, también puede ser útil eliminar variables que no sean identificadores directos del conjunto de microdatos que se publicará. Un ejemplo puede ser una variable con muchos valores faltantes, por ejemplo, una variable registrada solo para un grupo selecto de personas elegibles para un módulo de encuesta en particular y valores faltantes para el resto. Tales variables pueden causar un alto nivel de riesgo de divulgación y agregar poca información para los usuarios finales. Ejemplos son variables relacionadas con la educación (grado actual), donde un valor faltante indica que la persona no está actualmente en la escuela, o variables relacionadas con el parto, donde un valor faltante indica que la persona no ha dado a luz en el período de referencia. Los valores faltantes en sí mismos pueden ser reveladores, especialmente si indican que la variable no es aplicable. A menudo, las variables a las que les faltan la mayoría de los valores ya se eliminan en esta etapa. Otras variables que podrían eliminarse en esta etapa son aquellas demasiado sensibles para anonimizarlas y difundirlas o aquellas que no son importantes para los usuarios de datos y que podrían aumentar el riesgo de divulgación.</p>
+<p>Las relaciones pueden existir entre las variables en un conjunto de datos por una variedad de razones. Por ejemplo, las variables pueden ser mutuamente excluyentes en los casos en que se utilizan varias variables binarias para cada categoría. Un individuo que no está en la fuerza laboral tendrá un valor faltante para el sector en el que esta persona está empleada (o, más precisamente, no aplicable). Las relaciones también pueden existir si algunas variables son proporciones, sumas u otras funciones matemáticas de otras variables. Algunos ejemplos son la variable tamaño del hogar (como un recuento de personas por hogar) o el gasto agregado (como la suma de todos los componentes del gasto). Un cierto valor en una variable también puede reducir el número de valores posibles o válidos para otra variable; por ejemplo, la edad de una persona que asiste a la educación primaria o el sexo de una persona que ha dado a luz. Estas relaciones son importantes por dos razones: 1) pueden ser utilizadas por intrusos para reconstruir valores anonimizados. Por ejemplo, si se suprime la edad pero otra variable indica que está en la escuela, aún es posible inferir un rango de edad probable para ese individuo. Otro ejemplo es si se demuestra que un individuo está activo en el Sector B de la economía. Incluso si se suprime la condición laboral de este individuo, se puede inferir que esta persona está empleada. 2) las relaciones en los datos originales deben mantenerse en el conjunto de datos anonimizados y deben evitarse las inconsistencias (por ejemplo, los métodos SDC no deben crear niños en edad escolar de 58 años o niños casados de 3 años), o el conjunto de datos será inválido para el análisis. Otro ejemplo es el caso de los gastos por categoría, donde es importante que la suma de las categorías sume el total. Una forma de garantizar esto es anonimizar los totales y luego recalcular las subcategorías de acuerdo con las acciones originales de los totales anónimos.</p>
+<p>También es útil en esta etapa consolidar variables que brinden la misma información cuando sea posible, para reducir el número de variables, reducir la probabilidad de inconsistencias y minimizar las variables que un intruso puede usar para reconstruir los datos. Esto es especialmente cierto si los microdatos provienen de un cuestionario elaborado y cada variable representa una (sub) pregunta que conduce a un conjunto de datos con cientos de variables. Como ejemplo, tomamos una encuesta con varias variables de fuerza laboral que indican si una persona está en la fuerza laboral, empleada o desempleada, y si está empleada, en qué sector. Los datos de la Tabla <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#tab:tabProc1">10.1</a> ilustra este ejemplo. Es posible que cada tipo de sector tenga su propia variable binaria. En ese caso, este conjunto de variables se puede resumir en dos variables: una variable que indica si una persona está en la fuerza laboral y otra que indica la situación laboral, así como el sector respectivo si una persona está empleada. Estas dos variables contienen toda la información contenida en las cinco variables anteriores y facilitan el proceso de anonimización. Si los usuarios de datos están acostumbrados a un determinado formato de publicación en el que la norma ha sido incluir las cinco variables, entonces es posible volver a transformar las variables después del proceso de anonimización en lugar de complicar el proceso de anonimización tratando de tratar más variables de las necesarias.</p>
+<table>
+<caption>
+<span id="tab:tabProc1">Tabla 10.1: </span>Ilustración de la combinación de variables sin pérdida de información para el proceso SDC.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+FL-Orig
+</th>
+<th style="text-align:center;">
+Empleado-Orig
+</th>
+<th style="text-align:center;">
+Sector-A
+</th>
+<th style="text-align:center;">
+Sector-B
+</th>
+<th style="text-align:center;">
+Sector-C
+</th>
+<th style="text-align:center;">
+FL-Nueva
+</th>
+<th style="text-align:center;">
+Empleado-Nueva
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+No
+</td>
+<td style="text-align:center;">
+No
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+No
+</td>
+<td style="text-align:center;">
+No
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+A
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+No
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Sí
+</td>
+<td style="text-align:center;">
+No
+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota sobre los pasos siguientes</strong>:
+Los siguientes pasos, <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación">Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>, <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc">Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a> y <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc">Etapa 6.4.4.2: Evaluación de proceso SDC</a>, deben repetirse si los datos tienen identificadores indirectos que se encuentran en diferentes niveles jerárquicos, por ejemplo, individuo y hogar. En ese caso, las variables del nivel jerárquico superior deben anonimizarse primero y luego fusionarse con las variables no tratadas del nivel inferior. Posteriormente, el conjunto de datos combinado debe anonimizarse. Este enfoque garantiza la consistencia en los datos tratados. Si descuidamos este procedimiento, los valores de las variables medidas en el nivel jerárquico superior podrían recibir un tratamiento diferente para las observaciones de la misma unidad. Por ejemplo, la variable “región” es la misma para todos los miembros del hogar. Si se suprimiera el valor ‘Valparaíso’ para dos miembros pero no para los tres restantes, esto daría lugar a una divulgación no intencionada; con la identificación del hogar, la variable región sería fácil de reconstruir para los dos valores suprimidos. Las secciones <a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar">Riesgo jerárquico (o del hogar)</a> y <a href="introducción-a-sdcmicro.html#estructura-del-hogar">Estructura del hogar</a> brindan más detalles sobre cómo tratar los datos con la estructura del hogar en <code>R</code> y <code>sdcMicro</code> .</p>
+</blockquote>
+</div>
+<div id="etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El propósito de esta etapa es calcular medidas de riesgo sobre los datos originales o brutos y, en base a estas medidas, juzgar si un archivo de microdatos es lo suficientemente seguro para su publicación.</p>
+<p>Los procedimientos descritos para esta etapa aplican para todas las operaciones estadísticas y productos relacionados cuyo levantamiento de información y/o publicación sea realizado por el INE (encuestas, censos, procesos de múltiples fuentes y registros administrativos) que darán a conocer información al público general u otros usuarios.</p>
+<p>En esta etapa solo se calculan las medidas de riesgo sobre los datos originales, que permiten decidir si el archivo de microdatos es lo suficientemente seguro para su publicación, o si requiere la aplicación de métodos SDC (ver <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc">Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a>). La decisión sobre qué hacer con las unidades riesgosas (una vez aplicados los métodos SDC) se aborda en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc">Etapa 6.4.4.2: Evaluación de proceso SDC</a>.</p>
+<div id="definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Después de determinar el tipo de publicación de los datos, se deben examinar las posibilidades de cómo un individuo en los microdatos podría (de manera realista) ser identificado por un intruso bajo ese tipo de publicación. Para el lanzamiento de PUF, el enfoque está en el uso de conjuntos de datos externos de varias fuentes. Estas posibilidades se describen en escenarios de divulgación o intrusión, que especifican a qué datos podría tener acceso un intruso y cómo se pueden utilizar estos datos auxiliares para la divulgación de identidad. Esto conduce a la especificación de identificadores indirectos, que son un conjunto de variables que están disponibles tanto en el conjunto de datos que se publicará como en conjuntos de datos auxiliares y necesitan protección.</p>
+<p>Esto es especialmente cierto para los lanzamientos de PUF. Los escenarios de divulgación también pueden ayudar a definir el nivel requerido de anonimización.</p>
+<p>La redacción de escenarios de divulgación requiere el apoyo de especialistas en la materia, suponiendo que el especialista en la materia no sea la misma persona que realiza la anonimización. Los conjuntos de datos auxiliares pueden contener información sobre la identidad de las personas y permitir la divulgación de la identidad. Ejemplos de estos archivos de datos auxiliares son los registros de población y los padrones electorales, registros de Servicio de Impuestos Internos, encuestas publicadas por el INE y datos censales, así como los datos recopilados por empresas especializadas, entre otras.</p>
+<p>De entre los diferentes escenarios de divulgación que pueden ser considerados, uno debe ser priorizado. La definición de este escenario puede responder a los siguientes criterios:</p>
+<ul>
+<li>Considerar escenarios realistas (probables). Las variables o conjuntos de datos pueden no coincidir perfectamente (por ejemplo, diferentes definiciones, variables más o menos detalladas, diferentes períodos de tiempo, etc.). Los registros externos podrían no estar lo suficientemente actualizados y, por lo tanto, un <em>matching</em> exacto con la base de datos a anonimizar, puede ser poco probable.</li>
+<li>Algunos criterios para priorizar la selección de los escenarios son: Probabilidad de datos disponibles para el intruso con más variables y categorías, y probabilidad de <em>matching</em> exitoso, considerando combinación de variables con mayor frecuencia.</li>
+</ul>
+<blockquote>
+<p>** Notas **:
+- Pueden ser especificados tanto identificadores indirectos categóricos como cuantitativos. - Considerar como mínimo un identificador indirecto, pero sin número máximo.
+- Considerar en la definición de los escenarios, variables que den cuenta de la desagregación geográfica. Por ejemplo, región, provincia, comuna.
+- Considerar el escenario de reconocimiento espontáneo. Bajo este escenario, se debe verificar combinaciones raras o patrones inusuales en las variables. Ejemplos de variables que pueden conducir a reconocimiento espontáneo son: número de integrantes del hogar, área de un terreno, número de trabajadores de una empresa, ingresos y gastos, enfermedades, profesiones u oficios de baja prevalencia en el área geográfica circunscrita, entre otras.
+- Si el número de identificadores indirectos es alto, se recomienda reducir el conjunto de identificadores indirectos, eliminando algunas variables del conjunto de datos para su publicación. Sin embargo, esta decisión debe estar fundada bajo los siguientes criterios: 1) La variable no posee alto valor analítico y se puede prescindir de ella, o 2) La variable tiene una alta contribución al riesgo de divulgación. Si esta variable no se puede tratar adecuadamente mediante los métodos SDC (es decir, aún se mantienen altos niveles de riesgo), se debe quitar del conjunto de datos.</p>
+</blockquote>
+</div>
+<div id="medición-y-evaluación-de-riesgos" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Medición y evaluación de riesgos<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El siguiente paso es evaluar el riesgo de divulgación de los datos no tratados (sin procesar). Aquí es importante distinguir entre datos muestrales y datos censales. En el caso de los datos del censo, es posible calcular directamente las medidas de riesgo cuando se supone que el conjunto de datos cubre a toda la población. Si se trabaja con una muestra, o una muestra del censo (que es el caso más común cuando se liberan datos de muestra), podemos usar los modelos discutidos en la Sección <a href="medición-de-riesgos.html#medición-de-riesgos">Medición de riesgos</a> para estimar el riesgo en la población. Las principales entradas para la medición del riesgo son el conjunto de identificadores indirectos determinados a partir de los escenarios de divulgación en la sección anterior y los umbrales para los cálculos de riesgo (por ejemplo, el nivel de k-anonimato o el umbral por el cual un individuo se considera en riesgo). Si los datos tienen una estructura jerárquica (por ejemplo, una estructura de hogar), el riesgo debe medirse teniendo en cuenta esta estructura como se describe en la Sección <a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar">Riesgo jerárquico (o del hogar)</a>.</p>
+<p>Cada una de las diferentes medidas de riesgo descritas en la Sección <a href="medición-de-riesgos.html#medición-de-riesgos">Medición de riesgos</a> tiene ventajas y desventajas. En general, el k-anonimato, el riesgo individual y el riesgo global se utilizan para producir una idea del riesgo de divulgación. Estos valores pueden ser inicialmente muy altos, pero a menudo pueden reducirse muy fácilmente después de una recodificación simple pero apropiada (consulte la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc">Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a>). Los umbrales son los establecidos por la institución de acuerdo con el tipo de operación estadística. Recuerde siempre, sin embargo, que al usar una muestra, las medidas de riesgo basadas en los modelos presentados en la literatura ofrecen el peor escenario de riesgo y, por lo tanto, podrían ser una exageración de los riesgos reales para algunos casos (consulte la Sección <a href="medición-de-riesgos.html#riesgo-individual">Riesgo individual</a>).</p>
+</div>
+</div>
+<div id="etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Etapa 6.4.4.1: Selección y aplicación de métodos SDC<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La selección de los métodos SDC depende de la necesidad de protección de datos (medida por el riesgo de divulgación), la estructura de los datos y el tipo de variables. La influencia de los diferentes métodos sobre las características de los datos importantes para los usuarios o la utilidad de los datos también debe tenerse en cuenta al seleccionar los métodos SDC. En la práctica, la elección de los métodos SDC es parcialmente un proceso de prueba y error: después de aplicar un método elegido, el riesgo de divulgación y la utilidad de los datos se miden y comparan con otras opciones de métodos y parámetros. La elección de los métodos está sujeta a la legislación, por un lado, y a un compromiso entre utilidad y riesgo, por el otro.</p>
+<p>La clasificación de métodos que se presenta en la Tabla <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#tab:tabProc2">10.2</a> ofrece una buena visión general para elegir los métodos apropiados. Los métodos deben elegirse según el tipo de variable, continua o categórica, los requisitos de los usuarios y el tipo de liberación. Para una descripción más completa de estos métodos, consulte la Sección <a href="métodos-sdc.html#métodos-sdc">Métodos SDC</a>.</p>
+<table>
+<caption>
+<span id="tab:tabProc2">Tabla 10.2: </span>Métodos SDC y funciones correspondientes en <code>sdcMicro</code>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Método
+</th>
+<th style="text-align:center;">
+Clasificación
+</th>
+<th style="text-align:center;">
+Tipo de datos
+</th>
+<th style="text-align:center;">
+Función en sdcMicro
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Recodificación global
+</td>
+<td style="text-align:center;">
+No perturbativo, determinístico
+</td>
+<td style="text-align:center;">
+Continuo y categórico
+</td>
+<td style="text-align:center;">
+<code>globalRecode</code>,<code>groupVars</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Codificación superior e inferior
+</td>
+<td style="text-align:center;">
+No perturbativo, determinístico
+</td>
+<td style="text-align:center;">
+Continuo y categórico
+</td>
+<td style="text-align:center;">
+<code>topBotCoding</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Supresión local
+</td>
+<td style="text-align:center;">
+No perturbativo, determinístico
+</td>
+<td style="text-align:center;">
+Categórico
+</td>
+<td style="text-align:center;">
+<code>localSuppression</code>,<code>localSupp</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+PRAM
+</td>
+<td style="text-align:center;">
+Perturbativo, probabilístico
+</td>
+<td style="text-align:center;">
+Categórico
+</td>
+<td style="text-align:center;">
+<code>pram</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Microagregación
+</td>
+<td style="text-align:center;">
+Perturbativo, probabilístico
+</td>
+<td style="text-align:center;">
+Continuo
+</td>
+<td style="text-align:center;">
+<code>microaggregation</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Adición de ruido
+</td>
+<td style="text-align:center;">
+Perturbativo, probabilístico
+</td>
+<td style="text-align:center;">
+Continuo
+</td>
+<td style="text-align:center;">
+<code>addNoise</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Barajado
+</td>
+<td style="text-align:center;">
+Perturbativo, probabilístico
+</td>
+<td style="text-align:center;">
+Continuo
+</td>
+<td style="text-align:center;">
+<code>shuffle</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Intercambio de rango
+</td>
+<td style="text-align:center;">
+Perturbativo, probabilístico
+</td>
+<td style="text-align:center;">
+Continuo
+</td>
+<td style="text-align:center;">
+<code>rankSwap</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p>En general, para la anonimización de variables categóricas, es útil restringir el número de supresiones aplicando primero una recodificación global y/o eliminando variables del conjunto de microdatos. Cuando el número requerido de supresiones para lograr el nivel de riesgo requerido es suficientemente bajo, las pocas unidades en riesgo pueden ser tratadas mediante supresión. Estos son generalmente valores atípicos. Cabe señalar que posiblemente no todas las variables se puedan publicar y algunas se deban eliminar del conjunto de datos (consulte la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos">Etapa 6.4.2: Preparación y exploración de datos</a>). La recodificación y el uso mínimo de la supresión garantizan que las cifras ya publicadas de los datos sin procesar se puedan reproducir suficientemente bien a partir de los datos anonimizados. Si se aplica la supresión sin una recodificación suficiente, el número de supresiones puede ser muy alto y la estructura de los datos puede cambiar significativamente. Esto se debe a que la supresión afecta principalmente a las combinaciones que son raras en los datos.</p>
+<p>Si los resultados de la recodificación y la supresión no logran el resultado requerido, especialmente en los casos en que el número de identificadores indirectos seleccionados es alto, una alternativa es usar métodos perturbativos. Estos se pueden utilizar sin una recodificación previa de las variables. Estos métodos, sin embargo, preservan la estructura de datos solo parcialmente. El método preferido depende de los requisitos de los usuarios. Nos referimos a la Sección <a href="métodos-sdc.html#métodos-sdc">Métodos SDC</a> y especialmente a la Sección <a href="métodos-sdc.html#métodos-perturbativos">Métodos perturbativos</a> para una discusión de los métodos perturbativos implementados en <code>sdcMicro</code>.</p>
+<p>Finalmente, la selección de los métodos SDC depende de los datos utilizados, ya que los mismos métodos producen diferentes resultados en diferentes conjuntos de datos. Por lo tanto, la comparación de resultados con respecto al riesgo y la utilidad (ver <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc">Etapa 6.4.4.2: Evaluación de proceso SDC</a>) es clave para la elección realizada. La mayoría de los métodos se implementan en el paquete <code>sdcMicro</code>. Sin embargo, a veces es útil emplear soluciones a medida. En la sección <a href="métodos-sdc.html#métodos-sdc">Métodos SDC</a> se presentan algunos ejemplos.</p>
+</div>
+<div id="etapa-6.4.4.2-evaluación-de-proceso-sdc" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Etapa 6.4.4.2: Evaluación de proceso SDC<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El propósito de esta etapa es verificar si la base de datos anonimizada cumple con las condiciones para presentarse como versión final. Estas son: el nivel de riesgo definido en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación">Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a> y la utilidad esperada definida en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización">Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>.</p>
+<p>Su alcance considera la reevaluación del riesgo y la medición de la utilidad, comparar con mediciones de los datos originales y decidir si la base cumple o no con los criterios establecidos.</p>
+<div id="vuelva-a-medir-el-riesgo" class="section level3 hasAnchor" number="10.6.1">
+<h3><span class="header-section-number">10.6.1</span> Vuelva a medir el riesgo<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este paso, reevaluamos el riesgo de divulgación con las medidas de riesgo elegidas en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación">Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a> después de aplicar los métodos SDC. Además de estas medidas de riesgo, también es importante observar a las unidades con alto riesgo y/o características especiales, combinaciones de valores o valores atípicos en los datos. Si el riesgo no está en un nivel aceptable, la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación">Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a> y <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc">Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a> deben repetirse con diferentes métodos y/o parámetros.</p>
+<p>Medidas de riesgo basadas en conteos de frecuencia (k-anonimato, riesgo individual, riesgo global y riesgo del hogar) no se pueden utilizar después de aplicar métodos perturbativos ya que sus estimaciones de riesgo no son válidas. Estos métodos se basan en introducir incertidumbre en el conjunto de datos y no en aumentar las frecuencias de las claves en los datos y, por lo tanto, sobreestimarán el riesgo.</p>
+</div>
+<div id="mida-la-utilidad" class="section level3 hasAnchor" number="10.6.2">
+<h3><span class="header-section-number">10.6.2</span> Mida la utilidad<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este paso, volvemos a medir las medidas de utilidad definidas en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización">Etapa 6.4.1: Definiciones previas al proceso de anonimización</a> y las comparamos con los resultados de los datos sin procesar. Además, aquí es útil construir intervalos de confianza alrededor de las estimaciones puntuales y comparar estos intervalos de confianza. La importancia del valor absoluto de una desviación solo puede interpretarse conociendo la varianza de la estimación. Además de estas medidas de utilidad específicas, se deben evaluar las medidas de utilidad general, como se analiza en la Sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>. Esto es especialmente importante si se han aplicado métodos perturbativos. Si los datos no cumplen con los requisitos del usuario y las desviaciones son demasiado grandes, repita la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación">Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a> y <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc">Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a> con diferentes métodos y/o diferentes parámetros.</p>
+<p>La anonimización siempre conducirá a al menos alguna pérdida de información.</p>
+</div>
+<div id="evaluación-de-reglas-de-validación-y-consistencia" class="section level3 hasAnchor" number="10.6.3">
+<h3><span class="header-section-number">10.6.3</span> Evaluación de reglas de validación y consistencia<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Por último, se debe verificar que todas las relaciones en los datos anonimizados preserven todas las reglas de validación y consistencia propias de la operación estadística. Esto incluye:</p>
+<ul>
+<li>Variables que son sumas de otras variables o proporciones.</li>
+<li>Relaciones de orden, por ejemplo, la variable X debe ser siempre menor a la variable Y.</li>
+<li>Cualquier valor inusual causado por la anonimización debe ser detectado. Por ejemplo, los ingresos negativos, una persona de 14 años en la fuerza laboral o un alumno en el vigésimo grado de la escuela. Esto puede suceder después de aplicar métodos perturbativos de SDC.</li>
+</ul>
+<p>Se debe verificar que los indicadores publicados previamente de los datos originales o brutos son reproducibles a partir de los datos que se van a publicar. Si este no es el caso, los usuarios de datos podrían cuestionar la credibilidad del conjunto de datos anonimizados.</p>
+<p>En la Figura <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#fig:evalSDC">10.1</a> se presenta el flujo que resume las actividades que componen esta etapa y que, en consecuencia, permite juzgar la efectividad de los métodos SDC aplicados y la factibilidad de liberar el conjunto de microdatos.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:evalSDC"></span>
+<img src="Imagenes/Eval_Proc_SDC.png" alt="Evaluación de proceso SDC INE 2021." width="90%" />
+<p class="caption">
+Figura 10.1: Evaluación de proceso SDC INE 2021.
+</p>
+</div>
+</div>
+</div>
+<div id="etapa-6.4.5-generar-reportes-y-liberar-datos" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Etapa 6.4.5: Generar reportes y liberar datos<a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El propósito de esta etapa es la generación de reportes, tanto interno como externo, que acompañan la liberación de datos.</p>
+<p>Los informes internos contienen la descripción exacta de los métodos de anonimización utilizados, los parámetros, pero también las medidas de riesgo antes y después de la anonimización. Esto permite la replicación del conjunto de datos anonimizados y es importante para las autoridades/organismos de control para garantizar que el proceso de anonimización sea suficiente para garantizar el anonimato de acuerdo con la legislación aplicable.</p>
+<p>Los informes externos informan al usuario que los datos han sido anonimizados, brindan información para un análisis válido de los datos y explican las limitaciones de los datos como resultado de la anonimización. Puede incluirse una breve descripción de los métodos utilizados. La publicación de microdatos anonimizados debe ir acompañada de los metadatos habituales de la encuesta (peso de la encuesta, estratos, metodología de la encuesta), así como información sobre los métodos de anonimización que permiten a los investigadores realizar análisis válidos (por ejemplo, cantidad de ruido agregado, matriz de transición para PRAM).Se debe tener cuidado de que esta información no se pueda utilizar para la reidentificación (por ejemplo, no se libera semilla aleatoria para PRAM).</p>
+<p>Por otra parte, los metadatos deben actualizarse para cumplir con los datos anonimizados. Las descripciones de las variables o las etiquetas de valores pueden haber cambiado como resultado del proceso de anonimización. Además, la pérdida de información debido al proceso de anonimización debe explicarse en detalle a los usuarios para que sean conscientes de los límites de la validez de los datos y sus análisis.</p>
+<p>El último paso en el proceso de SDC es la publicación real de los datos anónimos. En el contexto INE, el tipo de publicación factible es el PUF. Los cambios realizados en las variables en la <a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos">Etapa 6.4.2: Preparación y exploración de datos</a>, como la fusión de variables, se pueden deshacer para generar un conjunto de datos útil para los usuarios.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:esquemaSDC"></span>
+<img src="Imagenes/Esquema_Proc_SDC.png" alt="Esquema general de proceso SDC INE 2021." width="90%" />
+<p class="caption">
+Figura 10.2: Esquema general de proceso SDC INE 2021.
+</p>
+</div>
+
+</div>
+</div>
+<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-ine2021" class="csl-entry">
+———. 2021b. <span>“Guía para el control de divulgación estadística en microdatos.”</span> <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/guía-control-divulgación-estadística-microdatos.pdf">https://www.ine.gob.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/guía-control-divulgación-estadística-microdatos.pdf</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="38">
+<li id="fn38"><p>Disponible en <a href="https://inechile.sharepoint.com/sites/Intranet/departamentodegestionestrategica/Mprocesos/Paginas/Segmento-Negocio.aspx" class="uri">https://inechile.sharepoint.com/sites/Intranet/departamentodegestionestrategica/Mprocesos/Paginas/Segmento-Negocio.aspx</a><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#fnref38" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="medición-de-la-utilidad-y-la-pérdida-de-información.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="caso-de-estudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-proceso.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

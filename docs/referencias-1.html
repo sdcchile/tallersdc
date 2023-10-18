@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <title>Referencias | Guía para el Control de Divulgación Estadística en Microdatos</title>
   <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:title" content="Referencias | Guía para el Control de Divulgación Estadística en Microdatos" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
   <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta name="twitter:title" content="Referencias | Guía para el Control de Divulgación Estadística en Microdatos" />
   
   <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="taller-sdc-video.html"/>
 
-<link rel="next" href="introducción.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,49 +349,173 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guía para el Control de Divulgación Estadística en Microdatos</h1>
-<p class="author"><em>Subdepartamento de Investigación Estadística</em></p>
-<p class="date"><em>2023-10-18</em></p>
-</div>
-<div id="prefacio" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Los datos son un recurso valioso que proporciona información crítica para estadísticos, científicos sociales y científicos de datos. Estos datos se utilizan para generar perspectivas detalladas y oportunas que responden a las necesidades de información de una amplia gama de partes interesadas.</p>
-<p>En un mundo donde cada vez más grandes volúmenes de datos provienen de un número creciente de proveedores, las Oficinas Nacionales de Estadística (ONE) están utilizando enfoques innovadores para mantener estándares y definiciones de datos, sistemas de gestión de privacidad y confidencialidad, e intercambio responsable de datos.</p>
-<p>Las ONE tienen un papel de liderazgo que desempeñar en el establecimiento de formas seguras y transparentes de compartir datos, experiencias y mejores prácticas para respaldar el uso de datos con fines de prueba, evaluación, educación y desarrollo. Con la integridad y la confidencialidad de los datos a la vanguardia, las ONE están posicionandose cada vez más para proporcionar herramientas, métodos y enfoques para promover el intercambio responsable de datos, a fin de satisfacer las necesidades de un número creciente de partes interesadas en este ámbito que está en constante cambio.</p>
-<p>Las ONE reconocen que se debe cumplir con el llamado a una mayor apertura y transparencia de los datos. Sin embargo, también se comprometen a proteger la confidencialidad y la privacidad integradas en sus tenencias de datos.</p>
-<p>Se reconoce ampliamente que la difusión de información que es a la vez útil y completamente segura, no puede lograrse en su totalidad. Por lo tanto, la seguridad es un concepto relativo, no absoluto, y se debe entender como una métrica, no un estado.</p>
-<p>Es dentro de este contexto que las ONE deben establecer protocolos para la difusión segura de datos y métricas para medir la utilidad de la información estadística publicada y el grado de protección de las unidades, ya sean personas naturales o jurídicas, e información recopilada de la cual se deriva.</p>
-<p>Esta guía es para aquellos que trabajan en una ONE u oficina estatal que están involucrados en la gestión del acceso a datos estadísticos, y que deseen explorar herramientas de protección de datos para que los usuarios accedan a ellos. La guía destaca algunas aplicaciones exitosas recientes de control a la divulgación estadística en microdatos en el Instituto Nacional de Estadísticas de Chile (INE), y presenta un marco general sobre medición y evaluación de riesgos, técnicas para generar datos anonimizados, y sobre las medidas de utilidad que se pueden usar para evaluar qué tan bien los datos anonimizados satisfacen las necesidades analíticas de los usuarios. La guía también incluye recomendaciones sobre qué enfoques utilizar en diferentes situaciones, así como consejos prácticos y recursos para que los profesionales comiencen su experiencia en la implementación de proceso de control a la divulgación estadística.</p>
-<p>Esta guía se basa en Statistical Disclosure Control: A Practice Guide <span class="citation">Benschop, Machingauta, and Welch (<a href="#ref-benschop2019statistical" role="doc-biblioref">2019</a>)</span> y en la <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/guias-y-orientaciones-metodologicas/documentos/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=b6bdd28f_2">Guía para el control de divulgación estadística en microdatos</a>, elaborada por el INE en 2021, que es el primer esfuerzo en esta materia en instituciones del Estado en Chile. Sin embargo, aún puede enriquecerse a partir de nuevos conocimientos y experiencias que tanto investigadores como profesionales puedan aportar.</p>
-<p>¡Esperamos que esta guía lo ayude en su viaje hacia la implementación de procesos de control a la divulgación estadística en su organización!</p>
-<div id="autores-de-esta-guía" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Autores de esta guía<a href="index.html#autores-de-esta-guía" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Jonathan González Mejías, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
-<p>José Bustos Melo, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Julio Guerrero Rojas, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Lissette Bastías Navarro, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Nicolás Berhó Montalvo, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
-</div>
-<div id="reconocimientos" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Reconocimientos<a href="index.html#reconocimientos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Aquí escribir si se quiere agradecer o reconocer la colaboración de alguna persona o equipo.</p>
+<div id="referencias-1" class="section level1 unnumbered hasAnchor">
+<h1>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
-</div>
-</div>
-<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-benschop2019statistical" class="csl-entry">
+<div class="csl-entry">
+Australian Bureau of Statistics. 2021. <span>“Glossary | Australian Bureau of Statistics.”</span> <a href="https://www.abs.gov.au/about/data-services/data-confidentiality-guide/glossary">https://www.abs.gov.au/about/data-services/data-confidentiality-guide/glossary</a>.
+</div>
+<div class="csl-entry">
 Benschop, Thijs, Cathrine Machingauta, and Matthew Welch. 2019. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
 </div>
+<div class="csl-entry">
+———. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>World Bank</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
 </div>
+<div class="csl-entry">
+Benschop, Thijs, and Matthew Welch. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>26/07/2021</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+</div>
+<div class="csl-entry">
+Brand, Ruth. 2002. <span>“Microdata Protection Through Noise Addition.”</span> In <em>Inference Control in Statistical Databases: From Theory to Practice</em>, edited by Josep Domingo-Ferrer, 97–116. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/3-540-47804-3_8">https://doi.org/10.1007/3-540-47804-3_8</a>.
+</div>
+<div class="csl-entry">
+De Waal, Ton, and Leon Willenborg. 1999. <span>“Information Loss Through Global Recoding and Local Suppression,”</span> January.
+</div>
+<div class="csl-entry">
+Domingo-Ferrer, Josep, Josep Mateo-Sanz, Anna Oganian, and Aánge Torres. 2002. <span>“On the Security of Microaggregation with Individual Ranking: Analytical Attacks.”</span> <em>International Journal of Uncertainty, Fuzziness and Knowledge-Based Systems</em> 10 (October): 477–92. <a href="https://doi.org/10.1142/S0218488502001594">https://doi.org/10.1142/S0218488502001594</a>.
+</div>
+<div class="csl-entry">
+Domingo-Ferrer, Josep, and Vicenc Torra. 2005. <span>“Ordinal, Continuous and Heterogeneous k -Anonymity Through Microaggregation.”</span> <em>Data Mining and Knowledge Discovery</em> 11 (September): 195–212. <a href="https://doi.org/10.1007/s10618-005-0007-5">https://doi.org/10.1007/s10618-005-0007-5</a>.
+</div>
+<div class="csl-entry">
+Domingo-Ferrer, Josep, and Vicenç Torra. 2001. <span>“A Quantitative Comparison of Disclosure Control Methods for Microdata.”</span> <em>Confidentiality, Disclosure and Data Access: Theory and Practical Applications for Statistical Agencies</em>, January.
+</div>
+<div class="csl-entry">
+Domingo-Ferrer, J., and V. Torra. 2001. <span>“Disclosure Control Methods and Information Loss for Microdata.”</span> In, 91–110. <a href="https://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf">https://crises-deim.urv.cat/webCrises/publications/bcpi/cliatpasa01Disclosure.pdf</a>.
+</div>
+<div class="csl-entry">
+Duncan, G., M. Elliot, and J. Salzar-González. 2011. <em>Statistical Confidentiality: Principles and Practice</em>. New York:Springer.
+</div>
+<div class="csl-entry">
+Dupriez, Olivier, and Ernie Boyko. 2010. <span>“Dissemination of Microdata Files. Formulating Policies and Procedures,”</span> August. <a href="http://www.ihsn.org/sites/default/files/resources/IHSN-WP005.pdf">http://www.ihsn.org/sites/default/files/resources/IHSN-WP005.pdf</a>.
+</div>
+<div class="csl-entry">
+Elliot, Mark, Susan Lomax, Elaine Mackey, and Kingsley Purdam. 2010. <span>“Data Environment Analysis and the Key Variable Mapping System.”</span> In, edited by Josep Domingo-Ferrer and Emmanouil Magkos, 138–47. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-642-15838-4_13">https://doi.org/10.1007/978-3-642-15838-4_13</a>.
+</div>
+<div class="csl-entry">
+Hundepool, A., J. Domingo-Ferrer, L. Franconi, S. Giessing, E. S. Nordholt, K. Spicer, and P. P. de Wolf. 2012. <em>Statistical Disclosure Control</em>. Wiley Series in Survey Methodology. Wiley. <a href="https://books.google.cl/books?id=9W4EywAACAAJ">https://books.google.cl/books?id=9W4EywAACAAJ</a>.
+</div>
+<div class="csl-entry">
+Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing, Eric Schulte Nordholt, Keith Spicer, and Peter Paul De Wolf. 2012. <em>Statistical Disclosure Control</em>. John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9781118348239.indauth">https://doi.org/10.1002/9781118348239.indauth</a>.
+</div>
+<div class="csl-entry">
+Instituto Nacional de Estadísticas de Chile. 2021a. <span>“17° Encuesta Nacional Urbana de Seguridad Ciudadana 2020. Manual de Usuario de la Base de Datos.”</span> <a href="https://www.ine.gob.cl/docs/default-source/seguridad-ciudadana/manuales/2020/manual-de-usuario-bbdd-enusc-17-2020.pdf">https://www.ine.gob.cl/docs/default-source/seguridad-ciudadana/manuales/2020/manual-de-usuario-bbdd-enusc-17-2020.pdf</a>.
+</div>
+<div class="csl-entry">
+———. 2021b. <span>“Manual de Procedimiento Subproceso "Aplicar Control a la Divulgación".”</span> <a href="https://inechile.sharepoint.com/sites/Intranet/departamentodegestionestrategica/Mprocesos/DocumentosNegocio/Rex%20aprueba%20Manual%20de%20procedimiento%20Aplicar%20control%20a%20la%20divulgaci%C3%B3n.pdf">https://inechile.sharepoint.com/sites/Intranet/departamentodegestionestrategica/Mprocesos/DocumentosNegocio/Rex%20aprueba%20Manual%20de%20procedimiento%20Aplicar%20control%20a%20la%20divulgaci%C3%B3n.pdf</a>.
+</div>
+<div class="csl-entry">
+Instituto Nacional de Estadísticas, INE. 2015. <span>“Código de buenas prácticas de las estadísticas chilenas.”</span> <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/codigo-de-buenas-practicas/2015/codigo_buenas_practicas_2015.pdf?sfvrsn=ad7902de_2">https://www.ine.gob.cl/docs/default-source/buenas-practicas/codigo-de-buenas-practicas/2015/codigo_buenas_practicas_2015.pdf?sfvrsn=ad7902de_2</a>.
+</div>
+<div class="csl-entry">
+———. 2021a. <span>“Guía para el control de divulgación estadística en microdatos.”</span> <a href="https://www.ine.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=fb568638_2">https://www.ine.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=fb568638_2</a>.
+</div>
+<div class="csl-entry">
+———. 2021b. <span>“Guía para el control de divulgación estadística en microdatos.”</span> <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/guía-control-divulgación-estadística-microdatos.pdf">https://www.ine.gob.cl/docs/default-source/buenas-practicas/estandares/estandar/documento/guía-control-divulgación-estadística-microdatos.pdf</a>.
+</div>
+<div class="csl-entry">
+———. 2022. <span>“Glosario de conceptos estadísticos,”</span> February. <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/glosario-de-conceptos-estadisticos/documentos/glosario-de-conceptos-ine-v_1-0.pdf?sfvrsn=f9766bd9_2">https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/glosario-de-conceptos-estadisticos/documentos/glosario-de-conceptos-ine-v_1-0.pdf?sfvrsn=f9766bd9_2</a>.
+</div>
+<div class="csl-entry">
+Kim, J, and W Winkler. 2003. <span>“Multiplicative Noise for Masking Continuous Data.”</span> <em>Statistics</em> 1 (9): 1–18. <a href="https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=7f62f83435f2c1b78855c282b1cd10c9f6e65a9e">https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=7f62f83435f2c1b78855c282b1cd10c9f6e65a9e</a>.
+</div>
+<div class="csl-entry">
+Lambert, Diane. 1993. <span>“Measures of Disclosure Risks and Harm.”</span> <em>Journal of Official Statistics</em> 9 (2): 1–36. <a href="https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/measures-of-disclosure-risk-and-harm.pdf">https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/measures-of-disclosure-risk-and-harm.pdf</a>.
+</div>
+<div class="csl-entry">
+Ley 20.285. 2008. <span>“Ley 20.285 sobre acceso a la información pública.”</span> <a href="https://www.bcn.cl/leychile">https://www.bcn.cl/leychile</a>.
+</div>
+<div class="csl-entry">
+Ley N° 17374. 1970. <span>“Ley 17374 fija nuevo texto refundido, coordinado y actualizado del DFL. N° 313 de 1960, aprobara La Ley Orgánica Dirección Estadística y censos y crea el Instituto Nacional de Estadísticas.”</span> <a href="https://www.bcn.cl/leychile">https://www.bcn.cl/leychile</a>.
+</div>
+<div class="csl-entry">
+Ley N° 19628. 1999. <span>“Ley N° 19628 sobre protección de la vida privada.”</span> <a href="https://www.bcn.cl/leychile">https://www.bcn.cl/leychile</a>.
+</div>
+<div class="csl-entry">
+Matthias Templ, Alexander Kowarik, Bernhard Meindl, and Shuang Chen. 2014. <span>“Introduction to Statistical Disclosure Control ( SDC ).”</span> In. <a href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>.
+</div>
+<div class="csl-entry">
+Matthias Templ, Bernhard Meindl, and Alexander Kowarik. 2014. <span>“Introduction to Statistical Disclosure Control ( SDC ).”</span> In. <a href="http://www.ihsn.org/home/software/disclosure-control-toolbox">http://www.ihsn.org/home/software/disclosure-control-toolbox</a>.
+</div>
+<div class="csl-entry">
+Muralidhar, Krishnamurty, and Rathindra Sarathy. 2006. <span>“Data Shuffling: A New Masking Approach for Numerical Data.”</span> <em>Management Science</em> 52 (5): 658–70. <a href="http://www.jstor.org/stable/20110544">http://www.jstor.org/stable/20110544</a>.
+</div>
+<div class="csl-entry">
+Naciones Unidas. s.f. <span>“Principios Fundamentales de las Estadísticas Oficiales.”</span> <a href="https://unstats.un.org/unsd/dnss/hb/S-fundamental%20principles_A4-WEB.pdf">https://unstats.un.org/unsd/dnss/hb/S-fundamental%20principles_A4-WEB.pdf</a>.
+</div>
+<div class="csl-entry">
+OECD. s.f. <span>“The OECD Glossary of Statistical Terms.”</span> <a href="https://stats.oecd.org/glossary/">https://stats.oecd.org/glossary/</a>.
+</div>
+<div class="csl-entry">
+Templ, Matthias, Alexander Kowarik, and Bernhard Meindl. 2015. <span>“Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro.”</span> <em>Journal of Statistical Software</em> 67 (October): 1–36. <a href="https://doi.org/10.18637/jss.v067.i04">https://doi.org/10.18637/jss.v067.i04</a>.
+</div>
+<div class="csl-entry">
+Templ, Matthias, and Bernhard Meindl. 2008. <span>“Robust Statistics Meets SDC: New Disclosure Risk Measures for Continuous Microdata Masking.”</span> In, edited by Josep Domingo-Ferrer and Yücel Saygın, 177–89. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-540-87471-3_15">https://doi.org/10.1007/978-3-540-87471-3_15</a>.
+</div>
+<div class="csl-entry">
+Templ, Matthias, Bernhard Meindl, Alexander Kowarik, and Shuang Chen. 2014. <span>“Introduction to Statistical Disclosure Control (SDC),”</span> August.
+</div>
+<div class="csl-entry">
+Wolf, Peter-Paul de. 2015. <span>“Public Use Files of EU-SILC and EU-LFS Data.”</span> <em>Joint UNECE/Eurostat Work Session on Statistical Data Confidentiality, Helsinki, Finland</em>, 1–10. <a href="http://www.ksh.hu/statszemle_archive/2015/2015_11-12/2015_11-12_1140_2.pdf">http://www.ksh.hu/statszemle_archive/2015/2015_11-12/2015_11-12_1140_2.pdf</a>.
+</div>
+<div class="csl-entry">
+Yancey, William E., William E. Winkler, and Robert H. Creecy. 2002. <span>“Disclosure Risk Assessment in Perturbative Microdata Protection.”</span> In, edited by Josep Domingo-Ferrer, 2316:135–52. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/3-540-47804-3_11">https://doi.org/10.1007/3-540-47804-3_11</a>.
+</div>
+<div class="csl-entry">
+Yazdani, A. 2015. <em>Statisticial Confidentiality and Disclosure Control Textbook</em>. Organisation of Islamic Cooperation, Statistical Economic; Social Research; Training Centre for Islamic Countries SESRIC.
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
+<a href="taller-sdc-video.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -422,7 +546,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-references.Rmd",
 "text": "Edit"
 },
 "history": {

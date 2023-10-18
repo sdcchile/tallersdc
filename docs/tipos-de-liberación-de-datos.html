@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <title>Capítulo 4 Tipos de liberación de datos | Guía para el Control de Divulgación Estadística en Microdatos</title>
   <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:title" content="Capítulo 4 Tipos de liberación de datos | Guía para el Control de Divulgación Estadística en Microdatos" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
   <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta name="twitter:title" content="Capítulo 4 Tipos de liberación de datos | Guía para el Control de Divulgación Estadística en Microdatos" />
   
   <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="acrónimos-y-glosario.html"/>
+<link rel="next" href="proceso-sdc-una-introducción.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,49 +349,108 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guía para el Control de Divulgación Estadística en Microdatos</h1>
-<p class="author"><em>Subdepartamento de Investigación Estadística</em></p>
-<p class="date"><em>2023-10-18</em></p>
-</div>
-<div id="prefacio" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Los datos son un recurso valioso que proporciona información crítica para estadísticos, científicos sociales y científicos de datos. Estos datos se utilizan para generar perspectivas detalladas y oportunas que responden a las necesidades de información de una amplia gama de partes interesadas.</p>
-<p>En un mundo donde cada vez más grandes volúmenes de datos provienen de un número creciente de proveedores, las Oficinas Nacionales de Estadística (ONE) están utilizando enfoques innovadores para mantener estándares y definiciones de datos, sistemas de gestión de privacidad y confidencialidad, e intercambio responsable de datos.</p>
-<p>Las ONE tienen un papel de liderazgo que desempeñar en el establecimiento de formas seguras y transparentes de compartir datos, experiencias y mejores prácticas para respaldar el uso de datos con fines de prueba, evaluación, educación y desarrollo. Con la integridad y la confidencialidad de los datos a la vanguardia, las ONE están posicionandose cada vez más para proporcionar herramientas, métodos y enfoques para promover el intercambio responsable de datos, a fin de satisfacer las necesidades de un número creciente de partes interesadas en este ámbito que está en constante cambio.</p>
-<p>Las ONE reconocen que se debe cumplir con el llamado a una mayor apertura y transparencia de los datos. Sin embargo, también se comprometen a proteger la confidencialidad y la privacidad integradas en sus tenencias de datos.</p>
-<p>Se reconoce ampliamente que la difusión de información que es a la vez útil y completamente segura, no puede lograrse en su totalidad. Por lo tanto, la seguridad es un concepto relativo, no absoluto, y se debe entender como una métrica, no un estado.</p>
-<p>Es dentro de este contexto que las ONE deben establecer protocolos para la difusión segura de datos y métricas para medir la utilidad de la información estadística publicada y el grado de protección de las unidades, ya sean personas naturales o jurídicas, e información recopilada de la cual se deriva.</p>
-<p>Esta guía es para aquellos que trabajan en una ONE u oficina estatal que están involucrados en la gestión del acceso a datos estadísticos, y que deseen explorar herramientas de protección de datos para que los usuarios accedan a ellos. La guía destaca algunas aplicaciones exitosas recientes de control a la divulgación estadística en microdatos en el Instituto Nacional de Estadísticas de Chile (INE), y presenta un marco general sobre medición y evaluación de riesgos, técnicas para generar datos anonimizados, y sobre las medidas de utilidad que se pueden usar para evaluar qué tan bien los datos anonimizados satisfacen las necesidades analíticas de los usuarios. La guía también incluye recomendaciones sobre qué enfoques utilizar en diferentes situaciones, así como consejos prácticos y recursos para que los profesionales comiencen su experiencia en la implementación de proceso de control a la divulgación estadística.</p>
-<p>Esta guía se basa en Statistical Disclosure Control: A Practice Guide <span class="citation">Benschop, Machingauta, and Welch (<a href="#ref-benschop2019statistical" role="doc-biblioref">2019</a>)</span> y en la <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/guias-y-orientaciones-metodologicas/documentos/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=b6bdd28f_2">Guía para el control de divulgación estadística en microdatos</a>, elaborada por el INE en 2021, que es el primer esfuerzo en esta materia en instituciones del Estado en Chile. Sin embargo, aún puede enriquecerse a partir de nuevos conocimientos y experiencias que tanto investigadores como profesionales puedan aportar.</p>
-<p>¡Esperamos que esta guía lo ayude en su viaje hacia la implementación de procesos de control a la divulgación estadística en su organización!</p>
-<div id="autores-de-esta-guía" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Autores de esta guía<a href="index.html#autores-de-esta-guía" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Jonathan González Mejías, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
-<p>José Bustos Melo, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Julio Guerrero Rojas, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Lissette Bastías Navarro, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Nicolás Berhó Montalvo, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
-</div>
-<div id="reconocimientos" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Reconocimientos<a href="index.html#reconocimientos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Aquí escribir si se quiere agradecer o reconocer la colaboración de alguna persona o equipo.</p>
-
+<div id="tipos-de-liberación-de-datos" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Tipos de liberación de datos<a href="tipos-de-liberación-de-datos.html#tipos-de-liberación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Esta sección expone sobre la liberación de microdatos, cuyos lineamientos se extrajeron de la guía elaborada por el Banco Mundial <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, que a su vez recoge el trabajo conjunto realizado por el Banco Mundial y sus socios en la Red Internacional de Encuestas de Hogares IHSN<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <span class="citation">(<a href="#ref-dupriez2010" role="doc-biblioref">Dupriez and Boyko 2010</a>)</span>.</p>
+<p>El balance entre riesgo y utilidad en el proceso SDC depende en gran medida de quiénes son los usuarios y bajo qué condiciones se difunde o libera un archivo de microdatos.</p>
+<p>En general, se practican tres tipos de métodos de liberación de datos para diferentes grupos objetivo, a saber: archivo de uso público (PUF), archivo de uso científico (SUF) y enclave de datos. En la Tabla <a href="tipos-de-liberación-de-datos.html#tab:tbl2lbn">4.1</a> se resumen los tipos de liberación y su aplicabilidad en el INE, dado el marco legal vigente en Chile. Como se podrá observar, el tipo <strong>PUF es el único tipo de liberación de microdatos que es aplicable para el INE</strong> dado el marco legal vigente en Chile.</p>
+<table class="table table-striped" style>
+<caption>
+<span id="tab:tbl2lbn">Tabla 4.1: </span>Resumen de tipos de liberación de microdatos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Tipo
+</th>
+<th style="text-align:left;">
+Descripción
+</th>
+<th style="text-align:left;">
+Aplicabilidad con el marco legal vigente
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Archivo de Uso Público (PUF)
+</td>
+<td style="text-align:left;">
+Los datos están disponibles directamente para cualquier persona interesada, por ejemplo, en el sitio web del INE. Estos datos se hacen fácilmente accesibles debido a que los riesgos de identificar a las unidades individuales se consideran mínimos.
+En el contexto INE, el PUF se puede entregar a nivel de microdatos mediante las siguientes formas:
+i. Base de datos publicadas (BP) que se dispone en la página web del INE y en la página web de la institución demandante, según corresponda.
+ii. Base de datos a solicitar por transparencia (BST) que se entrega directamente al usuario responsable de la solicitud.
+</td>
+<td style="text-align:left;">
+Aplicable.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Archivo de Uso Científico (SUF)
+</td>
+<td style="text-align:left;">
+La difusión está restringida a los usuarios que han recibido autorización para acceder a ellos después de enviar una solicitud documentada y firmar un acuerdo que rige el uso de los datos. Si bien los archivos con licencia general también se anonimizan para garantizar que el riesgo de identificar a las unidades (personas, hogares o establecimientos) se minimice cuando se usan de forma aislada, aún pueden (potencialmente) contener datos identificables si se vinculan con otros archivos de datos.
+Este tipo de liberación de datos también es conocido como archivo con licencia, microdatos bajo contrato o archivo de investigación.
+</td>
+<td style="text-align:left;">
+No aplicable.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Enclave de datos o centro de datos de investigación controlado
+</td>
+<td style="text-align:left;">
+Algunos archivos pueden ofrecerse a los usuarios bajo condiciones estrictas en un enclave de datos. Esta es una instalación (puede ser una instalación al interior del INE) equipada con computadoras que no están conectadas a Internet o una red externa y desde las cuales no se puede descargar información a través de puertos USB, CD – DVD u otras unidades. Los enclaves de datos contienen datos que son particularmente sensibles o permiten la identificación directa o fácil de los informantes.
+</td>
+<td style="text-align:left;">
+No aplicable.
+</td>
+</tr>
+</tbody>
+</table>
+<div id="condiciones-para-la-liberación-de-datos-bajo-versión-puf" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Condiciones para la liberación de datos bajo versión PUF<a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En general, los datos que se consideran públicos están abiertos a cualquier persona con acceso al sitio web del INE. Sin embargo, es una buena práctica incluir declaraciones de principios que definan los usos adecuados y las precauciones que se adoptarán utilizando los datos. Si bien estos pueden no ser legalmente vinculantes, sirven para sensibilizar al usuario. Prohibiciones como intentos de vincular los datos a otras fuentes puede ser parte de la “declaración de uso”, requerida para el uso de datos. La difusión de archivos de microdatos implica necesariamente la aplicación de reglas o principios.</p>
+<p>A continuación, se listan principios básicos o “declaraciones de uso” aplicables a una liberación PUF:</p>
+<ol style="list-style-type: decimal">
+<li>Los datos y otros materiales proporcionados por el INE no serán redistribuidos o vendidos a otras personas, instituciones u organizaciones sin el acuerdo por escrito del INE.</li>
+<li>Los datos se usarán solo para fines de investigación estadística y científica. Serán empleados únicamente para reportar información agregada, incluido el modelado, y no para investigar individuos u organizaciones específicos.</li>
+<li>No se intentará volver a identificar a los informantes, y no se usará la identidad de ninguna persona o establecimiento descubierto inadvertidamente. Cualquier descubrimiento de este tipo se informará inmediatamente al INE.</li>
+<li>No se intentará crear enlaces entre conjuntos de datos proporcionados por el INE o entre datos del INE y otros conjuntos de datos que podrían identificar individuos u organizaciones.</li>
+<li>Libros, artículos, documentos de conferencias, tesis, disertaciones, informes u otras publicaciones que empleen datos obtenidos del INE citará la fuente, de acuerdo con el requisito de cita provisto con el conjunto de datos, en caso de no haber sido proporcionado, se debe citar de acuerdo a la norma APA más actualizada.</li>
+<li>Se enviará al INE una copia electrónica de todas las publicaciones basadas en los datos descargados.</li>
+<li>El recolector original de los datos, el INE y las agencias de financiamiento relevantes no tienen responsabilidad por el uso o interpretación de los datos o inferencias basadas en ellos.</li>
+</ol>
+<blockquote>
+<p><strong>Nota:</strong> Los puntos 3 y 6 de la lista requieren que los usuarios reciban una manera fácil de comunicarse con el INE. Es una buena práctica proporcionar un número de contacto, una dirección de correo electrónico y, posiblemente, un sistema de “suministro de comentarios” en línea.</p>
+</blockquote>
 </div>
 </div>
 <h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-benschop2019statistical" class="csl-entry">
-Benschop, Thijs, Cathrine Machingauta, and Matthew Welch. 2019. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+<div id="ref-benschop2021" class="csl-entry">
+Benschop, Thijs, and Matthew Welch. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>26/07/2021</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
 </div>
+<div id="ref-dupriez2010" class="csl-entry">
+Dupriez, Olivier, and Ernie Boyko. 2010. <span>“Dissemination of Microdata Files. Formulating Policies and Procedures,”</span> August. <a href="http://www.ihsn.org/sites/default/files/resources/IHSN-WP005.pdf">http://www.ihsn.org/sites/default/files/resources/IHSN-WP005.pdf</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>En inglés, <em>International Household Survey Network</em>.<a href="tipos-de-liberación-de-datos.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="acrónimos-y-glosario.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="proceso-sdc-una-introducción.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -422,7 +481,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {

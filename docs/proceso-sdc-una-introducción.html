@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <title>Capítulo 5 Proceso SDC: Una introducción | Guía para el Control de Divulgación Estadística en Microdatos</title>
   <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:title" content="Capítulo 5 Proceso SDC: Una introducción | Guía para el Control de Divulgación Estadística en Microdatos" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
   <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta name="twitter:title" content="Capítulo 5 Proceso SDC: Una introducción | Guía para el Control de Divulgación Estadística en Microdatos" />
   
   <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="tipos-de-liberación-de-datos.html"/>
+<link rel="next" href="introducción-a-sdcmicro.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,49 +349,65 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Guía para el Control de Divulgación Estadística en Microdatos</h1>
-<p class="author"><em>Subdepartamento de Investigación Estadística</em></p>
-<p class="date"><em>2023-10-18</em></p>
+<div id="proceso-sdc-una-introducción" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Proceso SDC: Una introducción<a href="proceso-sdc-una-introducción.html#proceso-sdc-una-introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="necesidad-por-control-de-divulgación-estadística-proceso-sdc" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Necesidad por control de divulgación estadística (proceso SDC)<a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La protección de la confidencialidad ha sido una preocupación de las Oficinas Nacionales de Estadísticas (ONE), lo que ha sido foco de atención recientemente, esto debido a que en las últimas décadas se ha experimentado un avance tecnológico importante, junto con el desarrollo de técnicas de re-identificación, por ejemplo, basado en <em>machine learning</em>. Por lo tanto, proteger los datos personales de los informantes y resguardar la vida personal se hace un imperativo <span class="citation">(<a href="#ref-Yazdani" role="doc-biblioref">Yazdani 2015</a>)</span>. Por esta razón, hoy en día, resolver la tensión entre la protección de la información personal y el suministro de datos es realmente un desafío que deben asumir las ONE. En esta situación, tres motivaciones empujan a las ONE a preservar la confidencialidad.</p>
+<p>El primer motivo para mantener la confidencialidad proviene del cumplimiento del marco normativo entre los cuales se establecen las funciones de la ONE. Existe una obligación legal y ética de los productores para garantizar que los datos proporcionados por los informantes se utilicen únicamente con fines estadísticos. La ONE debe respetar la confianza de los informantes, cuidar su privacidad y mantenerlos alejados de cualquier daño que pueda surgir de la información que han proporcionado. La ONE debe velar por resguardar el cumplimiento del marco normativo y las normas éticas.</p>
+<p>El segundo motivo subyace en el deseo de la ONE de obtener la cooperación de los informantes y obtener datos más precisos. Los informantes que confían que su información permanecerá confidencial tienen más probabilidades de participar en la encuesta y reportar con precisión su información privada. Cualquier duda sobre la confidencialidad puede reducir la disposición de los posibles informantes a cooperar en una encuesta y puede afectar la calidad de las respuestas <span class="citation">(<a href="#ref-Yazdani" role="doc-biblioref">Yazdani 2015</a>)</span>.</p>
+<p>El último motivo es la obligación impuesta a la ONE por la legislación vigente, así como por compromisos internacionales. La fuerza de la sociedad sobre los gobiernos ha llevado al establecimiento de entornos legales para salvaguardar la privacidad y la ONE está mandada a respetar estas restricciones legales <span class="citation">(<a href="#ref-Duncan" role="doc-biblioref">Duncan, Elliot, and Salzar-González 2011</a>)</span>. Además, como lo aprobó por unanimidad la Asamblea General de las Naciones Unidas en enero de 2014, el principio 6 de los Principios Fundamentales de las Estadísticas Oficiales postula que “Los datos individuales que reúnan los organismos de estadística para la compilación estadística, se refieran a personas naturales o jurídicas, deben ser estrictamente confidenciales y utilizarse exclusivamente para fines estadísticos”.</p>
+<p>Los motivos señalados anteriormente son de naturaleza moral, ética y legal. El proceso SDC busca tratar y procesar los datos individuales para que cumplan el marco normativo y así, puedan publicarse o difundirse respetando el secreto estadístico, pero al mismo tiempo, controlar la pérdida de información debido al tratamiento de los datos.</p>
+<p>El objetivo de anonimizar los microdatos es transformar los conjuntos de datos para lograr un “nivel aceptable” de riesgo de divulgación. El nivel de aceptabilidad del riesgo de divulgación y la necesidad de anonimización generalmente quedan a discreción del productor de datos y guiado por la legislación. Estos se formulan en las políticas y programas de difusión de los proveedores de datos y se basan en consideraciones que incluyen “[. . .] los costos y la experiencia involucrados; cuestiones de calidad de los datos, posible uso indebido y malentendidos de los datos por parte de los usuarios; asuntos legales y éticos; y mantener la confianza y el apoyo de los encuestados”<span class="citation">(<a href="#ref-benschop" role="doc-biblioref">Benschop, Machingauta, and Welch 2021, 33</a>)</span>.</p>
 </div>
-<div id="prefacio" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Los datos son un recurso valioso que proporciona información crítica para estadísticos, científicos sociales y científicos de datos. Estos datos se utilizan para generar perspectivas detalladas y oportunas que responden a las necesidades de información de una amplia gama de partes interesadas.</p>
-<p>En un mundo donde cada vez más grandes volúmenes de datos provienen de un número creciente de proveedores, las Oficinas Nacionales de Estadística (ONE) están utilizando enfoques innovadores para mantener estándares y definiciones de datos, sistemas de gestión de privacidad y confidencialidad, e intercambio responsable de datos.</p>
-<p>Las ONE tienen un papel de liderazgo que desempeñar en el establecimiento de formas seguras y transparentes de compartir datos, experiencias y mejores prácticas para respaldar el uso de datos con fines de prueba, evaluación, educación y desarrollo. Con la integridad y la confidencialidad de los datos a la vanguardia, las ONE están posicionandose cada vez más para proporcionar herramientas, métodos y enfoques para promover el intercambio responsable de datos, a fin de satisfacer las necesidades de un número creciente de partes interesadas en este ámbito que está en constante cambio.</p>
-<p>Las ONE reconocen que se debe cumplir con el llamado a una mayor apertura y transparencia de los datos. Sin embargo, también se comprometen a proteger la confidencialidad y la privacidad integradas en sus tenencias de datos.</p>
-<p>Se reconoce ampliamente que la difusión de información que es a la vez útil y completamente segura, no puede lograrse en su totalidad. Por lo tanto, la seguridad es un concepto relativo, no absoluto, y se debe entender como una métrica, no un estado.</p>
-<p>Es dentro de este contexto que las ONE deben establecer protocolos para la difusión segura de datos y métricas para medir la utilidad de la información estadística publicada y el grado de protección de las unidades, ya sean personas naturales o jurídicas, e información recopilada de la cual se deriva.</p>
-<p>Esta guía es para aquellos que trabajan en una ONE u oficina estatal que están involucrados en la gestión del acceso a datos estadísticos, y que deseen explorar herramientas de protección de datos para que los usuarios accedan a ellos. La guía destaca algunas aplicaciones exitosas recientes de control a la divulgación estadística en microdatos en el Instituto Nacional de Estadísticas de Chile (INE), y presenta un marco general sobre medición y evaluación de riesgos, técnicas para generar datos anonimizados, y sobre las medidas de utilidad que se pueden usar para evaluar qué tan bien los datos anonimizados satisfacen las necesidades analíticas de los usuarios. La guía también incluye recomendaciones sobre qué enfoques utilizar en diferentes situaciones, así como consejos prácticos y recursos para que los profesionales comiencen su experiencia en la implementación de proceso de control a la divulgación estadística.</p>
-<p>Esta guía se basa en Statistical Disclosure Control: A Practice Guide <span class="citation">Benschop, Machingauta, and Welch (<a href="#ref-benschop2019statistical" role="doc-biblioref">2019</a>)</span> y en la <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/guias-y-orientaciones-metodologicas/documentos/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=b6bdd28f_2">Guía para el control de divulgación estadística en microdatos</a>, elaborada por el INE en 2021, que es el primer esfuerzo en esta materia en instituciones del Estado en Chile. Sin embargo, aún puede enriquecerse a partir de nuevos conocimientos y experiencias que tanto investigadores como profesionales puedan aportar.</p>
-<p>¡Esperamos que esta guía lo ayude en su viaje hacia la implementación de procesos de control a la divulgación estadística en su organización!</p>
-<div id="autores-de-esta-guía" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Autores de esta guía<a href="index.html#autores-de-esta-guía" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Jonathan González Mejías, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
-<p>José Bustos Melo, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Julio Guerrero Rojas, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Lissette Bastías Navarro, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.</p>
-<p>Nicolás Berhó Montalvo, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.</p>
+<div id="balance-riesgo-utilidad-en-el-proceso-sdc" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Balance riesgo-utilidad en el proceso SDC<a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Por otra parte, el proceso SDC se caracteriza por el balance entre el riesgo de divulgación y la utilidad de los datos para los usuarios finales. La escala riesgo-utilidad se extiende entre dos extremos:</p>
+<ol style="list-style-type: lower-roman">
+<li>No se difunden datos (riesgo cero de divulgación) y, por lo tanto, los usuarios no obtienen ninguna utilidad de los datos,</li>
+<li>Los datos se difunden sin ningún tratamiento y, por lo tanto, con el máximo riesgo de divulgación, pero con la máxima utilidad para el usuario (es decir, sin pérdida de información).</li>
+</ol>
+<p>El objetivo de un proceso SDC bien implementado es encontrar el punto óptimo en el que la utilidad para los usuarios finales se maximice a un nivel de riesgo aceptable.</p>
+<p>En el balance entre Riesgo y Utilidad que se muestra en la Figura <a href="proceso-sdc-una-introducción.html#fig:balance">5.1</a>, por un extremo, el triángulo corresponde a los datos sin procesar, los que no tienen pérdida de información, pero generalmente tienen un riesgo de divulgación más alto que el nivel aceptable. El otro extremo es el cuadrado, que corresponde a la no publicación de datos. En ese caso, no hay riesgo de divulgación, pero tampoco hay utilidad de los datos para los usuarios. Los puntos intermedios corresponden a diferentes opciones de métodos SDC y/o parámetros aplicados a diferentes variables. El proceso SDC busca métodos y parámetros, que son aplicados de una manera que produce una reducción del riesgo de forma muchas veces satisfactoria, minimizándose generalmente la pérdida de información.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:balance"></span>
+<img src="fig1.png" alt="Balance Riesgo-Utilidad en un conjunto de datos. Imagen extraída de [@benschop,p.15]." width="609" />
+<p class="caption">
+Figura 5.1: Balance Riesgo-Utilidad en un conjunto de datos. Imagen extraída de <span class="citation">(<a href="#ref-benschop" role="doc-biblioref">Benschop, Machingauta, and Welch 2021, 15</a>)</span>.
+</p>
 </div>
-<div id="reconocimientos" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Reconocimientos<a href="index.html#reconocimientos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Aquí escribir si se quiere agradecer o reconocer la colaboración de alguna persona o equipo.</p>
+<p>El proceso SDC no puede lograr la eliminación total del riesgo, pero puede reducir el riesgo a un nivel aceptable. Cualquier aplicación de métodos SDC suprimirá o alterará los valores en los datos y, como tal, disminuirá la utilidad (es decir, dará como resultado una pérdida de información) en comparación con los datos originales. Un hilo común que se enfatizará a lo largo de esta guía será que el proceso SDC debe priorizar el objetivo de proteger a los informantes y, al mismo tiempo, tener en cuenta a los usuarios de datos para limitar la pérdida de información. En general, cuanto menor es el riesgo de divulgación, mayor es la pérdida de información y menor es la utilidad de los datos para los usuarios finales.
+En la práctica, la elección de métodos SDC es un proceso iterativo: después de aplicar los métodos, el riesgo de divulgación y la utilidad de datos se vuelven a medir y se comparan con los resultados de otros métodos SDC y parámetros aplicados. Si el resultado es satisfactorio, los datos pueden ser liberados. Como se verá más adelante, a menudo el primer intento no será el óptimo. El riesgo puede no ser reducido lo suficiente o la pérdida de información puede ser demasiado alta y el proceso debe repetirse con diferentes métodos o parámetros hasta que se encuentre una solución satisfactoria. El riesgo de divulgación, la utilidad de los datos y la pérdida de información en el contexto de proceso SDC y cómo medirlos se analizan en capítulos posteriores de esta guía.</p>
+<p>Nuevamente, debe enfatizarse que el nivel de SDC y los métodos aplicados dependen en gran medida de todo el marco de publicación de datos. Por ejemplo, una consideración clave es a quién y bajo qué condiciones se liberarán los datos (ver sección <a href="tipos-de-liberación-de-datos.html#tipos-de-liberación-de-datos">Tipos de liberación de datos</a>). Si los datos se van a difundir como datos de uso público, entonces el nivel de SDC aplicado solo tendrá que ser mayor que en los casos en que los datos se difundan bajo condiciones de licencia a usuarios confiables, después de un examen cuidadoso <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> . Se discutirá cómo se podría lograr esto más adelante en la guía.
+Esto ha dispuesto que entidades internacionales desarrollen diferentes técnicas de anonimización, que se ajustan a diferentes tipos de datos, consiguiendo de mejor manera resguardar la calidad de ellos.
+El INE, igualmente deberá tener en cuenta este balance al publicar sus datos, velando porque se ponga a disposición de la ciudadanía información de la mayor calidad posible, cumpliendo el marco normativo relativo a la protección de datos, manteniendo así la confianza de los informantes.</p>
 
 </div>
 </div>
 <h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-benschop2019statistical" class="csl-entry">
-Benschop, Thijs, Cathrine Machingauta, and Matthew Welch. 2019. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+<div id="ref-benschop" class="csl-entry">
+———. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>World Bank</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
 </div>
+<div id="ref-Duncan" class="csl-entry">
+Duncan, G., M. Elliot, and J. Salzar-González. 2011. <em>Statistical Confidentiality: Principles and Practice</em>. New York:Springer.
+</div>
+<div id="ref-Yazdani" class="csl-entry">
+Yazdani, A. 2015. <em>Statisticial Confidentiality and Disclosure Control Textbook</em>. Organisation of Islamic Cooperation, Statistical Economic; Social Research; Training Centre for Islamic Countries SESRIC.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Esto no aplica en el caso del INE DE chile, pues solo es aplicable, según el marco legal vigente, la difusión de datos mediante formato PUF.<a href="proceso-sdc-una-introducción.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tipos-de-liberación-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducción-a-sdcmicro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -422,7 +438,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
 "text": "Edit"
 },
 "history": {

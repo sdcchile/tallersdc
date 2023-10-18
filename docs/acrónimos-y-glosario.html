@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Acrónimos y glosario | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Acrónimos y glosario | Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Acrónimos y glosario | Guía para el Control de Divulgación Estadística en Microdatos" />
+  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
+
+
+<meta name="date" content="2023-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="introducción.html"/>
+<link rel="next" href="tipos-de-liberación-de-datos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="acrónimos-y-glosario" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Acrónimos y glosario<a href="acrónimos-y-glosario.html#acrónimos-y-glosario" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="acrónimos" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Acrónimos<a href="acrónimos-y-glosario.html#acrónimos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<caption>
+<span id="tab:tabAcron1">Tabla 3.1: </span>Lista de acrónimos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Acrónimo
+</th>
+<th style="text-align:left;">
+Descripción
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AEPD
+</td>
+<td style="text-align:left;">
+Agencia Española de Protección de Datos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bloque
+</td>
+<td style="text-align:left;">
+Trozo de código en R que permite cargar y procesar datos, realizar los análisis estadísticos e imprimir los resultados
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CEPAL
+</td>
+<td style="text-align:left;">
+Comisión Económica para América Latina y el Caribe
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DANE
+</td>
+<td style="text-align:left;">
+Departamento Administrativo Nacional de Estadística
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ENUSC
+</td>
+<td style="text-align:left;">
+Encuesta Nacional Urbana de Seguridad Ciudadana
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FCYTE
+</td>
+<td style="text-align:left;">
+Fundación Española de Ciencia y Tecnología
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GSBPM [1]
+</td>
+<td style="text-align:left;">
+Modelo Genérico del Proceso Estadístico
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IHSN [2]
+</td>
+<td style="text-align:left;">
+Red Internacional de Encuestas de Hogares
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+INE
+</td>
+<td style="text-align:left;">
+Instituto Nacional de Estadísticas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+INEGI
+</td>
+<td style="text-align:left;">
+Instituto Nacional de Estadística y Geografía
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MINSEGPRES
+</td>
+<td style="text-align:left;">
+Ministerio Secretaría General de la Presidencia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+OCDE
+</td>
+<td style="text-align:left;">
+Organización para la Cooperación y el Desarrollo Económicos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ONE
+</td>
+<td style="text-align:left;">
+Oficina Nacional de Estadística
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PITEC
+</td>
+<td style="text-align:left;">
+Panel de Innovación tecnológica
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PRAM [3]
+</td>
+<td style="text-align:left;">
+Método de Post-Aleatorización
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PUF [4]
+</td>
+<td style="text-align:left;">
+Archivo de Uso Público
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RUT
+</td>
+<td style="text-align:left;">
+Rol Único Tributario
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ROL
+</td>
+<td style="text-align:left;">
+Identifica a una propiedad o bien raíz
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SEN
+</td>
+<td style="text-align:left;">
+Sistema Estadístico Nacional
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SDC [5]
+</td>
+<td style="text-align:left;">
+Control de Divulgación Estadística
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sdcMicro
+</td>
+<td style="text-align:left;">
+Paquete de implementación bajo el <em>software</em> R
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+STATCAN [6]
+</td>
+<td style="text-align:left;">
+Estadísticas de Canadá
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SUF [7]
+</td>
+<td style="text-align:left;">
+Archivo de Uso Científico
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+UNECE [8]
+</td>
+<td style="text-align:left;">
+Comisión Económica de las Naciones Unidas para Europa
+</td>
+</tr>
+</tbody>
+</table>
+<p>[1] En inglés, <em>Generic Statistical Business Process Model</em>.<br />
+[2] En inglés, <em>International Household Survey Network</em>.<br />
+[3] En inglés, <em>Post Randomization Method</em>.<br />
+[4] En inglés, <em>Public Use File</em>.<br />
+[5] En inglés, <em>Statistical Disclosure Control</em>.<br />
+[6] En inglés, <em>Statistics Canada</em>.<br />
+[7] En inglés, <em>Scientific Use File</em>.<br />
+[8] En inglés, <em>United Nations Economic Commission for Europe</em>.</p>
+</div>
+<div id="glosario" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Glosario<a href="acrónimos-y-glosario.html#glosario" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Respecto a los términos, conceptos o categorías utilizadas en esta guía se detallan aquellos que son relevantes para la comprensión del subproceso.</p>
+<table class="table table-striped" style>
+<caption>
+<span id="tab:unnamed-chunk-1">Tabla 3.2: </span>Glosario de términos y conceptos
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Término
+</th>
+<th style="text-align:left;">
+Definición
+</th>
+<th style="text-align:left;">
+Referencia
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Adición de ruido
+</td>
+<td style="text-align:left;">
+Método basado en agregar o multiplicar un número aleatorio a los valores originales para proteger los datos de la coincidencia exacta con archivos externos. La adición de ruido se aplica típicamente a variables continuas.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Anonimización
+</td>
+<td style="text-align:left;">
+Proceso técnico que consiste en transformar los datos individuales de las unidades de observación, de tal modo que no sea posible identificar sujetos o características individuales de la fuente de información, preservando así las propiedades estadísticas en los resultados.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Archivo de datos para uso científico
+</td>
+<td style="text-align:left;">
+Archivo de uso científico (SUF, por su sigla en inglés, Scientific Use File), es un tipo de publicación del archivo de microdatos, que solo está disponible para investigadores seleccionados bajo un acuerdo. También conocido como “archivo con licencia”, “microdatos bajo contrato” o “archivo de investigación”.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Archivo de datos para uso en centro de datos de investigación controlado o enclave
+</td>
+<td style="text-align:left;">
+Son los archivos que pueden ofrecerse a los usuarios bajo condiciones estrictas en un enclave de datos. Se trata de una sala equipada con computadores que no están conectados a Internet ni a una red externa, y del que no se puede descargar información a través de puertos USB u otras unidades. Los enclaves de datos contienen datos que son particularmente sensibles o permiten la identificación directa o fácil de los informantes. Los ejemplos incluyen conjuntos de datos completos de censos de población, encuestas empresariales, etc.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Archivo de datos para uso público
+</td>
+<td style="text-align:left;">
+Archivo de uso público (PUF, por sus siglas en inglés, Public Use File), es un tipo de publicación del archivo de microdatos, que está disponible gratuitamente para cualquier usuario, por ejemplo, en el sitio web del INE.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Barajado (En inglés, shuffling)
+</td>
+<td style="text-align:left;">
+Método que consiste en enmascarar una variable considerada confidencial mediante la generación de una distribución condicional.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Base de datos
+</td>
+<td style="text-align:left;">
+Una colección lógica de información que está interrelacionada y que se gestiona y almacena como una unidad, por ejemplo, en el mismo archivo informático.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Celdas confidenciales
+</td>
+<td style="text-align:left;">
+Las celdas de una tabla que no son publicables debido al riesgo de divulgación estadística se denominan celdas confidenciales.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Clave
+</td>
+<td style="text-align:left;">
+Combinación o patrón de variables clave o cuasi – identificadores. También, es usado el término llave.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Codificación superior o inferior
+</td>
+<td style="text-align:left;">
+Corresponde a la agrupación de una variable continua en una categoría en los extremos de los valores posibles que agrupa todos los valores mayores o menores a un número (por ejemplo: valores mayores o iguales a 5 quedarán en la categoría “5 o más” mientras que el resto conserva su valor).
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Confidencialidad de los datos
+</td>
+<td style="text-align:left;">
+Es una propiedad de los datos, generalmente como resultado de medidas legislativas, que previenen su divulgación no autorizada.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Control de Divulgación Estadística (SDC)
+</td>
+<td style="text-align:left;">
+Proceso que busca tratar y alterar los datos para que puedan publicarse o difundirse sin revelar la información confidencial que contiene, mientras que, al mismo tiempo, limitan la pérdida de información debido al anonimato de los datos. En el GSBPM, estos métodos están relacionados con la etapa de difusión y generalmente se basan en restringir la cantidad o modificar los datos publicados.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-australianbureauofstatistics2021" role="doc-biblioref">Australian Bureau of Statistics 2021</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Convenio
+</td>
+<td style="text-align:left;">
+Contrato, convención o acuerdo que se desarrolla en función de un asunto específico destinado a crear, transferir, modificar o extinguir una obligación.
+- Es un acuerdo de voluntades entre dos o más organismos públicos con personalidad jurídica, sobre cualquier cuestión pendiente de resolver.
+- Son instrumentos jurídicos, suscritos por dos o más organismos de la Administración del Estado, que tienen por finalidad, comprometer la colaboración mutua entre ellos, dentro de las facultades que la ley les confiere para satisfacer necesidades actuales o futuras y que requieren de su formalización, mediante actos administrativos, para producir efectos jurídicos.
+Tipos de convenios:
+1. Marco: establece las bases para el intercambio de información, mediante convenios específicos.
+2. Específico: consiste en la materialización de un convenio marco, y tiene por objeto señalar específicamente las obligaciones de cada parte, detallando los compromisos que adquiere cada institución.
+</td>
+<td style="text-align:left;">
+Fiscalía INE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Datos personales
+</td>
+<td style="text-align:left;">
+Son datos de carácter personal o datos personales, “los relativos a cualquier información concerniente a personas naturales, identificadas o identificables”.
+</td>
+<td style="text-align:left;">
+[Ley N° 19628 1999]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Datos originales
+</td>
+<td style="text-align:left;">
+Datos a los que no se les aplica algún método de anonimización. También se denominan “datos brutos” o “datos no tratados”.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Divulgación
+</td>
+<td style="text-align:left;">
+Se produce cuando una persona u organización reconoce o aprende algo que no sabía sobre otra persona u organización a través de los datos divulgados. Ver también Divulgación de identidad, Divulgación de atributos y Divulgación inferencial.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Divulgación de atributos
+</td>
+<td style="text-align:left;">
+La divulgación de atributos ocurre cuando un usuario puede determinar nuevas características de un individuo u organización con base en la información disponible en los datos publicados. A este usuario se le denominará intruso, ver intruso.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Divulgación de identidad
+</td>
+<td style="text-align:left;">
+La divulgación de identidad ocurre cuando un intruso asocia a un individuo (o grupo) u organización conocida, con un registro de datos publicado.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Divulgación inferencial
+</td>
+<td style="text-align:left;">
+La divulgación inferencial ocurre si un intruso puede determinar, a partir de los datos publicados, el valor de alguna característica de un individuo u organización con mayor precisión que lo pretendido.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Encuesta
+</td>
+<td style="text-align:left;">
+Investigación sobre las características de una población particular, que utiliza procedimientos estandarizados para recopilar información de la población de estudio (incluidos censos, encuestas de muestra, la recopilación de datos de registros administrativos y actividades estadísticas derivadas) para estimar sus características mediante el uso sistemático de la metodología estadística.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Escenario de divulgación
+</td>
+<td style="text-align:left;">
+Describe la información potencialmente disponible para un tercero (por ejemplo: datos del censo, padrones electorales, registro de población, datos recopilados por empresas privadas o incluso datos de encuestas publicadas por el INE), para identificar a los encuestados y las formas en que dicha información se puede combinar con los microdatos establecidos para ser publicados y utilizados para la re-identificación de registros en el conjunto de datos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, págs. 25-26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Estructura jerárquica
+</td>
+<td style="text-align:left;">
+Datos que se componen de colecciones de registros que están interconectados a través de enlaces, por ejemplo, individuos que pertenecen a grupos/hogares o empleados que pertenecen a empresas.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Identificador
+</td>
+<td style="text-align:left;">
+Variable/información (o grupo de variables) que puede utilizarse para establecer la identidad de un individuo u organización. Los identificadores pueden conducir a una identificación directa o indirecta.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Identificadores directos
+</td>
+<td style="text-align:left;">
+Son variables que identifican inequívocamente unidades estadísticas, como, RUT, ROL, número de seguro social, o nombres y direcciones de empresas o personas. Los identificadores directos deben eliminarse como primer paso del proceso de anonimización.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Identificadores indirectos
+</td>
+<td style="text-align:left;">
+Son variables que, si bien no identifican inequívocamente unidades estadísticas, en combinación se pueden vincular a información externa para re-identificar a los informantes en el conjunto de datos publicado. También se les denomina “cuasi-identificadores” o “variables clave”.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Informante
+</td>
+<td style="text-align:left;">
+Empresas, autoridades, personas individuales, etc., de quienes se recopilan datos e información asociada para su uso en la compilación de estadísticas.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Intervalo
+</td>
+<td style="text-align:left;">
+Un conjunto de números entre dos cotas designadas que pueden o no estar incluidos (abiertos, semiabiertos o cerrados). Los corchetes (por ejemplo, [0, 1]) denotan un intervalo cerrado, que incluye los puntos finales 0 y 1. Los paréntesis, por ejemplo, (0, 1) denotan un intervalo abierto, que no incluye los puntos finales.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Intruso
+</td>
+<td style="text-align:left;">
+Usuario que hace mal uso de los datos publicados al tratar de identificar y divulgar información sobre un individuo u organización, utilizando un conjunto de características conocidas por el usuario.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+K-anonimato
+</td>
+<td style="text-align:left;">
+La medida de riesgo 𝑘-anonimato se basa en el principio de que, en un conjunto de datos seguro, el número de individuos que comparten la misma combinación de valores (claves) de identificadores indirectos categóricos debe ser superior a un umbral especificado 𝑘. Es una medida de riesgo basada en los microdatos que se liberarán, ya que solo tiene en consideración la muestra.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Metadatos
+</td>
+<td style="text-align:left;">
+Son datos que entregan la información necesaria para el uso e interpretación adecuada de las estadísticas por parte de las personas usuarias. Los metadatos describen los datos producidos por medio de la documentación de contenidos relacionados, por ejemplo, con la metodología; el trabajo de campo; el procesamiento; análisis y la calidad; entre otros, de una operación estadística particular.
+Contexto: Generalmente se hace una distinción entre metadatos estructurales y de referencia.​
+Los metadatos estructurales se utilizan para identificar y describir formalmente: nombres de dimensiones, diccionarios de variables, descripciones técnicas de conjuntos de datos, ubicaciones de conjuntos de datos, palabras clave para buscar datos, etc​
+Los metadatos de referencia (a veces llamados metadatos explicativos) describen los contenidos y la calidad de los resultados estadísticos. Incluye documentación descriptiva sobre el contexto de la información producida, como, por ejemplo, las metodologías para la recolección y análisis de datos, así como características de la calidad y difusión de la operación.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Métodos determinísticos
+</td>
+<td style="text-align:left;">
+Métodos que siguen cierto algoritmo y producen los mismos resultados si se aplican repetidamente a los mismos datos con el mismo conjunto de parámetros.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Métodos no perturbativos
+</td>
+<td style="text-align:left;">
+Métodos que reducen los detalles en los datos o suprimen ciertos valores (enmascaramiento) sin distorsionar la estructura de datos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Métodos perturbativos
+</td>
+<td style="text-align:left;">
+Métodos que alteran los valores para limitar el riesgo de divulgación al crear incertidumbre en torno a los valores verdaderos, al tiempo que conservan la mayor cantidad de contenido y estructura posible, por ejemplo, microagregación y adición de ruido.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Métodos probabilísticos
+</td>
+<td style="text-align:left;">
+Métodos que dependen de un mecanismo de probabilidad o un mecanismo de generación de números aleatorios. Cada vez que se utiliza un método probabilístico se genera un resultado diferente.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Microagregación
+</td>
+<td style="text-align:left;">
+Método que se basa en la sustitución de valores para una determinada variable con un valor común para un grupo de registros. La agrupación de registros se basa en una medida de proximidad de variables de interés. Los grupos de registros también se utilizan para calcular el valor de reemplazo.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Microdatos
+</td>
+<td style="text-align:left;">
+Corresponde a los datos sobre las características asociadas a las unidades estadísticas que se encuentran consolidadas en una base de datos. Son observaciones no agregadas o mediciones de las características de la o las unidades estadísticas, siendo la forma primaria en la que se almacenan los datos y que a partir de esta se derivan los resultados. El conjunto de microdatos es uno de los resultados y/o producto de la recolección de datos y del procesamiento de los datos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Muestra única
+</td>
+<td style="text-align:left;">
+Un registro de la muestra con un conjunto particular de características que no se repite en otras observaciones, de modo que el individuo u organización se puede distinguir de otras unidades de la muestra en función de ese conjunto de características.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Operación estadística
+</td>
+<td style="text-align:left;">
+Aplicación de un conjunto interrelacionado de procesos, que comprende la detección de necesidades, el diseño, construcción, recolección de datos, procesamiento, análisis, difusión y evaluación, lo cual conduce a la obtención de resultados estadísticos sobre un tema de estudio.
+Contexto: cuando se hace referencia al concepto se deben tener las siguientes consideraciones.
+• El concepto de operación estadística permite identificar e individualizar un proceso estadístico sobre un tema o ámbito particular; por ejemplo, el Índice de Precios al Consumidor, la Encuesta Nacional de Empleo o el Censo de Población y Viviendas, corresponden a operaciones específicas que se realizan implementando un proceso compuesto por subprocesos, tareas y actividades.
+• Las operaciones estadísticas que realizan las oficinas estadísticas o unidades del sistema estadístico pueden ser clasificadas y agrupadas por medio de inventarios o catastros permitiendo la coordinación y planificación estadística, los cuales constituyen la base para la formulación de los Planes Nacionales de Recopilación Estadística (PNRE).
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Pérdida de información
+</td>
+<td style="text-align:left;">
+Se refiere a la reducción del contenido de información en los datos liberados en relación con el contenido de información en los datos sin procesar. A menudo se mide con el uso de medidas analíticas comunes, como regresiones e indicadores. Ver también Utilidad de los datos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Población única
+</td>
+<td style="text-align:left;">
+Un registro en la población con un conjunto particular de características que no se repite en la población, de modo que el individuo u organización puede distinguirse de otras unidades de la población en función de ese conjunto de características.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Post Randomization Method (PRAM)
+</td>
+<td style="text-align:left;">
+Método en el que los puntajes de una variable categórica se alteran de acuerdo con ciertas probabilidades. Por lo tanto, es una clasificación errónea intencional con probabilidades de clasificación errónea conocidas
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Privacidad
+</td>
+<td style="text-align:left;">
+Es un concepto que se aplica a las unidades, mientras que la confidencialidad se aplica a los datos.
+El concepto se define de la siguiente manera: “Es el estatus otorgado a los datos que ha sido acordado entre la persona u organización que proporciona los datos y la organización que los recibe y que describe el grado de protección que se brindará”.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Producto estadístico
+</td>
+<td style="text-align:left;">
+Resultados físicos o digitales de una operación estadística, en general corresponden a publicaciones de información mediante la presentación de datos y metadatos, que buscan satisfacer las necesidades de la comunidad usuaria.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Protección de datos
+</td>
+<td style="text-align:left;">
+Se refiere al conjunto de leyes, políticas y procedimientos motivados por la privacidad que tienen como objetivo minimizar la intrusión en la privacidad de los informantes causada por la recopilación, el almacenamiento y la difusión de datos personales.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Recodificación
+</td>
+<td style="text-align:left;">
+Método en el que se agrupan categorías o valores existentes y se reemplazan con nuevos valores, por ejemplo, las categorías “protestante” y “católico” se reemplazan por “cristiano”. La recodificación reduce los detalles en los datos y, para las variables continuas, conduce a una transformación de continua a categórica, por ejemplo, creando bandas de ingresos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Registro
+</td>
+<td style="text-align:left;">
+Un conjunto de datos derivados de un objeto/unidad de estudio, por ejemplo, un individuo (en datos a nivel individual), un hogar (en datos a nivel de hogar) o una empresa (en datos de la empresa). Los registros también se denominan “observaciones”.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Registro administrativo
+</td>
+<td style="text-align:left;">
+Conjunto de datos recopilados y utilizados para fines administrativos por una entidad pública o privada sobre un tipo de hecho, evento, acción, objeto, sujeto, obtenidos sistemáticamente con base en un formato específico ya sea impreso, digital u otro y dentro del marco de sus atribuciones.
+Contexto: a modo de ejemplo, se consideran registros administrativos las bases de datos con identificadores únicos asociados a números de identificación personal, números de identificación tributaria u otros, los datos geográficos que permitan identificar o ubicar espacialmente los datos, así como los listados de unidades y transacciones administrados por los integrantes del SEN, así como entidades privadas de interés para las oficinas estadísticas.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Regresión
+</td>
+<td style="text-align:left;">
+Proceso estadístico para medir la relación entre el valor medio de una variable y los valores correspondientes de otras variables.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Riesgo de divulgación
+</td>
+<td style="text-align:left;">
+Se refiere a la probabilidad de que ocurra efectivamente una divulgación de la información confidencial de un informante, o una divulgación exacta con un alto nivel de confianza.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Riesgo global
+</td>
+<td style="text-align:left;">
+Es una medida sobre todo el conjunto de datos que agrega los riesgos individuales como la proporción esperada de individuos en una muestra que pueden ser correctamente re-identificados por un intruso. Hay que utilizar con cuidado esta medida, ya que puede esconder altos riesgos individuales con un riesgo global aceptable.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Riesgo individual
+</td>
+<td style="text-align:left;">
+Es la probabilidad de una correcta re-identificación de individuos en los datos divulgados.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Riesgo jerárquico
+</td>
+<td style="text-align:left;">
+Es la probabilidad de una correcta re-identificación de unidades tomando en cuenta la estructura jerárquica de los datos. La estructura jerárquica de un conjunto de datos puede estar dado por ser miembros de un hogar, trabajadores de una empresa o alumnos de un colegio, entre otros ejemplos, el riesgo entonces tomará en cuenta que si se identifica algún miembro de este hogar, empresa o colegio puede que se identifique al resto de sus miembros.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+sdcMicro
+</td>
+<td style="text-align:left;">
+Un paquete basado en R creado por Templ, M., Kowarik, A. y Meindl, B. con herramientas para la anonimización de microdatos, es decir, para la creación de archivos de uso público y científico con cierto estándar de anonimato en las observaciones.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Supresión de datos
+</td>
+<td style="text-align:left;">
+La supresión de datos implica no divulgar información que se considera insegura porque no se aplican las reglas de confidencialidad. A veces esto se hace reemplazando valores que significan atributos individuales con valores faltantes (por ejemplo, pasando del nivel de ingresos de un hogar a un “missing” o “sin dato” para proteger la identidad del hogar). En el contexto de esta guía, generalmente para lograr el nivel deseado de k – anonimato.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Tabulados
+</td>
+<td style="text-align:left;">
+Expresión gráfica que sintetiza un valor o estimación producto del cruce entre dos o más variables.
+</td>
+<td style="text-align:left;">
+[Instituto Nacional de Estadísticas 2020] pág. 60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Técnicas de control de divulgación estadística
+</td>
+<td style="text-align:left;">
+Se pueden definir como el conjunto de métodos para reducir el riesgo de divulgar información sobre personas, empresas u otras organizaciones. Dichos métodos solo están relacionados con el paso de difusión y generalmente se basan en restringir la cantidad o modificar los datos publicados.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Umbral de riesgo
+</td>
+<td style="text-align:left;">
+Nivel, valor, margen o punto establecido a partir del cual se produce la identificación de unidades. Si no es seguro, se deberán tomar medidas adicionales para reducir el riesgo de identificación.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Unidad de observación
+</td>
+<td style="text-align:left;">
+Unidad identificable sobre la que se obtiene información (o son informados), registran y compilan datos estadísticos.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-institutonacionaldeestadisticas2022" role="doc-biblioref">Instituto Nacional de Estadísticas 2022</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Usuario final
+</td>
+<td style="text-align:left;">
+El usuario del archivo de microdatos liberado después de la anonimización.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Utilidad de los datos
+</td>
+<td style="text-align:left;">
+Describe el valor de una publicación de datos determinada como recurso analítico. Esto comprende la integridad analítica de los datos y su validez analítica. Los métodos de control de divulgación suelen tener un efecto adverso en la utilidad de los datos. Idealmente, el objetivo de cualquier régimen de control de divulgación debería ser maximizar la utilidad de los datos al tiempo que se minimiza el riesgo de divulgación. En la práctica, las decisiones de control de divulgación son una compensación entre la utilidad y el riesgo de divulgación.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Valor atípico
+</td>
+<td style="text-align:left;">
+Un valor inusual que se informa correctamente pero que no es típico del resto de la población. Los valores atípicos (outliers, en inglés) también pueden ser observaciones con una combinación inusual de valores para variables, como la viuda de 20 años. En su propia edad, 20 y viuda no son valores inusuales, pero su combinación puede serlo.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable
+</td>
+<td style="text-align:left;">
+Cualquier característica, número o cantidad que se puede medir o contar para cada unidad de observación.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable categórica
+</td>
+<td style="text-align:left;">
+Una variable discreta que toma valores sobre un conjunto finito, por ejemplo, sexo representado por los números 1 o 0 para hombre y mujer. También llamado factor en R.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable continua
+</td>
+<td style="text-align:left;">
+Una variable que puede tomar valores sobre un conjunto denso. Ejemplos son los ingresos, la altura del cuerpo y el tamaño de la parcela.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variables de no identificación
+</td>
+<td style="text-align:left;">
+Son variables que no pueden utilizarse para la re-identificación de los informantes o fuentes. Esto podría deberse a que estas variables no están contenidas en ningún otro archivo de datos u otra fuente externa. Estas variables son importantes en el procedimiento del control a la divulgación, ya que pueden contener variables sensibles.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable factor
+</td>
+<td style="text-align:left;">
+Son una forma de clasificar variables categóricas en factores, que pueden ser ordenadas o no.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable semicontinua (discreta)
+</td>
+<td style="text-align:left;">
+Es una variable que toma valores contenidos en un conjunto discreto. Un ejemplo es la edad medida en años, que podría tomar valores en el conjunto {0, 1, . . ., 100}. La naturaleza finita de los valores para estas variables significa que pueden tratarse como variables categóricas a los efectos de SDC.
+</td>
+<td style="text-align:left;">
+Adaptado de <span class="citation">(<a href="#ref-benschop2021" role="doc-biblioref">Benschop and Welch 2021</a>)</span>, pág. 24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Variable sensible
+</td>
+<td style="text-align:left;">
+Variable contenida en un registro de datos, además de las variables clave, que pertenecen al dominio privado de los informantes que no quisieran que se divulgaran.
+Algunos datos son claramente sensibles, como la posesión de antecedentes penales o la condición médica, pero hay otros casos en los que la distinción depende de las circunstancias, por ejemplo, los ingresos de una persona pueden considerarse como una variable sensible en algunos países.
+La determinación de variables sensibles a menudo está sujeta a preocupaciones legales y éticas.
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-oecd" role="doc-biblioref">OECD s.f.</a>)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-australianbureauofstatistics2021" class="csl-entry">
+Australian Bureau of Statistics. 2021. <span>“Glossary | Australian Bureau of Statistics.”</span> <a href="https://www.abs.gov.au/about/data-services/data-confidentiality-guide/glossary">https://www.abs.gov.au/about/data-services/data-confidentiality-guide/glossary</a>.
+</div>
+<div id="ref-benschop2021" class="csl-entry">
+Benschop, Thijs, and Matthew Welch. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>26/07/2021</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+</div>
+<div id="ref-institutonacionaldeestadisticas2022" class="csl-entry">
+———. 2022. <span>“Glosario de conceptos estadísticos,”</span> February. <a href="https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/glosario-de-conceptos-estadisticos/documentos/glosario-de-conceptos-ine-v_1-0.pdf?sfvrsn=f9766bd9_2">https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/glosario-de-conceptos-estadisticos/documentos/glosario-de-conceptos-ine-v_1-0.pdf?sfvrsn=f9766bd9_2</a>.
+</div>
+<div id="ref-oecd" class="csl-entry">
+OECD. s.f. <span>“The OECD Glossary of Statistical Terms.”</span> <a href="https://stats.oecd.org/glossary/">https://stats.oecd.org/glossary/</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipos-de-liberación-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

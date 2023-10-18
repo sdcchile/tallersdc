@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Introducción a sdcMicro | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Introducción a sdcMicro | Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Introducción a sdcMicro | Guía para el Control de Divulgación Estadística en Microdatos" />
+  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
+
+
+<meta name="date" content="2023-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="proceso-sdc-una-introducción.html"/>
+<link rel="next" href="medición-de-riesgos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introducción-a-sdcmicro" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Introducción a sdcMicro<a href="introducción-a-sdcmicro.html#introducción-a-sdcmicro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introducción<a href="introducción-a-sdcmicro.html#introducción-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El paquete <code>R</code> <code>sdcMicro</code> <span class="citation">Templ, Kowarik, and Meindl (<a href="#ref-templ2015" role="doc-biblioref">2015</a>)</span> sirve para evaluar y anonimizar conjuntos de microdatos confidenciales, facilita el manejo de métodos SDC mediante una implementación de clase S4 orientada a objetos. Incluye todos los métodos populares de perturbación y riesgo de divulgación. El paquete realiza un nuevo cálculo automático de recuentos de frecuencia, medidas de riesgo individuales y globales, pérdida de información y estadísticas de utilidad de datos después de cada paso de anonimización. Todos los métodos están altamente optimizados en términos de costos computacionales para poder trabajar con grandes conjuntos de datos. Los profesionales también pueden utilizar fácilmente las funciones de generación de informes que resumen el proceso de anonimización. Describimos el paquete y demostramos su funcionalidad con un complejo conjunto de datos de prueba procedente de encuestas de hogares, que ha sido distribuido por la Red Internacional de Encuestas de Hogares.</p>
+<p>Para más información ver <a href="https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf" class="uri">https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf</a></p>
+</div>
+<div id="instalación-de-r-sdcmicro-y-otros-paquetes" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes<a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta guía se basa en el paquete de <em>software</em> <code>sdcMicro</code>, que es un paquete adicional para el lenguaje de programación estadístico <code>R</code>. Tanto <code>R</code> como <code>sdcMicro</code>, así como otros paquetes de <code>R</code>, están disponibles gratuitamente en el sitio web de CRAN (Comprehensive R Archive Network) para Linux, Mac y Windows (<a href="http://cran.r-project.org" class="uri">http://cran.r-project.org</a> ). Este sitio web también ofrece descripciones de paquetes. Además de la versión estándar de <code>R</code>, existe una interfaz de usuario más fácil de usar para <code>R</code>: RStudio. RStudio también está disponible gratuitamente para Linux, Mac y Windows (<a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a> ). El paquete <code>sdcMicro</code> tiene dependencia de otros paquetes <code>R</code> que deben instalarse en su computadora antes de usar <code>sdcMicro</code>. Se instalarán automáticamente al instalar <code>sdcMicro</code>. Para algunas funcionalidades, usamos otros paquetes (como <code>foreign</code> para leer datos y algunos paquetes gráficos). Si es así, esto se indica en la sección correspondiente de esta guía. <code>R</code>, RStudio, el paquete <code>sdcMicro</code> y sus dependencias y otros paquetes tienen actualizaciones periódicas. Se recomienda encarecidamente comprobar periódicamente si hay actualizaciones: esto requiere instalar una nueva versión para una actualización de <code>R</code>; con el comando <code>update.packages()</code> o usando las opciones de menú en <code>R</code> o RStudio se pueden actualizar los paquetes instalados.</p>
+<p>Al iniciar <code>R</code> o RStudio, es necesario especificar cada vez qué paquetes se están utilizando cargándolos. Esta carga de paquetes se puede realizar con la función <code>library()</code> o <code>require()</code>. Ambas opciones se ilustran en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro1">6.1</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro1" class="example"><strong>Bloque 6.1  </strong></span>Cargando paquetes requeridos</p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introducción-a-sdcmicro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro) <span class="co"># cargando paquete sdcMicro</span></span>
+<span id="cb1-2"><a href="introducción-a-sdcmicro.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(sdcMicro) <span class="co"># cargando paquete sdcMicro</span></span></code></pre></div>
+<p>Todos los paquetes y funciones están documentados. La forma más fácil de acceder a la documentación de una función específica es usar la ayuda integrada, que generalmente brinda una descripción general de los parámetros de las funciones, así como algunos ejemplos. La ayuda de una función específica se puede llamar con un signo de interrogación seguido del nombre de la función sin ningún argumento. El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro2">6.2</a> muestra cómo llamar al archivo de ayuda para la función <code>microaggregation()</code> del paquete <code>sdcMicro</code> <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. La página de descarga de cada paquete en el sitio web de CRAN también proporciona un manual de referencia con una descripción completa de las funciones del paquete.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro2" class="example"><strong>Bloque 6.2  </strong></span>Visualización de ayuda para funciones</p>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="introducción-a-sdcmicro.html#cb2-1" aria-hidden="true" tabindex="-1"></a>?microaggregation <span class="co"># ayuda para la función microagregación</span></span></code></pre></div>
+<p>Cuando se encuentran problemas o errores en el paquete <code>sdcMicro</code>, se pueden publicar comentarios o sugerencias para los desarrolladores de <code>sdcMicro</code> en su GitHub (<a href="https://github.com/sdcTools/sdcMicro/issues" class="uri">https://github.com/sdcTools/sdcMicro/issues</a>).</p>
+</div>
+<div id="leer-funciones-en-r" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Leer funciones en <code>R</code><a href="introducción-a-sdcmicro.html#leer-funciones-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El primer paso en el proceso SDC cuando se usa <code>sdcMicro</code> es leer los datos en <code>R</code> y crear un marco de datos<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> <code>R</code> es compatible con la mayoría de los formatos de datos estadísticos y proporciona funciones de lectura para la mayoría de los tipos de datos. Para esas funciones de lectura, a veces es necesario instalar paquetes adicionales y sus dependencias en <code>R</code>. En la Tabla <a href="introducción-a-sdcmicro.html#tab:tabMicro1">6.1</a> se proporciona una descripción general de los formatos de datos, las funciones y los paquetes que contienen estas funciones . Estas funciones también están disponibles como escritura (por ejemplo, <code>write_dta()</code>) para guardar los datos anónimos en el formato requerido <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<table>
+<caption>
+<span id="tab:tabMicro1">Tabla 6.1: </span>Paquetes y funciones para lectura de datos en <code>R</code>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Tipo/software
+</th>
+<th style="text-align:center;">
+Extensión
+</th>
+<th style="text-align:center;">
+Paquete
+</th>
+<th style="text-align:center;">
+Función
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+SPSS
+</td>
+<td style="text-align:center;">
+.sav
+</td>
+<td style="text-align:center;">
+<code>haven</code>
+</td>
+<td style="text-align:center;">
+<code>read_sav()</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+STATA (v.5-14)
+</td>
+<td style="text-align:center;">
+.dta
+</td>
+<td style="text-align:center;">
+<code>haven</code>
+</td>
+<td style="text-align:center;">
+<code>read_dta()</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+SAS
+</td>
+<td style="text-align:center;">
+.sas7bdat
+</td>
+<td style="text-align:center;">
+<code>haven</code>
+</td>
+<td style="text-align:center;">
+<code>read_sas()</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Excel
+</td>
+<td style="text-align:center;">
+.csv
+</td>
+<td style="text-align:center;">
+<code>utils</code> (paquete base)
+</td>
+<td style="text-align:center;">
+<code>read_csv()</code>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Excel
+</td>
+<td style="text-align:center;">
+.xls/.xlsx
+</td>
+<td style="text-align:center;">
+<code>readxl</code>
+</td>
+<td style="text-align:center;">
+<code>read_xlsx()</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p>La mayoría de estas funciones tienen opciones que especifican cómo manejar los valores faltantes y las variables con niveles de factor y etiquetas de valor. El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro3">6.3</a>, el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro4">6.4</a> y el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro5">6.5</a> proporcionan código de ejemplo para leer un archivo STATA (.dta), un archivo de valores separados por ; (.csv) y un archivo SPSS (.sav), respectivamente.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro3" class="example"><strong>Bloque 6.3  </strong></span>Lectura en un archivo STATA</p>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducción-a-sdcmicro.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../Capacitación/GitHub&quot;</span>) <span class="co"># directorio de trabajo</span></span>
+<span id="cb3-2"><a href="introducción-a-sdcmicro.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="introducción-a-sdcmicro.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="introducción-a-sdcmicro.html#cb3-4" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">=</span> <span class="st">&quot;data.dta&quot;</span> <span class="co"># nombre del archivo</span></span>
+<span id="cb3-5"><a href="introducción-a-sdcmicro.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven) <span class="co"># carga el paquete requerido para la función de lectura/escritura</span></span>
+<span id="cb3-6"><a href="introducción-a-sdcmicro.html#cb3-6" aria-hidden="true" tabindex="-1"></a>               <span class="co"># para archivos STATA</span></span>
+<span id="cb3-7"><a href="introducción-a-sdcmicro.html#cb3-7" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(fname)</span>
+<span id="cb3-8"><a href="introducción-a-sdcmicro.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lee los datos en el marco de datos tbl llamado file</span></span></code></pre></div>
+<div class="example">
+<p><span id="exm:bloqueMicro4" class="example"><strong>Bloque 6.4  </strong></span>Lectura en un archivo csv</p>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="introducción-a-sdcmicro.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../Capacitación/GitHub&quot;</span>) <span class="co"># directorio </span></span>
+<span id="cb4-2"><a href="introducción-a-sdcmicro.html#cb4-2" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="co"># de</span></span>
+<span id="cb4-3"><a href="introducción-a-sdcmicro.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="co"># trabajo</span></span>
+<span id="cb4-4"><a href="introducción-a-sdcmicro.html#cb4-4" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">=</span> <span class="st">&quot;data.csv&quot;</span> <span class="co"># nombre del archivo</span></span>
+<span id="cb4-5"><a href="introducción-a-sdcmicro.html#cb4-5" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(fname, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>)</span>
+<span id="cb4-6"><a href="introducción-a-sdcmicro.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># lee los datos hacia un dataframe llamado file,</span></span>
+<span id="cb4-7"><a href="introducción-a-sdcmicro.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># la primera línea contiene los nombres de las variables,</span></span>
+<span id="cb4-8"><a href="introducción-a-sdcmicro.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># campos son separados con comas, posiciones decimales se indican con ‘;’</span></span></code></pre></div>
+<div class="example">
+<p><span id="exm:bloqueMicro5" class="example"><strong>Bloque 6.5  </strong></span>Lectura en un archivo SPSS</p>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introducción-a-sdcmicro.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../Capacitación/GitHub&quot;</span>) <span class="co"># directorio </span></span>
+<span id="cb5-2"><a href="introducción-a-sdcmicro.html#cb5-2" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="co"># de</span></span>
+<span id="cb5-3"><a href="introducción-a-sdcmicro.html#cb5-3" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="co"># trabajo</span></span>
+<span id="cb5-4"><a href="introducción-a-sdcmicro.html#cb5-4" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">=</span> <span class="st">&quot;data.sav&quot;</span> <span class="co"># nombre del archivo</span></span>
+<span id="cb5-5"><a href="introducción-a-sdcmicro.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven) <span class="co"># carga paquete requerido para la función lectura/escritura</span></span>
+<span id="cb5-6"><a href="introducción-a-sdcmicro.html#cb5-6" aria-hidden="true" tabindex="-1"></a>               <span class="co"># para archivos SPSS</span></span>
+<span id="cb5-7"><a href="introducción-a-sdcmicro.html#cb5-7" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(fname)</span>
+<span id="cb5-8"><a href="introducción-a-sdcmicro.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># lee los datos hacia un dataframe llamado file</span></span></code></pre></div>
+<p>El tamaño máximo de datos en <code>R</code> está técnicamente restringido. El tamaño máximo depende de la versión <code>R</code> (32 o 64 bits) y del sistema operativo. Algunos métodos SDC requieren largos tiempos de cálculo para grandes conjuntos de datos (consulte la Sección <a href="introducción-a-sdcmicro.html#tiempo-de-cómputo">Tiempo de cómputo</a>).</p>
+</div>
+<div id="valores-faltantes" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Valores faltantes<a href="introducción-a-sdcmicro.html#valores-faltantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La forma estándar en que los valores faltantes se representan en <code>R</code> es mediante el símbolo <code>NA</code>, que es diferente a los valores imposibles, como la división por cero o el logaritmo de un número negativo, que se representan con el símbolo <code>NaN</code>. El valor <code>NA</code> se usa tanto para variables numéricas como categóricas<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Los valores suprimidos por la rutina <code>localSuppression()</code> también se reemplazan por el símbolo <code>NA</code>. Algunos conjuntos de datos y <em>software</em> estadístico pueden usar diferentes valores para los valores faltantes, como ‘999’ o cadenas. Es posible incluir argumentos en las funciones de lectura para especificar cómo se deben tratar los valores faltantes en el conjunto de datos y recodificar automáticamente los valores faltantes a <code>NA</code>. Por ejemplo, la función <code>read.table()</code> tiene el argumento <code>na.strings</code>, que reemplaza las cadenas especificadas con valores <code>NA</code>.</p>
+<p>Los valores faltantes también se pueden recodificar después de leer los datos en <code>R</code>. Esto puede ser necesario si hay varios códigos de valores perdidos diferentes en los datos, códigos de valores perdidos diferentes para diferentes variables o la función de lectura para el tipo de datos no permite especificar los códigos de valores perdidos. Al preparar los datos, es importante volver a codificar cualquier valor faltante que no esté codificado como <code>NA</code> a <code>NA</code> en <code>R</code> antes de iniciar el proceso de anonimización para garantizar la medición correcta del riesgo (por ejemplo, k-anonimato), así como para asegurar que muchos de los métodos se aplican correctamente a los datos. El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro6">6.6</a> muestra cómo recodificar el valor ‘99’ a <code>NA</code> para la variable “TOILET”.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro6" class="example"><strong>Bloque 6.6  </strong></span>Recodificación de valores perdidos a <code>NA</code></p>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="introducción-a-sdcmicro.html#cb6-1" aria-hidden="true" tabindex="-1"></a>file[file[,<span class="st">&#39;TOILET&#39;</span>] <span class="sc">==</span> <span class="dv">99</span>,<span class="st">&#39;TOILET&#39;</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb6-2"><a href="introducción-a-sdcmicro.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificar el código de valor faltante 99 a NA para la variable TOILET</span></span></code></pre></div>
+</div>
+<div id="clases-en-r" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Clases en <code>R</code><a href="introducción-a-sdcmicro.html#clases-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Todos los objetos en <code>R</code> son de una clase específica, como un número entero, un carácter, una matriz, un factor o un marco de datos. La clase de un objeto es un atributo que hereda de la clase base, haciéndolo miembro e instancia de esta clase. Para averiguar la clase de un objeto, se puede utilizar la función <code>class()</code>. Las funciones en <code>R</code> pueden requerir objetos o argumentos de ciertas clases o funciones que pueden tener una funcionalidad diferente según la clase del argumento. Algunos ejemplos son las funciones de escritura que requieren marcos de datos y la mayoría de las funciones en el paquete <code>sdcMicro</code> que requieren marcos de datos u objetos <code>sdcMicro</code>. La funcionalidad de las funciones en el paquete <code>sdcMicro</code> difiere para marcos de datos y objetos <code>sdcMicro</code>. Es fácil cambiar el atributo de clase de un objeto con funciones que comienzan con “as.”, seguido del nombre de la clase (por ejemplo, <code>as.factor()</code>, <code>as.matrix()</code>, <code>as.data.frame()</code>). El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro7">6.7</a> muestra cómo verificar la clase de un objeto y cambiar la clase a “data.frame”. Antes de cambiar el atributo de clase del objeto “file”, estaba en la clase “matrix”. Una clase importante definida y utilizada en el paquete <code>sdcMicro</code> es la clase denominada <code>sdcMicroObj</code>. Esta clase se describe en la siguiente sección.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro7" class="example"><strong>Bloque 6.7  </strong></span>Cambiando la clase de un objeto en <code>R</code></p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introducción-a-sdcmicro.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Averiguar la clase del objeto &#39;file&#39;</span></span>
+<span id="cb7-2"><a href="introducción-a-sdcmicro.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(file)</span>
+<span id="cb7-3"><a href="introducción-a-sdcmicro.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;matrix&quot;</span></span>
+<span id="cb7-4"><a href="introducción-a-sdcmicro.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="introducción-a-sdcmicro.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cambiar la clase al marco de datos (data frame)</span></span>
+<span id="cb7-6"><a href="introducción-a-sdcmicro.html#cb7-6" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(file)</span>
+<span id="cb7-7"><a href="introducción-a-sdcmicro.html#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="introducción-a-sdcmicro.html#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprobando la clase del resultado (file)</span></span>
+<span id="cb7-9"><a href="introducción-a-sdcmicro.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;data.frame&quot;</span></span></code></pre></div>
+</div>
+<div id="objetos-de-la-clase-sdcmicroobj" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Objetos de la clase <code>sdcMicroObj</code><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El paquete <code>sdcMicro</code> se basa en objetos <a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> de la clase <code>sdcMicroObj</code>, una clase especialmente definida para el paquete <code>sdcMicro</code>. Cada componente de esta clase tiene una estructura determinada con elementos que contienen información sobre el proceso de anonimización (consulte la Tabla <a href="introducción-a-sdcmicro.html#tab:tabMicro2">6.2</a> para obtener una descripción de todos los elementos o propiedades (<em>slots</em>, en inglés)). Antes de evaluar el riesgo y la utilidad y aplicar métodos SDC, se recomienda crear un objeto de clase <code>sdcMicro</code>. Todos los ejemplos de esta guía se basan en estos objetos. La función utilizada para crear un objeto <code>sdcMicro</code> es <code>createSdcObj()</code>. La mayoría de las funciones en el paquete <code>sdcMicro</code>, como <code>microaggregation()</code> o <code>localSuppression()</code>, usan automáticamente la información requerida (por ejemplo, identificadores indirectos, pesos de muestra) del objeto <code>sdcMicro</code> si se aplica a un objeto de clase <code>sdcMicro</code>.</p>
+<p>Los argumentos de la función <code>createSdcObj()</code> permiten especificar el archivo de datos original y categorizar las variables en este archivo de datos antes del inicio del proceso de anonimización.</p>
+<p>En el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro8">6.8</a>, mostramos todos los argumentos de la función <code>createSdcObj()</code>, y primero definimos vectores con los nombres de las diferentes variables. Esta práctica brinda una mejor visión general y luego permite cambios rápidos en las opciones de variables si es necesario. Elegimos los identificadores indirectos categóricos (keyVars); las variables vinculadas a los identificadores indirectos categóricos que necesitan el mismo patrón de supresión (ghostVars, consulte la sección <a href="métodos-sdc.html#sup-loc">Supresión local</a>); los identificadores indirectos numéricos (numVars); las variables seleccionadas para aplicar PRAM (pramVars); una variable con pesos muestrales (weightVar); el identificador de agrupación (hhId, por ejemplo, un identificador de hogar, consulte la sección <a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar">Riesgo jerárquico (o del hogar)</a>); una variable que especifica los estratos (strataVar) y las variables sensibles especificadas para el cálculo de <em>l-diversity</em> (sensibleVar, consulte la sección <a href="medición-de-riesgos.html#l-diversity">l-diversity</a>).</p>
+<p>La mayoría de los métodos SDC en el paquete <code>sdcMicro</code> se aplican automáticamente dentro de los estratos, si se especifica el argumento ‘strataVar’.</p>
+<p>Los ejemplos son la supresión local y PRAM. No se deben especificar todas las variables, por ejemplo, si no hay una estructura jerárquica (hogar), se puede omitir el argumento ‘hhId’. Los nombres de las variables corresponden a los nombres de las variables en el marco de datos que contiene los microdatos a anonimizar. La selección de variables es importante para las medidas de riesgo que se calculan automáticamente. Además, varios métodos se aplican por defecto a todas las variables de un tipo, por ejemplo, microagregación a todas las variables clave <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. Después de seleccionar estas variables, podemos crear el objeto sdcMicro. Para obtener un resumen del objeto, es suficiente escribir el nombre del objeto.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro8" class="example"><strong>Bloque 6.8  </strong></span>Seleccionando variables y creando un objeto de clase <code>sdcMicroObj</code> para el proceso SDC en <code>R</code></p>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="introducción-a-sdcmicro.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar variables para crear objeto sdcMicro</span></span>
+<span id="cb8-2"><a href="introducción-a-sdcmicro.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="introducción-a-sdcmicro.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección de variables categóricas</span></span>
+<span id="cb8-4"><a href="introducción-a-sdcmicro.html#cb8-4" aria-hidden="true" tabindex="-1"></a>selectedKeyVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;URBRUR&#39;</span>, <span class="st">&#39;REGION&#39;</span>, <span class="st">&#39;HHSIZE&#39;</span>)</span>
+<span id="cb8-5"><a href="introducción-a-sdcmicro.html#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="introducción-a-sdcmicro.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables clave continuas</span></span>
+<span id="cb8-7"><a href="introducción-a-sdcmicro.html#cb8-7" aria-hidden="true" tabindex="-1"></a>selectedNumVar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;TANHHEXP&#39;</span>, <span class="st">&#39;INCTOTGROSSHH&#39;</span>)</span>
+<span id="cb8-8"><a href="introducción-a-sdcmicro.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="introducción-a-sdcmicro.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># PRAM variables</span></span>
+<span id="cb8-10"><a href="introducción-a-sdcmicro.html#cb8-10" aria-hidden="true" tabindex="-1"></a>selectedPramVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;ROOF&#39;</span>, <span class="st">&#39;TOILET&#39;</span>, <span class="st">&#39;WATER&#39;</span>, <span class="st">&#39;ELECTCON&#39;</span>,</span>
+<span id="cb8-11"><a href="introducción-a-sdcmicro.html#cb8-11" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;FUELCOOK&#39;</span>, <span class="st">&#39;OWNMOTORCYCLE&#39;</span>, <span class="st">&#39;CAR&#39;</span>, <span class="st">&#39;TV&#39;</span>, <span class="st">&#39;LIVESTOCK&#39;</span>)</span>
+<span id="cb8-12"><a href="introducción-a-sdcmicro.html#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="introducción-a-sdcmicro.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Peso del hogar</span></span>
+<span id="cb8-14"><a href="introducción-a-sdcmicro.html#cb8-14" aria-hidden="true" tabindex="-1"></a>selectedWeightVar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;WGTPOP&#39;</span>)</span>
+<span id="cb8-15"><a href="introducción-a-sdcmicro.html#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="introducción-a-sdcmicro.html#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="introducción-a-sdcmicro.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Creando el objeto sdcMicro con las variables asignadas</span></span>
+<span id="cb8-18"><a href="introducción-a-sdcmicro.html#cb8-18" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat          =</span> file,</span>
+<span id="cb8-19"><a href="introducción-a-sdcmicro.html#cb8-19" aria-hidden="true" tabindex="-1"></a>                           <span class="at">keyVars      =</span> selectedKeyVars,</span>
+<span id="cb8-20"><a href="introducción-a-sdcmicro.html#cb8-20" aria-hidden="true" tabindex="-1"></a>                           <span class="at">numVar       =</span> selectedNumVar,</span>
+<span id="cb8-21"><a href="introducción-a-sdcmicro.html#cb8-21" aria-hidden="true" tabindex="-1"></a>                           <span class="at">weightVar    =</span> selectedWeightVar,</span>
+<span id="cb8-22"><a href="introducción-a-sdcmicro.html#cb8-22" aria-hidden="true" tabindex="-1"></a>                           <span class="at">pramVars     =</span> selectedPramVars)</span>
+<span id="cb8-23"><a href="introducción-a-sdcmicro.html#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="introducción-a-sdcmicro.html#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Resumen del objeto</span></span>
+<span id="cb8-25"><a href="introducción-a-sdcmicro.html#cb8-25" aria-hidden="true" tabindex="-1"></a>sdcInitial</span>
+<span id="cb8-26"><a href="introducción-a-sdcmicro.html#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="introducción-a-sdcmicro.html#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="do">## ---------------------------------------------------------------------------</span></span></code></pre></div>
+<p>La Tabla <a href="introducción-a-sdcmicro.html#tab:tabMicro2">6.2</a> presenta los nombres de los elementos y sus respectivos contenidos. Los nombres de los elementos se pueden listar usando la función <code>slotNames()</code>, que se ilustra en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro9">6.9</a>. Algunos espacios se llenan solo después de aplicar ciertos métodos, por ejemplo, evaluar una medida de riesgo específica. Se puede acceder a ciertos elementos de los objetos mediante funciones de acceso (por ejemplo, <code>extractManipData</code> para extraer los datos anónimos) o funciones de impresión (por ejemplo, <code>print()</code>) con los argumentos apropiados. También se puede acceder directamente al contenido de un espacio con el operador ‘@’ y el nombre del espacio. Esto se ilustra para el elemento o atributo de riesgo en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro9">6.9</a>. Esta funcionalidad puede ser práctica para guardar resultados intermedios y comparar los resultados de diferentes métodos. Además, para cambios manuales en los datos durante el proceso SDC, como cambiar códigos de valores faltantes o recodificación manual, es útil el acceso directo de los datos en los elementos o propiedades con los datos manipulados (es decir, nombres de elemento que comienzan con ‘manip’). Dentro de cada elemento generalmente hay varios elementos. Sus nombres se pueden mostrar con la función <code>names()</code> y se puede acceder a ellos con el operador ‘$’. Esto se muestra para el elemento con el riesgo individual en el elemento de riesgo.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro9" class="example"><strong>Bloque 6.9  </strong></span>Visualización de nombres de elementos o propiedades y acceso a elementos o propiedades de un objeto S4</p>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introducción-a-sdcmicro.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de todos los slots de objeto sdcMicro</span></span>
+<span id="cb9-2"><a href="introducción-a-sdcmicro.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">slotNames</span>(sdcInitial)</span>
+<span id="cb9-3"><a href="introducción-a-sdcmicro.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="introducción-a-sdcmicro.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Accediendo al slot de riesgos</span></span>
+<span id="cb9-5"><a href="introducción-a-sdcmicro.html#cb9-5" aria-hidden="true" tabindex="-1"></a>sdcInitial<span class="sc">@</span>risk</span>
+<span id="cb9-6"><a href="introducción-a-sdcmicro.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="introducción-a-sdcmicro.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de nombres dentro del slot de riesgo</span></span>
+<span id="cb9-8"><a href="introducción-a-sdcmicro.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(sdcInitial<span class="sc">@</span>risk)</span>
+<span id="cb9-9"><a href="introducción-a-sdcmicro.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;global&quot;  &quot;individual&quot;  &quot;numeric&quot;</span></span>
+<span id="cb9-10"><a href="introducción-a-sdcmicro.html#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="introducción-a-sdcmicro.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Dos formas de acceder al riesgo individual dentro del slot de riesgo</span></span>
+<span id="cb9-12"><a href="introducción-a-sdcmicro.html#cb9-12" aria-hidden="true" tabindex="-1"></a>sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual</span>
+<span id="cb9-13"><a href="introducción-a-sdcmicro.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">get.sdcMicroObj</span>(sdcInitial, <span class="st">&quot;risk&quot;</span>)<span class="sc">$</span>individual</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:tabMicro2">Tabla 6.2: </span>Nombres de elementos o propiedades y descripción de los elementos o propiedades del objeto <code>sdcMicro</code>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Nombre de elemento
+</th>
+<th style="text-align:left;">
+Contenido
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<code>origData</code>
+</td>
+<td style="text-align:left;">
+datos originales como se especifica en el argumento dat de la función <code>createSdcObj()</code>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>keyVars</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variables clave categóricas especificadas.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>pramVars</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variables PRAM especificadas.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>numVars</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variables clave numéricas especificadas.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>ghostVars</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con <code>ghostVars</code> especificados.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>weightVar</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variable de peso especificada.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>hhId</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variable de clúster especificada.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>strataVar</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variable de estratos especificada.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>sensibleVar</code>
+</td>
+<td style="text-align:left;">
+índices de columnas en <code>origData</code> con variables sensibles especificadas para <em>l-diversity</em>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>manipKeyVars</code>
+</td>
+<td style="text-align:left;">
+variables clave categóricas manipuladas después de aplicar métodos SDC (ver elemento <code>keyVars</code>).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>manipPramVars</code>
+</td>
+<td style="text-align:left;">
+variables PRAM manipuladas después de aplicar PRAM (ver elemento <code>pramVars</code>).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>manipNumVar</code>
+</td>
+<td style="text-align:left;">
+variables clave numéricas manipuladas después de aplicar métodos SDC (ver elemento <code>numVars</code>).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>manipGhostVars</code>
+</td>
+<td style="text-align:left;">
+variables fantasma manipuladas (ver elemento <code>ghostVars</code>).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>manipStrataVar</code>
+</td>
+<td style="text-align:left;">
+variables de estratos manipulados (ver elemento <code>strataVar</code>).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>originalRisk</code>
+</td>
+<td style="text-align:left;">
+medidas de riesgo globales e individuales antes de la anonimización.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>risk</code>
+</td>
+<td style="text-align:left;">
+medidas de riesgo global e individual después de la aplicación de métodos SDC.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>utility</code>
+</td>
+<td style="text-align:left;">
+medidas de utilidad (il1 y eigen).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>pram</code>
+</td>
+<td style="text-align:left;">
+detalles sobre PRAM después de aplicar PRAM.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>localSuppression</code>
+</td>
+<td style="text-align:left;">
+número de supresión por variable después de la supresión local.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>options</code>
+</td>
+<td style="text-align:left;">
+opciones especificadas.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>additionalResults</code>
+</td>
+<td style="text-align:left;">
+resultados adicionales.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>set</code>
+</td>
+<td style="text-align:left;">
+lista de elemento actualmente en uso (para uso interno).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>prev</code>
+</td>
+<td style="text-align:left;">
+información para deshacer un paso con la función <code>undo()</code>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<code>deletedVars</code>
+</td>
+<td style="text-align:left;">
+variables eliminadas (identificadores directos).
+</td>
+</tr>
+</tbody>
+</table>
+<p>Hay dos opciones para guardar los resultados después de aplicar los métodos SDC:</p>
+<ol style="list-style-type: decimal">
+<li>Sobrescribir el objeto <code>sdcMicro</code> existente, o</li>
+<li>creando un nuevo objeto <code>sdcMicro</code>. El objeto original no se modificará y se puede utilizar para comparar resultados. Esto es especialmente útil para comparar varios métodos y seleccionar la mejor opción.</li>
+</ol>
+<p>En ambos casos, el resultado de cualquier función debe reasignarse a un objeto con el operador ‘&lt;-’. Ambos métodos se ilustran en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro10">6.10</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro10" class="example"><strong>Bloque 6.10  </strong></span>Guardado de resultados de la aplicación de métodos SDC</p>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="introducción-a-sdcmicro.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar supresión local y reasignar los resultados al mismo objeto sdcMicro</span></span>
+<span id="cb10-2"><a href="introducción-a-sdcmicro.html#cb10-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(sdcInitial)</span>
+<span id="cb10-3"><a href="introducción-a-sdcmicro.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="introducción-a-sdcmicro.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar supresión local y asignar los resultados a un nuevo objeto sdcMicro</span></span>
+<span id="cb10-5"><a href="introducción-a-sdcmicro.html#cb10-5" aria-hidden="true" tabindex="-1"></a>sdc1 <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(sdcInitial)</span></code></pre></div>
+<p>Si los resultados se reasignan al mismo objeto sdcMicro, es posible deshacer el último paso del proceso SDC. Esto es útil al cambiar los parámetros. Sin embargo, los resultados del último paso se pierden después de deshacer ese paso.</p>
+<p>La función <code>undolast()</code> se puede usar para retroceder solo un paso, no varios. El resultado también debe ser reasignado al mismo objeto. Esto se ilustra en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro11">6.11</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro11" class="example"><strong>Bloque 6.11  </strong></span>Deshacer último paso en proceso SDC</p>
+</div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introducción-a-sdcmicro.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deshacer el último paso en el proceso SDC</span></span>
+<span id="cb11-2"><a href="introducción-a-sdcmicro.html#cb11-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">undolast</span>(sdcInitial)</span></code></pre></div>
+</div>
+<div id="estructura-del-hogar" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Estructura del hogar<a href="introducción-a-sdcmicro.html#estructura-del-hogar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si los datos tienen una estructura jerárquica y algunas variables se miden en el nivel jerárquico más alto y otras en el nivel más bajo, el proceso SDC debe adaptarse en consecuencia (véanse también la sección <a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar">Riesgo jerárquico (o del hogar)</a>). Un ejemplo común en los datos de encuestas sociales son los conjuntos de datos con una estructura de hogar. Las variables que se miden a nivel del hogar son, por ejemplo, los ingresos del hogar, el tipo de vivienda y la región. Las variables medidas a nivel individual son, por ejemplo, la edad, el nivel educativo y el estado civil. Algunas variables se miden a nivel individual, no obstante, son las mismas para todos los miembros del hogar en casi todos los hogares. Estas variables deben ser tratadas como medidas a nivel de hogar desde la perspectiva del SDC. Un ejemplo es la variable religión para algunos países.</p>
+<p>El proceso SDC debe dividirse en dos etapas en los casos en que los datos tengan una estructura de hogar. Primero, las variables en el nivel superior (hogar) deben anonimizarse; posteriormente, las variables de nivel superior tratadas deben fusionarse con las variables individuales y anonimizarse conjuntamente. En esta sección, explicamos cómo extraer variables del hogar de un archivo y fusionarlas con las variables de niveles individuales después del tratamiento en R. Ilustramos este proceso con un ejemplo de variables a nivel individual y del hogar.</p>
+<p>Estos pasos se ilustran en el Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro12">6.12</a>. Requerimos una identificación individual y una identificación familiar en el conjunto de datos; si faltan, deben generarse. La identificación individual debe ser única para cada individuo en el conjunto de datos y la identificación del hogar debe ser única para todos los hogares. El primer paso es extraer las variables del hogar y guardarlas en un nuevo marco de datos. Especificamos las variables que se miden a nivel del hogar en el vector de cadena “HHVars” y restamos solo estas variables del conjunto de datos. Este marco de datos tendrá para cada hogar el mismo número de entradas que miembros del hogar (por ejemplo, si un hogar tiene cuatro miembros, este hogar aparecerá cuatro veces en el archivo). A continuación, aplicamos la función <code>unique()</code> para seleccionar solo un registro por hogar. Este argumento de la función <code>unique()</code> es la identificación del hogar, que es la misma para todos los miembros del hogar,</p>
+<div class="example">
+<p><span id="exm:bloqueMicro12" class="example"><strong>Bloque 6.12  </strong></span>Crear un archivo a nivel de hogar con registros únicos (eliminar duplicados) <a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introducción-a-sdcmicro.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear subconjunto de archivo con solo variables medidas a nivel de hogar</span></span>
+<span id="cb12-2"><a href="introducción-a-sdcmicro.html#cb12-2" aria-hidden="true" tabindex="-1"></a>HHVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;IDH&#39;</span>, selectedKeyVars, selectedPramVars, selectedNumVar, selectedWeightVar)</span>
+<span id="cb12-3"><a href="introducción-a-sdcmicro.html#cb12-3" aria-hidden="true" tabindex="-1"></a>fileHH <span class="ot">&lt;-</span> file[,HHVars]</span>
+<span id="cb12-4"><a href="introducción-a-sdcmicro.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="introducción-a-sdcmicro.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Elimine las filas duplicadas en función de la identificación del hogar / </span></span>
+<span id="cb12-6"><a href="introducción-a-sdcmicro.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># solo cada hogar una vez en el fileHH</span></span>
+<span id="cb12-7"><a href="introducción-a-sdcmicro.html#cb12-7" aria-hidden="true" tabindex="-1"></a>fileHH <span class="ot">&lt;-</span> <span class="fu">unique</span>(fileHH, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;HID&#39;</span>))</span>
+<span id="cb12-8"><a href="introducción-a-sdcmicro.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="introducción-a-sdcmicro.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Dimensiones del fileHH (número de hogares)</span></span>
+<span id="cb12-10"><a href="introducción-a-sdcmicro.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileHH)</span></code></pre></div>
+<p>Después de anonimizar las variables del hogar con base en el marco de datos “fileHH”, recombinamos las variables del hogar anonimizadas con las variables originales, que se miden a nivel individual. Podemos extraer las variables de nivel individual del conjunto de datos original usando “INDVars”, un vector de cadena con los nombres de las variables de nivel individual. Para extraer los datos anonimizados del objeto sdcMicro, podemos usar la función <code>extractManipData()</code> del paquete <code>sdcMicro</code>. A continuación, fusionamos los datos usando la función <code>merge()</code>. El argumento ‘by’ en la función <code>merge()</code> especifica la variable utilizada para la combinación; en este caso, la identificación del hogar, que tiene el mismo nombre de variable en ambos conjuntos de datos. Todas las demás variables deben tener nombres diferentes en ambos conjuntos de datos. Estos pasos se ilustran en Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro13">6.13</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro13" class="example"><strong>Bloque 6.13  </strong></span>Fusión de variables anonimizadas a nivel de hogar con variables a nivel individual</p>
+</div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introducción-a-sdcmicro.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crea objeto sdcMicro inicial para variables de nivel de hogar</span></span>
+<span id="cb13-2"><a href="introducción-a-sdcmicro.html#cb13-2" aria-hidden="true" tabindex="-1"></a>sdcHH <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileHH, <span class="at">keyVars =</span> selectedKeyVars,</span>
+<span id="cb13-3"><a href="introducción-a-sdcmicro.html#cb13-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">pramVars =</span> selectedPramVars, <span class="at">weightVar =</span> selectedWeightVar,</span>
+<span id="cb13-4"><a href="introducción-a-sdcmicro.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">numVars =</span> selectedNumVar)</span>
+<span id="cb13-5"><a href="introducción-a-sdcmicro.html#cb13-5" aria-hidden="true" tabindex="-1"></a>numHH <span class="ot">&lt;-</span> <span class="fu">length</span>(fileHH[,<span class="dv">1</span>]) <span class="co"># número de hogares</span></span>
+<span id="cb13-6"><a href="introducción-a-sdcmicro.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="introducción-a-sdcmicro.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extrae variables de nivel de hogar manipuladas del objeto SDC</span></span>
+<span id="cb13-8"><a href="introducción-a-sdcmicro.html#cb13-8" aria-hidden="true" tabindex="-1"></a>HHmanip <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdcHH)</span>
+<span id="cb13-9"><a href="introducción-a-sdcmicro.html#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="introducción-a-sdcmicro.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selecciona variables (nivel individual)</span></span>
+<span id="cb13-11"><a href="introducción-a-sdcmicro.html#cb13-11" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;GENDER&#39;</span>, <span class="st">&#39;REL&#39;</span>, <span class="st">&#39;MARITAL&#39;</span>,<span class="st">&#39;AGEYRS&#39;</span>,</span>
+<span id="cb13-12"><a href="introducción-a-sdcmicro.html#cb13-12" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;EDUCY&#39;</span>, <span class="st">&#39;INDUSTRY1&#39;</span>) <span class="co"># lista de variables clave seleccionadas</span></span>
+<span id="cb13-13"><a href="introducción-a-sdcmicro.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="introducción-a-sdcmicro.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Peso de la muestra (WGTHH, pesos individuales)</span></span>
+<span id="cb13-15"><a href="introducción-a-sdcmicro.html#cb13-15" aria-hidden="true" tabindex="-1"></a>selectedWeightVarIND <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;WGTHH&#39;</span>)</span>
+<span id="cb13-16"><a href="introducción-a-sdcmicro.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="introducción-a-sdcmicro.html#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ID hogar</span></span>
+<span id="cb13-18"><a href="introducción-a-sdcmicro.html#cb13-18" aria-hidden="true" tabindex="-1"></a>selectedHouseholdID <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;IDH&#39;</span>)</span>
+<span id="cb13-19"><a href="introducción-a-sdcmicro.html#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="introducción-a-sdcmicro.html#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Todas las variables individuales</span></span>
+<span id="cb13-21"><a href="introducción-a-sdcmicro.html#cb13-21" aria-hidden="true" tabindex="-1"></a>INDVars <span class="ot">&lt;-</span> <span class="fu">c</span>(selectedKeyVarsIND)</span>
+<span id="cb13-22"><a href="introducción-a-sdcmicro.html#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="introducción-a-sdcmicro.html#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Recombinando los datos HH anonimizados y las variables a nivel individual</span></span>
+<span id="cb13-24"><a href="introducción-a-sdcmicro.html#cb13-24" aria-hidden="true" tabindex="-1"></a>indVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;IDH&quot;</span>, <span class="st">&quot;IDP&quot;</span>, selectedKeyVarsIND, <span class="st">&quot;WGTHH&quot;</span>) <span class="co"># IDH y todas las variantes no HH</span></span>
+<span id="cb13-25"><a href="introducción-a-sdcmicro.html#cb13-25" aria-hidden="true" tabindex="-1"></a>fileInd <span class="ot">&lt;-</span> file[indVars] <span class="co"># subset de file sin HHVars</span></span>
+<span id="cb13-26"><a href="introducción-a-sdcmicro.html#cb13-26" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> <span class="fu">merge</span>(HHmanip, fileInd, <span class="at">by.x =</span> <span class="fu">c</span>(<span class="st">&#39;IDH&#39;</span>))</span>
+<span id="cb13-27"><a href="introducción-a-sdcmicro.html#cb13-27" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> fileCombined[<span class="fu">order</span>(fileCombined[,<span class="st">&#39;IDH&#39;</span>],  fileCombined[,<span class="st">&#39;IDP&#39;</span>]),]</span>
+<span id="cb13-28"><a href="introducción-a-sdcmicro.html#cb13-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-29"><a href="introducción-a-sdcmicro.html#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileCombined)</span>
+<span id="cb13-30"><a href="introducción-a-sdcmicro.html#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="introducción-a-sdcmicro.html#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto SDC con solo las variables a nivel IND</span></span>
+<span id="cb13-32"><a href="introducción-a-sdcmicro.html#cb13-32" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined, <span class="at">keyVars =</span> <span class="fu">c</span>(selectedKeyVarsIND),</span>
+<span id="cb13-33"><a href="introducción-a-sdcmicro.html#cb13-33" aria-hidden="true" tabindex="-1"></a>                            <span class="at">weightVar =</span> selectedWeightVarIND, <span class="at">hhId =</span> selectedHouseholdID)</span>
+<span id="cb13-34"><a href="introducción-a-sdcmicro.html#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="introducción-a-sdcmicro.html#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto SDC con ambos niveles de variables, a HH y IND</span></span>
+<span id="cb13-36"><a href="introducción-a-sdcmicro.html#cb13-36" aria-hidden="true" tabindex="-1"></a>sdcCombinedAll <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined,</span>
+<span id="cb13-37"><a href="introducción-a-sdcmicro.html#cb13-37" aria-hidden="true" tabindex="-1"></a>                               <span class="at">keyVars =</span> <span class="fu">c</span>(selectedKeyVarsIND, selectedKeyVars ),</span>
+<span id="cb13-38"><a href="introducción-a-sdcmicro.html#cb13-38" aria-hidden="true" tabindex="-1"></a>                               <span class="at">weightVar =</span> selectedWeightVarIND, </span>
+<span id="cb13-39"><a href="introducción-a-sdcmicro.html#cb13-39" aria-hidden="true" tabindex="-1"></a>                               <span class="at">hhId =</span> selectedHouseholdID)</span>
+<span id="cb13-40"><a href="introducción-a-sdcmicro.html#cb13-40" aria-hidden="true" tabindex="-1"></a>sdcCombinedAll</span></code></pre></div>
+<p>El archivo fileCombined se utiliza para el proceso SDC con todo el conjunto de datos. En el estudio de casos de la sección <a href="caso-de-estudio.html#caso-de-estudio">Caso de estudio</a> se ilustra cómo tratar los datos con la estructura del hogar.</p>
+<p>El tamaño de un hogar también puede ser un identificador indirecto, incluso si el tamaño del hogar no está incluido en el conjunto de datos como variable. Con el fin de evaluar el riesgo de divulgación, podría ser necesario crear dicha variable mediante un recuento de los miembros de cada hogar. El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro14">6.14</a> muestra cómo generar la variable de tamaño de hogar, con valores para cada individuo en función de la identificación del hogar (IDH). Se muestran dos casos: 1) el archivo ordenado por IDH y 2) el archivo no ordenado.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro14" class="example"><strong>Bloque 6.14  </strong></span>Generando la variable tamaño del hogar</p>
+</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introducción-a-sdcmicro.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenado por IDH</span></span>
+<span id="cb14-2"><a href="introducción-a-sdcmicro.html#cb14-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>hhsize <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">unname</span>(<span class="fu">table</span>(file<span class="sc">$</span>IDH)), <span class="fu">unname</span>(<span class="fu">table</span>(file<span class="sc">$</span>IDH)))</span>
+<span id="cb14-3"><a href="introducción-a-sdcmicro.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="introducción-a-sdcmicro.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Desordenado</span></span>
+<span id="cb14-5"><a href="introducción-a-sdcmicro.html#cb14-5" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>hhsize <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">+</span> <span class="fu">which</span>(<span class="fu">diff</span>(file<span class="sc">$</span>IDH) <span class="sc">!=</span> <span class="dv">0</span>), <span class="fu">length</span>(file<span class="sc">$</span>IDH) <span class="sc">+</span> <span class="dv">1</span>)),</span>
+<span id="cb14-6"><a href="introducción-a-sdcmicro.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">+</span> <span class="fu">which</span>(<span class="fu">diff</span>(file<span class="sc">$</span>IDH) <span class="sc">!=</span> <span class="dv">0</span>), <span class="fu">length</span>(file<span class="sc">$</span>IDH) <span class="sc">+</span> <span class="dv">1</span>)))</span></code></pre></div>
+<p>En algunos casos, el orden de las personas dentro de los hogares puede proporcionar información que podría conducir a la reidentificación.</p>
+<p>Un ejemplo es la información sobre la relación con el jefe de hogar. En muchos países, el primer miembro del hogar es el cabeza de familia, el segundo es la pareja del cabeza de familia y los siguientes son los hijos. Por lo tanto, el número de línea dentro del hogar podría correlacionarse bien con una variable que contiene información sobre la relación con el jefe de hogar. Una forma de evitar esta divulgación involuntaria de información es cambiar el orden de los individuos dentro de cada hogar al azar. El Bloque <a href="introducción-a-sdcmicro.html#exm:bloqueMicro15">6.15</a> ilustra una manera de hacer esto en R.</p>
+<div class="example">
+<p><span id="exm:bloqueMicro15" class="example"><strong>Bloque 6.15  </strong></span>Cambiando el orden de los individuos dentro de los hogares</p>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introducción-a-sdcmicro.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargando datos anonimizados </span></span>
+<span id="cb15-2"><a href="introducción-a-sdcmicro.html#cb15-2" aria-hidden="true" tabindex="-1"></a>dataAnon<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;dataAnon.RDS&quot;</span>)</span>
+<span id="cb15-3"><a href="introducción-a-sdcmicro.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="introducción-a-sdcmicro.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de tamaños de hogar por hogar</span></span>
+<span id="cb15-5"><a href="introducción-a-sdcmicro.html#cb15-5" aria-hidden="true" tabindex="-1"></a>hhsize <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">+</span> <span class="fu">which</span>(<span class="fu">diff</span>(dataAnon<span class="sc">$</span>IDH) <span class="sc">!=</span> <span class="dv">0</span>), <span class="fu">length</span>(dataAnon<span class="sc">$</span>IDH) <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb15-6"><a href="introducción-a-sdcmicro.html#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="introducción-a-sdcmicro.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Números de línea asignados al azar dentro de cada hogar</span></span>
+<span id="cb15-8"><a href="introducción-a-sdcmicro.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb15-9"><a href="introducción-a-sdcmicro.html#cb15-9" aria-hidden="true" tabindex="-1"></a>dataAnon<span class="sc">$</span>INDID <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">lapply</span>(hhsize,</span>
+<span id="cb15-10"><a href="introducción-a-sdcmicro.html#cb15-10" aria-hidden="true" tabindex="-1"></a>                                <span class="cf">function</span>(n){<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, n, <span class="at">replace =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-11"><a href="introducción-a-sdcmicro.html#cb15-11" aria-hidden="true" tabindex="-1"></a>                                                   <span class="at">prob =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span>n, n))}))</span>
+<span id="cb15-12"><a href="introducción-a-sdcmicro.html#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="introducción-a-sdcmicro.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordene el archivo por IDH y INDID aleatorio (número de línea)</span></span>
+<span id="cb15-14"><a href="introducción-a-sdcmicro.html#cb15-14" aria-hidden="true" tabindex="-1"></a>dataAnon <span class="ot">&lt;-</span> dataAnon[<span class="fu">order</span>(dataAnon<span class="sc">$</span>IDH, dataAnon<span class="sc">$</span>INDID),]</span></code></pre></div>
+</div>
+<div id="tiempo-de-cómputo" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Tiempo de cómputo<a href="introducción-a-sdcmicro.html#tiempo-de-cómputo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Algunos métodos SDC pueden tardar mucho tiempo en evaluarse en términos de cómputo. Por ejemplo, la supresión local con la función <code>localSuppression()</code> del paquete <code>sdcMicro</code> en <code>R</code> puede tardar días en ejecutarse en grandes conjuntos de datos de más de 30.000 personas que tienen muchos identificadores indirectos categóricos. El uso de la función <code>groupVars()</code>, por ejemplo, no es computacionalmente intensivo, pero aún puede llevar mucho tiempo si el conjunto de datos es grande y las medidas de riesgo deben volver a calcularse.</p>
+<p>Nuestra experiencia revela que el tiempo de cómputo es una función de los siguientes factores: el método SDC aplicado; tamaño de los datos, es decir, número de observaciones, número de variables y número de categorías o niveles de factores de cada variable categórica; complejidad de los datos (por ejemplo, el número de diferentes combinaciones de valores de identificadores indirectos en los datos); así como las especificaciones de la computadora (procesador, la memoria RAM y los medios de almacenamiento).</p>
+<p>El uso de la paralelización puede mejorar el rendimiento incluso en una sola computadora con un procesador con múltiples núcleos. <code>R</code> no utiliza múltiples núcleos a menos que se le indique que lo haga. La paralelización permite que los trabajos/escenarios <a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> en los conjuntos de datos puedan procesarse simultáneamente a través de la asignación eficiente de tareas a diferentes procesadores. Sin paralelización, dependiendo del servidor/computadora, solo se usa un núcleo cuando se ejecutan los trabajos secuencialmente. Ejecutar el programa de anonimización sin paralelización conduce a un tiempo de ejecución significativamente mayor. Sin embargo, tenga en cuenta que la paralelización en sí misma también provoca una sobrecarga. Por lo tanto, una suma de los tiempos que lleva ejecutar cada tarea en paralelo no equivale necesariamente al tiempo que puede llevar ejecutarlas secuencialmente. Sin embargo, el hecho de que la RAM se comparta podría reducir ligeramente las ganancias de la paralelización <a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
+</div>
+<div id="errores-comunes" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Errores comunes<a href="introducción-a-sdcmicro.html#errores-comunes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En esta sección, presentamos algunos errores comunes y sus causas, que pueden encontrarse al usar el paquete <code>sdcMicro</code> en <code>R</code> para la anonimización de microdatos:</p>
+<ol style="list-style-type: decimal">
+<li><p>La clase de una determinada variable no es aceptada por la función, por ejemplo, una variable categórica de clase numérica debe recodificarse primero a la clase requerida (por ejemplo, factor o data.frame). En la sección <a href="introducción-a-sdcmicro.html#clases-en-r">Clases en <code>R</code></a> se muestra cómo hacerlo.</p></li>
+<li><p>Después de realizar cambios manualmente en las variables, el riesgo no cambió, ya que no se actualiza automáticamente y debe volver a calcularse manualmente mediante la función <code>calcRisks()</code>.</p></li>
+</ol>
+
+</div>
+</div>
+<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-templ2015" class="csl-entry">
+Templ, Matthias, Alexander Kowarik, and Bernhard Meindl. 2015. <span>“Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro.”</span> <em>Journal of Statistical Software</em> 67 (October): 1–36. <a href="https://doi.org/10.18637/jss.v067.i04">https://doi.org/10.18637/jss.v067.i04</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>A menudo, también es útil buscar ayuda en Internet sobre funciones específicas en <code>R</code>. Hay muchos foros donde los usuarios de <code>R</code> discuten los problemas que encuentran. Un sitio particularmente útil es <em>stackoverflow.com</em><a href="introducción-a-sdcmicro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Un marco de datos es una clase de objeto en <code>R</code>, que es similar a una tabla o matriz de datos<a href="introducción-a-sdcmicro.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>No todas las funciones son compatibles con todas las versiones del paquete de <em>software</em> respectivo. Nos referimos a los archivos de ayuda de las funciones de lectura y escritura para más información.<a href="introducción-a-sdcmicro.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Esto es independientemente de la clase de la variable en <code>R</code>. Consulte la sección <a href="introducción-a-sdcmicro.html#clases-en-r">Clases en <code>R</code></a> para obtener más información sobre las clases en <code>R</code>.<a href="introducción-a-sdcmicro.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>La clase <code>sdcMicroObj</code> tiene objetos S4, que tienen elementos o atributos y permiten la programación orientada a objetos.<a href="introducción-a-sdcmicro.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>A menos que se especifique lo contrario en los argumentos de la función.<a href="introducción-a-sdcmicro.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Se recomienda verificar que el objeto fileHH tenga después de la aplicación de la función <code>unique()</code> la cantidad de filas esperadas (ej.: N° de viviendas encuestadas) y que no haya valores perdidos no esperados.<a href="introducción-a-sdcmicro.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Aquí, un escenario se refiere a una combinación de métodos SDC y sus parámetros.<a href="introducción-a-sdcmicro.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>El siguiente sitio web proporciona una descripción general de los paquetes y soluciones de paralelización en <code>R</code> : <a href="http://cran.r-project.org/web/views/HighPerformanceComputing.html" class="uri">http://cran.r-project.org/web/views/HighPerformanceComputing.html</a>. <a href="introducción-a-sdcmicro.html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="proceso-sdc-una-introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="medición-de-riesgos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-sdcMicro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 7 Medición de riesgos | Guía para el Control de Divulgación Estadística en Microdatos</title>
+  <meta name="description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 7 Medición de riesgos | Guía para el Control de Divulgación Estadística en Microdatos" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 7 Medición de riesgos | Guía para el Control de Divulgación Estadística en Microdatos" />
+  
+  <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
+  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+
+<meta name="author" content="Subdepartamento de Investigación Estadística" />
+
+
+<meta name="date" content="2023-10-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
+<link rel="prev" href="introducción-a-sdcmicro.html"/>
+<link rel="next" href="métodos-sdc.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prefacio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#autores-de-esta-guía"><i class="fa fa-check"></i><b>1.1</b> Autores de esta guía</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#reconocimientos"><i class="fa fa-check"></i><b>1.2</b> Reconocimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#estableciendo-una-base-de-conocimiento"><i class="fa fa-check"></i><b>2.1</b> Estableciendo una base de conocimiento</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#propósito-de-esta-guía"><i class="fa fa-check"></i><b>2.2</b> Propósito de esta guía</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#esquema-de-esta-guía"><i class="fa fa-check"></i><b>2.3</b> Esquema de esta guía</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html"><i class="fa fa-check"></i><b>3</b> Acrónimos y glosario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#acrónimos"><i class="fa fa-check"></i><b>3.1</b> Acrónimos</a></li>
+<li class="chapter" data-level="3.2" data-path="acrónimos-y-glosario.html"><a href="acrónimos-y-glosario.html#glosario"><i class="fa fa-check"></i><b>3.2</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html"><i class="fa fa-check"></i><b>4</b> Tipos de liberación de datos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tipos-de-liberación-de-datos.html"><a href="tipos-de-liberación-de-datos.html#condiciones-para-la-liberación-de-datos-bajo-versión-puf"><i class="fa fa-check"></i><b>4.1</b> Condiciones para la liberación de datos bajo versión PUF</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html"><i class="fa fa-check"></i><b>5</b> Proceso SDC: Una introducción</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#necesidad-por-control-de-divulgación-estadística-proceso-sdc"><i class="fa fa-check"></i><b>5.1</b> Necesidad por control de divulgación estadística (proceso SDC)</a></li>
+<li class="chapter" data-level="5.2" data-path="proceso-sdc-una-introducción.html"><a href="proceso-sdc-una-introducción.html#balance-riesgo-utilidad-en-el-proceso-sdc"><i class="fa fa-check"></i><b>5.2</b> Balance riesgo-utilidad en el proceso SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html"><i class="fa fa-check"></i><b>6</b> Introducción a sdcMicro</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#introducción-1"><i class="fa fa-check"></i><b>6.1</b> Introducción</a></li>
+<li class="chapter" data-level="6.2" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#instalación-de-r-sdcmicro-y-otros-paquetes"><i class="fa fa-check"></i><b>6.2</b> Instalación de <code>R</code>, <code>sdcMicro</code> y otros paquetes</a></li>
+<li class="chapter" data-level="6.3" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#leer-funciones-en-r"><i class="fa fa-check"></i><b>6.3</b> Leer funciones en <code>R</code></a></li>
+<li class="chapter" data-level="6.4" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#valores-faltantes"><i class="fa fa-check"></i><b>6.4</b> Valores faltantes</a></li>
+<li class="chapter" data-level="6.5" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#clases-en-r"><i class="fa fa-check"></i><b>6.5</b> Clases en <code>R</code></a></li>
+<li class="chapter" data-level="6.6" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj"><i class="fa fa-check"></i><b>6.6</b> Objetos de la clase <code>sdcMicroObj</code></a></li>
+<li class="chapter" data-level="6.7" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#estructura-del-hogar"><i class="fa fa-check"></i><b>6.7</b> Estructura del hogar</a></li>
+<li class="chapter" data-level="6.8" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#tiempo-de-cómputo"><i class="fa fa-check"></i><b>6.8</b> Tiempo de cómputo</a></li>
+<li class="chapter" data-level="6.9" data-path="introducción-a-sdcmicro.html"><a href="introducción-a-sdcmicro.html#errores-comunes"><i class="fa fa-check"></i><b>6.9</b> Errores comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html"><i class="fa fa-check"></i><b>7</b> Medición de riesgos</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#tipos-de-divulgación"><i class="fa fa-check"></i><b>7.1</b> Tipos de divulgación</a></li>
+<li class="chapter" data-level="7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#clasificación-de-variables"><i class="fa fa-check"></i><b>7.2</b> Clasificación de variables</a></li>
+<li class="chapter" data-level="7.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#escenarios-de-divulgación"><i class="fa fa-check"></i><b>7.3</b> Escenarios de divulgación</a></li>
+<li class="chapter" data-level="7.4" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#niveles-de-riesgo"><i class="fa fa-check"></i><b>7.4</b> Niveles de riesgo</a></li>
+<li class="chapter" data-level="7.5" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-individual"><i class="fa fa-check"></i><b>7.5</b> Riesgo individual</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia"><i class="fa fa-check"></i><b>7.5.1</b> Identificadores indirectos categóricos y recuentos de frecuencia</a></li>
+<li class="chapter" data-level="7.5.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#k-anonimato"><i class="fa fa-check"></i><b>7.5.2</b> k-anonimato</a></li>
+<li class="chapter" data-level="7.5.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#l-diversity"><i class="fa fa-check"></i><b>7.5.3</b> l-diversity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas"><i class="fa fa-check"></i><b>7.6</b> Medidas de riesgo para variables continuas</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros"><i class="fa fa-check"></i><b>7.6.1</b> Vinculación de registros (o coincidencia de registros)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#medida-de-intervalo"><i class="fa fa-check"></i><b>7.6.2</b> Medida de intervalo</a></li>
+<li class="chapter" data-level="7.6.3" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#detección-de-valores-atípicos"><i class="fa fa-check"></i><b>7.6.3</b> Detección de valores atípicos</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-global"><i class="fa fa-check"></i><b>7.7</b> Riesgo global</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales"><i class="fa fa-check"></i><b>7.7.1</b> Media de las medidas de riesgo individuales</a></li>
+<li class="chapter" data-level="7.7.2" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral"><i class="fa fa-check"></i><b>7.7.2</b> Recuento de personas con riesgos superiores a un cierto umbral</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar"><i class="fa fa-check"></i><b>7.8</b> Riesgo jerárquico (o del hogar)</a></li>
+<li class="chapter" data-level="7.9" data-path="medición-de-riesgos.html"><a href="medición-de-riesgos.html#referencias"><i class="fa fa-check"></i><b>7.9</b> Referencias</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="métodos-sdc.html"><a href="métodos-sdc.html"><i class="fa fa-check"></i><b>8</b> Métodos SDC</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#clasificación-de-los-métodos-sdc"><i class="fa fa-check"></i><b>8.1</b> Clasificación de los métodos SDC</a></li>
+<li class="chapter" data-level="8.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-no-perturbativos"><i class="fa fa-check"></i><b>8.2</b> Métodos no perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#recodificación"><i class="fa fa-check"></i><b>8.2.1</b> Recodificación</a></li>
+<li class="chapter" data-level="8.2.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#sup-loc"><i class="fa fa-check"></i><b>8.2.2</b> Supresión local</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#métodos-perturbativos"><i class="fa fa-check"></i><b>8.3</b> Métodos perturbativos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="métodos-sdc.html"><a href="métodos-sdc.html#pram-método-de-post-aleatorización"><i class="fa fa-check"></i><b>8.3.1</b> PRAM (Método de Post-Aleatorización)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="métodos-sdc.html"><a href="métodos-sdc.html#microagregación"><i class="fa fa-check"></i><b>8.3.2</b> Microagregación</a></li>
+<li class="chapter" data-level="8.3.3" data-path="métodos-sdc.html"><a href="métodos-sdc.html#adición-de-ruido"><i class="fa fa-check"></i><b>8.3.3</b> Adición de ruido</a></li>
+<li class="chapter" data-level="8.3.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#rank-swapping-intercambio-de-rangos"><i class="fa fa-check"></i><b>8.3.4</b> Rank swapping (Intercambio de rangos)</a></li>
+<li class="chapter" data-level="8.3.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#shuffling-barajado"><i class="fa fa-check"></i><b>8.3.5</b> Shuffling (Barajado)</a></li>
+<li class="chapter" data-level="8.3.6" data-path="métodos-sdc.html"><a href="métodos-sdc.html#comparación-de-pram-rank-swapping-y-shuffling"><i class="fa fa-check"></i><b>8.3.6</b> Comparación de PRAM, Rank swapping y Shuffling</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="métodos-sdc.html"><a href="métodos-sdc.html#anonimización-del-identificador-indirecto-de-tamaño-del-hogar"><i class="fa fa-check"></i><b>8.4</b> Anonimización del identificador indirecto de tamaño del hogar</a></li>
+<li class="chapter" data-level="8.5" data-path="métodos-sdc.html"><a href="métodos-sdc.html#resumen-de-métodos-sdc"><i class="fa fa-check"></i><b>8.5</b> Resumen de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html"><i class="fa fa-check"></i><b>9</b> Medición de la utilidad y la pérdida de información</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-generales-de-utilidad-para-variables-continuas-y-categóricas"><i class="fa fa-check"></i><b>9.1</b> Medidas generales de utilidad para variables continuas y categóricas</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-categóricas"><i class="fa fa-check"></i><b>9.1.1</b> Variables categóricas</a></li>
+<li class="chapter" data-level="9.1.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#variables-continuas"><i class="fa fa-check"></i><b>9.1.2</b> Variables continuas</a></li>
+<li class="chapter" data-level="9.1.3" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medidas-de-utilidad-basadas-en-las-necesidades-del-usuario-final"><i class="fa fa-check"></i><b>9.1.3</b> Medidas de utilidad basadas en las necesidades del usuario final</a></li>
+<li class="chapter" data-level="9.1.4" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#regresión"><i class="fa fa-check"></i><b>9.1.4</b> Regresión</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#evaluación-de-la-utilidad-de-los-datos-con-la-ayuda-de-visualizaciones-de-datos-en-r"><i class="fa fa-check"></i><b>9.2</b> Evaluación de la utilidad de los datos con la ayuda de visualizaciones de datos (en <code>R</code>)</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="medición-de-la-utilidad-y-la-pérdida-de-información.html"><a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#elección-de-la-medida-de-utilidad"><i class="fa fa-check"></i><b>9.2.1</b> Elección de la medida de utilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><i class="fa fa-check"></i><b>10</b> Proceso Control a la Divulgación Estadística (SDC) INE 2021</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#introducción-2"><i class="fa fa-check"></i><b>10.1</b> Introducción</a></li>
+<li class="chapter" data-level="10.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.1-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>10.2</b> Etapa 6.4.1: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definiciones-previas"><i class="fa fa-check"></i><b>10.2.1</b> Definiciones previas</a></li>
+<li class="chapter" data-level="10.2.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#determinación-de-la-necesidad-de-protección-de-la-confidencialidad"><i class="fa fa-check"></i><b>10.2.2</b> Determinación de la necesidad de protección de la confidencialidad</a></li>
+<li class="chapter" data-level="10.2.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-las-características-de-las-bases-de-datos-a-preservar"><i class="fa fa-check"></i><b>10.2.3</b> Definición de las características de las bases de datos a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.2-preparación-y-exploración-de-datos"><i class="fa fa-check"></i><b>10.3</b> Etapa 6.4.2: Preparación y exploración de datos</a></li>
+<li class="chapter" data-level="10.4" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.3-medición-y-evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>10.4</b> Etapa 6.4.3: Medición y evaluación de riesgos de divulgación</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#definición-de-escenarios-de-divulgación-y-selección-de-identificadores-indirectos-cuasi-identificadores-o-variables-clave"><i class="fa fa-check"></i><b>10.4.1</b> Definición de escenarios de divulgación y selección de identificadores indirectos (cuasi-identificadores o variables clave)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#medición-y-evaluación-de-riesgos"><i class="fa fa-check"></i><b>10.4.2</b> Medición y evaluación de riesgos</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.1-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>10.5</b> Etapa 6.4.4.1: Selección y aplicación de métodos SDC</a></li>
+<li class="chapter" data-level="10.6" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.4.2-evaluación-de-proceso-sdc"><i class="fa fa-check"></i><b>10.6</b> Etapa 6.4.4.2: Evaluación de proceso SDC</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#vuelva-a-medir-el-riesgo"><i class="fa fa-check"></i><b>10.6.1</b> Vuelva a medir el riesgo</a></li>
+<li class="chapter" data-level="10.6.2" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#mida-la-utilidad"><i class="fa fa-check"></i><b>10.6.2</b> Mida la utilidad</a></li>
+<li class="chapter" data-level="10.6.3" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#evaluación-de-reglas-de-validación-y-consistencia"><i class="fa fa-check"></i><b>10.6.3</b> Evaluación de reglas de validación y consistencia</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html"><a href="proceso-control-a-la-divulgación-estadística-sdc-ine-2021.html#etapa-6.4.5-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>10.7</b> Etapa 6.4.5: Generar reportes y liberar datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html"><i class="fa fa-check"></i><b>11</b> Caso de estudio</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización"><i class="fa fa-check"></i><b>11.1</b> Paso Uno: Definiciones previas al proceso de anonimización</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-del-equipo-de-trabajo"><i class="fa fa-check"></i><b>11.1.1</b> Definición del equipo de trabajo</a></li>
+<li class="chapter" data-level="11.1.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#insumos-yo-productos-necesarios-para-la-ejecución-del-proceso"><i class="fa fa-check"></i><b>11.1.2</b> Insumos y/o productos necesarios para la ejecución del proceso</a></li>
+<li class="chapter" data-level="11.1.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#determinación-de-necesidades-de-protección-de-confidencialidad"><i class="fa fa-check"></i><b>11.1.3</b> Determinación de necesidades de protección de confidencialidad</a></li>
+<li class="chapter" data-level="11.1.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#propiedades-estadísticas-a-preservar"><i class="fa fa-check"></i><b>11.1.4</b> Propiedades estadísticas a preservar</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-dos-preparar-y-explorar-datos-originales"><i class="fa fa-check"></i><b>11.2</b> Paso Dos: Preparar y explorar datos originales</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#preparación-de-datos"><i class="fa fa-check"></i><b>11.2.1</b> Preparación de datos</a></li>
+<li class="chapter" data-level="11.2.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#exploración-del-conjunto-de-datos"><i class="fa fa-check"></i><b>11.2.2</b> Exploración del conjunto de datos</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-tres-medición-y-evaluación-del-riesgo-de-divulgación"><i class="fa fa-check"></i><b>11.3</b> Paso Tres: Medición y evaluación del riesgo de divulgación</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#definición-de-escenarios-de-divulgación"><i class="fa fa-check"></i><b>11.3.1</b> Definición de escenarios de divulgación</a></li>
+<li class="chapter" data-level="11.3.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.2</b> Medición de riesgos de divulgación</a></li>
+<li class="chapter" data-level="11.3.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación"><i class="fa fa-check"></i><b>11.3.3</b> Evaluación de riesgos de divulgación</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cuatro-selección-y-aplicación-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4</b> Paso Cuatro: Selección y aplicación de métodos SDC</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#primer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.1</b> Primer conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.2</b> Re-medición del riesgo para primer conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.3</b> Segundo conjunto de métodos SDC</a></li>
+<li class="chapter" data-level="11.4.4" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos"><i class="fa fa-check"></i><b>11.4.4</b> Re-medición del riesgo para segundo conjunto de métodos</a></li>
+<li class="chapter" data-level="11.4.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc"><i class="fa fa-check"></i><b>11.4.5</b> Tercer conjunto de métodos SDC</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-cinco-evaluar-proceso-sdc"><i class="fa fa-check"></i><b>11.5</b> Paso Cinco: Evaluar proceso SDC</a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#re-medición-del-riesgo"><i class="fa fa-check"></i><b>11.5.1</b> Re-medición del riesgo</a></li>
+<li class="chapter" data-level="11.5.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#evaluar-proceso-sdc---volver-a-medir-utilidad"><i class="fa fa-check"></i><b>11.5.2</b> Evaluar proceso SDC - Volver a medir utilidad</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#paso-seis-generar-reportes-y-liberar-datos"><i class="fa fa-check"></i><b>11.6</b> Paso Seis: Generar Reportes y Liberar Datos</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#reportes"><i class="fa fa-check"></i><b>11.6.1</b> Reportes</a></li>
+<li class="chapter" data-level="11.6.2" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#liberación-de-datos"><i class="fa fa-check"></i><b>11.6.2</b> Liberación de datos</a></li>
+<li class="chapter" data-level="11.6.3" data-path="caso-de-estudio.html"><a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones"><i class="fa fa-check"></i><b>11.6.3</b> Anexo : Tablas de indicadores con desagregaciones</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="taller-sdc-video.html"><a href="taller-sdc-video.html"><i class="fa fa-check"></i><b>12</b> Taller SDC Video</a></li>
+<li class="chapter" data-level="" data-path="referencias-1.html"><a href="referencias-1.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guía para el Control de Divulgación Estadística en Microdatos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="medición-de-riesgos" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Medición de riesgos<a href="medición-de-riesgos.html#medición-de-riesgos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tipos-de-divulgación" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Tipos de divulgación<a href="medición-de-riesgos.html#tipos-de-divulgación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Medir el riesgo de divulgación es una parte importante del proceso SDC: las medidas de riesgo se utilizan para juzgar si un archivo de datos es lo suficientemente seguro para su liberación. Antes de medir el riesgo de divulgación, debemos definir qué tipo de divulgación es relevante para los datos disponibles, a saber: divulgación de identidad, divulgación de atributos y divulgación inferencial (ver <span class="citation">Lambert (<a href="#ref-lambert1993" role="doc-biblioref">1993</a>)</span> y <span class="citation">Anco Hundepool et al. (<a href="#ref-hundepool2012" role="doc-biblioref">2012</a>)</span>).</p>
+<ul>
+<li><p><strong>Divulgación de identidad</strong>, que ocurre si el intruso asocia a un individuo conocido con un registro de datos publicado. Por ejemplo, el intruso vincula un registro de datos publicado con información externa o identifica a un informante con valores de datos extremos. En este caso, un intruso puede explotar un pequeño subconjunto de variables para realizar la vinculación, y una vez que la vinculación es exitosa, el intruso tiene acceso a toda la demás información en los datos publicados relacionados con el informante específico.</p></li>
+<li><p><strong>Divulgación de atributos</strong>, que ocurre si el intruso puede determinar algunas características nuevas de un individuo en función de la información disponible en los datos publicados. La divulgación de atributos ocurre si se vuelve a identificar correctamente a un informante y el conjunto de datos incluye variables que contienen información que el intruso desconocía previamente. La divulgación de atributos también puede ocurrir sin divulgación de identidad. Por ejemplo, si un hospital publica datos que muestran que todas las pacientes de 56 a 60 años que tienen cáncer, un intruso conoce la condición médica de cualquier paciente de 56 a 60 años en el conjunto de datos sin tener que identificar a la persona específica.</p></li>
+<li><p><strong>Divulgación inferencial</strong>, que ocurre si el intruso es capaz de determinar el valor de alguna característica de un individuo con mayor precisión con los datos liberados de lo que hubiera sido posible de otro modo. Por ejemplo, con un modelo de regresión altamente predictivo, un intruso puede inferir la información confidencial de ingresos de un informante utilizando atributos registrados en los datos, lo que lleva a una divulgación inferencial.</p></li>
+</ul>
+<p>Los métodos SDC para microdatos están destinados a evitar la divulgación de identidades y atributos. La divulgación inferencial generalmente no se aborda en SDC en el entorno de microdatos, ya que los microdatos se liberan precisamente para que los investigadores puedan hacer inferencias estadísticas y comprender las relaciones entre las variables. En ese sentido, la inferencia no puede compararse con la divulgación. Además, las inferencias están diseñadas para predecir el comportamiento agregado, no individual y, por lo tanto, suelen ser malos predictores de valores de datos individuales.</p>
+</div>
+<div id="clasificación-de-variables" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Clasificación de variables<a href="medición-de-riesgos.html#clasificación-de-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A los efectos del proceso SDC, utilizamos las clasificaciones de variables descritas en los siguientes párrafos (consulte la Figura <a href="medición-de-riesgos.html#fig:clasVars">7.1</a> para obtener una descripción general). La clasificación inicial de variables en variables de identificación y no identificación depende de la forma en que los intrusos pueden utilizar las variables para la reidentificación:</p>
+<ul>
+<li><p><strong>Variables de identificación</strong>: contienen información que puede conducir a la identificación de los informantes y se pueden clasificar en:</p>
+<ul>
+<li><p><strong>Los identificadores directos</strong>, que revelan de manera directa e inequívoca la identidad del informante. Algunos ejemplos son nombres, números de pasaporte, números de identificación social y direcciones. Los identificadores directos deben eliminarse del conjunto de datos antes de su publicación. La eliminación de identificadores directos es un proceso sencillo y siempre es el primer paso para producir un conjunto de microdatos seguro para su publicación. Sin embargo, la eliminación de identificadores directos a menudo no es suficiente.</p></li>
+<li><p><strong>Los identificadores indirectos (cuasi-identificadores o variables clave)</strong> contienen información que, cuando se combina con otros identificadores indirectos en el conjunto de datos, puede conducir a la reidentificación de los informantes. Este es especialmente el caso cuando se pueden usar para hacer coincidir la información con otra información o datos externos. Ejemplos de identificadores indirectos son la raza, la fecha de nacimiento, el sexo y el código postal, que pueden combinarse o vincularse fácilmente con información externa disponible públicamente y hacer posible la identificación. Las combinaciones de valores de varios identificadores indirectos se denominan claves. Los valores de los identificadores indirectos por sí mismos a menudo no conducen a la identificación (por ejemplo, hombre/mujer), pero una combinación de varios valores de identificador indirecto puede hacer que un registro sea único (por ejemplo, hombre, 18 años, casado) y, por lo tanto, identificable. En general, no es aconsejable eliminar simplemente los identificadores indirectos de los datos para resolver el problema. En muchos casos, serán variables importantes para cualquier análisis sensato. En la práctica, cualquier variable en el conjunto de datos podría potencialmente usarse como un identificador indirecto. SDC aborda esto mediante la identificación de variables como identificadores indirectos y anonimizándolas mientras mantiene la información en el conjunto de datos para su publicación.</p></li>
+</ul></li>
+<li><p><strong>Las variables de no identificación</strong> son variables que no se pueden utilizar para volver a identificar a los informantes. Esto podría deberse a que estas variables no están contenidas en ningún otro archivo de datos u otras fuentes externas y no son observables por un intruso. No obstante, las variables de no identificación son importantes en el proceso SDC, ya que pueden contener información confidencial/sensible, que puede resultar perjudicial si se produce una divulgación como resultado de la divulgación de la identidad basada en variables de identificación.</p></li>
+</ul>
+<p>Estas clasificaciones de variables dependen parcialmente de la disponibilidad de conjuntos de datos externos que pueden contener información que, cuando se combina con los datos actuales, podría conducir a la divulgación. La identificación y clasificación de variables como identificadores indirectos depende, entre otros, de la disponibilidad de información en conjuntos de datos externos. Un paso importante en el proceso SDC es definir una lista de posibles escenarios de divulgación en función de cómo los identificadores indirectos podrían combinarse entre sí y la información en conjuntos de datos externos, y luego tratar los datos para evitar la divulgación. Analizamos los escenarios de divulgación con más detalle en la sección <a href="medición-de-riesgos.html#escenarios-de-divulgación">Escenarios de divulgación</a>.</p>
+<p>Para el proceso SDC, también es útil clasificar aún más los identificadores indirectos en variables categóricas, continuas y semicontinuas o discretas. Esta clasificación es importante para determinar los métodos SDC apropiados para esa variable, así como la validez de las medidas de riesgo.</p>
+<ul>
+<li><p><strong>Las variables categóricas</strong> toman valores sobre un conjunto finito, y cualquier operación aritmética que las utilice generalmente no tiene sentido o no está permitida. Ejemplos de variables categóricas son género, región y nivel educativo.</p></li>
+<li><p><strong>Las variables continuas</strong> pueden tomar un número infinito de valores en un conjunto denso. Algunos ejemplos son los ingresos, la altura del cuerpo y el tamaño del terreno. Las variables continuas se pueden transformar en variables categóricas mediante la construcción de intervalos (como bandas de ingresos)<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p></li>
+<li><p><strong>Las variables semicontinuas o discretas</strong> son variables continuas que toman valores limitados a un conjunto finito. Un ejemplo es la edad medida en años, que podría tomar valores en el conjunto {0, 1,…, 100}. La naturaleza finita de los valores de estas variables significa que pueden tratarse como variables categóricas a los efectos de SDC <a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</p></li>
+</ul>
+<p>Además de estas clasificaciones de variables, el proceso SDC clasifica aún más las variables según su sensibilidad o confidencialidad. Tanto las variables identificadoras indirectas como las de no identificación pueden clasificarse como sensibles (o confidenciales) o no sensibles (o no confidenciales). Esta distinción no es importante para los identificadores directos, ya que los identificadores directos se eliminan de los datos publicados.</p>
+<ul>
+<li><p><strong>Las variables sensibles</strong> contienen información confidencial que no debe liberarse sin un tratamiento adecuado, utilizando los métodos de SDC para reducir el riesgo de divulgación. Algunos ejemplos son los ingresos, la religión, la afiliación política y las variables relativas a la salud. Que una variable sea sensible depende del contexto y del país: una determinada variable puede considerarse sensible en un país y no sensible en otro.</p></li>
+<li><p><strong>Las variables no sensibles</strong> contienen información no confidencial sobre el informante, como el lugar de residencia o el área de residencia rural/urbana. Sin embargo, la clasificación de una variable como no sensible no significa que no deba ser considerada en el proceso de SDC. Las variables no sensibles aún pueden servir como identificadores indirectos cuando se combinan con otras variables u otros datos externos.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:clasVars"></span>
+<img src="Imagenes/clasi_vars.png" alt="Clasificación de las variables." width="60%" />
+<p class="caption">
+Figura 7.1: Clasificación de las variables.
+</p>
+</div>
+</div>
+<div id="escenarios-de-divulgación" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Escenarios de divulgación<a href="medición-de-riesgos.html#escenarios-de-divulgación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La evaluación del riesgo de divulgación se lleva a cabo con referencia a las fuentes de datos disponibles en el entorno donde se liberará el conjunto de datos. En este contexto, el riesgo de divulgación es la posibilidad de volver a identificar correctamente a una unidad en el archivo de microdatos publicado <a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> comparando sus datos con un archivo externo basado en un conjunto de identificadores indirectos. La evaluación de riesgos se realiza mediante la identificación de los llamados escenarios de divulgación o intrusión. Un escenario de divulgación describe la información potencialmente disponible para el intruso (por ejemplo, datos del censo, padrones electorales, registros de población o datos recopilados por empresas privadas) para identificar a los informantes y las formas en que dicha información puede combinarse con el conjunto de microdatos que se liberará y utilizará para reidentificación de registros en el conjunto de datos. Normalmente, estos conjuntos de datos externos incluyen identificadores directos. En ese caso, la reidentificación de los registros en el conjunto de datos publicado conduce a la divulgación de la identidad y, posiblemente, de los atributos. El principal resultado de la evaluación de los escenarios de divulgación es la identificación de un conjunto de identificadores indirectos (es decir, variables clave) que deben tratarse durante el proceso SDC (ver <span class="citation">Elliot et al. (<a href="#ref-elliot2010" role="doc-biblioref">2010</a>)</span>).</p>
+<p>Un ejemplo de un escenario de divulgación podría ser el reconocimiento espontáneo de un informante por parte de un investigador. Por ejemplo, mientras revisa los datos, el investigador reconoce a una persona con una combinación inusual de las variables edad y estado civil. Por supuesto, esto solo puede suceder si la persona es bien conocida o es conocida por el investigador. Otro ejemplo de un escenario de divulgación para un archivo disponible públicamente sería si las variables en los datos pudieran vincularse a un registro electoral disponible públicamente. Un intruso podría hacer coincidir todo el conjunto de datos con las personas del registro. Sin embargo, esto puede ser difícil y requerir experiencia especializada, o <em>software</em>, y se deben cumplir otras condiciones. Los ejemplos son que el momento en el que se recopilaron los conjuntos de datos debe coincidir aproximadamente y el contenido de las variables debe ser (casi) idéntico. Si no se cumplen estas condiciones, la coincidencia exacta es mucho menos probable.</p>
+<p>La evaluación del riesgo de divulgación se basa en los identificadores indirectos, que se identifican en el análisis de escenarios de riesgo de divulgación. El riesgo de divulgación depende directamente de la inclusión o exclusión de variables en el conjunto de identificadores indirectos elegidos. Por lo tanto, este paso en el proceso SDC (hacer la elección de los identificadores indirectos) debe abordarse con gran reflexión y cuidado. Veremos más adelante, cuando discutamos los pasos en el proceso de SDC con más detalle, que el primer paso para cualquier oficina de estadística es realizar un ejercicio en el que se compila un inventario de todos los conjuntos de datos disponibles en el país. Se consideran tanto los conjuntos de datos publicados por la oficina nacional de estadística (como el INE) como por otras fuentes y se analiza su disponibilidad para los intrusos, así como las variables incluidas en estos conjuntos de datos.</p>
+</div>
+<div id="niveles-de-riesgo" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Niveles de riesgo<a href="medición-de-riesgos.html#niveles-de-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Con microdatos de encuestas y censos, a menudo tenemos que preocuparnos por la divulgación a nivel individual o de unidad, es decir, identificar a los informantes individuales. Los informantes individuales suelen ser personas físicas, pero también pueden ser unidades, como empresas, escuelas, centros de salud, etc. Los archivos de microdatos suelen tener una estructura jerárquica en la que las unidades individuales pertenecen a grupos, por ejemplo, las personas pertenecen a hogares. La estructura jerárquica más común en los microdatos es la estructura del hogar en los datos de las encuestas de hogares. Por lo tanto, en esta guía, a veces llamamos al riesgo de divulgación de datos con una estructura jerárquica “riesgo hogar”. Sin embargo, los conceptos se aplican por igual a los datos del establecimiento y otros datos con estructuras jerárquicas, como los datos de la escuela con los alumnos y profesores o los datos de la empresa con los empleados.</p>
+<p>Veremos que es importante tener en cuenta esta estructura jerárquica al medir el riesgo de divulgación. Para los datos jerárquicos, la información recopilada en el nivel jerárquico superior (por ejemplo, nivel del hogar) sería la misma para todos los individuos del grupo que pertenecen a ese nivel jerárquico superior (por ejemplo, el hogar) [Los supuestos para esta medida de riesgo son estrictos y el riesgo se estima en muchos casos mayor que el riesgo real. Entre otras suposiciones, se supone que todos los individuos de la muestra también están incluidos en el archivo externo utilizado por el intruso para compararlos. Si no es así, el riesgo es mucho menor; si el individuo en el archivo liberado no está incluido en el archivo externo, la probabilidad de una coincidencia correcta es cero. Otras suposiciones son que los archivos no contienen errores y que ambos conjuntos de datos se recopilaron simultáneamente, es decir, contienen la misma información. Estos supuestos a menudo no se cumplen en general, pero son necesarios para el cálculo de una medida. Un ejemplo de una violación de las últimas suposiciones podría ocurrir si los conjuntos de datos se recopilan en diferentes puntos en el tiempo y los registros han cambiado. Esto podría suceder cuando las personas se mudan o cambian de trabajo y hace imposible la coincidencia correcta. <strong>Los supuestos son conservadores y asumen el mayor riesgo de divulgación</strong>.]. Algunos ejemplos típicos de variables que tendrían los mismos valores para todos los miembros de una misma unidad jerárquica superior son, en el caso de los hogares, las relativas a la vivienda y los ingresos del hogar. Estas variables difieren de una encuesta a otra y de un país a otro <a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. Esta estructura jerárquica crea un mayor nivel de riesgo de divulgación por dos razones:</p>
+<ol style="list-style-type: decimal">
+<li><p>si se reidentifica a una persona del hogar, la estructura del hogar permite la reidentificación de los demás miembros del hogar en el mismo hogar,</p></li>
+<li><p>los valores de las variables para otros miembros del hogar que son comunes para todos los miembros del hogar pueden usarse para volver a identificar a otro individuo del mismo hogar. Esto se analiza con más detalle en la sección <a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar">Riesgo jerárquico (o del hogar)</a>.</p></li>
+</ol>
+<p>A continuación, primero analizamos las medidas de riesgo utilizadas para evaluar el riesgo de divulgación en ausencia de una estructura jerárquica. Esto incluye medidas de riesgo que buscan agregar el riesgo individual para todos los individuos en el archivo de microdatos; el objetivo es cuantificar una medida de riesgo de divulgación global para el archivo. Luego discutimos cómo cambian las medidas de riesgo cuando se tiene en cuenta la estructura jerárquica de los datos.</p>
+<p>También discutiremos cómo las medidas de riesgo difieren para los identificadores indirectos categóricos y continuos. Para las variables categóricas, utilizaremos el concepto de unicidad de combinaciones de valores de identificadores indirectos (las llamadas “claves”) que se utilizan para identificar a las personas en riesgo. El concepto de unicidad, sin embargo, no es útil para variables continuas, ya que es probable que todos o muchos individuos tengan valores únicos para esa variable, por definición de una variable continua. Las medidas de riesgo para variables categóricas son generalmente medidas a priori, es decir, pueden evaluarse antes de aplicar métodos de anonimización ya que se basan en el principio de unicidad. Las medidas de riesgo para variables continuas son medidas a posteriori; se basan en la comparación de los microdatos antes y después de la anonimización y son, por ejemplo, basadas en la proximidad de observaciones entre conjuntos de datos originales y tratados (anonimizados).</p>
+<p>Los archivos que se limitan solo a identificadores indirectos categóricos o continuos son los más fáciles para medir el riesgo. Veremos en secciones posteriores que, en los casos en que ambos tipos de variables están presentes, la recodificación de variables continuas en categorías es un enfoque para simplificar el proceso SDC, pero también veremos que desde una perspectiva de utilidad esto puede no ser deseable. Un ejemplo podría ser el uso de quintiles de ingresos en lugar de las variables de ingresos reales. Veremos que medir el riesgo de divulgación con base en las variables categóricas y continuas por separado generalmente no es un enfoque válido.</p>
+<p>Las medidas de riesgo discutidas en la siguiente sección se basan en varios supuestos. En general, estas medidas se basan en suposiciones bastante restrictivas y, a menudo, conducirán a estimaciones de riesgo conservadoras. Estas medidas de riesgo conservadoras pueden exagerar el riesgo ya que suponen el peor de los casos. Sin embargo, se deben cumplir dos suposiciones para que las medidas de riesgo sean válidas y significativas; los microdatos deben ser una muestra de una población más grande (no censo) y las ponderaciones de la muestra deben estar disponibles.</p>
+</div>
+<div id="riesgo-individual" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Riesgo individual<a href="medición-de-riesgos.html#riesgo-individual" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="identificadores-indirectos-categóricos-y-recuentos-de-frecuencia" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Identificadores indirectos categóricos y recuentos de frecuencia<a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El enfoque principal de la medición del riesgo para los identificadores indirectos categóricos es la divulgación de la identidad. La medición del riesgo de divulgación se basa en la evaluación de la probabilidad de reidentificación correcta de las personas en los datos publicados. Utilizamos medidas basadas en los microdatos reales que se publicarán. En general, cuanto más rara sea la combinación de valores de los identificadores indirectos (es decir, clave) de una observación en la muestra, mayor será el riesgo de revelación de identidad. Un intruso que intente hacer coincidir a una persona que tiene una clave relativamente rara dentro de los datos de muestra con un conjunto de datos externo en el que existe la misma clave tendrá una mayor probabilidad de encontrar una coincidencia correcta que cuando un número mayor de personas comparten la misma clave. Esto se puede ilustrar con el siguiente ejemplo que se ilustra en la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a>.</p>
+<p>La Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a> muestra los valores de 10 informantes para los identificadores indirectos “área”, “género”, “nivel educacional” y “situación laboral”. En los datos, encontramos siete combinaciones únicas de valores de identificadores indirectos (es decir, patrones o claves) de los cuatro identificadores indirectos. Ejemplos de claves son {‘urbano’, ‘femenino’, ‘secundaria incompleta’, ‘ocupado’} y {‘urbano’, ‘femenino’, ‘primaria incompleta’, ‘no FL’}. Sea <span class="math inline">\(f_{k}\)</span> la frecuencia de muestreo de la <em>k-ésima</em> clave, es decir, el número de individuos de la muestra con valores de los identificadores indirectos que coinciden con la clave <em>k</em>. Este sería 2 para la clave {urbano, femenino, secundaria incompleta, ocupado}, ya que esta clave es compartida por los individuos 1 y 2 y 1 para la clave {‘urbano’, ‘femenino’, ‘primaria incompleta’, ‘no FL’}, que es exclusivo del individuo 3. Por definición, <span class="math inline">\(f_{k}\)</span> es el mismo para cada registro que comparte una clave particular.</p>
+<table>
+<caption>
+<span id="tab:tabMR1">Tabla 7.1: </span>Conjunto de datos de ejemplo que muestra frecuencias de muestra, frecuencias de población y riesgo de divulgación individual
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Id
+</th>
+<th style="text-align:center;">
+Área
+</th>
+<th style="text-align:center;">
+Género
+</th>
+<th style="text-align:center;">
+Nivel educacional
+</th>
+<th style="text-align:center;">
+Situación laboral
+</th>
+<th style="text-align:center;">
+Peso (<span class="math inline">\(w_{i}\)</span>)
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(f_{k}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(F_{k}\)</span>
+</th>
+<th style="text-align:center;">
+Riesgo (<span class="math inline">\(r_{k}\)</span>)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+360
+</td>
+<td style="text-align:center;">
+0.0054
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+360
+</td>
+<td style="text-align:center;">
+0.0054
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Primaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+0.0251
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+152
+</td>
+<td style="text-align:center;">
+0.0126
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+Rural
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Desocupado
+</td>
+<td style="text-align:center;">
+186
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+186
+</td>
+<td style="text-align:center;">
+0.0282
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+152
+</td>
+<td style="text-align:center;">
+0.0126
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Primaria completa
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+0.029
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Post secundaria
+</td>
+<td style="text-align:center;">
+Desocupado
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+0.0251
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+186
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+262
+</td>
+<td style="text-align:center;">
+0.0074
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+76
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+262
+</td>
+<td style="text-align:center;">
+0.0074
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: Adaptación de <span class="citation">(<a href="#ref-benschop" role="doc-biblioref">Benschop, Machingauta, and Welch 2021, 28</a>)</span></p>
+<p>Cuanto menos personas con las que una persona comparte su combinación de identificadores indirectos, más probable es que la persona coincida correctamente en otro conjunto de datos que contenga estos identificadores indirectos. Incluso cuando los identificadores directos se eliminan del conjunto de datos, esa persona tiene un mayor riesgo de divulgación que otras, suponiendo que sus pesos de muestra sean los mismos. La Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a> reporta las frecuencias de muestreo <span class="math inline">\(f_{k}\)</span> de las llaves para todos los individuos. Las personas con las mismas claves tienen la misma frecuencia de muestreo. Si <span class="math inline">\(f_{k}=1\)</span>, este individuo tiene una combinación única de valores de identificadores indirectos y se denomina “muestra única”. El conjunto de datos de la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a> contiene cuatro muestras únicas. Las medidas de riesgo se basan en esta frecuencia de muestreo.</p>
+<p>En el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR1">7.1</a>, mostramos cómo usar el paquete <code>sdcMicro</code> para crear una lista de frecuencias de muestra <span class="math inline">\(f_{k}\)</span> para cada registro en un conjunto de datos. Esto se hace usando la función <code>sdcMicro</code> <code>freq()</code>. Un valor de 2 para una observación significa que en la muestra hay un individuo más con exactamente la misma combinación de valores para los identificadores indirectos seleccionados. En el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR1">7.1</a>, la función <code>freq()</code> se aplica a “sdcInitial”, que es un objeto <code>sdcMicro</code>. Los objetos se usan cuando se hace SDC con <code>sdcMicro</code>. La función <code>freq()</code> muestra la frecuencia de muestreo de las claves construidas sobre un conjunto definido de identificadores indirectos. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR1">7.1</a> corresponde a los datos de la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMR1" class="example"><strong>Bloque 7.1  </strong></span>Cálculo <span class="math inline">\(f_{k}\)</span> usando <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="medición-de-riesgos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;..\Capacitación\GitHub&quot;</span>) <span class="co"># directorio de trabajo</span></span>
+<span id="cb16-2"><a href="medición-de-riesgos.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="medición-de-riesgos.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sdcMicro) <span class="co"># carga paquete sdcMicro</span></span>
+<span id="cb16-4"><a href="medición-de-riesgos.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up conjunto de datos</span></span>
+<span id="cb16-5"><a href="medición-de-riesgos.html#cb16-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">cbind</span>(<span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>,</span>
+<span id="cb16-6"><a href="medición-de-riesgos.html#cb16-6" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Rural&#39;</span>, <span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>,</span>
+<span id="cb16-7"><a href="medición-de-riesgos.html#cb16-7" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Urbano&#39;</span>, <span class="st">&#39;Urbano&#39;</span>)),</span>
+<span id="cb16-8"><a href="medición-de-riesgos.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&#39;Femenino&#39;</span>, <span class="st">&#39;Femenino&#39;</span>, <span class="st">&#39;Femenino&#39;</span>,</span>
+<span id="cb16-9"><a href="medición-de-riesgos.html#cb16-9" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Masculino&#39;</span>,<span class="st">&#39;Femenino&#39;</span>, <span class="st">&#39;Masculino&#39;</span>,</span>
+<span id="cb16-10"><a href="medición-de-riesgos.html#cb16-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Femenino&#39;</span>, <span class="st">&#39;Masculino&#39;</span>, <span class="st">&#39;Femenino&#39;</span>,</span>
+<span id="cb16-11"><a href="medición-de-riesgos.html#cb16-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Femenino&#39;</span>)),</span>
+<span id="cb16-12"><a href="medición-de-riesgos.html#cb16-12" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&#39;Sec in&#39;</span>, <span class="st">&#39;Sec in&#39;</span>, <span class="st">&#39;Prim in&#39;</span>, <span class="st">&#39;Sec com&#39;</span>,</span>
+<span id="cb16-13"><a href="medición-de-riesgos.html#cb16-13" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Sec com&#39;</span>, <span class="st">&#39;Sec com&#39;</span>, <span class="st">&#39;Prim com&#39;</span>, <span class="st">&#39;Post-sec&#39;</span>,</span>
+<span id="cb16-14"><a href="medición-de-riesgos.html#cb16-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Sec in&#39;</span>, <span class="st">&#39;Sec in&#39;</span>)),</span>
+<span id="cb16-15"><a href="medición-de-riesgos.html#cb16-15" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&#39;Ocu&#39;</span>, <span class="st">&#39;Ocu&#39;</span>, <span class="st">&#39;No-FL&#39;</span>, <span class="st">&#39;Ocu&#39;</span>, <span class="st">&#39;Desocu&#39;</span>, <span class="st">&#39;Ocu&#39;</span>,</span>
+<span id="cb16-16"><a href="medición-de-riesgos.html#cb16-16" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;No-FL&#39;</span>, <span class="st">&#39;Desocu&#39;</span>, <span class="st">&#39;No-FL&#39;</span>,<span class="st">&#39;No-FL&#39;</span>)),</span>
+<span id="cb16-17"><a href="medición-de-riesgos.html#cb16-17" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.factor</span>(<span class="fu">c</span>(<span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;No&#39;</span>, <span class="st">&#39;No&#39;</span>,</span>
+<span id="cb16-18"><a href="medición-de-riesgos.html#cb16-18" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Sí&#39;</span>, <span class="st">&#39;No&#39;</span>, <span class="st">&#39;Sí&#39;</span>)),</span>
+<span id="cb16-19"><a href="medición-de-riesgos.html#cb16-19" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">180</span>, <span class="dv">215</span>, <span class="dv">76</span>, <span class="dv">186</span>, <span class="dv">76</span>, <span class="dv">180</span>, <span class="dv">215</span>, <span class="dv">186</span>, <span class="dv">76</span>)</span>
+<span id="cb16-20"><a href="medición-de-riesgos.html#cb16-20" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb16-21"><a href="medición-de-riesgos.html#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="medición-de-riesgos.html#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Especificar nombres de variables</span></span>
+<span id="cb16-23"><a href="medición-de-riesgos.html#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Área&#39;</span>, <span class="st">&#39;Género&#39;</span>, <span class="st">&#39;Educ&#39;</span>, <span class="st">&#39;SitLab&#39;</span>, <span class="st">&#39;Salud&#39;</span>, <span class="st">&#39;Pesos&#39;</span>)               </span>
+<span id="cb16-24"><a href="medición-de-riesgos.html#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="medición-de-riesgos.html#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up objeto sdcMicro con especificación de identificadores indirectos y pesos</span></span>
+<span id="cb16-26"><a href="medición-de-riesgos.html#cb16-26" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> data, <span class="at">keyVars =</span> <span class="fu">c</span>(<span class="st">&#39;Área&#39;</span>, <span class="st">&#39;Género&#39;</span>, <span class="st">&#39;Educ&#39;</span>, <span class="st">&#39;SitLab&#39;</span>),</span>
+<span id="cb16-27"><a href="medición-de-riesgos.html#cb16-27" aria-hidden="true" tabindex="-1"></a>                           <span class="at">weightVar =</span> <span class="st">&#39;Pesos&#39;</span>)</span>
+<span id="cb16-28"><a href="medición-de-riesgos.html#cb16-28" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>fk<span class="ot">&lt;-</span><span class="fu">freq</span>(sdcInitial, <span class="at">type =</span> <span class="st">&#39;fk&#39;</span>)</span></code></pre></div>
+<p>Para datos de muestra, es más interesante mirar <span class="math inline">\(F_{k}\)</span>, la frecuencia de población de una combinación de identificadores indirectos (clave) <em>k</em>, que es el número de individuos de la población con la clave que corresponde a la clave <em>k</em>. Se desconoce la frecuencia poblacional si los microdatos son una muestra y no un censo. Bajo ciertas suposiciones, el valor esperado de las frecuencias de la población se puede calcular utilizando el peso del diseño de la muestra <span class="math inline">\(w_{i}\)</span>(en una muestra simple, esta es la inversa de la probabilidad de inclusión) para cada individuo <em>i</em>.</p>
+<p><span class="math display">\[F_{k}=\sum_{i|individuo\,i\, correspondiente\, a\, la\, clave\, k} w_{i}\]</span></p>
+<p><span class="math inline">\(F_{k}\)</span> es la suma de los pesos muestrales de todos los registros con la misma clave <em>k</em>. Por lo tanto, como <span class="math inline">\(f_{k}\)</span>, <span class="math inline">\(F_{k}\)</span> es el mismo para cada registro con clave <em>k</em>. El riesgo de una reidentificación correcta es la probabilidad de que la clave coincida con el individuo correcto de la población. Dado que cada individuo en la muestra con clave <em>k</em> corresponde a <span class="math inline">\(F_{k}\)</span> individuos en la población, la probabilidad de reidentificación correcta es <span class="math inline">\(1/F_{k}\)</span>. Esta es la probabilidad de reidentificación en el peor de los casos y puede interpretarse como riesgo de divulgación. Los individuos con la misma clave tienen las mismas frecuencias, es decir, la frecuencia de la clave.</p>
+<p>Si <span class="math inline">\(F_{k}=1\)</span>, la clave <em>k</em> es tanto una muestra como una población única y el riesgo de divulgación sería 1. Las características únicas de la población son un factor importante a considerar al evaluar el riesgo y merecen especial atención.</p>
+<p>Además, <span class="math inline">\(f_{k}\)</span>, la frecuencia de muestreo de la clave <em>k</em> (es decir, el número de individuos en la muestra con la combinación de identificadores indirectos correspondientes a la combinación especificada en la clave <em>k</em>) y <span class="math inline">\(F_{k}\)</span>, la frecuencia de población estimada de <em>k</em>, se puede visualizar en <code>sdcMicro</code>. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR2">7.2</a> ilustra cómo devolver listas de longitud <em>n</em> de frecuencias para todos los individuos. Las frecuencias se muestran para cada individuo y no para cada clave.</p>
+<div class="example">
+<p><span id="exm:bloqueMR2" class="example"><strong>Bloque 7.2  </strong></span>Cálculo de frecuencias muestrales y poblacionales usando <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="medición-de-riesgos.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># frecuencia muestral de individuos</span></span>
+<span id="cb17-2"><a href="medición-de-riesgos.html#cb17-2" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>fk<span class="ot">&lt;-</span><span class="fu">freq</span>(sdcInitial, <span class="at">type =</span> <span class="st">&#39;fk&#39;</span>)</span>
+<span id="cb17-3"><a href="medición-de-riesgos.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># frecuencia poblacional de individuos</span></span>
+<span id="cb17-4"><a href="medición-de-riesgos.html#cb17-4" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>FK<span class="ot">&lt;-</span><span class="fu">freq</span>(sdcInitial, <span class="at">type =</span> <span class="st">&#39;Fk&#39;</span>)</span></code></pre></div>
+<p>En la práctica, este enfoque conduce a estimaciones de riesgo conservadoras, ya que no tiene en cuenta adecuadamente los métodos de muestreo. En este caso, las estimaciones del riesgo de reidentificación pueden ser demasiado altas. Si se utiliza este riesgo sobreestimado, los datos pueden estar sobreprotegidos (es decir, la pérdida de información será mayor que la necesaria) al aplicar las medidas de SDC.</p>
+<p>La medida del riesgo <span class="math inline">\(r_{k}\)</span> es como <span class="math inline">\(f_{k}\)</span> y <span class="math inline">\(F_{k}\)</span>, el mismo para todos los individuos que comparten el mismo patrón de valores de identificadores indirectos y se denomina riesgo individual. Los valores <span class="math inline">\(r_{k}\)</span> también puede interpretarse como la probabilidad de divulgación de los individuos o como la probabilidad de una coincidencia exitosa con individuos elegidos al azar de un archivo de datos externo con los mismos valores de los identificadores indirectos. Esta medida de riesgo se basa en ciertos supuestos <a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>, que son estrictos y pueden conducir a una medida de riesgo relativamente conservadora. En <code>sdcMicro</code>, la medida de riesgo <span class="math inline">\(r_{k}\)</span> se calcula automáticamente al crear un objeto <code>sdcMicro</code> y se guarda en el <em>slot</em> de “riesgo” <a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR3">7.3</a> muestra cómo recuperar las medidas de riesgo usando <code>sdcMicro</code> para nuestro ejemplo. Las medidas de riesgo también se presentan en la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a>.</p>
+<div class="example">
+<p><span id="exm:bloqueMR3" class="example"><strong>Bloque 7.3  </strong></span>Slot de riesgo individual en el objeto <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="medición-de-riesgos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual</span></code></pre></div>
+<p>Los principales factores que influyen en el riesgo individual son las frecuencias de muestreo <span class="math inline">\(f_{k}\)</span> y los pesos de diseño de muestreo <span class="math inline">\(w_{i}\)</span>. Si un individuo tiene un riesgo relativamente alto de divulgación, en nuestro ejemplo serían los individuos 3, 5, 7 y 8 en la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a> y el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR3">7.3</a>, la probabilidad de que un posible intruso relacione correctamente a estos individuos con un archivo de datos externo es relativamente alta. En nuestro ejemplo, la razón del alto riesgo es el hecho de que estos individuos son muestras únicas (es decir, <span class="math inline">\(f_{k}=1\)</span>). Este riesgo es el riesgo del peor de los casos y no implica que la persona sea reidentificada con certeza con esta probabilidad. Por ejemplo, si un individuo incluido en los microdatos no está incluido en el archivo de datos externo, la probabilidad de una coincidencia correcta es cero. No obstante, la medida del riesgo calculada a partir de las frecuencias será positiva como medida de evaluación.</p>
+</div>
+<div id="k-anonimato" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> k-anonimato<a href="medición-de-riesgos.html#k-anonimato" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La medida del riesgo k- anonimato se basa en el principio de que, en un conjunto de datos seguro, el número de personas que comparten la misma combinación de valores (claves) de identificadores indirectos categóricos debe ser superior a un umbral especificado <em>k</em>. El k-anonimato es una medida de riesgo basada en los microdatos a publicar, ya que solo tiene en cuenta la muestra. Un individuo viola el k-anonimato si la frecuencia de muestreo <span class="math inline">\(f_{k}\)</span> para la llave <em>k</em> es menor que el umbral especificado <em>k</em>. Por ejemplo, si un individuo tiene la misma combinación de identificadores indirectos que otros dos individuos en la muestra, estos individuos satisfacen el 3-anonimato pero violan el 4-anonimato. En el conjunto de datos de la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a>, seis personas satisfacen el 2-anonimato y cuatro violan el 2-anonimato. Los individuos que violan el 2-anonimato son muestras únicas. La medida de riesgo es el número de observaciones que violan el k-anonimato para un cierto valor de <em>k</em>, que es</p>
+<p><span class="math display">\[ \sum_{i} I(f_{k}&lt;k), \]</span></p>
+<p>donde <span class="math inline">\(I\)</span> es la función indicadora e <span class="math inline">\(i\)</span> se refiere al <em>i-ésimo</em> registro. Esto es simplemente un recuento del número de personas con una frecuencia de muestreo de su clave inferior a <em>k</em>. El recuento es mayor para los <em>k</em> más grandes, ya que si un registro satisface k-anonimato, también satisface (k+1)- anonimato. La medida del riesgo k-anonimato no considera los pesos de la muestra, pero es importante considerar los pesos de la muestra al determinar el nivel requerido de k-anonimato. Si los pesos de la muestra son grandes, un individuo en el conjunto de datos representa a más individuos en la población objetivo, la probabilidad de una coincidencia correcta es menor y, por lo tanto, el umbral requerido puede ser más bajo. Los pesos de muestra grandes van de la mano con conjuntos de datos más pequeños. En un conjunto de datos más pequeño, la probabilidad de encontrar otro registro con la misma clave es menor que en un conjunto de datos más grande. Esta probabilidad está relacionada con el número de registros en la población con una clave particular a través de los pesos muestrales.</p>
+<p>En <code>sdcMicro</code> podemos mostrar el número de observaciones que violan un determinado umbral de k-anonimato. En el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR4">7.4</a>, usamos <code>sdcMicro</code> para calcular la cantidad de infractores para los umbrales <span class="math inline">\(k=2\)</span> y <span class="math inline">\(k=3\)</span>. Se da tanto el número absoluto de infractores como el número relativo como porcentaje del número de individuos en la muestra. En el ejemplo, cuatro observaciones violan el 2-anonimato y las 10 observaciones violan el 3-anonimato.</p>
+<div class="example">
+<p><span id="exm:bloqueMR4" class="example"><strong>Bloque 7.4  </strong></span>Uso de la función <code>print()</code> para mostrar observaciones que violan k-anonimato</p>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="medición-de-riesgos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcInitial, <span class="st">&#39;kAnon&#39;</span>)</span></code></pre></div>
+<p>Para otros niveles de k-anonimato, es posible calcular el número de personas infractoras utilizando los recuentos de frecuencia de muestreo en el objeto <code>sdcMicro</code>. El número de infractores es el número de personas con recuentos de frecuencia de muestreo inferiores al umbral especificado <em>k</em>. En el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR5">7.5</a>, mostramos un ejemplo de cómo calcular cualquier umbral para <em>k</em> usando las medidas de riesgo ya almacenadas disponibles después de configurar un objeto <code>sdcMicro</code> en <code>R</code>. <em>k</em> se puede reemplazar con cualquier umbral requerido. La elección del umbral requerido que deben cumplir todas las personas en el archivo de microdatos depende de muchos factores y se analiza más adelante en la sección <a href="métodos-sdc.html#sup-loc">Supresión local</a> sobre la supresión local. En muchas instituciones, los umbrales típicamente requeridos para k-anonimato son 3 y 5.</p>
+<div class="example">
+<p><span id="exm:bloqueMR5" class="example"><strong>Bloque 7.5  </strong></span>Violaciones de k-anonimato para distintos valores de k</p>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="medición-de-riesgos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>k<span class="ot">=</span><span class="dv">10</span></span>
+<span id="cb20-2"><a href="medición-de-riesgos.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">2</span>] <span class="sc">&lt;</span> k)</span></code></pre></div>
+<p>Es importante tener en cuenta que los valores faltantes (<code>NA</code>s en <code>R</code> <a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> ) se tratan como si fueran cualquier otro valor. Dos personas con claves {‘Masculino’, <code>NA</code>, ‘Ocupado’} y {‘Masculino’, ‘Secundaria completa’, ‘Ocupado’} comparten la misma clave y, de manera similar, {‘Masculino’, <code>NA</code>, ‘Ocupado’} y {‘Masculino’, ‘Secundaria incompleta’, ‘Ocupado’} también comparten la misma clave. Por lo tanto, el valor que falta en la primera clave se interpreta primero como ‘Secundaria completa’ y luego como ‘Secundaria incompleta’. Esto se ilustra en la Tabla <a href="medición-de-riesgos.html#tab:tabMR2">7.2</a>.</p>
+<table>
+<caption>
+<span id="tab:tabMR2">Tabla 7.2: </span>Conjunto de datos de ejemplo para ilustrar el efecto de los valores faltantes en el k-anonimato
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Id
+</th>
+<th style="text-align:center;">
+Género
+</th>
+<th style="text-align:center;">
+Nivel educacional
+</th>
+<th style="text-align:center;">
+Situación laboral
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(f_{k}\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: Adaptación de <span class="citation">(<a href="#ref-benschop" role="doc-biblioref">Benschop, Machingauta, and Welch 2021, 32</a>)</span></p>
+<p>Si un conjunto de datos satisface k-anonimato, un intruso siempre encontrará al menos <em>k</em> individuos con la misma combinación de identificadores indirectos. El k-anonimato suele ser un requisito necesario para la anonimización de un conjunto de datos antes de su publicación, pero no es necesariamente un requisito suficiente. La medida de k-anonimato solo se basa en recuentos de frecuencia y no tiene en cuenta (las diferencias en) los pesos de las muestras. Con frecuencia el k-anonimato se logra aplicando primero la recodificación y luego la supresión local y, en algunos casos, mediante la microagregación, antes de utilizar otras medidas de riesgo y métodos de divulgación para reducir aún más el riesgo de divulgación. Estos métodos se analizan en la sección <a href="métodos-sdc.html#métodos-sdc">Métodos SDC</a>.</p>
+</div>
+<div id="l-diversity" class="section level3 hasAnchor" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> l-diversity<a href="medición-de-riesgos.html#l-diversity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El k-anonimato ha sido criticado por no ser lo suficientemente restrictivo. La información confidencial puede divulgarse incluso si los datos satisfacen el k-anonimato. Esto puede ocurrir en los casos en que los datos contienen variables categóricas confidenciales (de no identificación) que tienen el mismo valor para todas las personas que comparten la misma clave. Ejemplos de tales variables sensibles son aquellas que contienen información sobre el estado de salud de un individuo. La Tabla <a href="medición-de-riesgos.html#tab:tabMR3">7.3</a> ilustra este problema utilizando los mismos datos que se utilizaron anteriormente, pero agregando una variable sensible, “salud”. Los dos primeros individuos cumplen 2-anonimato para los identificadores indirectos “área”, “género”, “nivel educacional” y “situación laboral”. Esto significa que un intruso encontrará al menos dos personas al hacer coincidir el conjunto de microdatos publicado en función de esos cuatro identificadores indirectos. Sin embargo, si el intruso sabe que alguien pertenece a la muestra y tiene la clave {‘Urbano’, ‘Femenino’, ‘Secundaria incompleta’ y ‘Ocupado’}, con certeza se revela el estado de salud (‘sí’), porque para ambos las observaciones con esta clave tienen el mismo valor. Esta información se revela así sin la necesidad de coincidir exactamente con el individuo. Este no es el caso de los individuos con clave {‘Urbano’, ‘Masculino’, ‘Secundaria completa’, ‘Ocupado’}.</p>
+<p>El concepto de l-diversity (distinto) aborda esta deficiencia del k-anonimato. Un conjunto de datos satisface l-diversity si para cada clave <em>k</em> hay por lo menos <em>l</em> diferentes valores para cada una de las variables sensibles. En el ejemplo, los primeros dos individuos satisfacen solo 1-diversity, los individuos 4 y 6 satisfacen 2-diversity. El nivel requerido de l-diversity depende del número de valores posibles que puede tomar la variable sensible. Si la variable sensible es una variable binaria, el nivel más alto de l-diversity que se puede conseguir es 2. Una muestra única siempre solo satisfará 1-diversity.</p>
+<p>Para computar l-diversity para variables sensibles en <code>sdcMicro</code>, se puede usar la función <code>ldiversity()</code>. Esto se ilustra en el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR6">7.6</a>. Como argumentos, especificamos los nombres de las variables sensibles <a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> en el archivo, así como una constante para l-diversity <a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> y el código de valores faltantes en los datos. La salida se guarda en el <em>slot</em> de “riesgo” del objeto <code>sdcMicro</code>. El resultado muestra el mínimo, máximo, media y cuantiles de las l-puntuaciones de diversidad para todos los individuos de la muestra. El resultado del Bloque <a href="medición-de-riesgos.html#exm:bloqueMR6">7.6</a> reproduce los resultados según los datos de la Tabla <a href="medición-de-riesgos.html#tab:tabMR3">7.3</a>.</p>
+<table>
+<caption>
+<span id="tab:tabMR3">Tabla 7.3: </span>Ilustración de l-diversity
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Id
+</th>
+<th style="text-align:center;">
+Área
+</th>
+<th style="text-align:center;">
+Género
+</th>
+<th style="text-align:center;">
+Nivel educacional
+</th>
+<th style="text-align:center;">
+Situación laboral
+</th>
+<th style="text-align:center;">
+Salud
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(f_{k}\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(F_{k}\)</span>
+</th>
+<th style="text-align:center;">
+l-diversity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+360
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+360
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Primaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+152
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+Rural
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Desocupado
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+186
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+6
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Secundaria completa
+</td>
+<td style="text-align:center;">
+Ocupado
+</td>
+<td style="text-align:center;">
+Sano
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+152
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Primaria completa
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+Sano
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+180
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Masculino
+</td>
+<td style="text-align:center;">
+Post secundaria
+</td>
+<td style="text-align:center;">
+Desocupado
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+215
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+Sano
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+262
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+Urbano
+</td>
+<td style="text-align:center;">
+Femenino
+</td>
+<td style="text-align:center;">
+Secundaria incompleta
+</td>
+<td style="text-align:center;">
+No FL
+</td>
+<td style="text-align:center;">
+Enfermo
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+262
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: Adaptación de <span class="citation">(<a href="#ref-benschop" role="doc-biblioref">Benschop, Machingauta, and Welch 2021, 33</a>)</span></p>
+<div class="example">
+<p><span id="exm:bloqueMR6" class="example"><strong>Bloque 7.6  </strong></span>Función para l-diversity en <code>sdcMicro</code></p>
+</div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="medición-de-riesgos.html#cb21-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Calculando l-diversity</span></span>
+<span id="cb21-2"><a href="medición-de-riesgos.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="medición-de-riesgos.html#cb21-3" aria-hidden="true" tabindex="-1"></a> sdcInitial <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(<span class="at">obj =</span> sdcInitial, <span class="at">ldiv_index =</span> <span class="fu">c</span>(<span class="st">&quot;Salud&quot;</span>), </span>
+<span id="cb21-4"><a href="medición-de-riesgos.html#cb21-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
+<span id="cb21-5"><a href="medición-de-riesgos.html#cb21-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># Resultado para l-diversity</span></span>
+<span id="cb21-6"><a href="medición-de-riesgos.html#cb21-6" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span>
+<span id="cb21-7"><a href="medición-de-riesgos.html#cb21-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb21-8"><a href="medición-de-riesgos.html#cb21-8" aria-hidden="true" tabindex="-1"></a> <span class="co"># l-diversity score para cada registro</span></span>
+<span id="cb21-9"><a href="medición-de-riesgos.html#cb21-9" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>ldiversity[,<span class="st">&#39;Salud_Distinct_Ldiversity&#39;</span>]</span></code></pre></div>
+<p>l-diversity es útil si los datos contienen variables sensibles categóricas que no son identificadores indirectos en sí mismos. No es posible seleccionar identificadores indirectos para calcular la l-diversity. La l-diversity debe calcularse para cada variable sensible por separado.</p>
+</div>
+</div>
+<div id="medidas-de-riesgo-para-variables-continuas" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Medidas de riesgo para variables continuas<a href="medición-de-riesgos.html#medidas-de-riesgo-para-variables-continuas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El principio de rareza o unicidad de combinaciones de identificadores indirectos (claves) no es útil para variables continuas, porque es probable que todos o muchos individuos tengan claves únicas. Por lo tanto, se explotan otros enfoques para medir el riesgo de divulgación de las variables continuas. Estos métodos se basan en la unicidad de los valores en la vecindad de los valores originales. La unicidad se define de diferentes formas: en términos absolutos (medida de intervalo) o en términos relativos (vinculación de registros). La mayoría de las medidas son medidas a posteriori: se evalúan después de anonimizar los datos sin procesar, comparar los datos tratados con los datos sin procesar y evaluar para cada individuo la distancia entre los valores en los datos sin procesar y los tratados. Esto significa que estos métodos no son útiles para identificar personas en riesgo dentro de los datos sin procesar, sino que muestra la distancia/diferencia entre el conjunto de datos antes y después de la anonimización y, por lo tanto, puede interpretarse como una evaluación del método de anonimización. Por esa razón, se asemejan a las medidas de pérdida de información discutidas en la sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>. Finalmente, las medidas de riesgo para identificadores indirectos continuos también se basan en la detección de valores atípicos. Los valores atípicos juegan un papel importante en la reidentificación de estos registros.</p>
+<div id="vinculación-de-registros-o-coincidencia-de-registros" class="section level3 hasAnchor" number="7.6.1">
+<h3><span class="header-section-number">7.6.1</span> Vinculación de registros (o coincidencia de registros)<a href="medición-de-riesgos.html#vinculación-de-registros-o-coincidencia-de-registros" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vinculación de registros (o Record linkage, en inglés) es un método a posteriori que evalúa el número de vínculos correctos al vincular los valores perturbados con los valores originales. El algoritmo de vinculación se basa en la distancia entre el original y los valores perturbados (es decir, vinculación de registros basada en la distancia). Los valores perturbados se emparejan con el individuo más cercano. Es importante señalar que este método no brinda información sobre el riesgo inicial, sino que es una medida para evaluar el algoritmo de perturbación (es decir, está diseñado para indicar el nivel de incertidumbre introducido en la variable al contar la cantidad de registros que podría coincidir correctamente).</p>
+<p>Los algoritmos de vinculación de registros difieren con respecto a qué medida de distancia se utiliza. Cuando una variable tiene una escala muy diferente a la de otras variables continuas en el conjunto de datos, se recomienda volver a escalar las variables antes de usar la vinculación de registros. Escalas muy diferentes pueden dar lugar a resultados no deseados al medir la distancia multivariada entre registros en función de varias variables continuas. Dado que estos métodos se basan tanto en datos sin procesar como en datos tratados, los ejemplos de sus aplicaciones requieren la introducción de métodos SDC y, por lo tanto, se posponen a los estudios de casos en la sección <a href="caso-de-estudio.html#caso-de-estudio">Caso de estudio</a>.</p>
+<p>Además de la vinculación de registros basada en la distancia, otro método de vinculación es la vinculación de registros probabilísticos. La literatura muestra, sin embargo, que los resultados de la vinculación de registros basados en la distancia son mejores que los resultados de la vinculación de registros probabilísticos. Las personas en los datos tratados que están vinculadas a las personas correctas en los datos sin procesar se consideran en riesgo de divulgación.</p>
+</div>
+<div id="medida-de-intervalo" class="section level3 hasAnchor" number="7.6.2">
+<h3><span class="header-section-number">7.6.2</span> Medida de intervalo<a href="medición-de-riesgos.html#medida-de-intervalo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La aplicación exitosa de un método SDC debería dar como resultado valores perturbados que no se consideran demasiado cercanos a sus valores iniciales; si el valor es relativamente cercano, la reidentificación puede ser relativamente fácil. En la aplicación de medidas de intervalo, se crean intervalos alrededor de cada valor perturbado y luego se determina si el valor original de esa observación perturbada está contenido en este intervalo. Los valores que están dentro del intervalo alrededor del valor inicial después de la perturbación se consideran demasiado cercanos al valor inicial y, por lo tanto, no son seguros y necesitan más perturbaciones. Los valores que están fuera de los intervalos se consideran seguros. El tamaño de los intervalos se basa en la desviación estándar de las observaciones y un parámetro de escala. Este método está implementado en la función <code>dRisk()</code> en <code>sdcMicro</code>. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR7">7.7</a> muestra cómo imprimir o mostrar el valor de riesgo calculado por <code>sdcMicro</code> comparando las variables de ingresos antes y después de la anonimización. “sdcObj” es un objeto <code>sdcMicro</code> y “compExp“ es un vector que contiene los nombres de las variables de ingresos. El tamaño de los intervalos es <em>k</em> veces la desviación estándar, donde <em>k</em> es un parámetro en la función <code>dRisk()</code>. El más largo <em>k</em>, cuanto más grandes son los intervalos y, por lo tanto, mayor es el número de observaciones dentro del intervalo construidas alrededor de sus valores originales y mayor es la medida de riesgo. El resultado 1 indica que todas (100 por ciento) las observaciones están fuera del intervalo de 0,1 veces la desviación estándar alrededor de los valores originales.</p>
+<div class="example">
+<p><span id="exm:bloqueMR7" class="example"><strong>Bloque 7.7  </strong></span>Ilustración de medida de intervalo</p>
+</div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="medición-de-riesgos.html#cb22-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">dRisk</span>(<span class="at">obj =</span> sdcObj<span class="sc">@</span>origData[,compExp], <span class="at">xm =</span> sdcObj<span class="sc">@</span>manipNumVars[,compExp],</span>
+<span id="cb22-2"><a href="medición-de-riesgos.html#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">k =</span> <span class="fl">0.1</span>)</span>
+<span id="cb22-3"><a href="medición-de-riesgos.html#cb22-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<p>Para la mayoría de los valores, este es un enfoque satisfactorio. Sin embargo, no es una medida suficiente para valores atípicos. Después de la perturbación, los valores atípicos seguirán siendo valores atípicos y se pueden volver a identificar fácilmente, incluso si están lo suficientemente lejos de sus valores iniciales. Por lo tanto, los valores atípicos deben tratarse con precaución.</p>
+</div>
+<div id="detección-de-valores-atípicos" class="section level3 hasAnchor" number="7.6.3">
+<h3><span class="header-section-number">7.6.3</span> Detección de valores atípicos<a href="medición-de-riesgos.html#detección-de-valores-atípicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los valores atípicos son importantes para medir el riesgo de reidentificación en microdatos continuos. Los datos continuos suelen estar sesgados, especialmente a la derecha. Esto significa que hay algunos valores atípicos con valores muy altos en relación con las otras observaciones de la misma variable. Algunos ejemplos son los ingresos en los datos de los hogares, donde solo unas pocas personas/hogares pueden tener ingresos muy altos, o los datos de facturación de empresas que son mucho más grandes que otras empresas de la muestra. En casos como estos, incluso si estos valores se perturban, aún puede ser fácil identificar estos valores atípicos, ya que seguirán siendo los valores más grandes incluso después de la perturbación (la perturbación habrá creado incertidumbre en cuanto al valor exacto, pero debido a que el valor comenzó mucho más lejos de otras observaciones, aún puede ser fácil vincularlo con el individuo de altos ingresos o la empresa muy grande). Los ejemplos serían el único médico en un área geográfica con altos ingresos o una sola gran empresa en un tipo de industria. Por lo tanto, la identificación de valores atípicos en datos continuos es un paso importante cuando se identifican personas con alto riesgo. En la práctica, identificar los valores de una variable continua que son mayores que un valor predeterminado p%-percentil podría ayudar a identificar valores atípicos y, por lo tanto, unidades con mayor riesgo de identificación. El valor de <em>p</em> depende de la asimetría de los datos.</p>
+<p>Podemos calcular el p%-percentil de una variable continua en <code>R</code> y mostrar los individuos que tienen ingresos superiores a este percentil. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR8">7.8</a> proporciona una ilustración del percentil 90.</p>
+<div class="example">
+<p><span id="exm:bloqueMR8" class="example"><strong>Bloque 7.8  </strong></span>Cómputo del percentil 90 % de la variable INCWAGE</p>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="medición-de-riesgos.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../Capacitación/GitHub&quot;</span>) <span class="co"># directorio de trabajo</span></span>
+<span id="cb23-2"><a href="medición-de-riesgos.html#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="medición-de-riesgos.html#cb23-3" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">=</span> <span class="st">&quot;data.dta&quot;</span> <span class="co"># nombre del archivo</span></span>
+<span id="cb23-4"><a href="medición-de-riesgos.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven) <span class="co"># carga el paquete requerido para la función de lectura/escritura</span></span>
+<span id="cb23-5"><a href="medición-de-riesgos.html#cb23-5" aria-hidden="true" tabindex="-1"></a>               <span class="co"># para archivos STATA</span></span>
+<span id="cb23-6"><a href="medición-de-riesgos.html#cb23-6" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(fname) </span>
+<span id="cb23-7"><a href="medición-de-riesgos.html#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="medición-de-riesgos.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cómputo de 90 % percentil para variable INCWAGE</span></span>
+<span id="cb23-9"><a href="medición-de-riesgos.html#cb23-9" aria-hidden="true" tabindex="-1"></a> perc90 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(file[,<span class="st">&#39;INCWAGE&#39;</span>], <span class="fl">0.90</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb23-10"><a href="medición-de-riesgos.html#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="medición-de-riesgos.html#cb23-11" aria-hidden="true" tabindex="-1"></a> <span class="co"># Muestra ID de observaciones con valores para INCWAGE mayores al 90 % percentil</span></span>
+<span id="cb23-12"><a href="medición-de-riesgos.html#cb23-12" aria-hidden="true" tabindex="-1"></a> file[(file[, <span class="st">&#39;INCWAGE&#39;</span>] <span class="sc">&gt;=</span> perc90), <span class="st">&#39;IDP&#39;</span>]</span></code></pre></div>
+<p>Un segundo enfoque para la detección de valores atípicos es una medida a posteriori que compara los datos tratados y sin procesar. Se construye un intervalo alrededor de los valores perturbados como se describe en la sección anterior. Si los valores originales caen dentro del intervalo alrededor de los valores perturbados, los valores perturbados se consideran inseguros ya que están demasiado cerca de los valores originales. Existen diferentes formas de construir dichos intervalos, como intervalos basados en rangos e intervalos basados en desviación estándar. <span class="citation">Templ and Meindl (<a href="#ref-templ2008" role="doc-biblioref">2008</a>)</span> proponen una alternativa robusta para estos intervalos. Construyen los intervalos en función de la distancia robusta de Mahalanobis (RMD, por su sigla en inglés) al cuadrado de los valores individuales. El RMD escala los intervalos de manera que los valores atípicos obtienen intervalos más grandes y, por lo tanto, deben tener una perturbación mayor para que se consideren seguros que los valores que no son atípicos. Este método se implementa en <code>sdcMicro</code> en la función <code>dRiskRMD()</code>, que es una extensión de la función <code>dRisk()</code>.</p>
+</div>
+</div>
+<div id="riesgo-global" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Riesgo global<a href="medición-de-riesgos.html#riesgo-global" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para construir una medida de riesgo agregado a nivel global para el conjunto de datos completo, podemos agregar las medidas de riesgo a nivel individual de varias maneras. Las medidas de riesgo global deben usarse con precaución: detrás de un riesgo global aceptable pueden esconderse algunos registros de muy alto riesgo que se compensan con muchos registros de bajo riesgo.</p>
+<div id="media-de-las-medidas-de-riesgo-individuales" class="section level3 hasAnchor" number="7.7.1">
+<h3><span class="header-section-number">7.7.1</span> Media de las medidas de riesgo individuales<a href="medición-de-riesgos.html#media-de-las-medidas-de-riesgo-individuales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una forma sencilla de agregar las medidas de riesgo individuales es tomar la media de todos los individuos de la muestra, que es igual a sumar todas las claves de la muestra si se multiplica por las frecuencias de muestra de estas claves y se divide por el tamaño de la muestra, <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[R_{1}=\frac{1}{n}\sum_{i} r_{k}=\frac{1}{n}\sum_{k}f_{k}r_{k},\]</span></p>
+<p>donde <span class="math inline">\(r_{k}\)</span> es el riesgo individual de clave <span class="math inline">\(k\)</span> que el <em>i-ésimo</em> registro comparte (ver la sección <a href="medición-de-riesgos.html#identificadores-indirectos-categóricos-y-recuentos-de-frecuencia">Identificadores indirectos categóricos y recuentos de frecuencia</a>). Esta medida se informa como riesgo global en <code>sdcMicro</code>, se almacena en el <em>slot</em> de “riesgo” y se puede imprimir como se muestra en el Bloque <a href="medición-de-riesgos.html#exm:bloqueMR9">7.9</a>. Indica que la probabilidad de reidentificación promedio es 0,01582 o 0,1582%.</p>
+<div class="example">
+<p><span id="exm:bloqueMR9" class="example"><strong>Bloque 7.9  </strong></span>Cómputo de la medida de riesgo global</p>
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="medición-de-riesgos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Riesgo global (probabilidad promedio de re-identificación)</span></span>
+<span id="cb24-2"><a href="medición-de-riesgos.html#cb24-2" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>global<span class="sc">$</span>risk</span></code></pre></div>
+<p>El riesgo global en los datos de ejemplo de la Tabla <a href="medición-de-riesgos.html#tab:tabMR1">7.1</a> es 0,01582, que es la proporción esperada de todos los individuos de la muestra que un intruso podría volver a identificar. Otra forma de expresar el riesgo global es el número de reidentificaciones esperadas, <span class="math inline">\(n*R_{1}\)</span>, que es en el ejemplo 10 * 0,01582. El número esperado de reidentificaciones también se guarda en el objeto <code>sdcMicro</code>. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR10">7.10</a> muestra cómo imprimir esto.</p>
+<div class="example">
+<p><span id="exm:bloqueMR10" class="example"><strong>Bloque 7.10  </strong></span>Cómputo del número esperado de reidentificaciones</p>
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="medición-de-riesgos.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  # Riesgo global(Número esperado de re-identificaciones)</span></span>
+<span id="cb25-2"><a href="medición-de-riesgos.html#cb25-2" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>global<span class="sc">$</span>risk_ER</span></code></pre></div>
+</div>
+<div id="recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral" class="section level3 hasAnchor" number="7.7.2">
+<h3><span class="header-section-number">7.7.2</span> Recuento de personas con riesgos superiores a un cierto umbral<a href="medición-de-riesgos.html#recuento-de-personas-con-riesgos-superiores-a-un-cierto-umbral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Todos los individuos pertenecientes a la misma clave tienen el mismo riesgo individual, <span class="math inline">\(r_{k}\)</span>. Otra forma de expresar el riesgo total en la muestra es el número total de observaciones que superan un determinado umbral de riesgo individual. La fijación del umbral puede ser absoluta (por ejemplo, todas aquellas personas que tengan un riesgo de divulgación superior a 0,05 o 5%) o relativa (por ejemplo, todas aquellas personas con riesgos superiores al cuartil superior del riesgo individual). El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR11">7.11</a> muestra cómo utilizando <code>R</code>, se contaría el número de observaciones con un riesgo de reidentificación individual superior al 5%. En el ejemplo, ninguna persona tiene un riesgo de divulgación superior a 0,05.</p>
+<div class="example">
+<p><span id="exm:bloqueMR11" class="example"><strong>Bloque 7.11  </strong></span>Número de personas con riesgo individual superior al umbral 0,05</p>
+</div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="medición-de-riesgos.html#cb26-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">sum</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<p>Estos cálculos se pueden usar para tratar los datos de las personas cuyos valores de riesgo están por encima de un umbral predeterminado. Más adelante veremos que hay métodos en <code>sdcMicro</code>, como <code>localSupp()</code>, que se pueden usar para suprimir valores de ciertas variables clave para aquellas personas con riesgo por encima de un umbral específico. Esto se explica con más detalle en la sección <a href="métodos-sdc.html#sup-loc">Supresión local</a>.</p>
+</div>
+</div>
+<div id="riesgo-jerárquico-o-del-hogar" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> Riesgo jerárquico (o del hogar)<a href="medición-de-riesgos.html#riesgo-jerárquico-o-del-hogar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En muchas encuestas sociales, los datos tienen una estructura jerárquica donde un individuo pertenece a una entidad de nivel superior (ver la sección <a href="medición-de-riesgos.html#niveles-de-riesgo">Niveles de riesgo</a>). Ejemplos típicos son los hogares en las encuestas sociales o los alumnos en las escuelas. La reidentificación de un miembro del hogar también puede conducir a la reidentificación de los otros miembros del hogar. Por tanto, es fácil ver que, si tenemos en cuenta la estructura del hogar, el riesgo de reidentificación es el riesgo de que al menos uno de los miembros del hogar sea reidentificado.</p>
+<p><span class="math display">\[r^h=P(A_{1}\bigcup A_{2}\bigcup \dots \bigcup A_{J})=1-\prod_{j=1}^J 1-P(A_{j}), \]</span>
+donde <span class="math inline">\(A_{j}\)</span> es el evento que el <em>j-ésimo</em> miembro del hogar sea identificado y <span class="math inline">\(P(A_{j})=r_{k}\)</span> es el riesgo de divulgación individual del <em>j-ésimo</em> miembro. Por ejemplo, si un hogar tiene tres miembros con riesgos de divulgación individuales en función de sus respectivas claves 0,02, 0,03 y 0,03, respectivamente, el riesgo del hogar es</p>
+<p><span class="math display">\[1-((1-0,02)(1-0,03)(1-0,03))=0,078\]</span></p>
+<p>El riesgo jerárquico o del hogar no puede ser menor que el riesgo individual, y el riesgo del hogar es siempre el mismo para todos los miembros del hogar. El riesgo del hogar debe utilizarse en los casos en que los datos contengan una estructura jerárquica, es decir, cuando la estructura del hogar esté presente en los datos. Usando <code>sdcMicro</code>, si se especifica un identificador de hogar (en el argumento hhId en la función <code>createSdcObj()</code>) al crear un objeto <code>sdcMicro</code>, el riesgo del hogar se calculará automáticamente. El Bloque <a href="medición-de-riesgos.html#exm:bloqueMR12">7.12</a> muestra cómo imprimir estas medidas de riesgo.</p>
+<div class="example">
+<p><span id="exm:bloqueMR12" class="example"><strong>Bloque 7.12  </strong></span>Cómputo del riesgo del hogar y número esperado de reidentificaciones</p>
+</div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="medición-de-riesgos.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Riesgo del hogar</span></span>
+<span id="cb27-2"><a href="medición-de-riesgos.html#cb27-2" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>global<span class="sc">$</span>hier_risk</span>
+<span id="cb27-3"><a href="medición-de-riesgos.html#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="medición-de-riesgos.html#cb27-4" aria-hidden="true" tabindex="-1"></a> <span class="co"># Riesgo del hogar (Número esperado de reidentificaciones)</span></span>
+<span id="cb27-5"><a href="medición-de-riesgos.html#cb27-5" aria-hidden="true" tabindex="-1"></a> sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>global<span class="sc">$</span>hier_risk_ER</span></code></pre></div>
+<p>El tamaño de un hogar es un identificador importante en sí mismo, especialmente para hogares grandes. Sin embargo, la supresión de la variable del tamaño real (por ejemplo, el número de miembros del hogar) no es suficiente para eliminar esta información del conjunto de datos, ya que un simple recuento de los miembros del hogar para un hogar en particular permitirá reconstruir esta variable siempre que un ID del hogar esté en los datos, lo que permite asignar individuos a los hogares. Señalamos esto para la atención del lector ya que es importante.</p>
+</div>
+<div id="referencias" class="section level2 hasAnchor" number="7.9">
+<h2><span class="header-section-number">7.9</span> Referencias<a href="medición-de-riesgos.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- ```{r generateBibliography, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE} -->
+<!-- require("knitcitations") -->
+<!-- cleanbib() -->
+<!-- options("citation_format" = "pandoc") -->
+<!-- read.bibtex(file = "bibliography.bib") -->
+<!-- ``` -->
+
+<hr />
+</div>
+</div>
+<h3>Referencias<a href="referencias-1.html#referencias-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-benschop" class="csl-entry">
+———. 2021. <span>“Statistical Disclosure Control: A Practice Guide.”</span> <em>World Bank</em>, 195. <a href="https://sdcpractice.readthedocs.io/en/latest/">https://sdcpractice.readthedocs.io/en/latest/</a>.
+</div>
+<div id="ref-elliot2010" class="csl-entry">
+Elliot, Mark, Susan Lomax, Elaine Mackey, and Kingsley Purdam. 2010. <span>“Data Environment Analysis and the Key Variable Mapping System.”</span> In, edited by Josep Domingo-Ferrer and Emmanouil Magkos, 138–47. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-642-15838-4_13">https://doi.org/10.1007/978-3-642-15838-4_13</a>.
+</div>
+<div id="ref-hundepool2012" class="csl-entry">
+Hundepool, Anco, Josep Domingo-Ferrer, Luisa Franconi, Sarah Giessing, Eric Schulte Nordholt, Keith Spicer, and Peter Paul De Wolf. 2012. <em>Statistical Disclosure Control</em>. John Wiley &amp; Sons, Ltd. <a href="https://doi.org/10.1002/9781118348239.indauth">https://doi.org/10.1002/9781118348239.indauth</a>.
+</div>
+<div id="ref-lambert1993" class="csl-entry">
+Lambert, Diane. 1993. <span>“Measures of Disclosure Risks and Harm.”</span> <em>Journal of Official Statistics</em> 9 (2): 1–36. <a href="https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/measures-of-disclosure-risk-and-harm.pdf">https://www.scb.se/contentassets/ca21efb41fee47d293bbee5bf7be7fb3/measures-of-disclosure-risk-and-harm.pdf</a>.
+</div>
+<div id="ref-templ2008" class="csl-entry">
+Templ, Matthias, and Bernhard Meindl. 2008. <span>“Robust Statistics Meets SDC: New Disclosure Risk Measures for Continuous Microdata Masking.”</span> In, edited by Josep Domingo-Ferrer and Yücel Saygın, 177–89. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <a href="https://doi.org/10.1007/978-3-540-87471-3_15">https://doi.org/10.1007/978-3-540-87471-3_15</a>.
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p>Recodificar una variable continua a veces es útil en los casos en que los datos contienen solo unas pocas variables continuas. Veremos en la sección <a href="medición-de-riesgos.html#riesgo-individual">Riesgo individual</a> que muchos métodos utilizados para el cálculo del riesgo dependen de si las variables son categóricas. También veremos que es más fácil para la medición del riesgo si los datos contienen solo variables categóricas o solo continuas.<a href="medición-de-riesgos.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Esto se discute con mayor detalle en las siguientes secciones. En los casos en que el número de valores posibles sea grande, se recomienda recodificar la variable, o partes del conjunto en el que toma valores, para obtener menos valores distintos.<a href="medición-de-riesgos.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>No todos los datos externos son necesariamente de dominio público. También se deben tener en cuenta los conjuntos de datos de propiedad privada o los conjuntos de datos que no se divulgan para determinar el escenario de divulgación adecuado.<a href="medición-de-riesgos.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Consulte la sección <a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj">Objetos de la clase <code>sdcMicroObj</code></a> para obtener más información sobre los <em>slots</em> y la estructura del objeto <code>sdcMicro</code>.<a href="medición-de-riesgos.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Los supuestos para esta medida de riesgo son estrictos y el riesgo se estima en muchos casos mayor que el riesgo real. Entre otras suposiciones, se supone que todos los individuos de la muestra también están incluidos en el archivo externo utilizado por el intruso para compararlos. Si no es así, el riesgo es mucho menor; si el individuo en el archivo liberado no está incluido en el archivo externo, la probabilidad de una coincidencia correcta es cero. Otras suposiciones son que los archivos no contienen errores y que ambos conjuntos de datos se recopilaron simultáneamente, es decir, contienen la misma información. Estos supuestos a menudo no se cumplen en general, pero son necesarios para el cálculo de una medida. Un ejemplo de una violación de las últimas suposiciones podría ocurrir si los conjuntos de datos se recopilan en diferentes puntos en el tiempo y los registros han cambiado. Esto podría suceder cuando las personas se mudan o cambian de trabajo y hace imposible la coincidencia correcta. <strong>Los supuestos son conservadores y asumen el mayor riesgo de divulgación</strong>.<a href="medición-de-riesgos.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Consulte la sección <a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj">Objetos de la clase <code>sdcMicroObj</code></a> para obtener más información sobre los <em>slots</em> y la estructura del objeto <code>sdcMicro</code>.<a href="medición-de-riesgos.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>En <code>sdcMicro</code>, es importante utilizar el código de valor faltante estándar <code>NA</code> en lugar de otros códigos, como 9999 o cadenas. En la sección <a href="introducción-a-sdcmicro.html#valores-faltantes">Valores faltantes</a>, se analizó más detalladamente cómo establecer otros códigos de valores faltantes de <code>NA</code> en <code>R</code>. Esto es necesario para garantizar que los métodos de <code>sdcMicro</code> funcionen correctamente. Cuando los valores faltantes tienen códigos distintos de <code>NA</code>, los códigos de valores faltantes se interpretan como un nivel de factor distinto en el caso de las variables categóricas.<a href="medición-de-riesgos.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>Alternativamente, las variables sensibles se pueden especificar al crear el objeto <code>sdcMicro</code> usando la función <code>createSdcObj()</code> en el argumento sensibleVar. Esto se explica con más detalle en la sección <a href="introducción-a-sdcmicro.html#objetos-de-la-clase-sdcmicroobj">Objetos de la clase <code>sdcMicroObj</code></a>. En ese caso, no es necesario especificar el argumento ldiv_index en la función <code>ldiversity()</code>, y las variables en el argumento sensibleVar se usarán automáticamente para calcular l-diversity.<a href="medición-de-riesgos.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>Además de l-diversity distintos, hay otros métodos de l-diversity: entropía y recursivo. l-diversity distinto es el más utilizado.<a href="medición-de-riesgos.html#fnref20" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción-a-sdcmicro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métodos-sdc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-riesgos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
