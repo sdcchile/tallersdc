@@ -1,0 +1,1906 @@
+# Caso de estudio
+
+
+El objetivo del siguiente proceso de anonimización es ilustrar el proceso SDC establecido en la [Guía para el Control de la Divulgación Estadística en Microdatos](https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/guias-y-orientaciones-metodologicas/documentos/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=b6bdd28f_2) propuesta por la Mesa de Anonimización INE. Los datos utilizados corresponden a una base de datos sintética que se basa en el diseño de la 17a ENUSC 2020 [@manualbdenusc].
+
+
+El proceso SDC aquí implementado busca generar un archivo de datos PUF (del inglés, *Public Use File*), que pueda ponerse a disposición de forma pública y para cualquier usuario que lo requiera. Para ello, el proceso SDC aplicado apunta al logro de los umbrales de riesgo establecido por la "Guía para el Control de la Divulgación Estadística en Microdatos" para encuestas de hogares [@manualsdcine]. Simultáneamente, el ejercicio busca mantener la utilidad de los datos, intentando minimizar la intervención de los mismos para que los usuarios puedan replicar las estadísticas priorizadas por esta encuesta. 
+
+
+Los umbrales de riesgo establecidos son los siguientes:
+
+**Riesgo Global**
+
+* Riesgo global inferior al 10%
+
+**Riesgos Individuales**
+
+* Hasta 20% de observaciones con riesgo individual mayor al 1%
+* Hasta 15% de observaciones con riesgo individual mayor al 5%
+* 0% de observaciones con riesgo individual mayor al 25%
+
+**K-Anonimato**
+
+* 0% de observaciones violando k = 2
+* Hasta 5% de observaciones violando k = 3
+* Hasta 10% de observaciones violando k = 5
+
+
+A continuación, la guía presenta paso a paso como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.
+
+
+## Paso Uno: Definiciones previas al proceso de anonimización
+
+### Definición del equipo de trabajo
+
+En esta primera etapa, se define el equipo de trabajo, el cual debe estar compuesto al menos por un encargado temático, encargado de los criterios para la selección de variables claves y definición de escenarios, y un analista de anonimización, encargando de la implementación de la misma a través de un *script* como el aquí expuesto.
+
+### Insumos y/o productos necesarios para la ejecución del proceso
+
+En esta etapa se describe la metodología del producto estadístico, la revisión temática de la base de datos, su caracterización y clasificación de variables, la infraestructura con que se cuenta para el proceso, entre otros elementos que se especifican en el documento adjunto.
+
+#### Archivo de Base de datos
+
+Antes de cargar los datos, declaramos el directorio de trabajo donde se ubican los archivos con que trabajaremos.
+
+```{example, bloque1nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+yourdirectory<-"~/2023/SDC_traing_julio/simulacion" 
+setwd(yourdirectory)
+```
+
+
+Se trabaja con la base bruta de la ENUSC, que contiene todas las variables previo a la innominación (en este caso es una base de datos sintética).
+
+```{example, bloque2nbm}
+
+
+```
+```{r, echo=TRUE}
+fname <- "BD_ENUSC_SINTETICA_ETIQUETADA.sav"
+file <- haven::read_sav(fname)
+```
+
+#### Caracterización de la base de datos
+
+Primero revisamos las dimensiones del archivo, es decir, cuantos registros y variables contiene. La base contiene 47.344 registros y 73 variables.
+
+```{example, bloque3nbm}
+
+
+```
+```{r, echo=TRUE}
+dim(file)
+```
+
+Luego, revisamos el nombre de las variables contenido en la base de datos para verificar que se ajusta a la base con que se requiere trabajar.
+
+```{example, bloque4nbm}
+
+
+```
+```{r, echo=TRUE}
+names(file)
+```
+
+Es importante señalar que la base de datos se compone de variables de caracterización de los hogares y las personas (módulo de Registro de Personas en el Hogar o RPH) y variables temáticas de la encuesta referidas a percepción de inseguridad y victimización.
+
+Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza Fact_Hog, mientras que para el nivel persona se utiliza Fact_Ind. 
+
+Además, la base de datos cuenta con variables de Conglomerado y VarStrat, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.
+
+El archivo "Diccionario de Variables.xlsx" contiene la descripción de las variables contenidas en la base de datos.
+
+#### Clasificación de variables
+
+Las potenciales variables clave, que podría permitir una re-identificación, se ubican en el módulo de Registro de Personas en el Hogar (RPH), ya que permiten dar cuenta de atributos de las personas y hogares, como también en la portada de la encuesta, donde se encuentran las variables de ubicación geográfica. Estas últimas coinciden en parte con la base de datos de Hoja de Ruta, no obstante esta base no se publica. 
+
+#### Librerías requeridas
+Se cargan las librerías requeridas para el proceso. En caso de que no estén instaladas, deberá instalarlas con la función install.packages() como se muestra en el siguiente ejemplo: 
+
+```{example, bloque5nbm}
+
+
+```
+```{r, echo=TRUE}
+#install.packages("nombre_libreria") 
+```
+
+Luego, cargamos las librerías:
+
+```{example, bloque6nbm}
+
+
+```
+```{r, message=FALSE}
+library(sdcMicro)  # paquete sdcMicro con funciones para el proceso SDC
+library(survey)    # para diseño complejo
+library(calidad)   # evaluación de calidad de las estimaciones
+library(tidyverse) # herramientas para manipulación de datos
+library(openxlsx)  # lectura/escritura de archivos xlsx
+library(stringr) # procesamiento de textos
+```
+
+
+### Determinación de necesidades de protección de confidencialidad
+
+En esta actividad se describen el marco normativo y convenios a tener en cuenta para la anonimización, las unidades estadísticas contenidas en la base de datos, las variables sensibles contenidas en la base de datos, y el diagnóstico de necesidad de protección de confidencialidad.
+
+#### Unidades estadísticas
+
+Se verifica la cantidad de viviendas y de personas registradas en la base de datos. Para ello, se mide la cantidad de valores únicos del folio de viviendas (*enc_idr*) y el folio de personas (*rph_ID*).
+
+**Viviendas:** 18.766
+
+```{example, bloque7nbm}
+
+
+```
+```{r, echo=TRUE}
+length(unique(file$enc_idr))
+```
+
+**Personas:** 47.344
+
+```{example, bloque8nbm}
+
+
+```
+```{r, echo=TRUE}
+length(unique(file$rph_ID))
+```
+
+De este modo, se da cuenta de la cantidad de unidades estadísticas y de la estructura jerárquica de la base de datos. 
+
+#### variables sensibles 
+
+Se establecen como variables sensibles aquellas referidas a la tenencia de armas (P17), a elementos de seguridad en la vivienda (P24), y acerca de denuncia de delitos (DEN_AGREG).
+
+```{example, bloque9nbm}
+
+
+```
+```{r, echo=TRUE}
+sensibles <- c('P17',
+               'P24',
+               'DEN_AGREG')
+```
+
+Se verifica que las variables sensibles están presentes en la base de datos. Se espera que esta función devuelva el valor *TRUE*.
+
+```{example, bloque10nbm}
+
+
+```
+```{r, echo=TRUE}
+all(sensibles %in% names(file))
+```
+
+#### Diagnóstico de necesidad de protección de confidencialidad
+
+Dado que las variables sensibles se encuentran presentes en el archivo de datos, corresponde aplicar el proceso SDC para asegurar la anonimización de los datos.
+
+
+### Propiedades estadísticas a preservar
+
+#### Usos claves de los datos 
+
+Se espera que los datos mantengan las siguientes propiedades:
+
+* Se debe poder reproducir los indicadores principales de la encuesta con precisión, por lo que idealmente no deben modificarse, con un máximo de diferencia en la estimación no mayor a un punto porcentual (diferencia en términos absolutos, dado que las estimaciones de ENUSC son de proporción).
+
+* Además, se deben mantener las variables de desagregación de tabulados de la encuesta, siendo estas sexo y región. Es decir, no deben observarse valores perdidos en estas variables.
+
+Dado que las variables temáticas no corresponden a potenciales variables clave, se descuenta la posibilidad de modificar dichas variables, asegurando mantener sus propiedades estadísticas.
+
+Por ende, el foco debe estar en mantener las relaciones entre las variables de desagregación que podrían ser modificadas como sexo y región, y las variables de los indicadores principales.
+
+Un dato frecuentemente solicitado por transparencia es la variable comuna. Si bien el diseño muestral de ENUSC no permite realizar estimaciones a ese nivel de desagregación, esta variable es de todos modos de interés para los usuarios para análisis a nivel descriptivo y referencial. En este sentido, es pertinente evaluar la posibilidad de mantener esta variable en la base de datos anonimizada.
+
+Por otro lado, la variable de edad en versiones anteriores de la ENUSC se publicaba con todos los valores de la variable (semi-continua), siendo ahora publicada como tramos etarios. Dado que usuarios del mundo académico y otros investigadores dan uso a esta variable, es también de interés analizar la posibilidad de mantenerla como semi-continua
+
+#### Indicadores priorizados
+
+Los indicadores priorizados corresponden a:
+
+**Victimización Agregada de Delitos Consumados**
+Calculado en base a la variable VA_DC, por lo que la base de datos anonimizada debe permitir calcular este indicador a nivel nacional y regional (corresponde a hogares, por lo que no es desagregable por sexo).
+
+**Victimización Personal de Delitos Consumados**
+Calculado en base a la variable VP_DC, por lo que la base de datos anonimizada debe permitir calcular este indicador a nivel nacional, regional y según sexo.
+
+Finalmente, dado que la variable de edad es de interés para el análisis de cómo distintos grupos etarios se ven afectados por la delincuencia, es de interés que la relación entre la variable de edad y la variable de victimización personal se mantenga. Esto se evaluará a través de un modelo de regresión logística simple.
+
+
+#### Medición de utilidad
+
+##### Reproducción de estimaciones y desagregaciones
+
+Dado que las variables de sexo, región y de los indicadores principales no serán modificadas se espera que estas mantengan las propiedades estadísticas de la base de datos original o no tratada con la mayor fidelidad posible. Partiendo del supuesto de que estas variables no serán modificadas, sino que el proceso SDC se aplicará sobre otras variables (principalmente otras variables del RPH), solo podría verse alteradas las estimaciones en caso de supresión de registros.
+
+En este sentido, se espera que las estimaciones no difieran de la estimación original en más de un punto porcentual, en tanto diferencia en términos absolutos (todos los indicadores de ENUSC son de proporción).
+
+A continuación, se presentan las estimaciones de la ENUSC utilizando el paquete de calidad de las estimaciones desarrollado en el INE, ya que también se espera que se mantengan los estándares de calidad de las estimaciones.
+
+Ahora, se trabaja con un conjunto que contiene solo a los informantes que respondieron la encuesta (*file_kish*), descartando al resto de los integrantes del hogar. Esto es un paso necesario para poder declarar el diseño complejo de la encuesta.   
+
+Se establece el diseño complejo para personas y para hogares:
+
+```{example, bloque11nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+
+file_kish <- file[file$Kish  %in% 1,]
+
+options(survey.lonely.psu = "certainty")
+
+dc_pers <- svydesign(ids = ~Conglomerado, 
+                     strata = ~VarStrat, 
+                     data = file_kish,
+                     weights = ~Fact_Pers)
+
+dc_hog <- svydesign(ids = ~Conglomerado, 
+                    strata = ~VarStrat, 
+                    data = file_kish,
+                    weights = ~Fact_Hog)
+```
+
+
+Luego, realizamos las estimaciones desagregadas por región y sexo, guardando las tablas para posterior evaluación de la utilidad de los datos.
+
+Victimización agregada de delitos consumados, desagregado por región:
+
+```{example, bloque12nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+insumos_prop <- create_prop(var = 'VA_DC', 
+                                   domains = 'enc_region', 
+                                   design =  dc_hog)
+
+VA_DC_REG_PRE <- assess(insumos_prop)
+VA_DC_REG_PRE[1:6]
+```
+
+Victimización personal de delitos consumados, desagregado por sexo:
+
+```{example, bloque13nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'rph_sexo', 
+                                   design =  dc_pers
+                                )
+
+VP_DC_SEXO_PRE <- assess(insumos_prop)
+VP_DC_SEXO_PRE[1:6]
+```
+
+Victimización personal de delitos consumados, desagregado por región:
+
+```{example, bloque14nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'enc_region', 
+                                   design =  dc_pers)
+
+VP_DC_REG_PRE <- assess(insumos_prop)
+VP_DC_REG_PRE[1:6]
+```
+
+Victimización personal de delitos consumados, desagregado por sexo y región:
+
+```{example, bloque15nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'rph_sexo+enc_region', 
+                                   design =  dc_pers)
+
+VP_DC_REG_SEXO_PRE <- assess(insumos_prop)
+VP_DC_REG_SEXO_PRE[1:6]
+```
+
+Se espera que la base de datos anonimizada mantenga las propiedades aquí expuestas, por lo que se almacenan en objetos para su posterior comparación con los datos tratados.
+
+Por otro lado, dado que queremos mantener la utilidad de los datos en relación con edad, se mide la relación entre la variable edad y la variable VP_DC, lo cual se debería mantener en caso que se deba recodificar la edad en tramos.
+
+
+##### Relación entre variable de edad y victimización personal
+
+Se genera un modelo *logit* con la variable de Victimización Personal como dependiente y con la variable de edad como regresor. Se espera que los resultados aquí obtenidos sean similares con los datos tratados, lo que se evaluará al final del proceso de anonimización. 
+
+**Carga de datos**
+
+```{example, bloque16nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+data <- file[file$Kish %in% 1,]
+```
+
+**Dividir datos en _training_ y _testing_ sets**
+
+```{example, bloque17nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+library(caTools)
+set.seed(2022)
+
+ids_train <- sample(data$rph_ID, nrow(data)/3*2)
+training<- sjlabelled::remove_all_labels(data[data$rph_ID %in% ids_train,])
+testing<- sjlabelled::remove_all_labels(data[!data$rph_ID %in% ids_train,])
+```
+
+**Construir modelo**
+
+```{example, bloque18nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+modelo<-glm(VP_DC~rph_edad, 
+            data=training, 
+            family = "binomial")
+summary(modelo)
+```
+
+**Validación de modelo**
+
+```{example, bloque19nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+library(ResourceSelection)
+hoslem.test(modelo$y,fitted(modelo),g=10) # Test de Hosmer Lemeshow
+
+library(pROC)
+indiceC.trainig<-roc(modelo$y,fitted(modelo))     # Curva ROC
+indiceC.trainig
+```
+
+**Punto de corte óptimo**
+
+```{example, bloque20nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+ptocorteop.training<-coords(indiceC.trainig,x="best",
+                            input="threshold",
+                            best.method="youden")
+ptocorteop.training
+
+library(ROCR)
+ROC.training<-performance(prediction.obj = prediction(predictions = fitted(modelo),
+                                                      labels = as.factor(modelo$y)),
+                          "tpr",
+                          "fpr")
+
+
+```
+
+
+```{example, bloque21nbm}
+
+
+```
+```{r, echo=TRUE, fig.cap='Punto de corte óptimo con datos no tratados', warning=FALSE}
+plot(ROC.training, colorize=TRUE, print.cutoffs.at=seq(0.1, by=0.1))
+abline(a=0,b=1)
+abline(v=ptocorteop.training$threshold,col="red")
+```
+
+**Predicciones y matriz de confusión**
+
+```{example, bloque22nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+pred.training<-predict(modelo, data=training, type="response")
+table(ActualValue=training$VP_DC, 
+      PredictValue=pred.training>ptocorteop.training$threshold)
+```
+
+**Validación de modelo (con datos de prueba)**
+
+```{example, bloque23nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+hoslem.test(testing$VP_DC,predict(modelo,newdata=testing,type="response"),g=5)   # Test de Hosmer Lemeshow
+
+indiceC.testing=roc(testing$VP_DC,predict(modelo,newdata=testing,type="response")) # Curva ROC
+indiceC.testing
+```
+
+**Punto de corte óptimo (con datos de prueba)**
+
+```{example, bloque24nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+ptocorteop.testing<-coords(indiceC.testing,x="best",input="threshold",best.method="youden")
+ptocorteop.testing
+
+ROC.testing<-performance(prediction(predict(modelo,newdata=testing,type="response"),
+                                    as.factor(testing$VP_DC)),"tpr","fpr")
+
+```
+
+
+```{example, bloque25nbm}
+
+
+```
+```{r, echo=TRUE, fig.cap='Punto de corte óptimo con datos de prueba a partir de datos no tratados', warning=FALSE}
+plot(ROC.testing, colorize=TRUE, print.cutoffs.at=seq(0.1, by=0.1))
+abline(a=0,b=1)
+abline(v=ptocorteop.testing$threshold,col="red")
+```
+
+**Predicciones y matriz de confusión (con datos de prueba)**
+
+```{example, bloque26nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+pred.testing<-predict(modelo, testing, type="response")
+table(ActualValue=testing$VP_DC, PredictValue=pred.testing>ptocorteop.testing$threshold)
+```
+
+**Compara área bajo la curva, umbral, sensibilidad y especificidad**
+
+```{example, bloque27nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+auc    <-indiceC.trainig$auc              - indiceC.testing$auc
+corte  <-ptocorteop.training$threshold    - ptocorteop.testing$threshold
+sens   <- ptocorteop.training$sensitivity - ptocorteop.testing$sensitivity
+spe    <- ptocorteop.training$specificity - ptocorteop.testing$specificity
+```
+
+## Paso Dos: Preparar y explorar datos originales
+
+### Preparación de datos
+
+#### Integración de datos
+
+La base de datos ENUSC ya se encuentra integrada y no se combina con ninguna otra base producida para este producto estadístico.
+
+#### Eliminación de identificadores directos 
+
+Se registra nombres de identificadores directos y otras variables internas del proyecto que no son publicadas.
+
+```{example, bloque28nbm}
+
+
+```
+```{r}
+identificadores_directos <- c('enc_id','enc_distrito',
+                              'enc_zona','enc_manzana','enc_vivienda','FECHA',
+                              'enc_Nombre_ID',
+                              'enc_Nombre_K','enc_Edad_K',
+                              'rph_dianacimiento','rph_mesnacimiento',
+                              'rph_agnonacimiento',
+                              'rph_nombrepila','Hora_inicio_rph',
+                              'Hora_termino_rph','Hora_inicio_cc','Hora_termino_cc',
+                              'IDC','enc_letraKish',
+                              'enc_direccion','enc_numero','enc_codfono',
+                              'enc_fono','Enc_Fono_ID','Enc_Correo_ID',
+                              'Enc_Fono_K','Enc_Correo_K')
+
+all(identificadores_directos %in% names(file))
+```
+
+Luego, se quitan estas variables de la base de datos.
+
+```{example, bloque29nbm}
+
+
+```
+```{r}
+file <- file[,!names(file) %in% identificadores_directos]
+```
+
+También, se quitan las variables de cadena con registros de observaciones, que tampoco corresponde publicar (en caso de que las hubiera). Estas corresponden a variables de texto que registran observaciones de terreno del encuestador y relatos de los delitos brindados por los informantes, información utilizada para el procesamiento de la base de datos, pero que no se consideran para su publicación.
+
+```{example, bloque30nbm}
+
+
+```
+```{r}
+file <- file[,!str_detect(names(file),'^Obs|Obs$')]
+```
+
+#### Selección de Variables
+
+En principio, todas las variables restantes son pertinentes de publicar, en la medida que se cumplan los requerimientos de anonimización de los datos.
+
+Para efectos de los análisis siguientes y para la medición del riesgo, solo se considerará el siguiente listado de variables, que se considera que pueden ser utilizadas como variables clave para la re-identificación de los informantes. Todas estas corresponden a variables de ubicación o del RPH.
+
+<!-- PONER TÍTULOS -->
+
+Variable | Etiqueta
+---------|---------
+enc_rpc|Identificador de comuna
+enc_region|Identificador de región
+IH_residencia_habitual|Número de residentes habituales
+rph_edad|Edad
+rph_sexo|Sexo
+rph_idgen|Identidad de Género
+rph_pertenencia_indigena|Pertenencia a pueblos indígenas
+rph_nacionalidad|Nacionalidad
+rph_p14|Razón para no buscar un empleo o iniciar una actividad por cuenta propia
+
+El resto de las variables que no son clave, pero se consideran para la publicación, se mantienen en el archivo de datos (variables temáticas sobre percepción de inseguridad y victimización).
+
+#### Consolidación de variables
+
+De las variables recién descritas, la variable comuna se encuentra anidada en la variable de región, por lo que hay redundancia al mantener ambas. Dado que comuna (enc_rpc) tiene mayor nivel de información, se utilizará primero esta variable para los siguientes análisis y la medición de riesgo, incluyendo región solo en caso de que sea necesario retirar la variable de comuna.
+
+A continuación, se transforman y consolidan variables para poder aplicar adecuadamente los análisis.
+
+Primero, las variables de comparte gastos y número de grupos se excluyen del análisis, ya que son redundantes con la cantidad de residentes habituales y cantidad de hogares, siendo utilizadas solo estas últimas dos.
+
+Se fusionan categorías trans y otros, dado que son poco frecuentes.
+
+```{example, bloque31nbm}
+
+
+```
+```{r}
+file$rph_idgen[file$rph_idgen %in% c(3,4)] <- 3
+file$rph_idgen[file$rph_idgen %in% c(88,99,96)] <- NA
+```
+
+Se recodifican perdidos en pertenencia indígena.
+
+```{example, bloque32nbm}
+
+
+```
+```{r}
+file$rph_pertenencia_indigena[file$rph_pertenencia_indigena %in% c(88,99,96)] <- NA
+```
+
+Se recodifican perdidos en nacionalidad.
+
+```{example, bloque33nbm}
+
+
+```
+```{r}
+file$rph_nacionalidad[file$rph_nacionalidad %in% c(88,99,96)] <- NA
+```
+
+Se recodifican perdidos de razón de inactividad.
+
+```{example, bloque34nbm}
+
+
+```
+```{r}
+file$rph_p14[file$rph_p14 %in% c(88,99,96)] <- NA
+```
+
+Consolidamos variable de situación ocupacional, ya que de otro modo tiene muchos valores perdidos por flujo, y apuntan a una sola clasificación con tres categorías que es lo más relevante.
+
+```{example, bloque35nbm}
+
+
+```
+```{r}
+# Generamos variable vacía
+file$rph_situacion_ocupacional <- NA
+
+# Ocupados
+file$rph_situacion_ocupacional[file$rph_p9 %in% 1 | file$rph_p10 %in% 1] <- 1
+
+# Desocupados
+file$rph_situacion_ocupacional[file$rph_p12 %in% 1 & file$rph_p13 %in% 1] <- 2
+
+# Inactivos
+file$rph_situacion_ocupacional[file$rph_p12 %in% 2 | file$rph_p13 %in% 2] <- 3
+
+# Revisamos
+table(file$rph_situacion_ocupacional)
+```
+
+Luego, integramos algunas categorías de inactivos con la condición de inactividad, ya que esto especifica subtipos de los inactivos que pueden ser relevantes para la re-identificación. Se agrupan las categorías que no son claves para re-identificar.
+
+```{example, bloque36nbm}
+
+
+```
+```{r}
+# Inactivo - Otros
+file$rph_situacion_ocupacional[file$rph_situacion_ocupacional %in% 3 &
+                                 (file$rph_p14 %in% c(1,2,6,7) | is.na(file$rph_p14))] <- 3 
+
+# Inactivo - Estudiante
+file$rph_situacion_ocupacional[file$rph_situacion_ocupacional %in% 3 &
+                                 file$rph_p14 %in% 3] <- 4 
+
+# Inactivo - Jubilado, pensionado o rentista
+file$rph_situacion_ocupacional[file$rph_situacion_ocupacional %in% 3 &
+                                 file$rph_p14 %in% 4] <- 5 
+
+# Inactivo - Motivos de salud permanentes
+file$rph_situacion_ocupacional[file$rph_situacion_ocupacional %in% 3 &
+                                 file$rph_p14 %in% 5] <- 6 
+
+# Revisamos
+table(file$rph_situacion_ocupacional)
+```
+
+Finalmente, se convierten las variables categóricas a tipo factor, quitándole el etiquetado de *haven*, ya que causa problemas con *sdcMicro*.
+
+```{example, bloque37nbm}
+
+
+```
+```{r}
+file$enc_region <- as.factor(as.numeric(file$enc_region))
+file$enc_rpc <- as.factor(as.numeric(file$enc_rpc))
+file$rph_sexo <- as.factor(as.numeric(file$rph_sexo ))
+file$rph_idgen <- as.factor(as.numeric(file$rph_idgen))
+file$rph_pertenencia_indigena <- as.factor(as.numeric(file$rph_pertenencia_indigena))
+file$rph_nacionalidad <- as.factor(as.numeric(file$rph_nacionalidad))
+file$rph_situacion_ocupacional <- as.factor(as.numeric(file$rph_situacion_ocupacional))
+```
+
+### Exploración del conjunto de datos
+
+Primero, revisamos cuáles variables tenemos en la base de datos en este punto del proceso.
+
+```{example, bloque38nbm}
+
+
+```
+```{r}
+names(file)
+```
+
+#### Cálculo de porcentaje de valores perdidos en las variables
+
+Luego, calculamos el porcentaje de valores perdidos en las variables, considerando las celdas válidas según flujo de la encuesta (no se cuentan como valores perdidos las celdas vacías por saltos en el cuestionario). Aquellas variables que contengan más de un 50% de celdas perdidas, se excluyen del proceso de anonimización (pero sí deben incluirse en el archivo final de datos).
+
+Las variables de ubicación no tienen valores perdidos.
+
+```{example, bloque39nbm}
+
+
+```
+```{r}
+any(is.na(file$enc_region))
+any(is.na(file$enc_rpc))
+```
+
+La cantidad de residentes habituales tampoco tienen valores perdidos.
+
+```{example, bloque40nbm}
+
+
+```
+```{r}
+any(is.na(file$IH_residencia_habitual))
+```
+
+Sexo y edad tampoco.
+
+```{example, bloque41nbm}
+
+
+```
+```{r}
+any(is.na(file$rph_sexo))
+any(is.na(file$rph_edad))
+```
+
+Pertenencia indígena y nacionalidad solo se aplica a los miembros del Hogar del Informante Kish. No hay valores perdidos.
+
+```{example, bloque42nbm}
+
+
+```
+```{r}
+any(is.na(file$rph_pertenencia_indigena)) 
+any(is.na(file$rph_nacionalidad)) 
+```
+
+Las preguntas de ocupación solo se aplican a personas con 15 años o más. Se mantiene esta variable.
+
+```{example, bloque43nbm}
+
+
+```
+```{r}
+any(is.na(file$rph_situacion_ocupacional[file$rph_edad > 14])) 
+```
+
+Se concluye que todas las variables cumplen con las condiciones para incluirse en el proceso de anonimización.
+
+
+#### Cálculo de estadísticas de resumen
+
+Por último, se revisan frecuencias para variables categóricas y estadísticos de resumen para numéricas. Esto permite visualizar que variables tienen categorías infrecuentes, lo que puede ser relevante más adelante para la toma de decisión de cuáles métodos aplicar y sobre cuáles variables.
+
+```{example, bloque44nbm}
+
+
+```
+```{r}
+table(file$enc_region)
+table(file$enc_rpc)
+table(file$rph_sexo)
+table(file$rph_idgen)
+table(file$rph_pertenencia_indigena)
+table(file$rph_nacionalidad)
+table(file$rph_situacion_ocupacional)
+
+summary(file$IH_residencia_habitual)
+summary(file$rph_edad)
+```
+
+## Paso Tres: Medición y evaluación del riesgo de divulgación
+
+### Definición de escenarios de divulgación
+
+Las variables escogidas en su gran mayoría se encuentran contenidas también en otros productos estadísticos del INE y otras entidades públicas, ya que refieren a variables básicas de ubicación y caracterización sociodemográfica. Se destaca la coincidencia de variables de caracterización de personas de los hogares con CASEN y EPF, como ejemplos de fuentes internas. En el caso de fuentes externas, la ENPG de SENDA se considera una encuesta que contiene variables similares para hacer *match*. 
+
+Por este motivo, se toma un único escenario conservador, en que todas estas variables son potencialmente utilizables en combinación por un intruso, siendo posibles de enlazar a otras base de datos públicas y/o privadas, habilitando una posible re-identificación de registros.
+
+En este sentido, y considerando las variables ya fusionadas/consolidadas, se mantiene el siguiente listado de variables para la medición del riesgo:
+
+
+Variable | Etiqueta
+---------|---------
+enc_rpc|Identificador de comuna
+enc_region|Identificador de región
+IH_residencia_habitual|Número de residentes habituales
+rph_edad|Edad
+rph_sexo|Sexo
+rph_idgen|Identidad de género
+rph_pertenencia_indigena|Pertenencia a pueblos indígenas
+rph_nacionalidad|Nacionalidad
+rph_situacion_ocupacional|Situación ocupacional
+
+
+### Medición de riesgos de divulgación
+
+Para medir el riesgo se considerarán las medidas de riesgo global, riesgo individual, *l-diversity* y k-anonimato,considerando además la estructura jerárquica de la base. Por este motivo, primero se mide el riesgo a nivel de vivienda/hogar, para luego medir a nivel individual.
+
+#### Medición de riesgos de divulgación a nivel vivienda/hogar
+
+En los siguientes pasos, se seleccionan las variables del nivel jerárquico superior y se genera el objeto *sdcMicro* en base al cual se realizan las estimaciones.
+
+
+Primero, se generan vectores con las variables claves y las variables numéricas en el conjunto de datos (nivel hogar).
+
+```{example, bloque45nbm}
+
+
+```
+```{r}
+# Selección de variables para la anonimización a nivel de hogar
+selectedKeyVarsHH <- c("enc_rpc")
+
+# variables numericas
+numVarsHH <- c("IH_residencia_habitual")
+```
+
+Luego, opcionalmente se pueden declarar variables para el método PRAM (en este caso se genera un vector vacío ya que no se utilizará el método PRAM).
+
+```{example, bloque46nbm}
+
+
+```
+```{r}
+# No se declaran variables para método PRAM
+pramVarsHH <- c()
+```
+
+A continuación, se genera un vector con la variable de ponderación de hogares.
+
+```{example, bloque47nbm}
+
+
+```
+```{r}
+# Se indican las variables de ponderación de hogares
+weightVarsHH <- c("Fact_Hog")
+```
+
+Ahora, reunimos todas estas variables en un vector denominado *HHVars*
+
+```{example, bloque48nbm}
+
+
+```
+```{r}
+# Luego se genera un vector con todas las variables del nivel de hogar
+HHVars <- c('enc_idr',selectedKeyVarsHH, pramVarsHH, numVarsHH, weightVarsHH)
+variables <- HHVars
+todas_variables <- names(file)
+HHVars <- intersect(todas_variables,variables)
+```
+
+Luego, generamos un conjunto de datos con solo las columnas y filas que corresponden. En este caso son las variables del nivel hogar y las filas que corresponden al informante Kish, de manera tal que haya un caso por hogar.
+
+```{example, bloque49nbm}
+
+
+```
+```{r}
+# Creamos un subconjunto de datos de file con hogares y variables HH
+fileHH <- file[,HHVars]
+fileHH$Kish <- file$Kish
+
+# Se deja un caso por cada hogar asignado en fileHH
+fileHH <- fileHH[fileHH$Kish %in% 1,]
+fileHH <- dplyr::select(fileHH, -Kish)
+```
+
+Luego, se verifican las dimensiones del conjunto de datos con la función *dim*.
+
+```{example, bloque50nbm}
+
+
+```
+```{r}
+# Se genera el dataset para medición de riesgo
+fileHH <- data.frame(enc_idr = fileHH$enc_idr,
+                     enc_rpc = fileHH$enc_rpc,
+                     IH_residencia_habitual = fileHH$IH_residencia_habitual,
+                     Fact_Hog = fileHH$Fact_Hog)
+
+# Se verifican dimensiones del conjunto de datos
+dim(fileHH)
+```
+
+Y se genera el objeto SDC a nivel de hogar. 
+
+```{example, bloque51nbm}
+
+
+```
+```{r}
+# Se crea objeto SDC inicial para variables de nivel de hogar
+sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVarsHH,
+                      numVars = numVarsHH, weightVar = weightVarsHH)
+```
+
+Por último, se guarda en un vector la cantidad de hogares para uso posterior.
+
+```{example, bloque52nbm}
+
+
+```
+```{r}
+# Se genera variable con número de hogares
+numHH <- length(fileHH[,1]) # número de hogares 
+```
+
+
+Primero, revisamos las medidas globales de riesgo. Se observa que no hay hasta el momento observaciones que tengan un riesgo superior que la mayoría de los datos.
+
+```{example, bloque53nbm}
+
+
+```
+```{r}
+print(sdcHH, "risk")
+```
+
+
+Ahora medimos el riesgo de manera individual. Se observan 0 casos con riesgo sobre el 1%.
+```{example, bloque54nbm}
+
+
+```
+```{r}
+# Observations with risk above certain threshold (0.01)
+nrow(fileHH[sdcHH@risk$individual[, "risk"] > 0.01,])
+```
+
+
+Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función *kAnon_violations*, indicando *TRUE* (T) como argumento para el parámetro de pesos (*weighted*) y el valor de *k* a evaluar.
+
+```{example, bloque55nbm}
+
+
+```
+```{r}
+kAnon_violations(sdcHH, weighted = T, k = 2)
+kAnon_violations(sdcHH, weighted = T, k = 3)
+kAnon_violations(sdcHH, weighted = T, k = 5)
+```
+
+En resumen, se observa que para el nivel hogar los riesgos ya cumplen con los umbrales establecidos por el estándar de anonimización. Por lo que se prosigue analizando el riesgo a nivel de personas.
+
+#### Medición de riesgos de divulgación a nivel persona
+
+En este siguiente paso, se procede a seleccionar todas las variables de ambos niveles, para crear el objeto *sdcMicro* considerando la estructura jerárquica hasta el nivel persona.
+
+```{example, bloque56nbm}
+
+
+```
+```{r}
+# Se indican variables clave (nivel individual)
+selectedKeyVarsIND <- c('enc_rpc',
+                        'rph_edad',
+                        'rph_sexo',
+                        'rph_idgen',
+                        'rph_pertenencia_indigena', 
+                       'rph_nacionalidad',
+                       'rph_situacion_ocupacional') 
+
+# Se indica factor de expansión de personas
+WeightVarIND <- c('Fact_Ind')
+
+# ID Hogares
+selectedHouseholdID <- c('enc_idr')
+
+# Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales
+indVars <- c("enc_idr", "rph_ID", selectedKeyVarsIND,WeightVarIND,sensibles) # HID and all non HH variables
+
+fileInd <- file[indVars] # subset of file without HHVars
+
+fileCombined <- dplyr::inner_join(fileInd, select(fileHH, -enc_rpc), by= c('enc_idr'))
+
+dim(fileCombined)
+
+# Objetos SDC con todas las variables y variables HH tratadas para
+# anonimización de variables de nivel individual
+sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND,
+                            hhId = selectedHouseholdID, weightVar = WeightVarIND,
+                            sensibleVar = sensibles)
+```
+
+
+Primero, revisamos las medidas globales de riesgo. Se observa una cantidad relevante de observaciones con riesgo alto, y también un porcentaje alto de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. Esta supera el umbral establecido de no más del 10%.
+
+```{example, bloque57nbm}
+
+
+```
+```{r}
+print(sdcCombined, "risk")
+```
+
+
+Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 261 observaciones con riesgo superior al 50%.
+
+```{example, bloque58nbm}
+
+
+```
+```{r}
+# Observaciones con riesgo individual superior al 1%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.01,])
+
+# Observaciones con riesgo individual superior al 5%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.05,]) 
+
+# Observaciones con riesgo individual superior al 25%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,]) 
+
+# Observaciones con riesgo individual superior al 50%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,]) 
+```
+
+
+Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casos que incumplen el k-anonimato, incluso con ponderación.
+
+```{example, bloque59nbm}
+
+
+```
+```{r}
+# 2-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 2) 
+
+# 3-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 3) 
+
+# 5-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 5) 
+```
+
+Finalmente, medimos el *l-diversity*, que es una medida complementaria al k-anonimato. Esta indica cuantos valores de respuesta tienen las variables sensibles para cada combinación de las variables clave. Se espera obtener valores superiores a 1, dado que este valor indica que hay una única respuesta para cada combinación, lo que implica que un intruso podría saber el valor de respuesta a pesar de que se cumplan los umbrales de k-anonimato. En este sentido, esta métrica de riesgo es complementaria y da respaldo a lo evaluado a partir del k-anonimato.
+
+```{example, bloque60nbm}
+
+
+```
+```{r}
+# Generamos el objeto de l-diversity
+med_riesgo <- ldiversity(sdcCombined, ldiv_index = sensibles,
+                         l_recurs_c = 2, missing = NA)
+
+# revisamos las medidas de riesgo de l-diversity
+med_riesgo@risk$ldiversity
+```
+
+
+Como se señaló previamente, el valor 1 indica un mínimo nivel de diversidad en las variables sensibles para cada
+combinación de variables clave. En este sentido, el que la media y promedio del *l-diversity* se aproximen a 1 nos indica que tenemos pocas combinaciones, lo que es señal de un mayor riesgo de que el intruso logre llegar al valor de las variables sensibles.
+
+### Evaluación de riesgos de divulgación
+
+**CONCLUSIÓN DE LA EVALUACIÓN DE RIESGOS**
+
+Dado que, a nivel jerárquico, considerando hasta el nivel de persona, se incumplen los umbrales requeridos por el estándar de anonimización a nivel global, individual y de k-anonimato, además de que se observa un valor riesgoso en el *l-diversity*, se confirma la necesidad de aplicar métodos SDC para asegurar la confidencialidad de los datos. 
+
+Estos métodos se continúan aplicando sobre el nivel de personas del conjunto de datos, dado que a nivel hogares ya se cumplen los umbrales requeridos.
+
+## Paso Cuatro: Selección y aplicación de métodos SDC
+
+En esta sección se aplicarán iterativamente métodos SDC intentando alcanzar los umbrales de riesgo requeridos. Como veremos, al ser un proceso iterativo, también considerará de forma recurrente la re-medición del riesgo, que corresponde en estricto rigor a la primera parte del paso cinco. Esto es necesario para ir evaluando si es necesario aplicar métodos adicionales o distintos.
+
+
+### Primer conjunto de métodos SDC
+
+El primer método a aplicar es la recodificación global para la variable de edad,pasando de semi continua a ordinal. Los tramos etarios escogidos corresponden a una adaptación más desagregada de los tramos etarios utilizados en la publicación de tabulados en versiones anteriores de la encuesta.
+
+Se procede con este método primero dado que, por experiencia de los analistas de la encuesta, es uno de los que tiene mayor impacto en la reducción de riesgos.
+
+Para ello, aplicamos la función *globalRecode*. Esta función implementa el método de recodificación global descrito en la guía de anonimización. El método toma cuatro argumentos: el objeto SDC, la columna a recodificar, los límites de los intervalos a generar, y las etiquetas que debe asignar a cada tramo.
+
+```{example, bloque61nbm}
+
+
+```
+```{r}
+
+sdcCombined <- globalRecode(sdcCombined,
+                            column = "rph_edad",
+                            breaks=c(-1,14,19,24,29,39,49,59,69,79,89,120),
+                            labels=0:10)
+```
+
+Alternativamente, se podría simplemente haber ocupado otras funciones de R base o de *Tidyverse* para recodificar esta variable en tramos, como, por ejemplo, las funciones *ifelse* o *case_when*. Sin embargo, esta aproximación tiene la desventaja de que requiere generar nuevamente el objeto SDC por completo, por lo que se pierde la trazabilidad de las ediciones realizadas y de la reducción del riesgo desde la línea base inicial. Por este motivo, es que se recomienda usar *globalRecode*.
+
+
+Luego de haber aplicado este método SDC, procedemos a medir el impacto de esta modificación en las medidas de riesgo.
+
+
+### Re-medición del riesgo para primer conjunto de métodos
+
+Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando a umbrales aceptables (<10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.
+
+```{example, bloque62nbm}
+
+
+```
+```{r}
+print(sdcCombined, "risk")
+```
+
+Ahora medimos el riesgo de manera individual. Se observa que 30.922 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad importante de observaciones con riesgo altísimo, con 189 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.
+
+```{example, bloque63nbm}
+
+
+```
+```{r}
+# Observaciones con riesgo individual superior al 1%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.01,])
+
+# Observaciones con riesgo individual superior al 5%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.05,])
+
+# Observaciones con riesgo individual superior al 25%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
+
+# Observaciones con riesgo individual superior al 50%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
+```
+
+Revisamos el k-anonimato para los casos ponderados. Aún se observan 116 casos que incumplen el 2-anonimato.
+
+```{example, bloque64nbm}
+
+
+```
+```{r}
+# 2-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 2) 
+
+# 3-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 3) 
+
+# 5-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 5) 
+```
+
+
+
+Luego medimos el *l-diversity*, donde observamos aún valores muy cercanos a 1, para las tres variables sensibles.
+
+```{example, bloque65nbm}
+
+
+```
+```{r}
+# Generamos el objeto de l-diversity
+med_riesgo <- ldiversity(sdcCombined, ldiv_index = sensibles,
+                         l_recurs_c = 2, missing = NA)
+
+# revisamos las medidas de riesgo de l-diversity
+med_riesgo@risk$ldiversity
+```
+
+
+En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual, el k-anonimato y el *l-diversity* nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.
+
+
+### Segundo conjunto de métodos SDC
+
+El hecho de estar aplicando nuevamente el paso 4 nos indica una característica fundamental de los procesos de anonimización, que es que estos son procesos iterativos, donde es necesario ir aplicando métodos progresivamente y monitorear los niveles de riesgo en cada iteración. Como veremos en este ejercicio aplicado, serán varias iteraciones antes de llegar a un resultado satisfactorio de niveles de riesgo. 
+
+Retomando el proceso, el segundo método a aplicar es la eliminación de la variable de comuna. En cambio, se incluye la variable de región, ya que deja de ser redundante. Esto, dado que previamente se había retirado en el paso de consolidación de variables puesto que la comuna es una variable anidada en la variable de región.
+
+Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto *sdcCombined*. La única diferencia es que se reemplaza la variable *enc_rpc* por *enc_region* dentro del vector de variables clave *selectedKeyVarsIND*.
+
+```{example, bloque66nbm}
+
+
+```
+```{r}
+# Se indican variables clave (nivel individual)
+selectedKeyVarsIND <- c('enc_region',
+                        'rph_edad',
+                        'rph_sexo',
+                        'rph_idgen',
+                        'rph_pertenencia_indigena', 
+                       'rph_nacionalidad',
+                       'rph_situacion_ocupacional') 
+
+# Se indica factor de expansión de personas
+WeightVarIND <- c('Fact_Ind')
+
+# ID Hogares
+selectedHouseholdID <- c('enc_idr')
+
+# Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales
+indVars <- c("enc_idr", "rph_ID", selectedKeyVarsIND,WeightVarIND,sensibles) # HID and all non HH variables
+
+fileInd <- file[indVars] # subset of file without HHVars
+
+fileCombined <- dplyr::inner_join(fileInd, select(fileHH, -enc_rpc), by= c('enc_idr'))
+
+dim(fileCombined)
+
+# Objetos SDC con todas las variables y variables HH tratadas para
+# anonimización de variables de nivel individual
+sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND,
+                            hhId = selectedHouseholdID, weightVar = WeightVarIND,
+                            sensibleVar = sensibles)
+```
+
+Además, como en este caso fue necesario crear nuevamente el objeto SDC, hay que aplicar nuevamente la recodificación de la variable edad con la función *globalRecode*.
+
+```{example, bloque67nbm}
+
+
+```
+```{r}
+sdcCombined <- globalRecode(sdcCombined,
+                            column = "rph_edad",
+                            breaks=c(-1,14,19,24,29,39,49,59,69,79,89,120),
+                            labels=0:10)
+```
+
+### Re-medición del riesgo para segundo conjunto de métodos
+
+Nuevamente, revisamos las medidas globales de riesgo. Se observa que a nivel global obtenemos valores aceptables de riesgo, ya que se habían logrado en la primera iteración.
+
+```{example, bloque68nbm}
+
+
+```
+```{r}
+print(sdcCombined, "risk")
+```
+
+Ahora medimos el riesgo de manera individual. Se observa que 15.463 de los casos (32,7% del total) presentan un riesgo superior al 1%, lo que aún incumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 3.000 de las personas (6,3% del total) presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 286 y un 92 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.
+
+```{example, bloque69nbm}
+
+
+```
+```{r}
+# Observaciones con riesgo individual superior al 1%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.01,])
+
+# Observaciones con riesgo individual superior al 5%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.05,])
+
+# Observaciones con riesgo individual superior al 25%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
+
+# Observaciones con riesgo individual superior al 50%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
+```
+
+Revisamos el k-anonimato para los casos ponderados. Aún hay 54 casos que incumplen el 2-anonimato.
+
+```{example, bloque70nbm}
+
+
+```
+```{r}
+# 2-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 2) 
+
+# 3-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 3) 
+
+# 5-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 5) 
+```
+
+Luego medimos el *l-diversity*. Se observa una leve mejora en el *l-diversity*, al observarse ahora una diversidad de 2 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.
+
+```{example, bloque71nbm}
+
+
+```
+```{r}
+# Generamos el objeto de l-diversity
+med_riesgo <- ldiversity(sdcCombined, ldiv_index = sensibles,
+                         l_recurs_c = 2, missing = NA)
+
+# revisamos las medidas de riesgo de l-diversity
+med_riesgo@risk$ldiversity
+```
+
+
+En suma, debido a los riesgos individuales, k-anonimato y *l-diversity*, aún se requiere seguir aplicando métodos SDC.
+
+
+### Tercer conjunto de métodos SDC 
+
+Como tercera iteración, se aplican varios métodos para poder reducir los riesgos individuales y el incumplimiento de 2-anonimato, que son las métricas que han presentado mayor dificultad para disminuir.
+
+Primero, se recodifican globalmente las variables de pertenencia indígena y nacionalidad. Para esto se ocupa una función distinta, *groupAndRename*, que permite también recodificar variables categóricas.
+
+```{example, bloque72nbm}
+
+
+```
+```{r}
+# Recodificamos pertenencia indígena
+sdcCombined <- groupAndRename(sdcCombined, var="rph_pertenencia_indigena",
+                              before=c(1:9), after=c(1))
+
+sdcCombined <- groupAndRename(sdcCombined, var="rph_pertenencia_indigena",
+                              before=c(10), after=c(2))
+
+# Recodificamos nacionalidad
+sdcCombined <- groupAndRename(sdcCombined, var="rph_nacionalidad",
+                              before=c(2:9), after=c(2))
+```
+
+También se fusionan categorías de situación laboral, lo que equivale a posteriormente eliminar la variable de razón de inactividad de la base de datos. Esto porque esta variable corresponde a una consolidación de variables (revisar paso 2.1.4).
+
+```{example, bloque73nbm}
+
+
+```
+```{r}
+# Recodificamos condición de inactividad (supone luego eliminar esta variable de los datos finales)
+sdcCombined <- groupAndRename(sdcCombined, var="rph_situacion_ocupacional",
+                              before=c(3:6),
+                              after=c(3))
+```
+
+
+Luego, se aplica supresión local en las variables de menor prioridad. Se seleccionan estas variables cuidadosamente, dado que se aplicará un método drástico como es la supresión local, teniendo como criterio las propiedades estadísticas que se buscan preservar en la base de datos.
+
+Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro *threshold* dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.
+
+```{example, bloque74nbm}
+
+
+```
+```{r}
+# supresión local para riesgos globales e individuales
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_idgen', threshold=0.1)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_pertenencia_indigena', threshold=0.1)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_nacionalidad', threshold=0.1)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_situacion_ocupacional', threshold=0.1)
+```
+
+
+Como veremos en el siguiente paso,los métodos aplicados en esta tercera iteración logran alcanzar los umbrales requeridos. Con esto, podemos pasar al Paso Cinco y evaluar de forma completa el proceso SDC, consirando tanto la evaluación del riesgo como de la utilidad.
+
+## Paso Cinco: Evaluar proceso SDC 
+
+### Re-medición del riesgo
+
+Primero, revisamos las medidas globales de riesgo. Se observa, valores mucho menores de riesgo global, aun cuando esto ya cumplía previamente con los niveles esperados.
+
+```{example, bloque75nbm}
+
+
+```
+```{r}
+print(sdcCombined, "risk")
+```
+
+
+Ahora medimos el riesgo de manera individual. Se observa que el 19,3% de los casos presentan un riesgo superior al 1%, lo que cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que hay 1.078 registros con riesgo individual superior al 5%, lo que equivale al 2,3% de los casos, lo que cumple con el umbral establecido (<15%). Finalmente, no se observan casos con riesgo individual superior al 25%.
+
+```{example, bloque76nbm}
+
+
+```
+```{r}
+# Observaciones con riesgo individual superior al 1%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.01,])
+
+# Observaciones con riesgo individual superior al 5%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.05,])
+
+# Observaciones con riesgo individual superior al 25%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
+
+# Observaciones con riesgo individual superior al 50%:
+nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
+```
+
+Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de k-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.
+
+```{example, bloque77nbm}
+
+
+```
+```{r}
+# 2-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 2) 
+
+# 3-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 3) 
+
+# 5-anonimato
+kAnon_violations(sdcCombined, weighted = T, k = 5) 
+```
+
+Luego medimos el *l-diversity*. Se observa que los valores de promedio y mediana de *l-diversity* son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Si bien estos no son valores ideales, se decide no proseguir con métodos SDC para no perder más utilidad de los datos. 
+
+```{example, bloque78nbm}
+
+
+```
+```{r}
+# Generamos el objeto de l-diversity
+med_riesgo <- ldiversity(sdcCombined, ldiv_index = sensibles,
+                         l_recurs_c = 2, missing = NA)
+
+# revisamos las medidas de riesgo de l-diversity
+med_riesgo@risk$ldiversity
+```
+
+Los resultados aquí expuestos cumplen con los umbrales, por lo que ahora corresponde volver a medir la utilidad.
+
+### Evaluar proceso SDC  - Volver a medir utilidad
+
+
+#### Extracción de datos tratados y medición de perdida de información.
+
+Primero, extraemos la data tratada. Para ello se usa la función *extractManipData*.
+
+```{example, bloque79nbm}
+
+
+```
+```{r}
+fileTratada <- extractManipData(sdcCombined)
+```
+
+Luego evaluamos cuántos valores perdidos tenemos debido a la supresión local. Para ello, imprimimos el porcentaje de celdas perdidas pre y post anonimización.
+
+Primero vemos que, por flujo algunas variables tienen celdas vacías. La comparación consiste en ver si luego estos porcentajes aumentan.
+
+```{example, bloque80nbm}
+
+
+```
+```{r}
+# % de celdas vacías pre-anonimización
+for(i in 1:length(names(fileCombined))){
+  print(names(fileCombined)[i])
+  print(sum(is.na(fileCombined[[names(fileCombined)[i]]]))/nrow(fileCombined)*100)
+}
+```
+
+Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (*rph_idgen*), pertenencia indígena (*rph_pertenencia_indigena*) y nacionalidad (*rph_nacionalidad*), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (*rph_situacion_ocupacional*), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido. 
+
+```{example, bloque81nbm}
+
+
+```
+```{r}
+for(i in 1:length(names(fileTratada))){
+  print(names(fileTratada)[i])
+  print(sum(is.na(fileTratada[[names(fileTratada)[i]]]))/nrow(fileTratada)*100)
+}
+```
+
+En el resto de las variables, no hay pérdida de información. 
+
+#### Propiedades estadísticas priorizadas
+
+Ahora, se procede a evaluar si se mantienen las propiedades estadísticas priorizadas de los datos.
+
+Primero, se genera una variable de edad a partir de la marca de clase de los tramos etarios, para evaluar si se mantiene la relación con los indicadores principales. Esto no se evaluará inmediatamente, pero se genera para uso posterior. Es importante aclarar que esta recodificación se realiza solo con fines analíticos para determinar la utilidad de los datos anonimizados, no siendo utilizada para los datos a liberar (en estos se mantienen los tramos etarios).
+
+```{example, bloque82nbm}
+
+
+```
+```{r}
+fileTratada$rph_edad_mc <- dplyr::case_when(
+  fileTratada$rph_edad == 1 ~ 7.5,
+  fileTratada$rph_edad == 2 ~ 17,
+  fileTratada$rph_edad == 3 ~ 22,
+  fileTratada$rph_edad == 4 ~ 27,
+  fileTratada$rph_edad == 5 ~ 34.5,
+  fileTratada$rph_edad == 6 ~ 44.5,
+  fileTratada$rph_edad == 7 ~ 54.5,
+  fileTratada$rph_edad == 8 ~ 64.5,
+  fileTratada$rph_edad == 9 ~ 74.5,
+  fileTratada$rph_edad == 10 ~ 84.5,
+  fileTratada$rph_edad == 11 ~ 90
+)
+
+fileTratada$rph_edad_mc <- as.numeric(fileTratada$rph_edad_mc)
+table(fileTratada$rph_edad_mc)
+```
+
+Luego, se pegan las variables de diseño muestral e indicadores a evaluar, ya que no se encuentran dentro del conjunto de datos con que se trabajó durante el proceso de anonimización.
+
+```{example, bloque83nbm}
+
+
+```
+```{r}
+fileTratada <- dplyr::left_join(fileTratada,
+                                file[,c('rph_ID','Fact_Pers','Fact_Hog',
+                                        'Conglomerado','VarStrat',
+                                        'VA_DC','VP_DC','Kish')])
+```
+
+A continuación, se comparan los resultados de los datos originales con los tratados en lo que refiere al cálculo de indicadores principales con desagregaciones.
+
+Para ello, primero se establece el diseño complejo para personas y para hogares.
+
+```{example, bloque84nbm}
+
+
+```
+```{r}
+
+# generamos un conjunto de datos tratados donde solo tenemos las filas del informante Kish
+fileTratada_kish <- fileTratada[fileTratada$Kish  %in% 1,]
+
+# fijamos las opciones del diseño complejo
+options(survey.lonely.psu = "certainty")
+
+# generamos el diseño complejo para el factor de expansión de personas
+dc_pers_trat <- svydesign(ids = ~Conglomerado, 
+                     strata = ~VarStrat, 
+                     data = fileTratada_kish,
+                     weights = ~Fact_Pers)
+
+# generamos el diseño complejo para el factor de expansión de hogares
+dc_hog_trat <- svydesign(ids = ~Conglomerado, 
+                    strata = ~VarStrat, 
+                    data = fileTratada_kish,
+                    weights = ~Fact_Hog)
+```
+
+Previamente, calculamos estas desagregaciones con los datos no tratados. A continuación, se recalculan con los datos tratados y se comparan los resultados calculando la diferencia. Esta se visualiza a través de la función *summary*.
+
+Victimización agregada de delitos consumados, desagregado por región:
+
+```{example, bloque85nbm}
+
+
+```
+```{r}
+insumos_prop <- create_prop(var = 'VA_DC', 
+                                   domains = 'enc_region', 
+                                   design =  dc_hog_trat)
+
+
+VA_DC_REG_TRAT <- assess(insumos_prop)
+
+summary(VA_DC_REG_PRE$objetivo - VA_DC_REG_TRAT$objetivo)
+```
+
+
+Victimización personal de delitos consumados, desagregado por sexo:
+
+```{example, bloque86nbm}
+
+
+```
+```{r}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'rph_sexo', 
+                                   design =  dc_pers_trat)
+
+VP_DC_SEXO_TRAT <- assess(insumos_prop)
+
+summary(VP_DC_SEXO_PRE$objetivo - VP_DC_SEXO_TRAT$objetivo)
+```
+
+Victimización personal de delitos consumados, desagregado por región:
+
+```{example, bloque87nbm}
+
+
+```
+```{r}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'enc_region', 
+                                   design =  dc_pers_trat)
+
+VP_DC_REG_TRAT <- assess(insumos_prop)
+
+summary(VP_DC_REG_PRE$objetivo - VP_DC_REG_TRAT$objetivo)
+```
+
+Victimización personal de delitos consumados, desagregado por sexo y región:
+
+```{example, bloque88nbm}
+
+
+```
+```{r}
+insumos_prop <- create_prop(var = 'VP_DC', 
+                                   domains = 'rph_sexo+enc_region', 
+                                   design =  dc_pers_trat)
+
+VP_DC_REG_SEXO_TRAT <- assess(insumos_prop)
+
+summary(VP_DC_REG_SEXO_PRE$objetivo - VP_DC_REG_SEXO_TRAT$objetivo)
+```
+
+En resumen, se cumple para todos los casos que no hay diferencias en las estimaciones al calcular con los datos originales y los tratados.
+
+Por último, se evalúa si se mantiene la relación entre la variable de edad y el indicador de Victimización Personal, utilizando las marcas de clase de los tramos etarios presentes en los datos tratados. 
+
+Si bien, los modelos obtenidos no son buenos predictores de la victimización, ya que es un fenómeno influenciado por múltiples factores y acá solo se está considerando la edad, si se aprecia que los resultados son similares a los de los datos sin tratar. En particular el coeficiente beta de la variable de edad en el modelo *logit* de victimización personal es prácticamente el mismo que en los datos no tratados.
+
+**Se genera un dataframe "data" para trabajar con el modelo**
+
+```{example, bloque89nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+data <- fileTratada_kish
+```
+
+**Dividir datos en _training_ and _testing_ sets**
+
+```{example, bloque90nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+library(caTools)
+set.seed(2022)
+
+ids_train <- sample(data$rph_ID, nrow(data)/3*2)
+training<- sjlabelled::remove_all_labels(data[data$rph_ID %in% ids_train,])
+testing<- sjlabelled::remove_all_labels(data[!data$rph_ID %in% ids_train,])
+```
+
+**Construir modelo**
+
+```{example, bloque91nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+modelo<-glm(VP_DC~rph_edad_mc, 
+            data=training, 
+            family = "binomial")
+summary(modelo)
+```
+
+**Validación de modelo**
+
+```{example, bloque92nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+library(ResourceSelection)
+hoslem.test(modelo$y,fitted(modelo),g=10) # Test de Hosmer Lemeshow
+
+library(pROC)
+indiceC.trainig<-roc(modelo$y,fitted(modelo))     # Curva ROC
+indiceC.trainig
+```
+
+**Punto de corte óptimo**
+
+```{example, bloque93nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+ptocorteop.training<-coords(indiceC.trainig,x="best",
+                            input="threshold",
+                            best.method="youden")
+ptocorteop.training
+
+library(ROCR)
+ROC.training<-performance(prediction.obj = prediction(predictions = fitted(modelo),
+                                                      labels = as.factor(modelo$y)),
+                          "tpr",
+                          "fpr")
+
+```
+
+
+```{example, bloque94nbm}
+
+
+```
+```{r, echo=TRUE, fig.cap='Punto de corte óptimo con datos tratados', warning=FALSE}
+plot(ROC.training, colorize=TRUE, print.cutoffs.at=seq(0.1, by=0.1))
+abline(a=0,b=1)
+abline(v=ptocorteop.training$threshold,col="red")
+```
+
+**Predicciones y matriz de confusión**
+
+```{example, bloque95nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+pred.training<-predict(modelo, data=training, type="response")
+table(ActualValue=training$VP_DC, 
+      PredictValue=pred.training>ptocorteop.training$threshold)
+```
+
+**Validación de modelo (con datos de prueba)**
+
+```{example, bloque96nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+hoslem.test(testing$VP_DC,predict(modelo,newdata=testing,type="response"),g=5)   # Test de Hosmer Lemeshow
+
+indiceC.testing=roc(testing$VP_DC,predict(modelo,newdata=testing,type="response")) # Curva ROC
+indiceC.testing
+```
+
+**Punto de corte óptimo (con datos de prueba)**
+
+```{example, bloque97nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+ptocorteop.testing<-coords(indiceC.testing,x="best",input="threshold",best.method="youden")
+ptocorteop.testing
+
+ROC.testing<-performance(prediction(predict(modelo,newdata=testing,type="response"),
+                                    as.factor(testing$VP_DC)),"tpr","fpr")
+
+```
+
+
+```{example, bloque98nbm}
+
+
+```
+```{r, echo=TRUE, fig.cap='Punto de corte óptimo con datos de prueba a partir de datos tratados', warning=FALSE}
+plot(ROC.testing, colorize=TRUE, print.cutoffs.at=seq(0.1, by=0.1))
+abline(a=0,b=1)
+abline(v=ptocorteop.testing$threshold,col="red")
+```
+
+**Predicciones y matriz de confusión (con datos de prueba)**
+
+```{example, bloque99nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+pred.testing<-predict(modelo, testing, type="response")
+table(ActualValue=testing$VP_DC, PredictValue=pred.testing>ptocorteop.testing$threshold)
+```
+
+**Compara área bajo la curva, umbral, sensibilidad y especificidad**
+
+```{example, bloque100nbm}
+
+
+```
+```{r, echo=TRUE, warning=FALSE}
+auc    <-indiceC.trainig$auc              - indiceC.testing$auc
+corte  <-ptocorteop.training$threshold    - ptocorteop.testing$threshold
+sens   <- ptocorteop.training$sensitivity - ptocorteop.testing$sensitivity
+spe    <- ptocorteop.training$specificity - ptocorteop.testing$specificity
+```
+
+La siguiente tabla muestra las estimaciones del coeficiente beta de la variable independiente de edad en los modelos, para los datos originales y los datos tratados. Se observa que ambas estimaciones son equivalentes, sin diferencias estadísticamente significativas a partir de su intervalo de confianza:
+
+Datos | Estimación | Lim. Inf. | Lim. Sup.
+------|------------|-----------|---------
+Originales|0,0035|0,0020|0,0050
+Tratados|0,0036|0,0019|0,0053
+
+En suma, se observa que se mantienen las propiedades estadísticas priorizadas de la base de datos, por lo que cumple con las condiciones para su liberación.
+
+
+## Paso Seis: Generar Reportes y Liberar Datos
+
+### Reportes
+
+Al realizar un ejercicio de anonimización como el recién expuesto, se debe elaborar un reporte que documente el proceso de anonimización, con sus antecedentes y resultados. Para ello, debe basarse en el modelo de reporte de anonimización descrito en la guía de anonimización. 
+
+### Liberación de datos
+
+A partir del objeto *file*, que son los datos originales, se genera un objeto data.frame para su exportación como archivo de datos que será liberado.
+
+Primero se verifica que el orden de registros sea idéntico entra datos originales y tratados. Esto permite sobre-escribir columnas completas, sabiendo que los registros coincidirán bien. En este caso, es importante usar el folio que corresponde a persona, ya que cada fila es una persona (en contraposición al folio de viviendas que cubre varias filas dependiendo de las personas que las componen).
+
+```{example, bloque101nbm}
+
+
+```
+```{r}
+# Se espera que esta función regrese TRUE
+all(file$rph_ID == fileTratada$rph_ID)
+```
+
+
+Luego, se reemplazan variables tratadas en datos originales y se eliminan las variables que están de más. Estas son, comuna y razón de inactividad, ya que esta última permitiría deshacer la recodificación que se realizó en la variable consolidada de situación ocupacional.
+
+```{example, bloque102nbm}
+
+
+```
+```{r}
+file$enc_rpc <- NULL
+file$rph_p14 <- NULL
+```
+
+
+Luego, se reemplazan variables tratadas de edad, identidad de género, pertenencia indígena y nacionalidad.
+
+```{example, bloque103nbm}
+
+
+```
+```{r}
+file$rph_edad <- fileTratada$rph_edad
+file$rph_idgen <- fileTratada$rph_idgen
+file$rph_pertenencia_indigena <- fileTratada$rph_pertenencia_indigena
+file$rph_nacionalidad <- fileTratada$rph_nacionalidad
+```
+
+
+Se eliminan los valores de rph_p9 a rph_p13 para los casos suprimidos en situación ocupacional
+
+```{example, bloque104nbm}
+
+
+```
+```{r}
+# se eliminan los valores que corresponden
+file$rph_p9[is.na(fileTratada$rph_situacion_ocupacional)] <- NA
+file$rph_p10[is.na(fileTratada$rph_situacion_ocupacional)] <- NA
+file$rph_p11[is.na(fileTratada$rph_situacion_ocupacional)] <- NA
+file$rph_p12[is.na(fileTratada$rph_situacion_ocupacional)] <- NA
+file$rph_p13[is.na(fileTratada$rph_situacion_ocupacional)] <- NA
+
+# Luego eliminamos situación ocupacional ya que no se usará más
+file$rph_situacion_ocupacional <- NULL
+```
+
+
+Luego, se elimina los valores de rph_migración que son acompañados de un NA en nacionalidad, ya que sería un error de flujo de la encuesta mantenerlos.
+
+```{example, bloque105nbm}
+
+
+```
+```{r}
+file$rph_migracion[is.na(file$rph_nacionalidad)] <- NA
+```
+
+Por último, se exporta archivo de datos ocupando la librería haven.
+
+```{example, bloque106nbm}
+
+
+```
+```{r}
+#haven::write_sav(file, 'ENUSC2020_anonimizada.sav')
+```
+
+
+
+### Anexo : Tablas de indicadores con desagregaciones
+
+Se deja como anexo los tabulados con datos tratados y no tratados por si se considera necesario compararlos de forma manual.
+
+```{example, bloque107nbm}
+
+
+```
+```{r, echo=T}
+#anexo <- list('P1 Regional Original' = P1_REG_PRE,
+#              'P1 Regional Tratado' = P1_REG_TRAT,
+#              'P1 Sexo Original' = P1_SEXO_PRE,
+#              'P1 Sexo Tratado' = P1_SEXO_TRAT,
+#              'P1 Regional Sexo Original' = P1_REG_SEXO_PRE,
+#              'P1 Regional Sexo Tratado' = P1_REG_SEXO_TRAT,
+#              'Vict. Pers. Regional Original' = VP_DC_REG_PRE,
+#              'Vict. Pers. Regional Tratado' = VP_DC_REG_TRAT,
+#              'Vict. Pers. Sexo Original' = VP_DC_SEXO_PRE,
+#              'Vict. Pers. Sexo Tratado' = VP_DC_SEXO_TRAT,
+#              'Vict. Pers. Regional Sexo Original' = VP_DC_REG_SEXO_PRE,
+#              'Vict. Pers. Regional Sexo Tratado' = VP_DC_REG_SEXO_TRAT,
+#              'Vict. Agr. Regional Original' = VA_DC_REG_PRE,
+#              'Vict. Agr. Regional Tratado' = VA_DC_REG_TRAT)
+#
+#openxlsx::write.xlsx(anexo, "Anexo_Medicion_Utilidad.xlsx")
+```
+
+# Taller SDC Video
+
+El Instituto Nacional de Estadísticas (INE) realizó el 14 de abril de 2021 el "Taller sobre proceso de control a la divulgación estadística en microdatos, INE 2021". El objetivo principal del taller fue revisar aspectos teóricos y prácticos del control a la divulgación estadística en microdatos (SDC, por su sigla en inglés), abordando motivaciones técnicas para su aplicación, sus etapas, beneficios y áreas de atención, entre otros puntos claves.
+
+El taller fue liderado por el analista estadístico Julio Guerrero Rojas y el analista socioeconómico Nicolás Berho Montalvo, del DMIE y la Subdirección Técnica (SDT), respectivamente.
+
+En la primera parte del taller, los expositores presentaron una introducción al SDC, destacando su importancia para garantizar la confidencialidad y privacidad de los datos personales en la difusión de microdatos.
+
+En la segunda parte, los expositores abordaron las motivaciones técnicas para la aplicación del SDC, así como sus etapas, beneficios y áreas de atención.
+
+En la tercera parte, los asistentes tuvieron la oportunidad de realizar preguntas y comentarios.
+
+Dejamos en video de la experiencia:
+
+<iframe width="949" height="534" src="https://www.youtube.com/embed/r8gWlW-kSo4" title="Taller - Proceso de Control a la Divulgación Estadística en Microdatos" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+

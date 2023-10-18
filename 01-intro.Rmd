@@ -1,0 +1,233 @@
+# Introducción
+
+Como Instituto Nacional de Estadística (en adelante, INE) tenemos la responsabilidad de la recopilación y difusión de estadísticas oficiales, tomando resguardos para cumplir con la Ley de Secreto Estadístico (Art.29, Ley 17.374 [@ley1970]), la Ley sobre Protección de la Vida Privada (Art.2e, Ley 19.628 [@ley1999]) y la legislación propia de las entidades públicas, todas en la línea de la protección y privacidad de la información difundida. Por otro lado, a nivel país, en los últimos años, ha existido un aumento constante en transparentar y disponer información tanto a nivel privado como público, mediante la "ley de transparencia" (Ley 20.285 [@ley2008]), promulgada en año 2008.
+
+Es en esta misma línea que las Naciones Unidas también abogan por la libre difusión de los microdatos. Lo que permite a los usuarios contribuir con investigación, aumenta la transparencia y la responsabilidad de los institutos nacionales de estadística y permite mejoras en la calidad a través de la retroalimentación de los usuarios [@nacionesunidas].
+
+En paralelo la comunidad estadística ha reconocido la importancia de asegurar la información para mantener la confianza de las poblaciones a las que servimos. En este sentido, el Código Nacional de Buenas Prácticas Estadísticas del INE, en su principio 4 sobre confidencialidad estadística, establece que el "INE y los demás miembros del Sistema Estadístico Nacional (SEN) deben garantizar la protección y confidencialidad de la información con la que se producen las estadísticas oficiales, así como evitar la identificación de las fuentes" [@institutonacionaldeestadisticas2015].
+
+Los principios en competencia de la seguridad de los datos y la difusión de microdatos se someten a arbitraje a través de un dominio de estadísticas llamado Control de Divulgación Estadística (SDC, por su sigla en inglés). Los métodos SDC permiten proteger un conjunto de datos mediante la aplicación de herramientas estadísticas, lo que posibilita a la institución difundir de manera segura el conjunto de datos.
+
+La experiencia del INE en términos de control de divulgación estadística ha ido avanzando, iniciando en junio del año 2009, bajo la Resolución exenta N° 1918, emitida en Santiago el 10 de junio de 2009, expone acerca de una experiencia localizada, sobre el tratamiento que se buscaba dar a datos económicos, luego en 2019, un equipo multidisciplinario de la producción estadística institucional, define los lineamientos para desarrollar un proceso estandarizado de control de divulgación en las operaciones estadísticas que desarrolla el INE, entregando como resultado una primera versión de la "Guía para el control de divulgación estadística en microdatos". En diciembre del 2021 se transforma en un estándar institucional disponible en la página web institucional https://www.ine.gob.cl/calidad-estadistica/directrices-metodologicas [@institutonacionaldeestadisticas2021].
+
+Este documento exige normar el subproceso de control a la divulgación estadística o anonimización, a fin de responder de manera adecuada, oportuna y segura a los usuarios que requieren información de interés y que solicitan las bases de microdatos, al mismo tiempo de tener procedimientos estandarizados en la producción de estadísticas oficiales.
+
+Esta guía busca brindar pasos prácticos bajo lineamientos institucionales para aquellas operaciones estadísticas que requieran desbloquear el acceso a sus datos de manera segura y garantizar que los datos sigan siendo aptos para su propósito.
+
+## Estableciendo una base de conocimiento
+
+La publicación de datos es importante, ya que permite a los investigadores y responsables políticos replicar los resultados publicados oficialmente, generar nuevos conocimientos sobre los problemas, evitar la duplicación de encuestas y proporcionar mayores retornos a la inversión en el proceso de encuesta.
+
+Tanto la producción de informes, con tablas agregadas de indicadores y estadísticas, como la publicación de microdatos resultan en desafíos de privacidad para el productor. En el pasado, para muchas ONE, el único requisito era publicar un informe y algunos indicadores clave. El reciente movimiento en torno a los datos abiertos, el gobierno abierto y la transparencia significa que las ONE están bajo una mayor presión para liberar sus microdatos, para permitir un uso más amplio de los datos recopilados a través de fondos públicos. Esta guía se centra en los métodos y procesos para la liberación de microdatos, ya sea que estos provengan de encuestas, censos o registros estadísticos generados por el INE. Por tanto, el alcance de los procesos que se describen en esta guía se ciñe a proveer directriz circunscrita al campo de los microdatos, por lo que se excluyen los procesos de control de divulgación estadística orientados a tabulados, estadísticas geoespaciales, publicaciones web o visualizaciones de mapas, etc., que requieren enfoques diferentes al propuesto en esta guía. Asimismo, se distingue la necesidad de establecer lineamientos para el control de divulgación estadística en la publicación de tablas y publicaciones web, con el fin de cubrir más ámbitos de la producción estadística del INE.
+
+Se requiere la difusión de datos de manera segura para proteger la integridad del sistema estadístico, al garantizar que el INE cumpla con su compromiso con los encuestados de proteger su identidad. Las ONE no comparten ampliamente, en detalle sustancial, su conocimiento y experiencia usando SDC y los procesos para crear datos seguros con otras ONE. Esto lo hace difícil para las instituciones nuevas en el proceso para implementar soluciones. Para llenar esta brecha de experiencia y conocimiento, el equipo de la mesa de trabajo INE (en adelante mesa) evaluó el uso de un amplio conjunto de métodos de SDC en una gama de microdatos de encuestas que cubren importantes temas de desarrollo relacionados con trabajo, seguridad ciudadana, empresas de ferrocarriles, trámites de circulación. Dado que sus productores ya habían tratado estos datos, no era posible, ni era objetivo de la mesa, emitir un juicio sobre la seguridad de estos datos, los cuales son de dominio público. El enfoque se centró más bien en medir los efectos que varios de los métodos tendrían que ver con la relación riesgo -- utilidad para los microdatos producidos para medir indicadores comunes de desarrollo. La experiencia de esta experimentación es útil para informar la discusión de los procesos y métodos en esta guía.
+
+## Propósito de esta guía
+
+Esta guía tiene como propósito presentar los lineamientos para la aplicación del control de divulgación estadística en microdatos derivados de censos, registros estadísticos y encuestas por muestreo desarrollados por el INE, permitiendo establecer qué microdatos pueden ser liberados y bajo qué condiciones.
+
+Esta guía no pretende prescribir o abogar por cambios en los métodos que los productores de datos específicos ya están utilizando y que han diseñado para ajustarse y cumplir con sus políticas de difusión de datos existentes, empero, ordenarlos. Los métodos discutidos en esta guía provienen de una gran cantidad de literatura sobre SDC. Los procesos que subyacen a muchos de los métodos son objeto de una extensa investigación académica y muchos, si no todos, son utilizados ampliamente por ONE con experiencia en la preparación de microdatos para su publicación.
+
+Siempre que sea posible, para cada método y tema, se proporciona ejemplos elaborados, referencias al trabajo original o seminal que describe los métodos y algoritmos en detalle y las lecturas recomendadas. Esto, cuando se combina con la discusión del método y las consideraciones prácticas en esta guía, debería permitir al lector comprender los métodos y sus fortalezas y debilidades. También proporciona suficientes detalles para que los lectores usen una solución de *software* adecuada para implementar los métodos.
+
+Para los ejercicios de esta guía, se ha utilizado el paquete de código abierto y gratuito para SDC llamado `sdcMicro`, así como el lenguaje y entorno de programación estadístico `R`. `sdcMicro` es un paquete adicional para el lenguaje `R`. El paquete fue desarrollado y es mantenido por Matthias Templ, Alexander Kowarik y Bernhard Meindl[[1]](#_ftn1). El lenguaje estadístico `R` y el paquete `sdcMicro`, así como cualquier otro paquete necesario para el proceso SDC, están disponibles gratuitamente en los `mirrors` de la Red Integral de Archivos `R` (CRAN[[2]](#_ftn2)) (<http://cran.r-project.org>/). El lenguaje está disponible para los sistemas operativos Linux, Windows y Macintosh. Se ha elegido usar `R` y `sdcMicro` porque está disponible gratuitamente, admite todos los formatos de datos principales y es fácil de adaptar por el usuario. El Banco Mundial, a través de IHSN[[3]](#_ftn3), también ha proporcionado fondos para el desarrollo del paquete `sdcMicro` para garantizar que cumpla con los requisitos de las ONE.
+
+Esta guía no proporciona una revisión de todos los demás paquetes disponibles para implementar el proceso SDC, pues se trata más de proporcionar información práctica sobre la aplicación de los métodos. Sin embargo, cabe destacar otro paquete de *software* en particular que las ONE utilizan comúnmente: `𝜇-ARGUS`[[4]](#_ftn4). `𝜇-ARGUS` es desarrollado por Statistics Netherlands. `sdcMicro` y `𝜇-ARGUS` son ampliamente utilizados en oficinas de estadística en la Unión Europea e implementan muchos de los mismos métodos.
+
+Las necesidades de usuario acerca de algún conocimiento de `R` para usar `sdcMicro` está más allá del alcance de esta guía, así como enseñar el uso de `R`, pero se presenta una serie de estudios de casos que incluyen el código para el anonimato de una serie de conjuntos de datos de demostración con `R`. A través de estos estudios de caso, se demuestra una serie de enfoques para el proceso de anonimización en `R`.
+
+## Esquema de esta guía
+
+Esta guía está dividida en las siguientes secciones principales:
+
+1.  **Introducción a sdcMicro**: donde se visualiza la necesidad de aplicar los métodos SDC y el trade off que se produce entre el riesgo versus la utilidad.
+
+2.  **Tipos de liberación de datos**: en este apartado encontrarán los tres tipos de métodos de divulgación, archivos de uso público (PUF, por sus siglas en inglés), archivos de uso científico (SUF, por sus siglas en inglés) y microdatos disponibles en un centro de datos de investigación controlado.
+
+3.  **Medición de riesgos**: las medidas de riesgo que se utilizan y la determinación si un archivo de datos es lo suficientemente seguro para su divulgación.
+
+4.  **Métodos SDC**: una descripción de los métodos más utilizados para anonimizar.
+
+5.  **Medición de utilidad y pérdida de información**: en este apartado se profundiza acerca del trade off entre la medición de la utilidad y la pérdida de información.
+
+6.  **Procesos SDC INE 2021**: caso práctico implementado en el INE en la mesa de anonimización institucional.
+
+7.  **Caso de estudio: Enusc**: caso práctico para aplicar el método SDC en la Encuesta Nacional Urbana de Seguridad Ciudadana (ENUSC) con datos sintéticos.
+
+[[1]](#_ftnref1) Matthias Templ, Alexander Kowarik, Bernhard Meindl (2015). Statistical Disclosure Control for Micro-Data Using the R Package sdcMicro. Journal of Statistical Software 67 (October): 1–36. <https://doi.org/10.18637/jss.v067.i04.>
+
+[[2]](#_ftnref2) En inglés, Comprehensive R Archive Network.
+
+[[3]](#_ftnref3) En inglés, International Household Survey Network.
+
+[[4]](#_ftnref4) $\mu$- ARGUS está disponible en: <https://research.cbs.nl/casc/mu.htm>
+
+
+# Acrónimos y glosario
+
+## Acrónimos
+
+```{r tabAcron1,echo=FALSE}
+tabla1 <- data.frame(cbind(as.character(c('AEPD',
+                                          'Bloque',
+                                          'CEPAL',
+                                          'DANE',
+                                          'ENUSC',
+                                          'FCYTE',
+                                          'GSBPM [1]',
+                                          'IHSN [2]',
+                                          'INE',
+'INEGI',
+'MINSEGPRES',
+'OCDE',
+'ONE',
+'PITEC',
+'PRAM [3]',
+'PUF [4]',
+'RUT',
+'ROL',
+'SEN',
+'SDC [5]',
+'sdcMicro',
+'STATCAN [6]',
+'SUF [7]',
+'UNECE [8]')),
+                           as.character(c('Agencia Española de Protección de Datos',
+'Trozo de código en R que permite cargar y procesar datos, realizar los análisis estadísticos e imprimir los resultados',
+'Comisión Económica para América Latina y el Caribe',
+'Departamento Administrativo Nacional de Estadística',
+'Encuesta Nacional Urbana de Seguridad Ciudadana',
+'Fundación Española de Ciencia y Tecnología',
+'Modelo Genérico del Proceso Estadístico',
+'Red Internacional de Encuestas de Hogares',
+'Instituto Nacional de Estadísticas',
+'Instituto Nacional de Estadística y Geografía',
+'Ministerio Secretaría General de la Presidencia',
+'Organización para la Cooperación y el Desarrollo Económicos',
+'Oficina Nacional de Estadística',
+'Panel de Innovación tecnológica',
+'Método de Post-Aleatorización',
+'Archivo de Uso Público',
+'Rol Único Tributario',
+'Identifica a una propiedad o bien raíz',
+'Sistema Estadístico Nacional',
+'Control de Divulgación Estadística',
+'Paquete de implementación bajo el *software* R',
+'Estadísticas de Canadá',
+'Archivo de Uso Científico',
+'Comisión Económica de las Naciones Unidas para Europa'))
+                                                    ))
+# specify of variables names
+names(tabla1) <- c('Acrónimo', 'Descripción')
+knitr::kable(tabla1, caption = "Lista de acrónimos",align = 'l')
+
+```
+
+[1] En inglés, *Generic Statistical Business Process Model*.\
+[2] En inglés, *International Household Survey Network*.\
+[3] En inglés, *Post Randomization Method*.\
+[4] En inglés, *Public Use File*.\
+[5] En inglés, *Statistical Disclosure Control*.\
+[6] En inglés, *Statistics Canada*.\
+[7] En inglés, *Scientific Use File*.\
+[8] En inglés, *United Nations Economic Commission for Europe*.
+
+
+
+## Glosario
+
+Respecto a los términos, conceptos o categorías utilizadas en esta guía se detallan aquellos que son relevantes para la comprensión del subproceso.
+
+```{r, echo=FALSE, warning=FALSE}
+library(kableExtra)
+text_tbl1lbn<-readxl::read_excel("data/230705_kableextra_lbn.xlsx", 
+    sheet = "Glosario")
+kbl(text_tbl1lbn, caption = "Glosario de términos y conceptos") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "left") %>%
+  column_spec(1, bold = T, border_right = F)%>%
+  column_spec(2, bold = F, border_right = F)
+```
+
+
+# Tipos de liberación de datos
+
+Esta sección expone sobre la liberación de microdatos, cuyos lineamientos se extrajeron de la guía elaborada por el Banco Mundial [@benschop2021], que a su vez recoge el trabajo conjunto realizado por el Banco Mundial y sus socios en la Red Internacional de Encuestas de Hogares IHSN^[En inglés, *International Household Survey Network*.] [@dupriez2010].
+
+El balance entre riesgo y utilidad en el proceso SDC depende en gran medida de quiénes son los usuarios y bajo qué condiciones se difunde o libera un archivo de microdatos.
+
+En general, se practican tres tipos de métodos de liberación de datos para diferentes grupos objetivo, a saber: archivo de uso público (PUF), archivo de uso científico (SUF) y enclave de datos. En la Tabla \@ref(tab:tbl2lbn) se resumen los tipos de liberación y su aplicabilidad en el INE, dado el marco legal vigente en Chile. Como se podrá observar, el tipo **PUF es el único tipo de liberación de microdatos que es aplicable para el INE** dado el marco legal vigente en Chile.
+
+```{r tbl2lbn, echo=FALSE, warning=FALSE, eval=TRUE}
+library(kableExtra)
+text_tbl2lbn<-readxl::read_excel("data/230705_kableextra_lbn.xlsx", 
+    sheet = "liberacion")
+kbl(text_tbl2lbn, caption = "Resumen de tipos de liberación de microdatos") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "left") %>%
+  column_spec(1, bold = T, border_right = F)%>%
+  column_spec(2, bold = F, border_right = F)
+```
+
+
+## Condiciones para la liberación de datos bajo versión PUF
+
+En general, los datos que se consideran públicos están abiertos a cualquier persona con acceso al sitio web del INE. Sin embargo, es una buena práctica incluir declaraciones de principios que definan los usos adecuados y las precauciones que se adoptarán utilizando los datos. Si bien estos pueden no ser legalmente vinculantes, sirven para sensibilizar al usuario. Prohibiciones como intentos de vincular los datos a otras fuentes puede ser parte de la "declaración de uso", requerida para el uso de datos. La difusión de archivos de microdatos implica necesariamente la aplicación de reglas o principios.
+
+A continuación, se listan principios básicos o "declaraciones de uso" aplicables a una liberación PUF:
+
+1.  Los datos y otros materiales proporcionados por el INE no serán redistribuidos o vendidos a otras personas, instituciones u organizaciones sin el acuerdo por escrito del INE.
+2.  Los datos se usarán solo para fines de investigación estadística y científica. Serán empleados únicamente para reportar información agregada, incluido el modelado, y no para investigar individuos u organizaciones específicos.
+3.  No se intentará volver a identificar a los informantes, y no se usará la identidad de ninguna persona o establecimiento descubierto inadvertidamente. Cualquier descubrimiento de este tipo se informará inmediatamente al INE.
+4.  No se intentará crear enlaces entre conjuntos de datos proporcionados por el INE o entre datos del INE y otros conjuntos de datos que podrían identificar individuos u organizaciones.
+5.  Libros, artículos, documentos de conferencias, tesis, disertaciones, informes u otras publicaciones que empleen datos obtenidos del INE citará la fuente, de acuerdo con el requisito de cita provisto con el conjunto de datos, en caso de no haber sido proporcionado, se debe citar de acuerdo a la norma APA más actualizada.
+6.  Se enviará al INE una copia electrónica de todas las publicaciones basadas en los datos descargados.
+7.  El recolector original de los datos, el INE y las agencias de financiamiento relevantes no tienen responsabilidad por el uso o interpretación de los datos o inferencias basadas en ellos.
+
+>**Nota:** Los puntos 3 y 6 de la lista requieren que los usuarios reciban una manera fácil de comunicarse con el INE. Es una buena práctica proporcionar un número de contacto, una dirección de correo electrónico y, posiblemente, un sistema de "suministro de comentarios" en línea.
+
+
+
+
+# Proceso SDC: Una introducción
+
+## Necesidad por control de divulgación estadística (proceso SDC)
+
+La protección de la confidencialidad ha sido una preocupación de las Oficinas Nacionales de Estadísticas (ONE), lo que ha sido foco de atención recientemente, esto debido a que en las últimas décadas se ha experimentado un avance tecnológico importante, junto con el desarrollo de técnicas de re-identificación, por ejemplo, basado en *machine learning*. Por lo tanto, proteger los datos personales de los informantes y resguardar la vida personal se hace un imperativo [@Yazdani]. Por esta razón, hoy en día, resolver la tensión entre la protección de la información personal y el suministro de datos es realmente un desafío que deben asumir las ONE. En esta situación, tres motivaciones empujan a las ONE a preservar la confidencialidad.
+
+El primer motivo para mantener la confidencialidad proviene del cumplimiento del marco normativo entre los cuales se establecen las funciones de la ONE. Existe una obligación legal y ética de los productores para garantizar que los datos proporcionados por los informantes se utilicen únicamente con fines estadísticos. La ONE debe respetar la confianza de los informantes, cuidar su privacidad y mantenerlos alejados de cualquier daño que pueda surgir de la información que han proporcionado. La ONE debe velar por resguardar el cumplimiento del marco normativo y las normas éticas.
+
+
+El segundo motivo subyace en el deseo de la ONE de obtener la cooperación de los informantes y obtener datos más precisos. Los informantes que confían que su información permanecerá confidencial tienen más probabilidades de participar en la encuesta y reportar con precisión su información privada. Cualquier duda sobre la confidencialidad puede reducir la disposición de los posibles informantes a cooperar en una encuesta y puede afectar la calidad de las respuestas [@Yazdani].
+
+El último motivo es la obligación impuesta a la ONE por la legislación vigente, así como por compromisos internacionales. La fuerza de la sociedad sobre los gobiernos ha llevado al establecimiento de entornos legales para salvaguardar la privacidad y la ONE está mandada a respetar estas restricciones legales [@Duncan]. Además, como lo aprobó por unanimidad la Asamblea General de las Naciones Unidas en enero de 2014, el principio 6 de los Principios Fundamentales de las Estadísticas Oficiales postula que "Los datos individuales que reúnan los organismos de estadística para la compilación estadística, se refieran a personas naturales o jurídicas, deben ser estrictamente confidenciales y utilizarse exclusivamente para fines estadísticos”.
+
+Los motivos señalados anteriormente son de naturaleza moral, ética y legal. El proceso SDC busca tratar y procesar los datos individuales para que cumplan el marco normativo y así, puedan publicarse o difundirse respetando el secreto estadístico, pero al mismo tiempo, controlar la pérdida de información debido al tratamiento de los datos. 
+
+El objetivo de anonimizar los microdatos es transformar los conjuntos de datos para lograr un "nivel aceptable" de riesgo de divulgación. El nivel de aceptabilidad del riesgo de divulgación y la necesidad de anonimización generalmente quedan a discreción del productor de datos y guiado por la legislación. Estos se formulan en las políticas y programas de difusión de los proveedores de datos y se basan en consideraciones que incluyen "[. . .] los costos y la experiencia involucrados; cuestiones de calidad de los datos, posible uso indebido y malentendidos de los datos por parte de los usuarios; asuntos legales y éticos; y mantener la confianza y el apoyo de los encuestados"[@benschop, p. 33].
+
+## Balance riesgo-utilidad en el proceso SDC
+
+Por otra parte, el proceso SDC se caracteriza por el balance entre el riesgo de divulgación y la utilidad de los datos para los usuarios finales. La escala riesgo-utilidad se extiende entre dos extremos:
+
+i.	No se difunden datos (riesgo cero de divulgación) y, por lo tanto, los usuarios no obtienen ninguna utilidad de los datos, 
+ii.	Los datos se difunden sin ningún tratamiento y, por lo tanto, con el máximo riesgo de divulgación, pero con la máxima utilidad para el usuario (es decir, sin pérdida de información).
+
+El objetivo de un proceso SDC bien implementado es encontrar el punto óptimo en el que la utilidad para los usuarios finales se maximice a un nivel de riesgo aceptable.
+
+En el balance entre Riesgo y Utilidad que se muestra en la Figura \@ref(fig:balance), por un extremo, el triángulo corresponde a los datos sin procesar, los que no tienen pérdida de información, pero generalmente tienen un riesgo de divulgación más alto que el nivel aceptable. El otro extremo es el cuadrado, que corresponde a la no publicación de datos. En ese caso, no hay riesgo de divulgación, pero tampoco hay utilidad de los datos para los usuarios. Los puntos intermedios corresponden a diferentes opciones de métodos SDC y/o parámetros aplicados a diferentes variables. El proceso SDC busca métodos y parámetros, que son aplicados de una manera que produce una reducción del riesgo de forma muchas veces satisfactoria, minimizándose generalmente la pérdida de información.
+
+
+```{r balance, fig.cap="Balance Riesgo-Utilidad en un conjunto de datos. Imagen extraída de [@benschop,p.15].", fig.align='center',echo=FALSE}
+imagen1 <- "fig1.png"
+knitr :: include_graphics(imagen1) #comando para insertar objeto/imagen en el documento de salida.
+# ![](Imagenes/fig1.png)
+```
+
+
+El proceso SDC no puede lograr la eliminación total del riesgo, pero puede reducir el riesgo a un nivel aceptable. Cualquier aplicación de métodos SDC suprimirá o alterará los valores en los datos y, como tal, disminuirá la utilidad (es decir, dará como resultado una pérdida de información) en comparación con los datos originales. Un hilo común que se enfatizará a lo largo de esta guía será que el proceso SDC debe priorizar el objetivo de proteger a los informantes y, al mismo tiempo, tener en cuenta a los usuarios de datos para limitar la pérdida de información. En general, cuanto menor es el riesgo de divulgación, mayor es la pérdida de información y menor es la utilidad de los datos para los usuarios finales.
+En la práctica, la elección de métodos SDC es un proceso iterativo: después de aplicar los métodos, el riesgo de divulgación y la utilidad de datos se vuelven a medir y se comparan con los resultados de otros métodos SDC y parámetros aplicados. Si el resultado es satisfactorio, los datos pueden ser liberados. Como se verá más adelante, a menudo el primer intento no será el óptimo. El riesgo puede no ser reducido lo suficiente o la pérdida de información puede ser demasiado alta y el proceso debe repetirse con diferentes métodos o parámetros hasta que se encuentre una solución satisfactoria. El riesgo de divulgación, la utilidad de los datos y la pérdida de información en el contexto de proceso SDC y cómo medirlos se analizan en capítulos posteriores de esta guía.
+
+Nuevamente, debe enfatizarse que el nivel de SDC y los métodos aplicados dependen en gran medida de todo el marco de publicación de datos. Por ejemplo, una consideración clave es a quién y bajo qué condiciones se liberarán los datos (ver sección [Tipos de liberación de datos]). Si los datos se van a difundir como datos de uso público, entonces el nivel de SDC aplicado solo tendrá que ser mayor que en los casos en que los datos se difundan bajo condiciones de licencia a usuarios confiables, después de un examen cuidadoso ^[Esto no aplica en el caso del INE DE chile, pues solo es aplicable, según el marco legal vigente, la difusión de datos mediante formato PUF.] . Se discutirá cómo se podría lograr esto más adelante en la guía.
+Esto ha dispuesto que entidades internacionales desarrollen diferentes técnicas de anonimización, que se ajustan a diferentes tipos de datos, consiguiendo de mejor manera resguardar la calidad de ellos.
+El INE, igualmente deberá tener en cuenta este balance al publicar sus datos, velando porque se ponga a disposición de la ciudadanía información de la mayor calidad posible, cumpliendo el marco normativo relativo a la protección de datos, manteniendo así la confianza de los informantes.
+
+

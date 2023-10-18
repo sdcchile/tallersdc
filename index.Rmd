@@ -1,9 +1,55 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAME HERE"
+title:  Guía para el Control de Divulgación Estadística en Microdatos
+author: "Subdepartamento de Investigación Estadística"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+cover-image: "Imagenes/Logo_INE2.png"
+favicon: "Imagenes/Logo_INE2.png"
+output: bookdown::gitbook
+documentclass: book
+bibliography: [references.bib, packages.bib]
+cls: apa.cls
+link-citations: yes
+urlcolor: blue
+github-repo: rstudio/bookdown-demo
+description: "Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile."
 ---
 
-# Down the rabbit-hole
+
+
+
+# Prefacio
+Los datos son un recurso valioso que proporciona información crítica para estadísticos, científicos sociales y científicos de datos. Estos datos se utilizan para generar perspectivas detalladas y oportunas que responden a las necesidades de información de una amplia gama de partes interesadas.
+
+En un mundo donde cada vez más grandes volúmenes de datos provienen de un número creciente de proveedores, las Oficinas Nacionales de Estadística (ONE) están utilizando enfoques innovadores para mantener estándares y definiciones de datos, sistemas de gestión de privacidad y confidencialidad, e intercambio responsable de datos.
+
+Las ONE tienen un papel de liderazgo que desempeñar en el establecimiento de formas seguras y transparentes de compartir datos, experiencias y mejores prácticas para respaldar el uso de datos con fines de prueba, evaluación, educación y desarrollo. Con la integridad y la confidencialidad de los datos a la vanguardia, las ONE están posicionandose cada vez más para proporcionar herramientas, métodos y enfoques para promover el intercambio responsable de datos, a fin de satisfacer las necesidades de un número creciente de partes interesadas en este ámbito que está en constante cambio.
+
+Las ONE reconocen que se debe cumplir con el llamado a una mayor apertura y transparencia de los datos. Sin embargo, también se comprometen a proteger la confidencialidad y la privacidad integradas en sus tenencias de datos.
+
+Se reconoce ampliamente que la difusión de información que es a la vez útil y completamente segura, no puede lograrse en su totalidad. Por lo tanto, la seguridad es un concepto relativo, no absoluto, y se debe entender como una métrica, no un estado.
+
+Es dentro de este contexto que las ONE deben establecer protocolos para la difusión segura de datos y métricas para medir la utilidad de la información estadística publicada y el grado de protección de las unidades, ya sean personas naturales o jurídicas, e información recopilada de la cual se deriva.
+
+Esta guía es para aquellos que trabajan en una ONE u oficina estatal que están involucrados en la gestión del acceso a datos estadísticos, y que deseen explorar herramientas de protección de datos para que los usuarios accedan a ellos. La guía destaca algunas aplicaciones exitosas recientes de control a la divulgación estadística en microdatos en el Instituto Nacional de Estadísticas de Chile (INE), y presenta un marco general sobre medición y evaluación de riesgos, técnicas para generar datos anonimizados, y sobre las medidas de utilidad que se pueden usar para evaluar qué tan bien los datos anonimizados satisfacen las necesidades analíticas de los usuarios. La guía también incluye recomendaciones sobre qué enfoques utilizar en diferentes situaciones, así como consejos prácticos y recursos para que los profesionales comiencen su experiencia en la implementación de proceso de control a la divulgación estadística.
+
+Esta guía se basa en Statistical Disclosure Control: A Practice Guide @benschop2019statistical y en la [Guía para el control de divulgación estadística en microdatos](https://www.ine.gob.cl/docs/default-source/buenas-practicas/directrices-metodologicas/guias-y-orientaciones-metodologicas/documentos/gu%C3%ADa-control-divulgaci%C3%B3n-estad%C3%ADstica-microdatos.pdf?sfvrsn=b6bdd28f_2), elaborada por el INE en 2021, que es el primer esfuerzo en esta materia en instituciones del Estado en Chile. Sin embargo, aún puede enriquecerse a partir de nuevos conocimientos y experiencias que tanto investigadores como profesionales puedan aportar. 
+
+¡Esperamos que esta guía lo ayude en su viaje hacia la implementación de procesos de control a la divulgación estadística en su organización!
+
+## Autores de esta guía
+Jonathan González Mejías, Subdepartamento de Estadísticas Socioeconómicas, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
+
+José Bustos Melo, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+
+Julio Guerrero Rojas, Subdepartamento de Investigación Estadística, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+
+Lissette Bastías Navarro, Subdepartamento de Calidad y Estándares, Departamento de Metodologías e Innovación Estadística en Instituto Nacional de Estadísticas de Chile.
+
+Nicolás Berhó Montalvo, Subdepartamento de Estadísticas de Condiciones de Vida, Subdirección Técnica en Instituto Nacional de Estadísticas de Chile.
+
+## Reconocimientos
+Aquí escribir si se quiere agradecer o reconocer la colaboración de alguna persona o equipo.
+
+
 

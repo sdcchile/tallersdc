@@ -1,0 +1,441 @@
+# Introducción a sdcMicro
+
+## Introducción
+
+El paquete `R` `sdcMicro` @templ2015 sirve para evaluar y anonimizar conjuntos de microdatos confidenciales, facilita el manejo de métodos SDC mediante una implementación de clase S4 orientada a objetos. Incluye todos los métodos populares de perturbación y riesgo de divulgación. El paquete realiza un nuevo cálculo automático de recuentos de frecuencia, medidas de riesgo individuales y globales, pérdida de información y estadísticas de utilidad de datos después de cada paso de anonimización. Todos los métodos están altamente optimizados en términos de costos computacionales para poder trabajar con grandes conjuntos de datos. Los profesionales también pueden utilizar fácilmente las funciones de generación de informes que resumen el proceso de anonimización. Describimos el paquete y demostramos su funcionalidad con un complejo conjunto de datos de prueba procedente de encuestas de hogares, que ha sido distribuido por la Red Internacional de Encuestas de Hogares.
+
+Para más información ver <https://cran.r-project.org/web/packages/sdcMicro/sdcMicro.pdf>
+
+## Instalación de `R`, `sdcMicro` y otros paquetes
+
+Esta guía se basa en el paquete de *software* `sdcMicro`, que es un paquete adicional para el lenguaje de programación estadístico `R`. Tanto `R` como `sdcMicro`, así como otros paquetes de `R`, están disponibles gratuitamente en el sitio web de CRAN (Comprehensive R Archive Network) para Linux, Mac y Windows (<http://cran.r-project.org> ). Este sitio web también ofrece descripciones de paquetes. Además de la versión estándar de `R`, existe una interfaz de usuario más fácil de usar para `R`: RStudio. RStudio también está disponible gratuitamente para Linux, Mac y Windows (<http://www.rstudio.com> ). El paquete `sdcMicro` tiene dependencia de otros paquetes `R` que deben instalarse en su computadora antes de usar `sdcMicro`. Se instalarán automáticamente al instalar `sdcMicro`. Para algunas funcionalidades, usamos otros paquetes (como `foreign` para leer datos y algunos paquetes gráficos). Si es así, esto se indica en la sección correspondiente de esta guía. `R`, RStudio, el paquete `sdcMicro` y sus dependencias y otros paquetes tienen actualizaciones periódicas. Se recomienda encarecidamente comprobar periódicamente si hay actualizaciones: esto requiere instalar una nueva versión para una actualización de `R`; con el comando `update.packages()` o usando las opciones de menú en `R` o RStudio se pueden actualizar los paquetes instalados.
+
+
+Al iniciar `R` o RStudio, es necesario especificar cada vez qué paquetes se están utilizando cargándolos. Esta carga de paquetes se puede realizar con la función `library()` o `require()`. Ambas opciones se ilustran en el Bloque \@ref(exm:bloqueMicro1).
+
+
+```{example, bloqueMicro1}
+Cargando paquetes requeridos
+```
+
+```{r,eval=FALSE,results='hide'}
+library(sdcMicro) # cargando paquete sdcMicro
+require(sdcMicro) # cargando paquete sdcMicro
+```
+
+Todos los paquetes y funciones están documentados. La forma más fácil de acceder a la documentación de una función específica es usar la ayuda integrada, que generalmente brinda una descripción general de los parámetros de las funciones, así como algunos ejemplos. La ayuda de una función específica se puede llamar con un signo de interrogación seguido del nombre de la función sin ningún argumento. El Bloque \@ref(exm:bloqueMicro2) muestra cómo llamar al archivo de ayuda para la función `microaggregation()` del paquete `sdcMicro` ^[A menudo, también es útil buscar ayuda en Internet sobre funciones específicas en `R`. Hay muchos foros donde los usuarios de `R` discuten los problemas que encuentran. Un sitio particularmente útil es *stackoverflow.com*]. La página de descarga de cada paquete en el sitio web de CRAN también proporciona un manual de referencia con una descripción completa de las funciones del paquete.
+
+```{example, bloqueMicro2}
+Visualización de ayuda para funciones
+```
+
+```{r,eval=FALSE,results='hide'}
+?microaggregation # ayuda para la función microagregación
+```
+
+Cuando se encuentran problemas o errores en el paquete `sdcMicro`, se pueden publicar comentarios o sugerencias para los desarrolladores de `sdcMicro` en su GitHub (<https://github.com/sdcTools/sdcMicro/issues>).
+
+
+
+## Leer funciones en `R`
+
+El primer paso en el proceso SDC cuando se usa `sdcMicro` es leer los datos en `R` y crear un marco de datos^[Un marco de datos es una clase de objeto en `R`, que es similar a una tabla o matriz de datos] `R` es compatible con la mayoría de los formatos de datos estadísticos y proporciona funciones de lectura para la mayoría de los tipos de datos. Para esas funciones de lectura, a veces es necesario instalar paquetes adicionales y sus dependencias en `R`. En la Tabla \@ref(tab:tabMicro1) se proporciona una descripción general de los formatos de datos, las funciones y los paquetes que contienen estas funciones . Estas funciones también están disponibles como escritura (por ejemplo, `write_dta()`) para guardar los datos anónimos en el formato requerido ^[No todas las funciones son compatibles con todas las versiones del paquete de *software* respectivo. Nos referimos a los archivos de ayuda de las funciones de lectura y escritura para más información.]. 
+
+
+
+
+```{r tabMicro1,echo=FALSE}
+tabla1 <- data.frame(cbind(as.character(c('SPSS ', 'STATA (v.5-14)', 'SAS  ', 'Excel ','Excel  ')),
+                          as.character(c('.sav  ', '.dta ', '.sas7bdat', '.csv  ','.xls/.xlsx ')),
+                          as.character(c('`haven`', '`haven`', '`haven`', '`utils` (paquete base)','`readxl`' )),
+                          as.character(c('`read_sav()`', '`read_dta()`', '`read_sas()`', '`read_csv()`','`read_xlsx()`'))
+                          ))
+# Especificar nombres de variables
+names(tabla1) <- c('Tipo/software', 'Extensión', 'Paquete', 'Función')
+knitr::kable(tabla1, caption = "Paquetes y funciones para lectura de datos en `R`",
+             align = 'c')
+
+```
+
+
+La mayoría de estas funciones tienen opciones que especifican cómo manejar los valores faltantes y las variables con niveles de factor y etiquetas de valor. El Bloque \@ref(exm:bloqueMicro3), el Bloque \@ref(exm:bloqueMicro4) y el Bloque \@ref(exm:bloqueMicro5) proporcionan código de ejemplo para leer un archivo STATA (.dta), un archivo de valores separados por ; (.csv) y un archivo SPSS (.sav), respectivamente.
+
+
+```{example, bloqueMicro3}
+Lectura en un archivo STATA
+```
+
+```{r,eval=FALSE,results='hide'}
+setwd("../Capacitación/GitHub") # directorio de trabajo
+
+
+fname = "data.dta" # nombre del archivo
+library(haven) # carga el paquete requerido para la función de lectura/escritura
+               # para archivos STATA
+file <- read_dta(fname)
+# lee los datos en el marco de datos tbl llamado file
+```
+
+```{example, bloqueMicro4}
+Lectura en un archivo csv
+```
+
+```{r,eval=FALSE,results='hide'}
+setwd("../Capacitación/GitHub") # directorio 
+                                                                              # de
+                                                                              # trabajo
+fname = "data.csv" # nombre del archivo
+file <- read.csv(fname, header = TRUE, sep = ";", dec = ".")
+# lee los datos hacia un dataframe llamado file,
+# la primera línea contiene los nombres de las variables,
+# campos son separados con comas, posiciones decimales se indican con ‘;’
+```
+
+```{example, bloqueMicro5}
+Lectura en un archivo SPSS
+```
+
+```{r,eval=FALSE,results='hide'}
+setwd("../Capacitación/GitHub") # directorio 
+                                                                              # de
+                                                                              # trabajo
+fname = "data.sav" # nombre del archivo
+library(haven) # carga paquete requerido para la función lectura/escritura
+               # para archivos SPSS
+file <- read_sav(fname)
+# lee los datos hacia un dataframe llamado file
+```
+
+El tamaño máximo de datos en `R` está técnicamente restringido. El tamaño máximo depende de la versión `R` (32 o 64 bits) y del sistema operativo. Algunos métodos SDC requieren largos tiempos de cálculo para grandes conjuntos de datos (consulte la Sección [Tiempo de cómputo]).
+
+
+## Valores faltantes
+
+La forma estándar en que los valores faltantes se representan en `R` es mediante el símbolo `NA`, que es diferente a los valores imposibles, como la división por cero o el logaritmo de un número negativo, que se representan con el símbolo `NaN`. El valor `NA` se usa tanto para variables numéricas como categóricas^[Esto es independientemente de la clase de la variable en `R`. Consulte la sección [Clases en `R`] para obtener más información sobre las clases en `R`.]. Los valores suprimidos por la rutina `localSuppression()` también se reemplazan por el símbolo `NA`. Algunos conjuntos de datos y *software* estadístico pueden usar diferentes valores para los valores faltantes, como '999' o cadenas. Es posible incluir argumentos en las funciones de lectura para especificar cómo se deben tratar los valores faltantes en el conjunto de datos y recodificar automáticamente los valores faltantes a `NA`. Por ejemplo, la función `read.table()` tiene el argumento `na.strings`, que reemplaza las cadenas especificadas con valores `NA`.
+
+Los valores faltantes también se pueden recodificar después de leer los datos en `R`. Esto puede ser necesario si hay varios códigos de valores perdidos diferentes en los datos, códigos de valores perdidos diferentes para diferentes variables o la función de lectura para el tipo de datos no permite especificar los códigos de valores perdidos. Al preparar los datos, es importante volver a codificar cualquier valor faltante que no esté codificado como `NA` a `NA` en `R` antes de iniciar el proceso de anonimización para garantizar la medición correcta del riesgo (por ejemplo, k-anonimato), así como para asegurar que muchos de los métodos se aplican correctamente a los datos. El Bloque \@ref(exm:bloqueMicro6)  muestra cómo recodificar el valor '99' a `NA` para la variable "TOILET".
+
+
+
+```{example, bloqueMicro6}
+Recodificación de valores perdidos a `NA`
+```
+
+```{r,eval=FALSE,results='hide'}
+file[file[,'TOILET'] == 99,'TOILET'] <- NA
+# Recodificar el código de valor faltante 99 a NA para la variable TOILET
+```
+
+
+
+
+## Clases en `R`
+
+Todos los objetos en `R` son de una clase específica, como un número entero, un carácter, una matriz, un factor o un marco de datos. La clase de un objeto es un atributo que hereda de la clase base, haciéndolo miembro e instancia de esta clase. Para averiguar la clase de un objeto, se puede utilizar la función `class()`. Las funciones en `R` pueden requerir objetos o argumentos de ciertas clases o funciones que pueden tener una funcionalidad diferente según la clase del argumento. Algunos ejemplos son las funciones de escritura que requieren marcos de datos y la mayoría de las funciones en el paquete `sdcMicro` que requieren marcos de datos u objetos `sdcMicro`. La funcionalidad de las funciones en el paquete `sdcMicro` difiere para marcos de datos y objetos `sdcMicro`. Es fácil cambiar el atributo de clase de un objeto con funciones que comienzan con “as.”, seguido del nombre de la clase (por ejemplo, `as.factor()`, `as.matrix()`, `as.data.frame()`). El Bloque \@ref(exm:bloqueMicro7)  muestra cómo verificar la clase de un objeto y cambiar la clase a "data.frame". Antes de cambiar el atributo de clase del objeto “file”, estaba en la clase “matrix”. Una clase importante definida y utilizada en el paquete `sdcMicro` es la clase denominada `sdcMicroObj`. Esta clase se describe en la siguiente sección.
+
+
+```{example, bloqueMicro7}
+Cambiando la clase de un objeto en `R`
+```
+
+```{r,eval=FALSE,results='hide'}
+# Averiguar la clase del objeto 'file'
+class(file)
+"matrix"
+
+# Cambiar la clase al marco de datos (data frame)
+file <- as.data.frame(file)
+
+# Comprobando la clase del resultado (file)
+"data.frame"
+```
+
+## Objetos de la clase `sdcMicroObj`
+
+El paquete `sdcMicro` se basa en objetos ^[La clase `sdcMicroObj` tiene objetos S4, que tienen elementos o atributos y permiten la programación orientada a objetos.] de la clase `sdcMicroObj`, una clase especialmente definida para el paquete `sdcMicro`. Cada componente de esta clase tiene una estructura determinada con elementos que contienen información sobre el proceso de anonimización (consulte la Tabla \@ref(tab:tabMicro2) para obtener una descripción de todos los elementos o propiedades (*slots*, en inglés)). Antes de evaluar el riesgo y la utilidad y aplicar métodos SDC, se recomienda crear un objeto de clase `sdcMicro`. Todos los ejemplos de esta guía se basan en estos objetos. La función utilizada para crear un objeto `sdcMicro` es `createSdcObj()`. La mayoría de las funciones en el paquete `sdcMicro`, como `microaggregation()` o `localSuppression()`, usan automáticamente la información requerida (por ejemplo, identificadores indirectos, pesos de muestra) del objeto `sdcMicro` si se aplica a un objeto de clase `sdcMicro`.
+
+Los argumentos de la función `createSdcObj()` permiten especificar el archivo de datos original y categorizar las variables en este archivo de datos antes del inicio del proceso de anonimización.
+
+En el Bloque \@ref(exm:bloqueMicro8), mostramos todos los argumentos de la función `createSdcObj()`, y primero definimos vectores con los nombres de las diferentes variables. Esta práctica brinda una mejor visión general y luego permite cambios rápidos en las opciones de variables si es necesario. Elegimos los identificadores indirectos categóricos (keyVars); las variables vinculadas a los identificadores indirectos categóricos que necesitan el mismo patrón de supresión (ghostVars, consulte la sección [Supresión local]); los identificadores indirectos numéricos (numVars); las variables seleccionadas para aplicar PRAM (pramVars); una variable con pesos muestrales (weightVar); el identificador de agrupación (hhId, por ejemplo, un identificador de hogar, consulte la sección [Riesgo jerárquico (o del hogar)]); una variable que especifica los estratos (strataVar) y las variables sensibles especificadas para el cálculo de *l-diversity* (sensibleVar, consulte la sección [l-diversity]).
+
+La mayoría de los métodos SDC en el paquete `sdcMicro` se aplican automáticamente dentro de los estratos, si se especifica el argumento 'strataVar'.
+
+Los ejemplos son la supresión local y PRAM. No se deben especificar todas las variables, por ejemplo, si no hay una estructura jerárquica (hogar), se puede omitir el argumento 'hhId'. Los nombres de las variables corresponden a los nombres de las variables en el marco de datos que contiene los microdatos a anonimizar. La selección de variables es importante para las medidas de riesgo que se calculan automáticamente. Además, varios métodos se aplican por defecto a todas las variables de un tipo, por ejemplo, microagregación a todas las variables clave ^[A menos que se especifique lo contrario en los argumentos de la función.]. Después de seleccionar estas variables, podemos crear el objeto sdcMicro. Para obtener un resumen del objeto, es suficiente escribir el nombre del objeto.
+
+
+
+
+
+```{example, bloqueMicro8}
+Seleccionando variables y creando un objeto de clase `sdcMicroObj` para el proceso SDC en `R`
+```
+
+```{r,eval=FALSE,results='hide'}
+# Seleccionar variables para crear objeto sdcMicro
+
+# Selección de variables categóricas
+selectedKeyVars <- c('URBRUR', 'REGION', 'HHSIZE')
+
+# Variables clave continuas
+selectedNumVar <- c('TANHHEXP', 'INCTOTGROSSHH')
+
+# PRAM variables
+selectedPramVars <- c('ROOF', 'TOILET', 'WATER', 'ELECTCON',
+                'FUELCOOK', 'OWNMOTORCYCLE', 'CAR', 'TV', 'LIVESTOCK')
+
+# Peso del hogar
+selectedWeightVar <- c('WGTPOP')
+
+
+# Creando el objeto sdcMicro con las variables asignadas
+sdcInitial <- createSdcObj(dat          = file,
+                           keyVars      = selectedKeyVars,
+                           numVar       = selectedNumVar,
+                           weightVar    = selectedWeightVar,
+                           pramVars     = selectedPramVars)
+
+# Resumen del objeto
+sdcInitial
+
+## ---------------------------------------------------------------------------
+```
+
+La Tabla \@ref(tab:tabMicro2) presenta los nombres de los elementos y sus respectivos contenidos. Los nombres de los elementos se pueden listar usando la función `slotNames()`, que se ilustra en el Bloque \@ref(exm:bloqueMicro9). Algunos espacios se llenan solo después de aplicar ciertos métodos, por ejemplo, evaluar una medida de riesgo específica. Se puede acceder a ciertos elementos de los objetos mediante funciones de acceso (por ejemplo, `extractManipData` para extraer los datos anónimos) o funciones de impresión (por ejemplo, `print()`) con los argumentos apropiados. También se puede acceder directamente al contenido de un espacio con el operador '@' y el nombre del espacio. Esto se ilustra para el elemento o atributo de riesgo en el Bloque \@ref(exm:bloqueMicro9). Esta funcionalidad puede ser práctica para guardar resultados intermedios y comparar los resultados de diferentes métodos. Además, para cambios manuales en los datos durante el proceso SDC, como cambiar códigos de valores faltantes o recodificación manual, es útil el acceso directo de los datos en los elementos o propiedades con los datos manipulados (es decir, nombres de elemento que comienzan con 'manip'). Dentro de cada elemento generalmente hay varios elementos. Sus nombres se pueden mostrar con la función `names()` y se puede acceder a ellos con el operador '$'. Esto se muestra para el elemento con el riesgo individual en el elemento de riesgo.
+
+```{example, bloqueMicro9}
+Visualización de nombres de elementos o propiedades y acceso a elementos o propiedades de un objeto S4
+```
+
+```{r,eval=FALSE,results='hide'}
+# Lista de todos los slots de objeto sdcMicro
+slotNames(sdcInitial)
+
+# Accediendo al slot de riesgos
+sdcInitial@risk
+
+# Lista de nombres dentro del slot de riesgo
+names(sdcInitial@risk)
+## [1] "global"  "individual"  "numeric"
+
+# Dos formas de acceder al riesgo individual dentro del slot de riesgo
+sdcInitial@risk$individual
+get.sdcMicroObj(sdcInitial, "risk")$individual
+```
+
+
+```{r tabMicro2,echo=FALSE}
+tabla2 <- data.frame(cbind(as.character(c('`origData`', '`keyVars`', '`pramVars`', '`numVars`','`ghostVars`','`weightVar`',
+                           '`hhId` ', '`strataVar` ', '`sensibleVar` ', '`manipKeyVars`' ,'`manipPramVars`','`manipNumVar`',
+                           '`manipGhostVars`', '`manipStrataVar`', '`originalRisk`', '`risk`' ,'`utility`','`pram`',
+                           '`localSuppression`', '`options`', '`additionalResults`', '`set`','`prev`','`deletedVars`')),
+                           as.character(c('datos originales como se especifica en el argumento dat de la función `createSdcObj()`.',
+                                          'índices de columnas en `origData` con variables clave categóricas especificadas. ', 'índices de columnas en `origData` con variables PRAM especificadas.', 
+                                          'índices de columnas en `origData` con variables clave numéricas especificadas.',
+                                          'índices de columnas en `origData` con `ghostVars` especificados. ',
+                                          'índices de columnas en `origData` con variable de peso especificada.',
+                           'índices de columnas en `origData` con variable de clúster especificada. ',
+                           'índices de columnas en `origData` con variable de estratos especificada. ', 
+                           'índices de columnas en `origData` con variables sensibles especificadas para *l-diversity*. ',
+                           'variables clave categóricas manipuladas después de aplicar métodos SDC (ver elemento `keyVars`).',
+                           'variables PRAM manipuladas después de aplicar PRAM (ver elemento `pramVars`). ',
+                           'variables clave numéricas manipuladas después de aplicar métodos SDC (ver elemento `numVars`). ',
+                           'variables fantasma manipuladas (ver elemento `ghostVars`). ', 
+                           'variables de estratos manipulados (ver elemento `strataVar`).',
+                           'medidas de riesgo globales e individuales antes de la anonimización.',
+                           'medidas de riesgo global e individual después de la aplicación de métodos SDC.' ,
+                           'medidas de utilidad (il1 y eigen).',
+                           'detalles sobre PRAM después de aplicar PRAM.',
+                           'número de supresión por variable después de la supresión local.', 
+                           'opciones especificadas.',
+                           'resultados adicionales.',
+                           'lista de elemento actualmente en uso (para uso interno).',
+                           'información para deshacer un paso con la función `undo()`.',
+                           'variables eliminadas (identificadores directos).'))
+                                                    ))
+# Especificar nombres de variables
+names(tabla2) <- c('Nombre de elemento', 'Contenido')
+knitr::kable(tabla2, caption = "Nombres de elementos o propiedades y descripción de los elementos o propiedades del objeto `sdcMicro`",align = 'l')
+
+```
+
+
+
+Hay dos opciones para guardar los resultados después de aplicar los métodos SDC:
+
+1. Sobrescribir el objeto `sdcMicro` existente, o 
+2. creando un nuevo objeto `sdcMicro`. El objeto original no se modificará y se puede utilizar para comparar resultados. Esto es especialmente útil para comparar varios métodos y seleccionar la mejor opción.
+
+En ambos casos, el resultado de cualquier función debe reasignarse a un objeto con el operador '<-'. Ambos métodos se ilustran en el Bloque \@ref(exm:bloqueMicro10).
+
+```{example, bloqueMicro10}
+Guardado de resultados de la aplicación de métodos SDC
+```
+
+```{r,eval=FALSE,results='hide'}
+# Aplicar supresión local y reasignar los resultados al mismo objeto sdcMicro
+sdcInitial <- localSuppression(sdcInitial)
+
+# Aplicar supresión local y asignar los resultados a un nuevo objeto sdcMicro
+sdc1 <- localSuppression(sdcInitial)
+```
+
+Si los resultados se reasignan al mismo objeto sdcMicro, es posible deshacer el último paso del proceso SDC. Esto es útil al cambiar los parámetros. Sin embargo, los resultados del último paso se pierden después de deshacer ese paso.
+
+La función `undolast()` se puede usar para retroceder solo un paso, no varios. El resultado también debe ser reasignado al mismo objeto. Esto se ilustra en el Bloque \@ref(exm:bloqueMicro11).
+
+```{example, bloqueMicro11}
+Deshacer último paso en proceso SDC
+```
+
+```{r,eval=FALSE,results='hide'}
+# Deshacer el último paso en el proceso SDC
+sdcInitial <- undolast(sdcInitial)
+```
+
+
+## Estructura del hogar
+
+Si los datos tienen una estructura jerárquica y algunas variables se miden en el nivel jerárquico más alto y otras en el nivel más bajo, el proceso SDC debe adaptarse en consecuencia (véanse también la sección [Riesgo jerárquico (o del hogar)]). Un ejemplo común en los datos de encuestas sociales son los conjuntos de datos con una estructura de hogar. Las variables que se miden a nivel del hogar son, por ejemplo, los ingresos del hogar, el tipo de vivienda y la región. Las variables medidas a nivel individual son, por ejemplo, la edad, el nivel educativo y el estado civil. Algunas variables se miden a nivel individual, no obstante, son las mismas para todos los miembros del hogar en casi todos los hogares. Estas variables deben ser tratadas como medidas a nivel de hogar desde la perspectiva del SDC. Un ejemplo es la variable religión para algunos países.
+
+El proceso SDC debe dividirse en dos etapas en los casos en que los datos tengan una estructura de hogar. Primero, las variables en el nivel superior (hogar) deben anonimizarse; posteriormente, las variables de nivel superior tratadas deben fusionarse con las variables individuales y anonimizarse conjuntamente. En esta sección, explicamos cómo extraer variables del hogar de un archivo y fusionarlas con las variables de niveles individuales después del tratamiento en R. Ilustramos este proceso con un ejemplo de variables a nivel individual y del hogar.
+
+Estos pasos se ilustran en el Bloque \@ref(exm:bloqueMicro12). Requerimos una identificación individual y una identificación familiar en el conjunto de datos; si faltan, deben generarse. La identificación individual debe ser única para cada individuo en el conjunto de datos y la identificación del hogar debe ser única para todos los hogares. El primer paso es extraer las variables del hogar y guardarlas en un nuevo marco de datos. Especificamos las variables que se miden a nivel del hogar en el vector de cadena "HHVars" y restamos solo estas variables del conjunto de datos. Este marco de datos tendrá para cada hogar el mismo número de entradas que miembros del hogar (por ejemplo, si un hogar tiene cuatro miembros, este hogar aparecerá cuatro veces en el archivo). A continuación, aplicamos la función `unique()` para seleccionar solo un registro por hogar. Este argumento de la función `unique()` es la identificación del hogar, que es la misma para todos los miembros del hogar,
+
+```{example, bloqueMicro12}
+Crear un archivo a nivel de hogar con registros únicos (eliminar duplicados) ^[Se recomienda verificar que el objeto fileHH tenga después de la aplicación de la función `unique()` la cantidad de filas esperadas (ej.: N° de viviendas encuestadas) y que no haya valores perdidos no esperados.]
+```
+
+```{r,eval=FALSE,results='hide'}
+# Crear subconjunto de archivo con solo variables medidas a nivel de hogar
+HHVars <- c('IDH', selectedKeyVars, selectedPramVars, selectedNumVar, selectedWeightVar)
+fileHH <- file[,HHVars]
+
+# Elimine las filas duplicadas en función de la identificación del hogar / 
+# solo cada hogar una vez en el fileHH
+fileHH <- unique(fileHH, by = c('HID'))
+
+# Dimensiones del fileHH (número de hogares)
+dim(fileHH)
+```
+
+
+
+Después de anonimizar las variables del hogar con base en el marco de datos "fileHH", recombinamos las variables del hogar anonimizadas con las variables originales, que se miden a nivel individual. Podemos extraer las variables de nivel individual del conjunto de datos original usando "INDVars", un vector de cadena con los nombres de las variables de nivel individual. Para extraer los datos anonimizados del objeto sdcMicro, podemos usar la función `extractManipData()` del paquete `sdcMicro`. A continuación, fusionamos los datos usando la función `merge()`. El argumento 'by' en la función `merge()` especifica la variable utilizada para la combinación; en este caso, la identificación del hogar, que tiene el mismo nombre de variable en ambos conjuntos de datos. Todas las demás variables deben tener nombres diferentes en ambos conjuntos de datos. Estos pasos se ilustran en Bloque \@ref(exm:bloqueMicro13).
+
+```{example, bloqueMicro13}
+Fusión de variables anonimizadas a nivel de hogar con variables a nivel individual
+```
+
+```{r,eval=FALSE,results='hide'}
+# Crea objeto sdcMicro inicial para variables de nivel de hogar
+sdcHH <- createSdcObj(dat = fileHH, keyVars = selectedKeyVars,
+                      pramVars = selectedPramVars, weightVar = selectedWeightVar,
+                      numVars = selectedNumVar)
+numHH <- length(fileHH[,1]) # número de hogares
+
+# Extrae variables de nivel de hogar manipuladas del objeto SDC
+HHmanip <- extractManipData(sdcHH)
+
+# Selecciona variables (nivel individual)
+selectedKeyVarsIND = c('GENDER', 'REL', 'MARITAL','AGEYRS',
+                       'EDUCY', 'INDUSTRY1') # lista de variables clave seleccionadas
+
+# Peso de la muestra (WGTHH, pesos individuales)
+selectedWeightVarIND = c('WGTHH')
+
+# ID hogar
+selectedHouseholdID = c('IDH')
+
+# Todas las variables individuales
+INDVars <- c(selectedKeyVarsIND)
+
+# Recombinando los datos HH anonimizados y las variables a nivel individual
+indVars <- c("IDH", "IDP", selectedKeyVarsIND, "WGTHH") # IDH y todas las variantes no HH
+fileInd <- file[indVars] # subset de file sin HHVars
+fileCombined <- merge(HHmanip, fileInd, by.x = c('IDH'))
+fileCombined <- fileCombined[order(fileCombined[,'IDH'],  fileCombined[,'IDP']),]
+
+dim(fileCombined)
+
+# Objeto SDC con solo las variables a nivel IND
+sdcCombined <- createSdcObj(dat = fileCombined, keyVars = c(selectedKeyVarsIND),
+                            weightVar = selectedWeightVarIND, hhId = selectedHouseholdID)
+
+# Objeto SDC con ambos niveles de variables, a HH y IND
+sdcCombinedAll <- createSdcObj(dat = fileCombined,
+                               keyVars = c(selectedKeyVarsIND, selectedKeyVars ),
+                               weightVar = selectedWeightVarIND, 
+                               hhId = selectedHouseholdID)
+sdcCombinedAll
+```
+
+
+El archivo fileCombined se utiliza para el proceso SDC con todo el conjunto de datos. En el estudio de casos de la sección [Caso de estudio] se ilustra cómo tratar los datos con la estructura del hogar.
+
+
+El tamaño de un hogar también puede ser un identificador indirecto, incluso si el tamaño del hogar no está incluido en el conjunto de datos como variable. Con el fin de evaluar el riesgo de divulgación, podría ser necesario crear dicha variable mediante un recuento de los miembros de cada hogar. El Bloque \@ref(exm:bloqueMicro14) muestra cómo generar la variable de tamaño de hogar, con valores para cada individuo en función de la identificación del hogar (IDH). Se muestran dos casos: 1) el archivo ordenado por IDH y 2) el archivo no ordenado.
+
+
+```{example, bloqueMicro14}
+Generando la variable tamaño del hogar
+```
+
+```{r,eval=FALSE,results='hide'}
+# Ordenado por IDH
+file$hhsize <- rep(unname(table(file$IDH)), unname(table(file$IDH)))
+
+# Desordenado
+file$hhsize <- rep(diff(c(1, 1 + which(diff(file$IDH) != 0), length(file$IDH) + 1)),
+                   diff(c(1, 1 + which(diff(file$IDH) != 0), length(file$IDH) + 1)))
+```
+
+En algunos casos, el orden de las personas dentro de los hogares puede proporcionar información que podría conducir a la reidentificación.
+
+Un ejemplo es la información sobre la relación con el jefe de hogar. En muchos países, el primer miembro del hogar es el cabeza de familia, el segundo es la pareja del cabeza de familia y los siguientes son los hijos. Por lo tanto, el número de línea dentro del hogar podría correlacionarse bien con una variable que contiene información sobre la relación con el jefe de hogar. Una forma de evitar esta divulgación involuntaria de información es cambiar el orden de los individuos dentro de cada hogar al azar. El Bloque \@ref(exm:bloqueMicro15) ilustra una manera de hacer esto en R.
+
+```{example, bloqueMicro15}
+Cambiando el orden de los individuos dentro de los hogares
+```
+
+```{r,eval=FALSE,results='hide'}
+# Cargando datos anonimizados 
+dataAnon<-readRDS("dataAnon.RDS")
+
+# Lista de tamaños de hogar por hogar
+hhsize <- diff(c(1, 1 + which(diff(dataAnon$IDH) != 0), length(dataAnon$IDH) + 1))
+
+# Números de línea asignados al azar dentro de cada hogar
+set.seed(123)
+dataAnon$INDID <- unlist(lapply(hhsize,
+                                function(n){sample(1:n, n, replace = FALSE,
+                                                   prob = rep(1/n, n))}))
+
+# Ordene el archivo por IDH y INDID aleatorio (número de línea)
+dataAnon <- dataAnon[order(dataAnon$IDH, dataAnon$INDID),]
+```
+
+
+## Tiempo de cómputo
+
+Algunos métodos SDC pueden tardar mucho tiempo en evaluarse en términos de cómputo. Por ejemplo, la supresión local con la función `localSuppression()` del paquete `sdcMicro` en `R` puede tardar días en ejecutarse en grandes conjuntos de datos de más de 30.000 personas que tienen muchos identificadores indirectos categóricos. El uso de la función `groupVars()`, por ejemplo, no es computacionalmente intensivo, pero aún puede llevar mucho tiempo si el conjunto de datos es grande y las medidas de riesgo deben volver a calcularse.
+
+Nuestra experiencia revela que el tiempo de cómputo es una función de los siguientes factores: el método SDC aplicado; tamaño de los datos, es decir, número de observaciones, número de variables y número de categorías o niveles de factores de cada variable categórica; complejidad de los datos (por ejemplo, el número de diferentes combinaciones de valores de identificadores indirectos en los datos); así como las especificaciones de la computadora (procesador, la memoria RAM y los medios de almacenamiento).
+
+El uso de la paralelización puede mejorar el rendimiento incluso en una sola computadora con un procesador con múltiples núcleos. `R` no utiliza múltiples núcleos a menos que se le indique que lo haga. La paralelización permite que los trabajos/escenarios ^[Aquí, un escenario se refiere a una combinación de métodos SDC y sus parámetros.] en los conjuntos de datos puedan procesarse simultáneamente a través de la asignación eficiente de tareas a diferentes procesadores. Sin paralelización, dependiendo del servidor/computadora, solo se usa un núcleo cuando se ejecutan los trabajos secuencialmente. Ejecutar el programa de anonimización sin paralelización conduce a un tiempo de ejecución significativamente mayor. Sin embargo, tenga en cuenta que la paralelización en sí misma también provoca una sobrecarga. Por lo tanto, una suma de los tiempos que lleva ejecutar cada tarea en paralelo no equivale necesariamente al tiempo que puede llevar ejecutarlas secuencialmente. Sin embargo, el hecho de que la RAM se comparta podría reducir ligeramente las ganancias de la paralelización ^[El siguiente sitio web proporciona una descripción general de los paquetes y soluciones de paralelización en `R` : <http://cran.r-project.org/web/views/HighPerformanceComputing.html>. ].
+
+
+
+
+
+
+## Errores comunes
+
+En esta sección, presentamos algunos errores comunes y sus causas, que pueden encontrarse al usar el paquete `sdcMicro` en `R` para la anonimización de microdatos:
+
+1. La clase de una determinada variable no es aceptada por la función, por ejemplo, una variable categórica de clase numérica debe recodificarse primero a la clase requerida (por ejemplo, factor o data.frame). En la sección [Clases en `R`] se muestra cómo hacerlo.
+
+2. Después de realizar cambios manualmente en las variables, el riesgo no cambió, ya que no se actualiza automáticamente y debe volver a calcularse manualmente mediante la función `calcRisks()`.
+
+
+
+
