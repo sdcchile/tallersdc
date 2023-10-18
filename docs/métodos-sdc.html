@@ -10,7 +10,7 @@
 
   <meta property="og:title" content="Capítulo 8 Métodos SDC | Guía para el Control de Divulgación Estadística en Microdatos" />
   <meta property="og:type" content="book" />
-  <meta property="og:image" content="/Imagenes/Logo_INE2.png" />
+  <meta property="og:image" content="https://www.ine.cl//Imagenes/Logo_INE2.png" />
   <meta property="og:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Capítulo 8 Métodos SDC | Guía para el Control de Divulgación Estadística en Microdatos" />
   
   <meta name="twitter:description" content="Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile." />
-  <meta name="twitter:image" content="/Imagenes/Logo_INE2.png" />
+  <meta name="twitter:image" content="https://www.ine.cl//Imagenes/Logo_INE2.png" />
 
 <meta name="author" content="Subdepartamento de Investigación Estadística" />
 
@@ -28,7 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="Imagenes/Logo_INE2.png" />
   <link rel="shortcut icon" href="Imagenes/Logo_INE2.png" type="image/x-icon" />
 <link rel="prev" href="medición-de-riesgos.html"/>
 <link rel="next" href="medición-de-la-utilidad-y-la-pérdida-de-información.html"/>
@@ -1015,7 +1015,7 @@ después de la recodificación
 <span id="cb31-2"><a href="métodos-sdc.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>sizeRes)</span></code></pre></div>
 <pre><code>## 
 ## capital, large city          small city                town         countryside 
-##                 774                 374                 168                 684</code></pre>
+##                 792                 348                 176                 684</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="métodos-sdc.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificar urbano</span></span>
 <span id="cb33-2"><a href="métodos-sdc.html#cb33-2" aria-hidden="true" tabindex="-1"></a>sdcInitial  <span class="ot">&lt;-</span>  <span class="fu">groupAndRename</span>(sdcInitial, <span class="at">var =</span> <span class="st">&quot;sizeRes&quot;</span>,</span>
 <span id="cb33-3"><a href="métodos-sdc.html#cb33-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">before =</span> <span class="fu">c</span>(<span class="st">&quot;capital, large city&quot;</span>, <span class="st">&quot;small city&quot;</span>, <span class="st">&quot;town&quot;</span>),</span>
@@ -1454,12 +1454,12 @@ media
 <span id="cb47-8"><a href="métodos-sdc.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcInitial, <span class="at">type=</span><span class="st">&quot;ls&quot;</span>)</span></code></pre></div>
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
-##  sizeRes |                0 |            0.000
-##   AGEYRS |              273 |           13.650
+##  sizeRes |                1 |            0.050
+##   AGEYRS |              280 |           14.000
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               22 |            1.100
-##    RELIG |               28 |            1.400</code></pre>
+##    etnia |               17 |            0.850
+##    RELIG |               25 |            1.250</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="métodos-sdc.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deshacer las supresiones</span></span>
 <span id="cb51-2"><a href="métodos-sdc.html#cb51-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">undolast</span>(sdcInitial)</span>
@@ -1472,11 +1472,11 @@ media
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |              138 |            6.900
-##   AGEYRS |               20 |            1.000
-##   GENDER |                0 |            0.000
+##   AGEYRS |               16 |            0.800
+##   GENDER |                1 |            0.050
 ##   REGION |                0 |            0.000
-##    etnia |              101 |            5.050
-##    RELIG |               67 |            3.350</code></pre>
+##    etnia |              108 |            5.400
+##    RELIG |               60 |            3.000</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <p>La <a href="métodos-sdc.html#fig:fig8">8.7</a> demuestra el efecto del umbral de <span class="math inline">\(k\)</span>-anonimato requerido y el vector de importancia en la utilidad de los datos utilizando varios indicadores relacionados con el mercado laboral de un conjunto de datos<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> antes y después de la anonimización. La <a href="métodos-sdc.html#fig:fig8">8.7</a> muestra los cambios relativos como porcentaje del valor inicial después de volver a calcular los indicadores con los datos a los que se aplicó la supresión local. Los indicadores son la proporción de mujeres y hombres activos y el número de mujeres y hombres en edad de trabajar. Los valores calculados a partir de los datos brutos son, respectivamente, 68%, 12%, 8.943 y 9.702. La línea vertical en 0 es el punto de referencia de la ausencia de cambios. Los números indican el umbral de <span class="math inline">\(k\)</span>-anonimato requerido (3 o 5) y los colores indican el vector de importancia: el rojo (sin símbolo) es ningún vector de importancia, el azul (con símbolo <span class="math inline">\(\color {blue}{\text{*}}\)</span>) es de alta importancia en la variable con la información sobre la situación laboral y el verde oscuro (con símbolo <span class="math inline">\(\color {darkgreen}{\text{+}}\)</span>) es de alta importancia en la variable de edad.</p>
 <p>Un umbral de <span class="math inline">\(k\)</span>-anonimato más alto conlleva una mayor pérdida de información (es decir, mayores desviaciones de los valores originales de los indicadores, los 5 están más alejados del punto de referencia de ningún cambio que los correspondientes 3) causada por la supresión local. Reducir el número de supresiones en la variable de situación laboral especificando un vector de importancia no mejora los indicadores. En cambio, reducir el número de supresiones en la edad reduce en gran medida la pérdida de información. Dado que los grupos de edad específicos tienen una gran influencia en el cálculo de estos indicadores (los casos raros se encuentran en los extremos y se suprimirán), los índices de supresión elevados sobre la edad distorsionan los indicadores. En general, es útil comparar las medidas de utilidad (véase la sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>) para especificar el vector de importancia, ya que los efectos pueden ser imprevisibles.</p>
@@ -1669,11 +1669,11 @@ variable de edad
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |                0 |            0.000
-##   AGEYRS |              505 |           25.250
+##   AGEYRS |              510 |           25.500
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               78 |            3.900
-##    RELIG |               77 |            3.850</code></pre>
+##    etnia |               82 |            4.100
+##    RELIG |               52 |            2.600</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="métodos-sdc.html#cb59-1" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">undolast</span>(sdcInitial)</span>
 <span id="cb59-2"><a href="métodos-sdc.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar k-anonimato con umbral 5 a todos los subconjuntos de tres variables clave y</span></span>
@@ -1683,11 +1683,11 @@ variable de edad
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |                0 |            0.000
-##   AGEYRS |              427 |           21.350
+##   AGEYRS |              409 |           20.450
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               40 |            2.000
-##    RELIG |               44 |            2.200</code></pre>
+##    etnia |               34 |            1.700
+##    RELIG |               52 |            2.600</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <p>La Tabla <a href="métodos-sdc.html#tab:Tabla11">8.6</a> presenta los resultados de utilizar el enfoque <strong>all-m</strong> de un conjunto de datos de prueba con 9 variables clave y 4.000 registros. La Tabla muestra los argumentos <em>k</em> y “combs” de la función <code>localSuppression()</code>, el número de violaciones de <span class="math inline">\(k\)</span>-anonimato para diferentes niveles de <em>k</em>, así como el número total de supresiones. Observamos que las diferentes combinaciones no siempre conducen al nivel de <span class="math inline">\(k\)</span>-anonimato requerido. Por ejemplo, cuando se establece <em>k=3</em>, y “combs” 3 y 7, todavía hay 15 registros en el conjunto de datos (con un total de 9 identificadores indirectos) que violan el anonimato 3 después de la supresión local. Debido al menor tamaño de la muestra, las ganancias en tiempo de ejecución no son todavía evidentes en este ejemplo, ya que la ejecución del algoritmo varias veces consume tiempo. Un conjunto de datos más grande se beneficiaría más del enfoque <strong>all-m</strong>, ya que el algoritmo tardaría más tiempo.</p>
 <table>
@@ -2133,10 +2133,10 @@ de la local
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="métodos-sdc.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estadísticas resumidas</span></span>
 <span id="cb66-2"><a href="métodos-sdc.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## 2.067e-05 6.624e-04 2.844e-03 4.707e-03 5.957e-03 8.541e-02</code></pre>
+## 3.371e-05 7.124e-04 3.004e-03 4.893e-03 6.236e-03 8.541e-02</code></pre>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="métodos-sdc.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de individuos con riesgo individual superior al 0,1</span></span>
 <span id="cb68-2"><a href="métodos-sdc.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="fl">0.08</span>)</span></code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 2</code></pre>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="métodos-sdc.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># supresión local</span></span>
 <span id="cb70-2"><a href="métodos-sdc.html#cb70-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcInitial, <span class="at">threshold =</span> <span class="fl">0.08</span>, <span class="at">keyVar =</span> <span class="st">&quot;etnia&quot;</span>)</span>
 <span id="cb70-3"><a href="métodos-sdc.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2147,7 +2147,7 @@ de la local
 ##   AGEYRS |                0 |            0.000
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |                1 |            0.050
+##    etnia |                2 |            0.100
 ##    RELIG |                0 |            0.000</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 </div>
@@ -3403,8 +3403,8 @@ Figura 8.10: Niveles de ruido y el impacto en el rango de valores (percentiles)
 ## Disclosure risk is currently between [0.00%; 0.00%]
 ## 
 ## Current Information Loss:
-##   - IL1: 5537885.72
-##   - Difference of Eigenvalues: -5747752382613929.000%
+##   - IL1: 5551786.02
+##   - Difference of Eigenvalues: -5541867567604730.000%
 ## ----------------------------------------------------------------------</code></pre>
 <p>Se ha comprobado que <em>Rank swapping</em> da buenos resultados con respecto al equilibrio entre la pérdida de información y la protección de los datos <span class="citation">(<a href="#ref-DoTo01a" role="doc-biblioref">Josep Domingo-Ferrer and Torra 2001</a>)</span>. <em>Rank swapping</em> no es útil para variables con pocos valores diferentes o muchos valores perdidos, ya que el intercambio en ese caso no dará lugar a valores alterados. Además, si el intruso sabe a quién pertenece el valor más alto o más bajo de una variable específica (por ejemplo, los ingresos), el nivel de esta variable se revelará después de <em>Rank swapping</em>, porque los valores en sí no se alteran y los valores originales se revelan todos. Esto puede resolverse codificando por arriba y por abajo los valores más bajos y/o más altos.</p>
 <blockquote>
