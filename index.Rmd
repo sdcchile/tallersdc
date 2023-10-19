@@ -68,15 +68,15 @@ Nuestro agradecimiento se extiende a cada uno de ustedes y a todas las personas 
 
 Si decide utilizar este material, le pedimos que lo cite adecuadamente. En ese caso, ponemos a su disposición el código LaTeX para que pueda incluirlo en las referencias de su documento.
 
+```{r, echo=TRUE, eval=FALSE}
+@Manual{guia_sdc_ine,
+  title = {Guia para el Control de la Divulgacion Estadistica: Taller practico},
+  author = {{Gonzalez, Jonathan & Bustos, Jose & Guerrero, Julio &  Bastias, Lissete & Berho, Nicolas}},
+  organization = {Instituto Nacional de Estadísticas},
+  address = {Santiago, Chile},
+  year = {2021},
+  url = {https://sdcchile.github.io/tallersdc/},
 ```
-@Manual{R-base,
-  title = {R: A Language and Environment for Statistical
-    Computing},
-  author = {{R Core Team}},
-  organization = {R Foundation for Statistical Computing},
-  address = {Vienna, Austria},
-  year = {2016},
-  url = {https://www.R-project.org/},
-}
 
---- 
+
+
