@@ -1,68 +1,67 @@
-This is a template for creating an [HTML GitBook style](https://bookdown.org/yihui/bookdown/html.html#gitbook-style) **[bookdown](https://github.com/rstudio/bookdown)** book, [hosted on GitHub Pages](https://bookdown.org/yihui/bookdown/github.html). It is based on the one created with *File, New Project..., New Directory, Book Project using bookdown* in RStudio. It assumes you know how to use git/GitHub and R Markdown, and have some familiarity with the **bookdown** package. If you don't, the package author Yihue Xie's RStudio webinar *[Introduction to Bookdown (R Package)](https://www.youtube.com/watch?v=dVqVscgwSpw)* provides an excellent introduction. In addition, check out [*bookdown: Authoring Books and Technical Documents with R Markdown*](https://bookdown.org/yihui/bookdown), also by Yihui Xie, both for the content and the format--it is itself a **bookdown** book.
-If you need help getting git/GitHub to work with RStudio see: [Happy Git and GitHub for the useR](https://happygitwithr.com/) by Jenny Bryan.
+Este es un modelo para crear un libro estilo [GitBook en HTML](https://bookdown.org/yihui/bookdown/html.html#gitbook-style) con **[bookdown](https://github.com/rstudio/bookdown)**, [alojado en GitHub Pages](https://bookdown.org/yihui/bookdown/github.html). Está basado en el creado con *Archivo, Nuevo Proyecto..., Nueva Carpeta, Proyecto de Libro utilizando bookdown* en RStudio. Se asume que tienes conocimientos sobre cómo usar git/GitHub y R Markdown, y que tienes alguna familiaridad con el paquete **bookdown**. Si no es así, el seminario web de RStudio del autor del paquete, Yihue Xie, *[Introducción a Bookdown (Paquete de R)](https://www.youtube.com/watch?v=dVqVscgwSpw)*, proporciona una excelente introducción. Además, consulta *[bookdown: Creación de Libros y Documentos Técnicos con R Markdown](https://bookdown.org/yihui/bookdown)*, también de Yihui Xie, tanto para el contenido como para el formato, ya que es en sí un libro de **bookdown**.
 
+Si necesitas ayuda para hacer que git/GitHub funcione con RStudio, consulta: [Happy Git and GitHub for the useR](https://happygitwithr.com/) de Jenny Bryan.
 
-## ABSOLUTE ESSENTIALS
+## ELEMENTOS ESENCIALES
 
-*If you have any difficulties or have feedback of any kind, please file an issue or communicate through [Discussions](https://github.com/jtr13/bookdown-template/discussions).*
+*Si encuentras dificultades o tienes algún comentario, por favor, registra un problema o comunica a través de [Discusiones](https://github.com/jtr13/bookdown-template/discussions).*
 
-### Copy this template (GitHub)
+### Copiar este modelo (GitHub)
 
-- [ ] 1. Click the green "Use this template" button above. DO NOT FORK THE REPO. Choose a descriptive name for your repo based on your content. (Unlike when you fork a repo, you get to choose the name. If you change your mind before you do any work, delete your new repo and start over.)
+- [ ] 1. Haz clic en el botón verde "Usar esta plantilla" arriba. NO HAGAS UN FORK DEL REPO. Elige un nombre descriptivo para tu repositorio basado en tu contenido. (A diferencia de cuando haces un fork de un repositorio, puedes elegir el nombre. Si cambias de opinión antes de hacer algún trabajo, borra tu nuevo repositorio y comienza de nuevo).
 
-### Set up Pages (GitHub)
+### Configurar Páginas (GitHub)
 
-- [ ] 1. On the home page of your repo, click Settings. Click the "Pages" section on the left. In the **Build and Deployment** section, set **Source** to "Deploy from a branch" (Classic Pages experience) and **Branch** to **main** with **/docs** folder. Click Save. Above the **Build and Deployment** section, a box will appear with your book's URL. Copy the URL. (Note that sometimes there is a delay until your book actually appears at that URL. If it doesn't appear after a few minutes, make a change and commit it to trigger a GitHub Pages build.)	
+- [ ] 1. En la página principal de tu repositorio, haz clic en Configuración. Luego, selecciona la sección "Páginas" a la izquierda. En la sección **Construcción y Despliegue**, establece **Fuente** en "Desplegar desde una rama" (Experiencia de Páginas Clásicas) y **Rama** en **main** con la carpeta **/docs**. Haz clic en Guardar. Encima de la sección **Construcción y Despliegue**, aparecerá una caja con la URL de tu libro. Cópiala. (Ten en cuenta que a veces puede haber un retraso hasta que tu libro aparezca realmente en esa URL. Si no aparece después de unos minutos, realiza un cambio y haz un commit para desencadenar la construcción de GitHub Pages).
 
-- [ ] 2. Click the gear button near "About" on the home page of the repo and paste your book URL into the **Website** field that appears on the right.
+- [ ] 2. Haz clic en el botón de configuración cerca de "Acerca de" en la página principal del repositorio y pega la URL de tu libro en el campo **Sitio web** que aparece a la derecha.
 
-### Copy the repo link (GitHub)
+### Copiar el enlace del repositorio (GitHub)
 
-- [ ] 1. Click the green Code button and copy the link under HTTPS. It should have the format: `https://github.com/[USERNAME]/[REPO NAME].git`
+- [ ] 1. Haz clic en el botón verde "Código" y copia el enlace bajo HTTPS. Debería tener el formato: `https://github.com/[NOMBRE DE USUARIO]/[NOMBRE DEL REPO].git`
 
-### Clone the repo (RStudio)
+### Clonar el repositorio (RStudio)
 
-- [ ] 1. Clone your new repo with *File, New Project..., Version Control, Git* in RStudio. You will need to paste the link from the previous step in the Repository URL box.
+- [ ] 1. Clona tu nuevo repositorio con *Archivo, Nuevo Proyecto..., Control de Versiones, Git* en RStudio. Debes pegar el enlace del paso anterior en la casilla de URL del Repositorio.
 
-### Edit some key files (RStudio)
+### Editar algunos archivos clave (RStudio)
 
-- [ ] 1. In `index.Rmd`, change YOUR TITLE HERE to your title.
+- [ ] 1. En `index.Rmd`, cambia "TU TÍTULO AQUÍ" por tu título.
 
-- [ ] 2. In `index.Rmd`, change YOUR NAMES HERE to your names.
+- [ ] 2. En `index.Rmd`, cambia "TUS NOMBRES AQUÍ" por tus nombres.
 
-- [ ] 3. In `_bookdown.yml`, change YOUR GITHUB USERNAME to your GitHub username in the two places it appears.
+- [ ] 3. En `_bookdown.yml`, cambia "TU NOMBRE DE USUARIO DE GITHUB" por tu nombre de usuario de GitHub en los dos lugares donde aparece.
 
-- [ ] 4. In `_bookdown.yml`, change YOUR GITHUB REPO to your GitHub repo name in the two places it appears.
+- [ ] 4. En `_bookdown.yml`, cambia "TU REPOSITORIO DE GITHUB" por el nombre de tu repositorio de GitHub en los dos lugares donde aparece.
 
-(Note that 3. and 4. provide links to the `.Rmd` files of your project for editing and viewing. If you move your `.Rmd` files you will need to update these file paths. Once your book is rendered, test that the edit (pen) and view (eye) buttons work.)
+(Ten en cuenta que 3. y 4. proporcionan enlaces a los archivos `.Rmd` de tu proyecto para editar y ver. Si mueves tus archivos `.Rmd`, deberás actualizar estas rutas de archivo. Una vez que tu libro se haya renderizado, prueba que los botones de edición (pluma) y visualización (ojo) funcionen).
 
-- [ ] 5. In `_output.yml`, change YOUR SHORT TITLE to a shortened version of your title. (Leave the "after:" line indicating that the book was published with bookdown as is.)
+- [ ] 5. En `_output.yml`, cambia "TU TÍTULO CORTO" por una versión abreviada de tu título. (Deja la línea "after:" que indica que el libro se publicó con bookdown tal como está).
 
-### Render the book (RStudio)
+### Renderizar el libro (RStudio)
 
-- [ ] 1. Install **bookdown** with `install.packages("bookdown")`. If you already have it, update to the most recent version.
+- [ ] 1. Instala **bookdown** con `install.packages("bookdown")`. Si ya lo tienes, actualízalo a la versión más reciente.
 
-- [ ] 2. Render locally with `bookdown::render_book("index.Rmd")` or clicking the *Build book* button which should appear in the Build tab (in the same pane as Environment, History, Connections, ...).
+- [ ] 2. Renderiza localmente con `bookdown::render_book("index.Rmd")` o haciendo clic en el botón *Construir libro* que debería aparecer en la pestaña de Construcción (en la misma ventana que Entorno, Historial, Conexiones, ...).
 
-- [ ] 3. Use `browseURL("docs/index.html")` to view your book locally (or just open `index.html` in a browser).
+- [ ] 3. Usa `browseURL("docs/index.html")` para ver tu libro localmente (o simplemente abre `index.html` en un navegador).
 
-- [ ] 4. If it looks good, commit and push all changed files to GitHub. 
+- [ ] 4. Si se ve bien, haz commit y envía todos los archivos modificados a GitHub.
 
-(You will need to repeat steps 2 and 4 every time you wish to update the book online.)
+(Deberás repetir los pasos 2 y 4 cada vez que desees actualizar el libro en línea).
 
-### Edit README	(GitHub or RStudio)
+### Editar el README (GitHub o RStudio)
 
-Once you've completed these steps, delete the content of this **README** and add a short description of your project with a link to the book URL. It would be appreciated if you add the following to the end:	
+Una vez que hayas completado estos pasos, borra el contenido de este **README** y agrega una breve descripción de tu proyecto con un enlace a la URL del libro. Sería apreciado si añades lo siguiente al final:
 
-*This repo was initially generated from a bookdown template available here: https://github.com/jtr13/bookdown-template.*
+*Este repositorio fue generado inicialmente a partir de una plantilla de bookdown disponible aquí: https://github.com/jtr13/bookdown-template.*
 
-(And starring the repo would be nice too!)
+(¡Y darle una estrella al repositorio también sería agradable!)
 
-### Demo Video
+### Video de demostración
 
-A demo video showing how to create a **bookdown book** following these instructions: http://bit.ly/fiveminutebookdown
+Un video de demostración que muestra cómo crear un libro **bookdown** siguiendo estas instrucciones: http://bit.ly/fiveminutebookdown
 
-### Additional features
+### Funcionalidades adicionales
 
-Please consult the official guide to **bookdown**: https://bookdown.org/yihui/bookdown
-
+Por favor, consulta la guía oficial de **bookdown**: https://bookdown.org/yihui/bookdown
