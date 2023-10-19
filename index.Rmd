@@ -11,9 +11,9 @@ bibliography: [references.bib, packages.bib]
 cls: apa.cls
 link-citations: yes
 urlcolor: blue
-github-repo: rstudio/bookdown-demo
+github-repo: sdcchile/tallersdc/
 description: "Este es un documento central para el trabajo de Control a la Divulgación Estadística de Microdatos en el Instituto Nacional de Estadísticas de Chile."
-url: 'https\://www.ine.cl/'
+url: 'https://www.ine.gob.cl/'
 apple-touch-icon: "Imagenes/Logo_INE2.png"
 apple-touch-icon-size: 120
 ---
