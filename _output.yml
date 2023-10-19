@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li class="toc-logo"><a href="./"><img src="Imagenes/Logo_INE2.png"></a></li>
       after: |
         <li><a href="https://github.com/sdcchile/tallersdc" target="blank">Publicado con bookdown</a></li>
-    edit: https://github.com/sdcchile/tallersdc/tree/main/%s
+    edit: https://github.com/sdcchile/tallersdc/tree/main/edit/master/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
