@@ -371,6 +371,10 @@ div.csl-indent {
 <li>Hasta 5% de observaciones violando k = 3</li>
 <li>Hasta 10% de observaciones violando k = 5</li>
 </ul>
+<blockquote>
+<p><strong>Nota sobre el cálculo del K-ANONIMATO</strong>:
+Si bien en el presente ejemplo, se calculará el k-anonimato con la función <code>Kanon_violations</code>, se suguiere en relación al estándar INE optar por el cálculo de k-anonimato sin poderadores, mediante el comando <code>print(sdcObject)</code>, siendo <code>sdcObject</code> el objeto sobre el cual se requiere medir el riesgo.</p>
+</blockquote>
 <p>A continuación, la guía presenta paso a paso como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.</p>
 <div id="paso-uno-definiciones-previas-al-proceso-de-anonimización" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Paso Uno: Definiciones previas al proceso de anonimización<a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -756,8 +760,8 @@ Calculado en base a la variable VP_DC, por lo que la base de datos anonimizada d
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="caso-de-estudio.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb162-2"><a href="caso-de-estudio.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb162-3"><a href="caso-de-estudio.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-93"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-93-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-160"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-160-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.1: Punto de corte óptimo con datos no tratados
 </p>
@@ -814,8 +818,8 @@ Figura 11.1: Punto de corte óptimo con datos no tratados
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="caso-de-estudio.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb175-2"><a href="caso-de-estudio.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb175-3"><a href="caso-de-estudio.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-97"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-97-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-164"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-164-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tratados
 </p>
@@ -2053,8 +2057,8 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="caso-de-estudio.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb370-2"><a href="caso-de-estudio.html#cb370-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb370-3"><a href="caso-de-estudio.html#cb370-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-159-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-226"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-226-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
 <p class="caption">
 Figura 11.3: Punto de corte óptimo con datos tratados
 </p>
@@ -2111,8 +2115,8 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="caso-de-estudio.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb383-2"><a href="caso-de-estudio.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb383-3"><a href="caso-de-estudio.html#cb383-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-163"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-163-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-230"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-230-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
 <p class="caption">
 Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratados
 </p>
@@ -2291,7 +2295,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/sdcchile/tallersdc/tree/main/docs/07-caso_estudio.Rmd",
+"link": "https://github.com/sdcchile/tallersdc/docs/07-caso_estudio.Rmd",
 "text": "Edit"
 },
 "history": {
