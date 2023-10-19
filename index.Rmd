@@ -63,3 +63,20 @@ Este logro no habría sido posible sin la valiosa colaboración de cada persona 
 Aunque no es posible mencionar a cada analista en particular, queremos expresar nuestra sincera gratitud a todos aquellos que aportaron su tiempo, conocimientos y dedicación para hacer de este proyecto una realidad. Cada contribución, por pequeña que parezca, ha sido fundamental en la consecución de este importante trabajo. Juntos, hemos construido un proyecto sólido que nos impulsa hacia adelante en nuestra misión de generar datos precisos y relevantes para nuestra sociedad.
 
 Nuestro agradecimiento se extiende a cada uno de ustedes y a todas las personas que, de una u otra manera, han contribuido a este proyecto. Su esfuerzo y colaboración han sido esenciales y apreciadas en todo momento. Seguimos comprometidos con nuestra labor y esperamos seguir trabajando juntos en futuros proyectos que beneficien a nuestra institución y a la comunidad en general.
+
+## Citar este documento
+
+Si decide utilizar este material, le pedimos que lo cite adecuadamente. En ese caso, ponemos a su disposición el código LaTeX para que pueda incluirlo en las referencias de su documento.
+
+```
+@Manual{R-base,
+  title = {R: A Language and Environment for Statistical
+    Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2016},
+  url = {https://www.R-project.org/},
+}
+
+--- 
