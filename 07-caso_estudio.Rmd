@@ -26,7 +26,8 @@ Los umbrales de riesgo establecidos son los siguientes:
 
 
 >**Nota sobre el cálculo del K-ANONIMATO**:
-Si bien en el presente ejemplo, se calculará el k-anonimato con la función `Kanon_violations`, se suguiere en relación al estándar INE optar por el cálculo de k-anonimato sin poderadores, mediante el comando `print(sdcObject)`, siendo `sdcObject` el objeto sobre el cual se requiere medir el riesgo.
+A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la función `Kanon_violations()`, se recomienda seguir el estándar del INE, que consiste en calcular el k-anonimato sin ponderadores utilizando el comando `print(sdcObject)`. En este contexto, 'sdcObject' representa el objeto sobre el cual es necesario evaluar el riesgo.
+
 
 A continuación, la guía presenta paso a paso como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.
 
