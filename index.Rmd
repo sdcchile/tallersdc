@@ -66,10 +66,10 @@ Nuestro agradecimiento se extiende a cada uno de ustedes y a todas las personas 
 
 ## Citar este documento
 
-Si decide utilizar este material, le pedimos que lo cite adecuadamente. En ese caso, ponemos a su disposición el código LaTeX para que pueda incluirlo en las referencias de su documento.
+Si decide utilizar este material @guia_sdc_ine, le pedimos que lo cite adecuadamente. En ese caso, ponemos a su disposición el código LaTeX para que pueda incluirlo en las referencias de su documento.
 
 ```{r, echo=TRUE, eval=FALSE}
-@Manual{guia_sdc_ine,
+@misc{guia_sdc_ine,
   title = {Guia para el Control de la Divulgacion Estadistica: Taller practico},
   author = {{Gonzalez, Jonathan & Bustos, Jose & Guerrero, Julio &  Bastias, Lissete & Berho, Nicolas}},
   organization = {Instituto Nacional de Estadísticas},
