@@ -54,7 +54,7 @@ Esta guía se basa en Statistical Disclosure Control: A Practice Guide @benschop
 
 ## Reconocimientos
 
-Este proyecto conjunto es un testimonio del esfuerzo colaborativo que comenzó a gestarse a finales de 2019, en el cual participaron activamente los analistas de la Subdirección Técnica (SDT) y del Departamento de Metodologías e Innovación Estadística (DMIE). Durante esta travesía, se realizaron reuniones estratégicas que permitieron explorar y analizar las diversas formas de anonimización históricamente empleadas por nuestros equipos. Estas discusiones fueron fundamentales para identificar puntos comunes y optimizar nuestros esfuerzos, evitando la duplicación de tareas y enfocando nuestros recursos de manera eficiente.
+Este proyecto conjunto es un testimonio del esfuerzo colaborativo que comenzó a gestarse en agosto del 2019, en el cual participaron activamente los analistas de la Subdirección Técnica (SDT) y del Departamento de Metodologías e Innovación Estadística (DMIE). Durante esta travesía, se realizaron reuniones estratégicas que permitieron explorar y analizar las diversas formas de anonimización históricamente empleadas por nuestros equipos. Estas discusiones fueron fundamentales para identificar puntos comunes y optimizar nuestros esfuerzos, evitando la duplicación de tareas y enfocando nuestros recursos de manera eficiente.
 
 La coordinación y organización de este arduo trabajo estuvieron a cargo del DMIE, bajo la hábil dirección de Denisse López. Reconocemos su liderazgo y dedicación en la conducción de este proyecto.
 
