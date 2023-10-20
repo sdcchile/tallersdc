@@ -84,7 +84,7 @@ Adicionalmente, la base de datos contiene pesos muestrales, que deben ser consid
 
 Además, la base de datos cuenta con variables de Conglomerado y VarStrat, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.
 
-El archivo "Diccionario de Variables.xlsx" contiene la descripción de las variables contenidas en la base de datos.
+El archivo `Diccionario de Variables.xlsx` contiene la descripción de las variables contenidas en la base de datos.
 
 #### Clasificación de variables
 
@@ -96,8 +96,8 @@ Se cargan las librerías requeridas para el proceso. En caso de que no estén in
 ```{example, bloque4nbm}
 Ejemplo de instalación de librería
 ```
-```{r, echo=TRUE}
-#install.packages("nombre_libreria") 
+```{r, echo=TRUE, eval=FALSE}
+install.packages("nombre_libreria") 
 ```
 
 Luego, cargamos las librerías:
@@ -121,7 +121,7 @@ En esta actividad se describen el marco normativo y convenios a tener en cuenta 
 
 #### Unidades estadísticas
 
-Se verifica la cantidad de viviendas y de personas registradas en la base de datos. Para ello, se mide la cantidad de valores únicos del folio de viviendas (*enc_idr*) y el folio de personas (*rph_ID*).
+Se verifica la cantidad de viviendas y de personas registradas en la base de datos. Para ello, se mide la cantidad de valores únicos del folio de viviendas (`enc_idr`) y el folio de personas (`rph_ID`).
 
 **Viviendas:** 18.766
 **Personas:** 47.344
@@ -843,7 +843,7 @@ nrow(fileHH[sdcHH@risk$individual[, "risk"] > 0.01,])
 ```
 
 
-Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función `kAnon_violations()`, indicando *TRUE* (T) como argumento para el parámetro de pesos (*weighted*) y el valor de *k* a evaluar.
+Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función `kAnon_violations()`, indicando `TRUE` (`T`) como argumento para el parámetro de pesos (`weighted`) y el valor de `k` a evaluar.
 
 ```{example, bloque47nbm}
 K-anonimato 
@@ -1070,7 +1070,7 @@ El hecho de estar aplicando nuevamente el paso 4 nos indica una característica 
 
 Retomando el proceso, el segundo método a aplicar es la eliminación de la variable de comuna. En cambio, se incluye la variable de región, ya que deja de ser redundante. Esto, dado que previamente se había retirado en el paso de consolidación de variables puesto que la comuna es una variable anidada en la variable de región.
 
-Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto *sdcCombined*. La única diferencia es que se reemplaza la variable *enc_rpc* por *enc_region* dentro del vector de variables clave *selectedKeyVarsIND*.
+Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto `sdcCombined`. La única diferencia es que se reemplaza la variable `enc_rpc` por `enc_region` dentro del vector de variables clave `selectedKeyVarsIND`.
 
 ```{example, bloque58nbm}
 Reconstruir el objeto SDC a nivel persona con variable región
@@ -1211,7 +1211,7 @@ sdcCombined <- groupAndRename(sdcCombined, var="rph_nacionalidad",
 
 Luego, se aplica supresión local en las variables de menor prioridad. Se seleccionan estas variables cuidadosamente, dado que se aplicará un método drástico como es la supresión local, teniendo como criterio las propiedades estadísticas que se buscan preservar en la base de datos.
 
-Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro *threshold* dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.
+Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro `threshold` dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.
 
 ```{example, bloque65nbm}
 Supresión local
@@ -1321,7 +1321,7 @@ for(i in 1:length(names(fileCombined))){
 }
 ```
 
-Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (*rph_idgen*), pertenencia indígena (*rph_pertenencia_indigena*) y nacionalidad (*rph_nacionalidad*), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (*rph_situacion_ocupacional*), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido. 
+Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (`rph_idgen`), pertenencia indígena (`rph_pertenencia_indigena`) y nacionalidad (`rph_nacionalidad`), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (`rph_situacion_ocupacional`), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido. 
 
 ```{example, bloque72nbm}
 Celdas vacías después de anomización
@@ -1473,7 +1473,7 @@ Por último, se evalúa si se mantiene la relación entre la variable de edad y 
 
 Si bien, los modelos obtenidos no son buenos predictores de la victimización, ya que es un fenómeno influenciado por múltiples factores y acá solo se está considerando la edad, si se aprecia que los resultados son similares a los de los datos sin tratar. En particular el coeficiente beta de la variable de edad en el modelo *logit* de victimización personal es prácticamente el mismo que en los datos no tratados.
 
-**Se genera un dataframe "data" para trabajar con el modelo**
+**Se genera un `dataframe` "data" para trabajar con el modelo**
 
 Primero, se cargan los datos, y se filtran dejando solo al informante Kish.
 
@@ -1484,7 +1484,7 @@ Generar dataframe para modelo
 data <- fileTratada_kish
 ```
 
-**Dividir datos en _training_ and _testing_ sets**
+**Dividir datos en `_training_` and `_testing_` sets**
 
 Luego, se dividen los datos en sets de training y testing.
 
@@ -1667,7 +1667,7 @@ Al realizar un ejercicio de anonimización como el recién expuesto, se debe ela
 
 ### Liberación de datos
 
-A partir del objeto *file*, que son los datos originales, se genera un objeto data.frame para su exportación como archivo de datos que será liberado.
+A partir del objeto `file`, que son los datos originales, se genera un objeto `data.frame` para su exportación como archivo de datos que será liberado.
 
 Primero se verifica que el orden de registros sea idéntico entra datos originales y tratados. Esto permite sobre-escribir columnas completas, sabiendo que los registros coincidirán bien. En este caso, es importante usar el folio que corresponde a persona, ya que cada fila es una persona (en contraposición al folio de viviendas que cubre varias filas dependiendo de las personas que las componen).
 

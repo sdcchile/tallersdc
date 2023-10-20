@@ -437,7 +437,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <p>Es importante señalar que la base de datos se compone de variables de caracterización de los hogares y las personas (módulo de Registro de Personas en el Hogar o RPH) y variables temáticas de la encuesta referidas a percepción de inseguridad y victimización.</p>
 <p>Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza Fact_Hog, mientras que para el nivel persona se utiliza Fact_Ind.</p>
 <p>Además, la base de datos cuenta con variables de Conglomerado y VarStrat, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.</p>
-<p>El archivo “Diccionario de Variables.xlsx” contiene la descripción de las variables contenidas en la base de datos.</p>
+<p>El archivo <code>Diccionario de Variables.xlsx</code> contiene la descripción de las variables contenidas en la base de datos.</p>
 </div>
 <div id="clasificación-de-variables-1" class="section level4 hasAnchor" number="11.1.2.3">
 <h4><span class="header-section-number">11.1.2.3</span> Clasificación de variables<a href="caso-de-estudio.html#clasificación-de-variables-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -449,7 +449,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <div class="example">
 <p><span id="exm:bloque4nbm" class="example"><strong>Bloque 11.4  </strong></span>Ejemplo de instalación de librería</p>
 </div>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="caso-de-estudio.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;nombre_libreria&quot;) </span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="caso-de-estudio.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;nombre_libreria&quot;</span>) </span></code></pre></div>
 <p>Luego, cargamos las librerías:</p>
 <div class="example">
 <p><span id="exm:bloque5nbm" class="example"><strong>Bloque 11.5  </strong></span>Cargar librerías</p>
@@ -467,7 +467,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <p>En esta actividad se describen el marco normativo y convenios a tener en cuenta para la anonimización, las unidades estadísticas contenidas en la base de datos, las variables sensibles contenidas en la base de datos, y el diagnóstico de necesidad de protección de confidencialidad.</p>
 <div id="unidades-estadísticas" class="section level4 hasAnchor" number="11.1.3.1">
 <h4><span class="header-section-number">11.1.3.1</span> Unidades estadísticas<a href="caso-de-estudio.html#unidades-estadísticas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Se verifica la cantidad de viviendas y de personas registradas en la base de datos. Para ello, se mide la cantidad de valores únicos del folio de viviendas (<em>enc_idr</em>) y el folio de personas (<em>rph_ID</em>).</p>
+<p>Se verifica la cantidad de viviendas y de personas registradas en la base de datos. Para ello, se mide la cantidad de valores únicos del folio de viviendas (<code>enc_idr</code>) y el folio de personas (<code>rph_ID</code>).</p>
 <p><strong>Viviendas:</strong> 18.766
 <strong>Personas:</strong> 47.344</p>
 <div class="example">
@@ -1268,7 +1268,7 @@ Riesgo individual
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="caso-de-estudio.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observations with risk above certain threshold (0.01)</span></span>
 <span id="cb236-2"><a href="caso-de-estudio.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileHH[sdcHH<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función <code>kAnon_violations()</code>, indicando <em>TRUE</em> (T) como argumento para el parámetro de pesos (<em>weighted</em>) y el valor de <em>k</em> a evaluar.</p>
+<p>Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función <code>kAnon_violations()</code>, indicando <code>TRUE</code> (<code>T</code>) como argumento para el parámetro de pesos (<code>weighted</code>) y el valor de <code>k</code> a evaluar.</p>
 <div class="example">
 <p><span id="exm:bloque47nbm" class="example"><strong>Bloque 11.46  </strong></span>K-anonimato</p>
 </div>
@@ -1518,7 +1518,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <h3><span class="header-section-number">11.4.3</span> Segundo conjunto de métodos SDC<a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El hecho de estar aplicando nuevamente el paso 4 nos indica una característica fundamental de los procesos de anonimización, que es que estos son procesos iterativos, donde es necesario ir aplicando métodos progresivamente y monitorear los niveles de riesgo en cada iteración. Como veremos en este ejercicio aplicado, serán varias iteraciones antes de llegar a un resultado satisfactorio de niveles de riesgo.</p>
 <p>Retomando el proceso, el segundo método a aplicar es la eliminación de la variable de comuna. En cambio, se incluye la variable de región, ya que deja de ser redundante. Esto, dado que previamente se había retirado en el paso de consolidación de variables puesto que la comuna es una variable anidada en la variable de región.</p>
-<p>Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto <em>sdcCombined</em>. La única diferencia es que se reemplaza la variable <em>enc_rpc</em> por <em>enc_region</em> dentro del vector de variables clave <em>selectedKeyVarsIND</em>.</p>
+<p>Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto <code>sdcCombined</code>. La única diferencia es que se reemplaza la variable <code>enc_rpc</code> por <code>enc_region</code> dentro del vector de variables clave <code>selectedKeyVarsIND</code>.</p>
 <div class="example">
 <p><span id="exm:bloque58nbm" class="example"><strong>Bloque 11.57  </strong></span>Reconstruir el objeto SDC a nivel persona con variable región</p>
 </div>
@@ -1662,7 +1662,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <span id="cb315-9"><a href="caso-de-estudio.html#cb315-9" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_nacionalidad&quot;</span>,</span>
 <span id="cb315-10"><a href="caso-de-estudio.html#cb315-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">2</span>))</span></code></pre></div>
 <p>Luego, se aplica supresión local en las variables de menor prioridad. Se seleccionan estas variables cuidadosamente, dado que se aplicará un método drástico como es la supresión local, teniendo como criterio las propiedades estadísticas que se buscan preservar en la base de datos.</p>
-<p>Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro <em>threshold</em> dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.</p>
+<p>Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro <code>threshold</code> dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.</p>
 <div class="example">
 <p><span id="exm:bloque65nbm" class="example"><strong>Bloque 11.64  </strong></span>Supresión local</p>
 </div>
@@ -1809,7 +1809,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## [1] 0
 ## [1] &quot;Fact_Hog&quot;
 ## [1] 0</code></pre>
-<p>Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (<em>rph_idgen</em>), pertenencia indígena (<em>rph_pertenencia_indigena</em>) y nacionalidad (<em>rph_nacionalidad</em>), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (<em>rph_situacion_ocupacional</em>), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido.</p>
+<p>Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (<code>rph_idgen</code>), pertenencia indígena (<code>rph_pertenencia_indigena</code>) y nacionalidad (<code>rph_nacionalidad</code>), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (<code>rph_situacion_ocupacional</code>), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido.</p>
 <div class="example">
 <p><span id="exm:bloque72nbm" class="example"><strong>Bloque 11.71  </strong></span>Celdas vacías después de anomización</p>
 </div>
@@ -1963,13 +1963,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>En resumen, se cumple para todos los casos que no hay diferencias en las estimaciones al calcular con los datos originales y los tratados.</p>
 <p>Por último, se evalúa si se mantiene la relación entre la variable de edad y el indicador de Victimización Personal, utilizando las marcas de clase de los tramos etarios presentes en los datos tratados.</p>
 <p>Si bien, los modelos obtenidos no son buenos predictores de la victimización, ya que es un fenómeno influenciado por múltiples factores y acá solo se está considerando la edad, si se aprecia que los resultados son similares a los de los datos sin tratar. En particular el coeficiente beta de la variable de edad en el modelo <em>logit</em> de victimización personal es prácticamente el mismo que en los datos no tratados.</p>
-<p><strong>Se genera un dataframe “data” para trabajar con el modelo</strong></p>
+<p><strong>Se genera un <code>dataframe</code> “data” para trabajar con el modelo</strong></p>
 <p>Primero, se cargan los datos, y se filtran dejando solo al informante Kish.</p>
 <div class="example">
 <p><span id="exm:bloque80nbm" class="example"><strong>Bloque 11.79  </strong></span>Generar dataframe para modelo</p>
 </div>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="caso-de-estudio.html#cb356-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> fileTratada_kish</span></code></pre></div>
-<p><strong>Dividir datos en <em>training</em> and <em>testing</em> sets</strong></p>
+<p><strong>Dividir datos en <code>_training_</code> and <code>_testing_</code> sets</strong></p>
 <p>Luego, se dividen los datos en sets de training y testing.</p>
 <div class="example">
 <p><span id="exm:bloque81nbm" class="example"><strong>Bloque 11.80  </strong></span>Dividir datos en <em>training</em> y <em>testing</em> sets</p>
@@ -2178,7 +2178,7 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 </div>
 <div id="liberación-de-datos" class="section level3 hasAnchor" number="11.6.2">
 <h3><span class="header-section-number">11.6.2</span> Liberación de datos<a href="caso-de-estudio.html#liberación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A partir del objeto <em>file</em>, que son los datos originales, se genera un objeto data.frame para su exportación como archivo de datos que será liberado.</p>
+<p>A partir del objeto <code>file</code>, que son los datos originales, se genera un objeto <code>data.frame</code> para su exportación como archivo de datos que será liberado.</p>
 <p>Primero se verifica que el orden de registros sea idéntico entra datos originales y tratados. Esto permite sobre-escribir columnas completas, sabiendo que los registros coincidirán bien. En este caso, es importante usar el folio que corresponde a persona, ya que cada fila es una persona (en contraposición al folio de viviendas que cubre varias filas dependiendo de las personas que las componen).</p>
 <div class="example">
 <p><span id="exm:bloque92nbm" class="example"><strong>Bloque 11.91  </strong></span>Verificar coincidencia de folios</p>
