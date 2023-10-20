@@ -1,4 +1,6 @@
 book_filename: "bookdown-demo"
+view: https://github.com/sdcchile/tallersdc/blob/main/%s
+edit: https://github.com/sdcchile/tallersdc/edit/main/%s
 language:
   label:
     fig: 'Figura '
