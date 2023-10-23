@@ -1016,7 +1016,7 @@ después de la recodificación
 <span id="cb32-2"><a href="métodos-sdc.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>sizeRes)</span></code></pre></div>
 <pre><code>## 
 ## capital, large city          small city                town         countryside 
-##                 795                 357                 164                 684</code></pre>
+##                 779                 367                 170                 684</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="métodos-sdc.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificar urbano</span></span>
 <span id="cb34-2"><a href="métodos-sdc.html#cb34-2" aria-hidden="true" tabindex="-1"></a>sdcInitial  <span class="ot">&lt;-</span>  <span class="fu">groupAndRename</span>(sdcInitial, <span class="at">var =</span> <span class="st">&quot;sizeRes&quot;</span>,</span>
 <span id="cb34-3"><a href="métodos-sdc.html#cb34-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">before =</span> <span class="fu">c</span>(<span class="st">&quot;capital, large city&quot;</span>, <span class="st">&quot;small city&quot;</span>, <span class="st">&quot;town&quot;</span>),</span>
@@ -1062,10 +1062,8 @@ Figura 8.1: Efecto de la recodificación y recuentos de frecuencia antes y despu
 <span id="cb36-4"><a href="métodos-sdc.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias de edad después de recodificar</span></span>
 <span id="cb36-5"><a href="métodos-sdc.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>AGEYRS)</span></code></pre></div>
 <pre><code>## 
-##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80] 
-##        0       44      389      578      428      266      173       92 
-##  (80,90] (90,100] 
-##       27        3</code></pre>
+##   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80]  (80,90] (90,100] 
+##        0       44      389      578      428      266      173       92       27        3</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="métodos-sdc.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardo objeto de edad en tramos para volver a utilizar en localSupresion</span></span>
 <span id="cb38-2"><a href="métodos-sdc.html#cb38-2" aria-hidden="true" tabindex="-1"></a>sdcInitial_edad <span class="ot">&lt;-</span> sdcInitial</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig5"></span>
@@ -1201,12 +1199,12 @@ Figura 8.6: Distribución de frecuencias de la variable edad con codificación s
 <span id="cb44-2"><a href="métodos-sdc.html#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="métodos-sdc.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>AGEYRS)</span></code></pre></div>
 <pre><code>## 
-## 12 14 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 
-##  1  3  2  7 15 16 14 28 31 24 39 45 41 52 50 65 48 77 60 55 78 56 56 48 45 55 
-## 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 
-## 33 50 45 41 52 51 32 39 39 46 36 38 26 19 22 22 22 28 29 24 16 22 13 10 25 13 
-## 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 90 91 
-## 10 17 21 26 13  9 10  3 11  5  5 15  7 14  5  1  4  6  4  3  1  2  1  3</code></pre>
+## 12 14 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 
+##  1  3  2  7 15 16 14 28 31 24 39 45 41 52 50 65 48 77 60 55 78 56 56 48 45 55 33 50 45 41 52 51 
+## 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 
+## 32 39 39 46 36 38 26 19 22 22 22 28 29 24 16 22 13 10 25 13 10 17 21 26 13  9 10  3 11  5  5 15 
+## 79 80 81 82 83 84 85 86 87 88 90 91 
+##  7 14  5  1  4  6  4  3  1  2  1  3</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="métodos-sdc.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se redondea a la decena más cercana</span></span>
 <span id="cb46-2"><a href="métodos-sdc.html#cb46-2" aria-hidden="true" tabindex="-1"></a>sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>AGEYRS <span class="ot">&lt;-</span> <span class="fu">round</span>(sdcInitial<span class="sc">@</span>manipKeyVars<span class="sc">$</span>AGEYRS,<span class="sc">-</span><span class="dv">1</span>)</span>
 <span id="cb46-3"><a href="métodos-sdc.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1458,11 +1456,11 @@ media
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |                0 |            0.000
-##   AGEYRS |              241 |           12.050
+##   AGEYRS |              229 |           11.450
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               27 |            1.350
-##    RELIG |               27 |            1.350</code></pre>
+##    etnia |               22 |            1.100
+##    RELIG |               28 |            1.400</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="métodos-sdc.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deshacer las supresiones</span></span>
 <span id="cb52-2"><a href="métodos-sdc.html#cb52-2" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">undolast</span>(sdcInitial)</span>
@@ -1474,12 +1472,12 @@ media
 <span id="cb52-8"><a href="métodos-sdc.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcInitial, <span class="at">type=</span><span class="st">&quot;ls&quot;</span>)</span></code></pre></div>
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
-##  sizeRes |              129 |            6.450
-##   AGEYRS |               18 |            0.900
+##  sizeRes |              116 |            5.800
+##   AGEYRS |               20 |            1.000
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               90 |            4.500
-##    RELIG |               58 |            2.900</code></pre>
+##    etnia |               88 |            4.400
+##    RELIG |               56 |            2.800</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <p>La <a href="métodos-sdc.html#fig:fig8">8.7</a> demuestra el efecto del umbral de <span class="math inline">\(k\)</span>-anonimato requerido y el vector de importancia en la utilidad de los datos utilizando varios indicadores relacionados con el mercado laboral de un conjunto de datos<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> antes y después de la anonimización. La <a href="métodos-sdc.html#fig:fig8">8.7</a> muestra los cambios relativos como porcentaje del valor inicial después de volver a calcular los indicadores con los datos a los que se aplicó la supresión local. Los indicadores son la proporción de mujeres y hombres activos y el número de mujeres y hombres en edad de trabajar. Los valores calculados a partir de los datos brutos son, respectivamente, 68%, 12%, 8.943 y 9.702. La línea vertical en 0 es el punto de referencia de la ausencia de cambios. Los números indican el umbral de <span class="math inline">\(k\)</span>-anonimato requerido (3 o 5) y los colores indican el vector de importancia: el rojo (sin símbolo) es ningún vector de importancia, el azul (con símbolo <span class="math inline">\(\color {blue}{\text{*}}\)</span>) es de alta importancia en la variable con la información sobre la situación laboral y el verde oscuro (con símbolo <span class="math inline">\(\color {darkgreen}{\text{+}}\)</span>) es de alta importancia en la variable de edad.</p>
 <p>Un umbral de <span class="math inline">\(k\)</span>-anonimato más alto conlleva una mayor pérdida de información (es decir, mayores desviaciones de los valores originales de los indicadores, los 5 están más alejados del punto de referencia de ningún cambio que los correspondientes 3) causada por la supresión local. Reducir el número de supresiones en la variable de situación laboral especificando un vector de importancia no mejora los indicadores. En cambio, reducir el número de supresiones en la edad reduce en gran medida la pérdida de información. Dado que los grupos de edad específicos tienen una gran influencia en el cálculo de estos indicadores (los casos raros se encuentran en los extremos y se suprimirán), los índices de supresión elevados sobre la edad distorsionan los indicadores. En general, es útil comparar las medidas de utilidad (véase la sección <a href="medición-de-la-utilidad-y-la-pérdida-de-información.html#medición-de-la-utilidad-y-la-pérdida-de-información">Medición de la utilidad y la pérdida de información</a>) para especificar el vector de importancia, ya que los efectos pueden ser imprevisibles.</p>
@@ -1672,11 +1670,11 @@ variable de edad
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |                0 |            0.000
-##   AGEYRS |              476 |           23.800
-##   GENDER |                0 |            0.000
+##   AGEYRS |              465 |           23.250
+##   GENDER |                1 |            0.050
 ##   REGION |                0 |            0.000
-##    etnia |               87 |            4.350
-##    RELIG |               59 |            2.950</code></pre>
+##    etnia |               86 |            4.300
+##    RELIG |               72 |            3.600</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="métodos-sdc.html#cb60-1" aria-hidden="true" tabindex="-1"></a>sdcInitial <span class="ot">&lt;-</span> <span class="fu">undolast</span>(sdcInitial)</span>
 <span id="cb60-2"><a href="métodos-sdc.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar k-anonimato con umbral 5 a todos los subconjuntos de tres variables clave y</span></span>
@@ -1686,11 +1684,11 @@ variable de edad
 <pre><code>## Local suppression (applied per strata given by variable(s) strata_region)</code></pre>
 <pre><code>##   KeyVar | Suppressions (#) | Suppressions (%)
 ##  sizeRes |                0 |            0.000
-##   AGEYRS |              394 |           19.700
+##   AGEYRS |              393 |           19.650
 ##   GENDER |                0 |            0.000
 ##   REGION |                0 |            0.000
-##    etnia |               36 |            1.800
-##    RELIG |               57 |            2.850</code></pre>
+##    etnia |               35 |            1.750
+##    RELIG |               55 |            2.750</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <p>La Tabla <a href="métodos-sdc.html#tab:Tabla11">8.6</a> presenta los resultados de utilizar el enfoque <strong>all-m</strong> de un conjunto de datos de prueba con 9 variables clave y 4.000 registros. La Tabla muestra los argumentos <em>k</em> y “combs” de la función <code>localSuppression()</code>, el número de violaciones de <span class="math inline">\(k\)</span>-anonimato para diferentes niveles de <em>k</em>, así como el número total de supresiones. Observamos que las diferentes combinaciones no siempre conducen al nivel de <span class="math inline">\(k\)</span>-anonimato requerido. Por ejemplo, cuando se establece <em>k=3</em>, y “combs” 3 y 7, todavía hay 15 registros en el conjunto de datos (con un total de 9 identificadores indirectos) que violan el anonimato 3 después de la supresión local. Debido al menor tamaño de la muestra, las ganancias en tiempo de ejecución no son todavía evidentes en este ejemplo, ya que la ejecución del algoritmo varias veces consume tiempo. Un conjunto de datos más grande se beneficiaría más del enfoque <strong>all-m</strong>, ya que el algoritmo tardaría más tiempo.</p>
 <table>
@@ -2136,7 +2134,7 @@ de la local
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="métodos-sdc.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estadísticas resumidas</span></span>
 <span id="cb67-2"><a href="métodos-sdc.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
-## 3.681e-05 7.495e-04 3.061e-03 4.862e-03 6.117e-03 8.541e-02</code></pre>
+## 2.067e-05 6.043e-04 2.863e-03 4.767e-03 6.103e-03 8.541e-02</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="métodos-sdc.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Número de individuos con riesgo individual superior al 0,1</span></span>
 <span id="cb69-2"><a href="métodos-sdc.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(sdcInitial<span class="sc">@</span>risk<span class="sc">$</span>individual[,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="fl">0.08</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
@@ -2451,8 +2449,8 @@ file <- read.dta(fname, missing.type = TRUE, convert.factors = TRUE)
 ```
 
 ```
-## Warning in read.dta(fname, missing.type = TRUE, convert.factors = TRUE):
-## 'missing.type' only applicable to version >= 8 files
+## Warning in read.dta(fname, missing.type = TRUE, convert.factors = TRUE): 'missing.type' only
+## applicable to version >= 8 files
 ```
 
 Ajustaremos las variables a factores.
@@ -3322,18 +3320,12 @@ Figura 8.10: Niveles de ruido y el impacto en el rango de valores (percentiles)
 ## Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
 ## In parenthesis, the same statistics are shown for the unmodified data.
 ## Note: NA (missings) are counted as seperate categories!</code></pre>
-<pre><code>##  Key Variable Number of categories      Mean size           
-##        URBRUR                    2  (2)  1000.000 (1000.000)
-##        REGION                    6  (6)   333.333  (333.333)
-##        HHSIZE                   23 (23)    86.957   (86.957)
-##     OWNAGLAND                    4  (4)   531.667  (531.667)
-##         RELIG                    7  (7)   166.667  (166.667)
-##  Size of smallest (&gt;0)      
-##                    684 (684)
-##                    260 (260)
-##                      1   (1)
-##                    332 (332)
-##                      7   (7)</code></pre>
+<pre><code>##  Key Variable Number of categories      Mean size            Size of smallest (&gt;0)      
+##        URBRUR                    2  (2)  1000.000 (1000.000)                   684 (684)
+##        REGION                    6  (6)   333.333  (333.333)                   260 (260)
+##        HHSIZE                   23 (23)    86.957   (86.957)                     1   (1)
+##     OWNAGLAND                    4  (4)   531.667  (531.667)                   332 (332)
+##         RELIG                    7  (7)   166.667  (166.667)                     7   (7)</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
@@ -3392,18 +3384,12 @@ Figura 8.10: Niveles de ruido y el impacto en el rango de valores (percentiles)
 ## Reported is the number, mean size and size of the smallest category &gt;0 for recoded variables.
 ## In parenthesis, the same statistics are shown for the unmodified data.
 ## Note: NA (missings) are counted as seperate categories!</code></pre>
-<pre><code>##  Key Variable Number of categories      Mean size           
-##        URBRUR                    2  (2)  1000.000 (1000.000)
-##        REGION                    6  (6)   333.333  (333.333)
-##        HHSIZE                   23 (23)    86.957   (86.957)
-##     OWNAGLAND                    4  (4)   531.667  (531.667)
-##         RELIG                    7  (7)   166.667  (166.667)
-##  Size of smallest (&gt;0)      
-##                    684 (684)
-##                    260 (260)
-##                      1   (1)
-##                    332 (332)
-##                      7   (7)</code></pre>
+<pre><code>##  Key Variable Number of categories      Mean size            Size of smallest (&gt;0)      
+##        URBRUR                    2  (2)  1000.000 (1000.000)                   684 (684)
+##        REGION                    6  (6)   333.333  (333.333)                   260 (260)
+##        HHSIZE                   23 (23)    86.957   (86.957)                     1   (1)
+##     OWNAGLAND                    4  (4)   531.667  (531.667)                   332 (332)
+##         RELIG                    7  (7)   166.667  (166.667)                     7   (7)</code></pre>
 <pre><code>## ----------------------------------------------------------------------</code></pre>
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
@@ -3418,8 +3404,8 @@ Figura 8.10: Niveles de ruido y el impacto en el rango de valores (percentiles)
 ## Disclosure risk is currently between [0.00%; 0.00%]
 ## 
 ## Current Information Loss:
-##   - IL1: 5550947.76
-##   - Difference of Eigenvalues: -5748383902187946.000%
+##   - IL1: 5539377.39
+##   - Difference of Eigenvalues: -5633158512744889.000%
 ## ----------------------------------------------------------------------</code></pre>
 <p>Se ha comprobado que <em>Rank swapping</em> da buenos resultados con respecto al equilibrio entre la pérdida de información y la protección de los datos <span class="citation">(<a href="#ref-DoTo01a" role="doc-biblioref">Josep Domingo-Ferrer and Torra 2001</a>)</span>. <em>Rank swapping</em> no es útil para variables con pocos valores diferentes o muchos valores perdidos, ya que el intercambio en ese caso no dará lugar a valores alterados. Además, si el intruso sabe a quién pertenece el valor más alto o más bajo de una variable específica (por ejemplo, los ingresos), el nivel de esta variable se revelará después de <em>Rank swapping</em>, porque los valores en sí no se alteran y los valores originales se revelan todos. Esto puede resolverse codificando por arriba y por abajo los valores más bajos y/o más altos.</p>
 <blockquote>

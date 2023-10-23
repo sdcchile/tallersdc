@@ -409,42 +409,30 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="caso-de-estudio.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(file)</span></code></pre></div>
 <pre><code>## [1] 47344    73</code></pre>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="caso-de-estudio.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(file)</span></code></pre></div>
-<pre><code>##  [1] &quot;enc_idr&quot;                  &quot;rph_ID&quot;                  
-##  [3] &quot;enc_id&quot;                   &quot;enc_region&quot;              
-##  [5] &quot;enc_rpc&quot;                  &quot;enc_distrito&quot;            
-##  [7] &quot;enc_zona&quot;                 &quot;enc_manzana&quot;             
-##  [9] &quot;enc_vivienda&quot;             &quot;IDC&quot;                     
-## [11] &quot;enc_letraKish&quot;            &quot;enc_direccion&quot;           
-## [13] &quot;enc_numero&quot;               &quot;enc_codfono&quot;             
-## [15] &quot;enc_fono&quot;                 &quot;enc_Nombre_ID&quot;           
-## [17] &quot;Enc_Fono_ID&quot;              &quot;Enc_Correo_ID&quot;           
-## [19] &quot;enc_Nombre_K&quot;             &quot;enc_Edad_K&quot;              
-## [21] &quot;Enc_Fono_K&quot;               &quot;Enc_Correo_K&quot;            
-## [23] &quot;FECHA&quot;                    &quot;IH_residencia_habitual&quot;  
-## [25] &quot;Hora_inicio_rph&quot;          &quot;rph_numeroLinea&quot;         
-## [27] &quot;rph_nombrepila&quot;           &quot;rph_parentesco&quot;          
-## [29] &quot;rph_dianacimiento&quot;        &quot;rph_mesnacimiento&quot;       
-## [31] &quot;rph_agnonacimiento&quot;       &quot;rph_edad&quot;                
-## [33] &quot;rph_sexo&quot;                 &quot;rph_idgen&quot;               
-## [35] &quot;Kish&quot;                     &quot;rph_pertenencia_indigena&quot;
-## [37] &quot;rph_nacionalidad&quot;         &quot;rph_migracion&quot;           
-## [39] &quot;rph_p9&quot;                   &quot;rph_p10&quot;                 
-## [41] &quot;rph_p11&quot;                  &quot;rph_p12&quot;                 
-## [43] &quot;rph_p13&quot;                  &quot;rph_p14&quot;                 
-## [45] &quot;Hora_termino_rph&quot;         &quot;P17&quot;                     
-## [47] &quot;P24&quot;                      &quot;A1_1_1&quot;                  
-## [49] &quot;A1_1_1_N_Veces&quot;           &quot;B1_1_1&quot;                  
-## [51] &quot;B1_1_1_N_Veces&quot;           &quot;C1_1_1&quot;                  
-## [53] &quot;C1_1_1_N_Veces&quot;           &quot;D1_1_1&quot;                  
-## [55] &quot;D1_1_1_N_Veces&quot;           &quot;E1_1_1&quot;                  
-## [57] &quot;E1_1_1_N_Veces&quot;           &quot;F1_1_1&quot;                  
-## [59] &quot;G1_1_1&quot;                   &quot;G1_1_1_N_Veces&quot;          
-## [61] &quot;H1_1_1&quot;                   &quot;H1_1_1_N_Veces&quot;          
-## [63] &quot;VA_DC&quot;                    &quot;VP_DC&quot;                   
-## [65] &quot;DEN_AGREG&quot;                &quot;RVA_DC&quot;                  
-## [67] &quot;Hora_inicio_cc&quot;           &quot;Hora_termino_cc&quot;         
-## [69] &quot;Fact_Pers&quot;                &quot;Fact_Hog&quot;                
-## [71] &quot;VarStrat&quot;                 &quot;Conglomerado&quot;            
+<pre><code>##  [1] &quot;enc_idr&quot;                  &quot;rph_ID&quot;                   &quot;enc_id&quot;                  
+##  [4] &quot;enc_region&quot;               &quot;enc_rpc&quot;                  &quot;enc_distrito&quot;            
+##  [7] &quot;enc_zona&quot;                 &quot;enc_manzana&quot;              &quot;enc_vivienda&quot;            
+## [10] &quot;IDC&quot;                      &quot;enc_letraKish&quot;            &quot;enc_direccion&quot;           
+## [13] &quot;enc_numero&quot;               &quot;enc_codfono&quot;              &quot;enc_fono&quot;                
+## [16] &quot;enc_Nombre_ID&quot;            &quot;Enc_Fono_ID&quot;              &quot;Enc_Correo_ID&quot;           
+## [19] &quot;enc_Nombre_K&quot;             &quot;enc_Edad_K&quot;               &quot;Enc_Fono_K&quot;              
+## [22] &quot;Enc_Correo_K&quot;             &quot;FECHA&quot;                    &quot;IH_residencia_habitual&quot;  
+## [25] &quot;Hora_inicio_rph&quot;          &quot;rph_numeroLinea&quot;          &quot;rph_nombrepila&quot;          
+## [28] &quot;rph_parentesco&quot;           &quot;rph_dianacimiento&quot;        &quot;rph_mesnacimiento&quot;       
+## [31] &quot;rph_agnonacimiento&quot;       &quot;rph_edad&quot;                 &quot;rph_sexo&quot;                
+## [34] &quot;rph_idgen&quot;                &quot;Kish&quot;                     &quot;rph_pertenencia_indigena&quot;
+## [37] &quot;rph_nacionalidad&quot;         &quot;rph_migracion&quot;            &quot;rph_p9&quot;                  
+## [40] &quot;rph_p10&quot;                  &quot;rph_p11&quot;                  &quot;rph_p12&quot;                 
+## [43] &quot;rph_p13&quot;                  &quot;rph_p14&quot;                  &quot;Hora_termino_rph&quot;        
+## [46] &quot;P17&quot;                      &quot;P24&quot;                      &quot;A1_1_1&quot;                  
+## [49] &quot;A1_1_1_N_Veces&quot;           &quot;B1_1_1&quot;                   &quot;B1_1_1_N_Veces&quot;          
+## [52] &quot;C1_1_1&quot;                   &quot;C1_1_1_N_Veces&quot;           &quot;D1_1_1&quot;                  
+## [55] &quot;D1_1_1_N_Veces&quot;           &quot;E1_1_1&quot;                   &quot;E1_1_1_N_Veces&quot;          
+## [58] &quot;F1_1_1&quot;                   &quot;G1_1_1&quot;                   &quot;G1_1_1_N_Veces&quot;          
+## [61] &quot;H1_1_1&quot;                   &quot;H1_1_1_N_Veces&quot;           &quot;VA_DC&quot;                   
+## [64] &quot;VP_DC&quot;                    &quot;DEN_AGREG&quot;                &quot;RVA_DC&quot;                  
+## [67] &quot;Hora_inicio_cc&quot;           &quot;Hora_termino_cc&quot;          &quot;Fact_Pers&quot;               
+## [70] &quot;Fact_Hog&quot;                 &quot;VarStrat&quot;                 &quot;Conglomerado&quot;            
 ## [73] &quot;Fact_Ind&quot;</code></pre>
 <p>Es importante señalar que la base de datos se compone de variables de caracterización de los hogares y las personas (módulo de Registro de Personas en el Hogar o RPH) y variables temáticas de la encuesta referidas a percepción de inseguridad y victimización.</p>
 <p>Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza Fact_Hog, mientras que para el nivel persona se utiliza Fact_Ind.</p>
@@ -1048,30 +1036,22 @@ Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tra
 <p><span id="exm:bloque34nbm" class="example"><strong>Bloque 11.34  </strong></span>Revisar nuevamente variables presente en conjunto de datos</p>
 </div>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="caso-de-estudio.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(file)</span></code></pre></div>
-<pre><code>##  [1] &quot;enc_idr&quot;                   &quot;rph_ID&quot;                   
-##  [3] &quot;enc_region&quot;                &quot;enc_rpc&quot;                  
-##  [5] &quot;IH_residencia_habitual&quot;    &quot;rph_numeroLinea&quot;          
-##  [7] &quot;rph_parentesco&quot;            &quot;rph_edad&quot;                 
-##  [9] &quot;rph_sexo&quot;                  &quot;rph_idgen&quot;                
-## [11] &quot;Kish&quot;                      &quot;rph_pertenencia_indigena&quot; 
-## [13] &quot;rph_nacionalidad&quot;          &quot;rph_migracion&quot;            
-## [15] &quot;rph_p9&quot;                    &quot;rph_p10&quot;                  
-## [17] &quot;rph_p11&quot;                   &quot;rph_p12&quot;                  
-## [19] &quot;rph_p13&quot;                   &quot;rph_p14&quot;                  
-## [21] &quot;P17&quot;                       &quot;P24&quot;                      
-## [23] &quot;A1_1_1&quot;                    &quot;A1_1_1_N_Veces&quot;           
-## [25] &quot;B1_1_1&quot;                    &quot;B1_1_1_N_Veces&quot;           
-## [27] &quot;C1_1_1&quot;                    &quot;C1_1_1_N_Veces&quot;           
-## [29] &quot;D1_1_1&quot;                    &quot;D1_1_1_N_Veces&quot;           
-## [31] &quot;E1_1_1&quot;                    &quot;E1_1_1_N_Veces&quot;           
-## [33] &quot;F1_1_1&quot;                    &quot;G1_1_1&quot;                   
-## [35] &quot;G1_1_1_N_Veces&quot;            &quot;H1_1_1&quot;                   
-## [37] &quot;H1_1_1_N_Veces&quot;            &quot;VA_DC&quot;                    
-## [39] &quot;VP_DC&quot;                     &quot;DEN_AGREG&quot;                
-## [41] &quot;RVA_DC&quot;                    &quot;Fact_Pers&quot;                
-## [43] &quot;Fact_Hog&quot;                  &quot;VarStrat&quot;                 
-## [45] &quot;Conglomerado&quot;              &quot;Fact_Ind&quot;                 
-## [47] &quot;rph_situacion_ocupacional&quot;</code></pre>
+<pre><code>##  [1] &quot;enc_idr&quot;                   &quot;rph_ID&quot;                    &quot;enc_region&quot;               
+##  [4] &quot;enc_rpc&quot;                   &quot;IH_residencia_habitual&quot;    &quot;rph_numeroLinea&quot;          
+##  [7] &quot;rph_parentesco&quot;            &quot;rph_edad&quot;                  &quot;rph_sexo&quot;                 
+## [10] &quot;rph_idgen&quot;                 &quot;Kish&quot;                      &quot;rph_pertenencia_indigena&quot; 
+## [13] &quot;rph_nacionalidad&quot;          &quot;rph_migracion&quot;             &quot;rph_p9&quot;                   
+## [16] &quot;rph_p10&quot;                   &quot;rph_p11&quot;                   &quot;rph_p12&quot;                  
+## [19] &quot;rph_p13&quot;                   &quot;rph_p14&quot;                   &quot;P17&quot;                      
+## [22] &quot;P24&quot;                       &quot;A1_1_1&quot;                    &quot;A1_1_1_N_Veces&quot;           
+## [25] &quot;B1_1_1&quot;                    &quot;B1_1_1_N_Veces&quot;            &quot;C1_1_1&quot;                   
+## [28] &quot;C1_1_1_N_Veces&quot;            &quot;D1_1_1&quot;                    &quot;D1_1_1_N_Veces&quot;           
+## [31] &quot;E1_1_1&quot;                    &quot;E1_1_1_N_Veces&quot;            &quot;F1_1_1&quot;                   
+## [34] &quot;G1_1_1&quot;                    &quot;G1_1_1_N_Veces&quot;            &quot;H1_1_1&quot;                   
+## [37] &quot;H1_1_1_N_Veces&quot;            &quot;VA_DC&quot;                     &quot;VP_DC&quot;                    
+## [40] &quot;DEN_AGREG&quot;                 &quot;RVA_DC&quot;                    &quot;Fact_Pers&quot;                
+## [43] &quot;Fact_Hog&quot;                  &quot;VarStrat&quot;                  &quot;Conglomerado&quot;             
+## [46] &quot;Fact_Ind&quot;                  &quot;rph_situacion_ocupacional&quot;</code></pre>
 <div id="cálculo-de-porcentaje-de-valores-perdidos-en-las-variables" class="section level4 hasAnchor" number="11.2.2.1">
 <h4><span class="header-section-number">11.2.2.1</span> Cálculo de porcentaje de valores perdidos en las variables<a href="caso-de-estudio.html#cálculo-de-porcentaje-de-valores-perdidos-en-las-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Luego, calculamos el porcentaje de valores perdidos en las variables, considerando las celdas válidas según flujo de la encuesta (no se cuentan como valores perdidos las celdas vacías por saltos en el cuestionario). Aquellas variables que contengan más de un 50% de celdas perdidas, se excluyen del proceso de anonimización (pero sí deben incluirse en el archivo final de datos).</p>
@@ -1109,22 +1089,20 @@ Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tra
 ## 3223 2061 3115 2264 5269 2938 2648 4393 2241 3138 2693 2401 1842 2944 3368 2806</code></pre>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="caso-de-estudio.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>enc_rpc)</span></code></pre></div>
 <pre><code>## 
-##  1101  1102  1103  1104  1105  1106  2101  2102  2103  2104  2105  2106  3101 
-##   561   601   522   500   533   506   326   355   350   358   343   329   524 
-##  3102  3103  3104  3105  3106  4101  4102  4103  4104  4105  4106  5101  5102 
-##   564   493   461   514   559   393   416   342   436   351   326   889   926 
-##  5103  5104  5105  5106  6101  6102  6103  6104  6105  6106  7101  7102  7103 
-##   890   862   812   890   495   471   455   507   522   488   434   470   395 
-##  7104  7105  7106  8101  8102  8103  8104  8105  8106  9101  9102  9103  9104 
-##   463   409   477   698   720   774   700   724   777   402   380   337   385 
-##  9105  9106 10101 10102 10103 10104 10105 10106 11101 11102 11103 11104 11105 
-##   344   393   539   519   495   525   492   568   340   350   380   446   375 
-## 11106 11107 12101 12102 12103 12104 12105 12106 12107 13101 13102 13103 13104 
-##   432   370   322   302   382   411   340   362   282   251   273   270   234 
-## 13105 13106 13107 14101 14102 14103 14104 14105 14106 14107 15101 15102 15103 
-##   214   293   307   419   447   410   373   427   444   424   443   483   511 
-## 15104 15105 15106 15107 16101 16102 16103 16104 16105 16106 16107 
-##   467   544   438   482   448   362   397   351   371   431   446</code></pre>
+##  1101  1102  1103  1104  1105  1106  2101  2102  2103  2104  2105  2106  3101  3102  3103  3104 
+##   561   601   522   500   533   506   326   355   350   358   343   329   524   564   493   461 
+##  3105  3106  4101  4102  4103  4104  4105  4106  5101  5102  5103  5104  5105  5106  6101  6102 
+##   514   559   393   416   342   436   351   326   889   926   890   862   812   890   495   471 
+##  6103  6104  6105  6106  7101  7102  7103  7104  7105  7106  8101  8102  8103  8104  8105  8106 
+##   455   507   522   488   434   470   395   463   409   477   698   720   774   700   724   777 
+##  9101  9102  9103  9104  9105  9106 10101 10102 10103 10104 10105 10106 11101 11102 11103 11104 
+##   402   380   337   385   344   393   539   519   495   525   492   568   340   350   380   446 
+## 11105 11106 11107 12101 12102 12103 12104 12105 12106 12107 13101 13102 13103 13104 13105 13106 
+##   375   432   370   322   302   382   411   340   362   282   251   273   270   234   214   293 
+## 13107 14101 14102 14103 14104 14105 14106 14107 15101 15102 15103 15104 15105 15106 15107 16101 
+##   307   419   447   410   373   427   444   424   443   483   511   467   544   438   482   448 
+## 16102 16103 16104 16105 16106 16107 
+##   362   397   351   371   431   446</code></pre>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="caso-de-estudio.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>rph_sexo)</span></code></pre></div>
 <pre><code>## 
 ##     1     2 

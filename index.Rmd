@@ -70,7 +70,7 @@ Si decide utilizar este material @guia_sdc_ine, le pedimos que lo cite adecuadam
 
 ```{r, echo=TRUE, eval=FALSE}
 @misc{guia_sdc_ine,
-  title = {Guia para el Control de la Divulgacion Estadistica: Taller practico},
+  title = {Guía para el Control de la Divulgación Estadística: Taller práctico},
   author = {{González, Jonathan,  José Bustos, Julio Guerrero, Lissete Bastías and Nicolas Berhó}},
   organization = {Instituto Nacional de Estadísticas},
   address = {Santiago, Chile},
