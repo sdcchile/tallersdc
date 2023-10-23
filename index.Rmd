@@ -71,11 +71,13 @@ Si decide utilizar este material @guia_sdc_ine, le pedimos que lo cite adecuadam
 ```{r, echo=TRUE, eval=FALSE}
 @misc{guia_sdc_ine,
   title = {Guia para el Control de la Divulgacion Estadistica: Taller practico},
-  author = {{Gonzalez, Jonathan & Bustos, Jose & Guerrero, Julio &  Bastias, Lissete & Berho, Nicolas}},
+  author = {{González, Jonathan,  José Bustos, Julio Guerrero, Lissete Bastías and Nicolas Berhó}},
   organization = {Instituto Nacional de Estadísticas},
   address = {Santiago, Chile},
   year = {2021},
-  url = {https://sdcchile.github.io/tallersdc/},
+  url = {https://sdcchile.github.io/tallersdc/}
+  }
+
 ```
 
 
