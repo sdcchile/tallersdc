@@ -1,9 +1,9 @@
 # Caso de estudio
 
 
-El objetivo del siguiente proceso de anonimización es ilustrar el proceso SDC establecido en la GUÍA PARA EL CONTROL DE DIVULGACIÓN ESTADÍSTICA EN MICRODATOS propuesta por la Mesa de Anonimización INE. Los datos utilizados corresponden a una base de datos sintética que se basa en el diseño de la 17a ENUSC 2020 [@manualbdenusc].
+El objetivo del siguiente proceso de anonimización es ilustrar el proceso SDC establecido en la "Guía para el Control de la Divulgación Estadística en Microdatos (GCDEM)" propuesta por la Mesa de Anonimización INE. Los datos utilizados corresponden a una base de datos sintética que se basa en el diseño de la 17a ENUSC 2020 [@manualbdenusc].
 
-El proceso SDC aquí implementado pretender generar un archivo de datos PUF (del inglés, *Public Use File*), que pueda ponerse a disposición de forma pública y para cualquier usuario que lo requiera. Para ello, el proceso SDC aplicado apunta al logro de los umbrales de riesgo establecido por la GUÍA PARA EL CONTROL DE DIVULGACIÓN ESTADÍSTICA EN MICRODATOS para encuestas de hogares [@manualsdcine]. Simultáneamente, el ejercicio busca mantener la utilidad de los datos, intentando minimizar la intervención de los mismos para que los usuarios puedan replicar las estadísticas priorizadas por esta encuesta. 
+El proceso SDC aquí implementado busca producir un archivo de datos PUF (del inglés, *Public Use File*), que pueda ponerse a disposición de forma pública y para cualquier usuario que lo requiera. Para ello, el proceso SDC aplicado apunta al logro de los umbrales de riesgo establecido por la GCDEM para encuestas de hogares [@manualsdcine]. Simultáneamente, el ejercicio busca mantener la utilidad de los datos, intentando minimizar la intervención de los mismos para que los usuarios puedan replicar las estadísticas priorizadas por esta encuesta. 
 
 
 Los umbrales de riesgo establecidos son los siguientes:
@@ -29,7 +29,7 @@ Los umbrales de riesgo establecidos son los siguientes:
 A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la función `Kanon_violations()`, se recomienda seguir el estándar del INE, que consiste en calcular el k-anonimato sin ponderadores utilizando el comando `print(sdcObject)`. En este contexto, 'sdcObject' representa el objeto sobre el cual es necesario evaluar el riesgo.
 
 
-A continuación, la guía presenta paso a paso como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.
+A continuación, la guía presenta un paso a paso de como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.
 
 
 ## Paso Uno: Definiciones previas al proceso de anonimización
@@ -44,7 +44,7 @@ En esta etapa se describe la metodología del producto estadístico, la revisió
 
 #### Archivo de Base de datos
 
-Antes de cargar los datos, declaramos el directorio de trabajo donde se ubican los archivos con que trabajaremos.
+Antes de cargar los datos, declaramos el directorio de trabajo donde se ubican los archivos donde trabajaremos.
 
 ```{example, bloque1nbm}
 Indicar el directorio de trabajo
@@ -67,7 +67,7 @@ file <- haven::read_sav(fname)
 
 #### Caracterización de la base de datos
 
-Primero revisamos las dimensiones del archivo, es decir, cuantos registros y variables contiene. La base contiene 47.344 registros y 73 variables. Luego, revisamos el nombre de las variables contenido en la base de datos para verificar que se ajusta a la base con que se requiere trabajar.
+Primero revisamos las dimensiones del archivo, es decir, cuantos registros y variables contiene. La base contiene 47.344 registros y 73 variables. Luego, revisamos el nombre de las variables contenidas en la base de datos para verificar que se ajusta a la base con que se requiere trabajar.
 
 ```{example, bloque3nbm}
 Inspeccionar las dimensiones del conjunto de datos y los nombres de las columnas
@@ -80,9 +80,9 @@ names(file)
 
 Es importante señalar que la base de datos se compone de variables de caracterización de los hogares y las personas (módulo de Registro de Personas en el Hogar o RPH) y variables temáticas de la encuesta referidas a percepción de inseguridad y victimización.
 
-Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza Fact_Hog, mientras que para el nivel persona se utiliza Fact_Ind. 
+Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza `Fact_Hog`, mientras que para el nivel persona se utiliza `Fact_Ind`. 
 
-Además, la base de datos cuenta con variables de Conglomerado y VarStrat, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.
+Además, la base de datos cuenta con variables de `Conglomerado` y `VarStrat`, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.
 
 El archivo `Diccionario de Variables.xlsx` contiene la descripción de las variables contenidas en la base de datos.
 

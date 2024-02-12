@@ -1,5 +1,5 @@
 tab:tabAcron1
-tab:unnamed-chunk-3
+tab:unnamed-chunk-2
 tab:tbl2lbn
 fig:balance
 exm:bloqueMicro1
@@ -122,12 +122,12 @@ exm:bloque16nbm
 exm:bloque17nbm
 exm:bloque18nbm
 exm:bloque19nbm
-fig:unnamed-chunk-94
+fig:unnamed-chunk-93
 exm:bloque20nbm
 exm:bloque21nbm
 exm:bloque22nbm
 exm:bloque23nbm
-fig:unnamed-chunk-98
+fig:unnamed-chunk-97
 exm:bloque24nbm
 exm:bloque25nbm
 exm:bloque26nbm
@@ -189,12 +189,12 @@ exm:bloque82nbm
 exm:bloque83nbm
 exm:bloque84nbm
 exm:bloque85nbm
-fig:unnamed-chunk-160
+fig:unnamed-chunk-159
 exm:bloque86nbm
 exm:bloque87nbm
 exm:bloque88nbm
 exm:bloque89nbm
-fig:unnamed-chunk-164
+fig:unnamed-chunk-163
 exm:bloque90nbm
 exm:bloque91nbm
 exm:bloque92nbm
