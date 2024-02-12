@@ -849,9 +849,7 @@ Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ning�
 K-anonimato 
 ```
 ```{r}
-kAnon_violations(sdcHH, weighted = T, k = 2)
-kAnon_violations(sdcHH, weighted = T, k = 3)
-kAnon_violations(sdcHH, weighted = T, k = 5)
+print(sdcHH)
 ```
 
 En resumen, se observa que para el nivel hogar los riesgos ya cumplen con los umbrales establecidos por el estándar de anonimización. Por lo que se prosigue analizando el riesgo a nivel de personas.
@@ -896,7 +894,7 @@ sdcCombined <- createSdcObj(dat = fileCombined, keyVars = selectedKeyVarsIND,
 ```
 
 
-Primero, revisamos las medidas globales de riesgo. Se observa una cantidad relevante de observaciones con riesgo alto, y también un porcentaje alto de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. Esta supera el umbral establecido de no más del 10%.
+Primero, revisamos las medidas globales de riesgo. Se observa que existen casos de observaciones con riesgo alto, y también un porcentaje de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. No obstante, a nivel global, esta no supera el umbral establecido de no más del 10%.
 
 ```{example, bloque49nbm}
 Medidas globales de riesgo
@@ -906,7 +904,7 @@ print(sdcCombined, "risk")
 ```
 
 
-Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 261 observaciones con riesgo superior al 50%.
+Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 141 observaciones con riesgo superior al 50%.
 
 ```{example, bloque50nbm}
 Riesgo individual
@@ -926,20 +924,13 @@ nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
 ```
 
 
-Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casos que incumplen el k-anonimato, incluso con ponderación.
+Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casi la mitad de los casos incumplen el 2-anonimato a nivel muestral.
 
 ```{example, bloque51nbm}
 K-anonimato
 ```
 ```{r}
-# 2-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 2) 
-
-# 3-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 3) 
-
-# 5-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 5) 
+print(sdcCombined)
 ```
 
 Finalmente, medimos el *l-diversity*, que es una medida complementaria al k-anonimato. Esta indica cuantos valores de respuesta tienen las variables sensibles para cada combinación de las variables clave. Se espera obtener valores superiores a 1, dado que este valor indica que hay una única respuesta para cada combinación, lo que implica que un intruso podría saber el valor de respuesta a pesar de que se cumplan los umbrales de k-anonimato. En este sentido, esta métrica de riesgo es complementaria y da respaldo a lo evaluado a partir del k-anonimato.
@@ -964,7 +955,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 
 **CONCLUSIÓN DE LA EVALUACIÓN DE RIESGOS**
 
-Dado que, a nivel jerárquico, considerando hasta el nivel de persona, se incumplen los umbrales requeridos por el estándar de anonimización a nivel global, individual y de k-anonimato, además de que se observa un valor riesgoso en el *l-diversity*, se confirma la necesidad de aplicar métodos SDC para asegurar la confidencialidad de los datos. 
+Dado que, a nivel jerárquico, considerando hasta el nivel de persona, se incumplen los umbrales requeridos por el estándar de anonimización a nivel individual y de k-anonimato, además de que se observa un valor riesgoso en el *l-diversity*, se confirma la necesidad de aplicar métodos SDC para asegurar la confidencialidad de los datos. 
 
 Estos métodos se continúan aplicando sobre el nivel de personas del conjunto de datos, dado que a nivel hogares ya se cumplen los umbrales requeridos.
 
@@ -1000,7 +991,7 @@ Luego de haber aplicado este método SDC, procedemos a medir el impacto de esta 
 
 ### Re-medición del riesgo para primer conjunto de métodos
 
-Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando a umbrales aceptables (<10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.
+Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando nuevamente a umbrales aceptables (<10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.
 
 ```{example, bloque54nbm}
 Riesgo global
@@ -1009,7 +1000,7 @@ Riesgo global
 print(sdcCombined, "risk")
 ```
 
-Ahora medimos el riesgo de manera individual. Se observa que 30.922 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad importante de observaciones con riesgo altísimo, con 189 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.
+Ahora medimos el riesgo de manera individual. Se observa que 8.759 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad menor de observaciones con riesgo altísimo, con 52 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.
 
 ```{example, bloque55nbm}
 Riesgo individual
@@ -1028,25 +1019,18 @@ nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
 nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
 ```
 
-Revisamos el k-anonimato para los casos ponderados. Aún se observan 116 casos que incumplen el 2-anonimato.
+Revisamos el k-anonimato para los casos a nivel muestral. Aún se observa un muy alto porcentaje de casos que incumplen el 2-anonimato.
 
 ```{example, bloque56nbm}
 K-anonimato
 ```
 ```{r}
-# 2-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 2) 
-
-# 3-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 3) 
-
-# 5-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 5) 
+print(sdcCombined)
 ```
 
 
 
-Luego medimos el *l-diversity*, donde observamos aún valores muy cercanos a 1, para las tres variables sensibles.
+Luego medimos el *l-diversity*, donde observamos mejores valores que se alejan de 1, para las tres variables sensibles.
 
 ```{example, bloque57nbm}
 L-diveristy
@@ -1061,7 +1045,7 @@ med_riesgo@risk$ldiversity
 ```
 
 
-En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual, el k-anonimato y el *l-diversity* nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.
+En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual y el k-anonimato nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.
 
 
 ### Segundo conjunto de métodos SDC
@@ -1130,7 +1114,7 @@ Riesgo global
 print(sdcCombined, "risk")
 ```
 
-Ahora medimos el riesgo de manera individual. Se observa que 15.463 de los casos (32,7% del total) presentan un riesgo superior al 1%, lo que aún incumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 3.000 de las personas (6,3% del total) presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 286 y un 92 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.
+Ahora medimos el riesgo de manera individual. Se observa que 2.902 de los casos presentan un riesgo superior al 1%, lo que aún cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 517 de las personas presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 50 y un 17 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.
 
 ```{example, bloque61nbm}
 Riesgo individual
@@ -1149,24 +1133,17 @@ nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
 nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
 ```
 
-Revisamos el k-anonimato para los casos ponderados. Aún hay 54 casos que incumplen el 2-anonimato.
+Revisamos el k-anonimato para los casos no ponderados, es decir a nivel muestral. Aún hay 2.886 casos que incumplen el 2-anonimato.
 
 ```{example, bloque62nbm}
 K-anonimato
 
 ```
 ```{r}
-# 2-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 2) 
-
-# 3-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 3) 
-
-# 5-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 5) 
+print(sdcCombined)
 ```
 
-Luego medimos el *l-diversity*. Se observa una leve mejora en el *l-diversity*, al observarse ahora una diversidad de 2 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.
+Luego medimos el *l-diversity*. Se observa una importante mejora en el *l-diversity*, al observarse ahora una diversidad de 30 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.
 
 ```{example, bloque63nbm}
 L-diversity
@@ -1181,7 +1158,7 @@ med_riesgo@risk$ldiversity
 ```
 
 
-En suma, debido a los riesgos individuales, k-anonimato y *l-diversity*, aún se requiere seguir aplicando métodos SDC.
+En suma, debido a que persiste cierto grado de riesgos individuales e incumplimiento de k-anonimato aún se requiere seguir aplicando métodos SDC.
 
 
 ### Tercer conjunto de métodos SDC 
@@ -1196,14 +1173,18 @@ Recodificar de variables
 ```{r}
 # Recodificamos pertenencia indígena
 sdcCombined <- groupAndRename(sdcCombined, var="rph_pertenencia_indigena",
-                              before=c(1:9), after=c(1))
+                              before=c(1:10), after=c(1))
 
 sdcCombined <- groupAndRename(sdcCombined, var="rph_pertenencia_indigena",
-                              before=c(10), after=c(2))
+                              before=c(11), after=c(2))
 
 # Recodificamos nacionalidad
 sdcCombined <- groupAndRename(sdcCombined, var="rph_nacionalidad",
                               before=c(2:9), after=c(2))
+
+# Recodificamos situacion_ocupacional
+sdcCombined <- groupAndRename(sdcCombined, var="rph_situacion_ocupacional",
+                              before=c(3:6), after=c(3))
 
 
 
@@ -1218,10 +1199,13 @@ Supresión local
 ```
 ```{r}
 # supresión local para riesgos globales e individuales
-sdcCombined <- localSupp(sdcCombined, keyVar='rph_idgen', threshold=0.1)
-sdcCombined <- localSupp(sdcCombined, keyVar='rph_pertenencia_indigena', threshold=0.1)
-sdcCombined <- localSupp(sdcCombined, keyVar='rph_nacionalidad', threshold=0.1)
-sdcCombined <- localSupp(sdcCombined, keyVar='rph_situacion_ocupacional', threshold=0.1)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_idgen', threshold=0.01)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_pertenencia_indigena', threshold=0.01)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_nacionalidad', threshold=0.01)
+sdcCombined <- localSupp(sdcCombined, keyVar='rph_situacion_ocupacional', threshold=0.01)
+
+sdcCombined <- localSuppression(sdcCombined,importance = 1:7, k = 2)
+
 ```
 
 
@@ -1241,7 +1225,7 @@ print(sdcCombined, "risk")
 ```
 
 
-Ahora medimos el riesgo de manera individual. Se observa que el 19,3% de los casos presentan un riesgo superior al 1%, lo que cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que hay 1.078 registros con riesgo individual superior al 5%, lo que equivale al 2,3% de los casos, lo que cumple con el umbral establecido (<15%). Finalmente, no se observan casos con riesgo individual superior al 25%.
+Ahora medimos el riesgo de manera individual. Se observa que no hay casos que excedan estos niveles de riesgo luego de los últimos tratamientos a los datos.
 
 ```{example, bloque67nbm}
 Riesgo individual
@@ -1260,23 +1244,16 @@ nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.25,])
 nrow(fileCombined[sdcCombined@risk$individual[, "risk"] > 0.5,])
 ```
 
-Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de k-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.
+Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de 2-anonimato y una cantidad aceptable de casos que incumplen el 3-anonimato y 5-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.
 
 ```{example, bloque68nbm}
 K-anonimato
 ```
 ```{r}
-# 2-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 2) 
-
-# 3-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 3) 
-
-# 5-anonimato
-kAnon_violations(sdcCombined, weighted = T, k = 5) 
+print(sdcCombined)
 ```
 
-Luego medimos el *l-diversity*. Se observa que los valores de promedio y mediana de *l-diversity* son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Si bien estos no son valores ideales, se decide no proseguir con métodos SDC para no perder más utilidad de los datos. 
+Luego medimos el *l-diversity*. Se observa que los valores de promedio y mediana de *l-diversity* son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Dado que se obtienen buenos resultados, se decide no proseguir con métodos SDC para no perder más utilidad de los datos. 
 
 ```{example, bloque69nbm}
 L-diversity

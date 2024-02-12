@@ -23,7 +23,7 @@
 <meta name="author" content="Subdepartamento de Investigación Estadística" />
 
 
-<meta name="date" content="2023-10-23" />
+<meta name="date" content="2024-02-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -767,8 +767,8 @@ Calculado en base a la variable VP_DC, por lo que la base de datos anonimizada d
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="caso-de-estudio.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb168-2"><a href="caso-de-estudio.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb168-3"><a href="caso-de-estudio.html#cb168-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-93"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-93-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-94"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-94-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.1: Punto de corte óptimo con datos no tratados
 </p>
@@ -825,8 +825,8 @@ Figura 11.1: Punto de corte óptimo con datos no tratados
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="caso-de-estudio.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb181-2"><a href="caso-de-estudio.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb181-3"><a href="caso-de-estudio.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-97"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-97-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-98"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-98-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tratados
 </p>
@@ -1089,20 +1089,20 @@ Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tra
 ## 3223 2061 3115 2264 5269 2938 2648 4393 2241 3138 2693 2401 1842 2944 3368 2806</code></pre>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="caso-de-estudio.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>enc_rpc)</span></code></pre></div>
 <pre><code>## 
-##  1101  1102  1103  1104  1105  1106  2101  2102  2103  2104  2105  2106  3101  3102  3103  3104 
-##   561   601   522   500   533   506   326   355   350   358   343   329   524   564   493   461 
-##  3105  3106  4101  4102  4103  4104  4105  4106  5101  5102  5103  5104  5105  5106  6101  6102 
-##   514   559   393   416   342   436   351   326   889   926   890   862   812   890   495   471 
-##  6103  6104  6105  6106  7101  7102  7103  7104  7105  7106  8101  8102  8103  8104  8105  8106 
-##   455   507   522   488   434   470   395   463   409   477   698   720   774   700   724   777 
-##  9101  9102  9103  9104  9105  9106 10101 10102 10103 10104 10105 10106 11101 11102 11103 11104 
-##   402   380   337   385   344   393   539   519   495   525   492   568   340   350   380   446 
-## 11105 11106 11107 12101 12102 12103 12104 12105 12106 12107 13101 13102 13103 13104 13105 13106 
-##   375   432   370   322   302   382   411   340   362   282   251   273   270   234   214   293 
-## 13107 14101 14102 14103 14104 14105 14106 14107 15101 15102 15103 15104 15105 15106 15107 16101 
-##   307   419   447   410   373   427   444   424   443   483   511   467   544   438   482   448 
-## 16102 16103 16104 16105 16106 16107 
-##   362   397   351   371   431   446</code></pre>
+##  1101  1102  1103  1104  1105  1106  2101  2102  2103  2104  2105  2106  3101  3102  3103 
+##   561   601   522   500   533   506   326   355   350   358   343   329   524   564   493 
+##  3104  3105  3106  4101  4102  4103  4104  4105  4106  5101  5102  5103  5104  5105  5106 
+##   461   514   559   393   416   342   436   351   326   889   926   890   862   812   890 
+##  6101  6102  6103  6104  6105  6106  7101  7102  7103  7104  7105  7106  8101  8102  8103 
+##   495   471   455   507   522   488   434   470   395   463   409   477   698   720   774 
+##  8104  8105  8106  9101  9102  9103  9104  9105  9106 10101 10102 10103 10104 10105 10106 
+##   700   724   777   402   380   337   385   344   393   539   519   495   525   492   568 
+## 11101 11102 11103 11104 11105 11106 11107 12101 12102 12103 12104 12105 12106 12107 13101 
+##   340   350   380   446   375   432   370   322   302   382   411   340   362   282   251 
+## 13102 13103 13104 13105 13106 13107 14101 14102 14103 14104 14105 14106 14107 15101 15102 
+##   273   270   234   214   293   307   419   447   410   373   427   444   424   443   483 
+## 15103 15104 15105 15106 15107 16101 16102 16103 16104 16105 16106 16107 
+##   511   467   544   438   482   448   362   397   351   371   431   446</code></pre>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="caso-de-estudio.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>rph_sexo)</span></code></pre></div>
 <pre><code>## 
 ##     1     2 
@@ -1279,24 +1279,15 @@ Riesgo individual
 <div class="example">
 <p><span id="exm:bloque47nbm" class="example"><strong>Bloque 11.46  </strong></span>K-anonimato</p>
 </div>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="caso-de-estudio.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcHH, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 2
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="caso-de-estudio.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcHH, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 3
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="caso-de-estudio.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcHH, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 5
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="caso-de-estudio.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcHH)</span></code></pre></div>
+<pre><code>## Infos on 2/3-Anonymity:
+## 
+## Number of observations violating
+##   - 2-anonymity: 0 (0.000%)
+##   - 3-anonymity: 0 (0.000%)
+##   - 5-anonymity: 0 (0.000%)
+## 
+## ----------------------------------------------------------------------</code></pre>
 <p>En resumen, se observa que para el nivel hogar los riesgos ya cumplen con los umbrales establecidos por el estándar de anonimización. Por lo que se prosigue analizando el riesgo a nivel de personas.</p>
 </div>
 <div id="medición-de-riesgos-de-divulgación-a-nivel-persona" class="section level4 hasAnchor" number="11.3.2.2">
@@ -1305,40 +1296,40 @@ Riesgo individual
 <div class="example">
 <p><span id="exm:bloque48nbm" class="example"><strong>Bloque 11.47  </strong></span>Comandos para construir el objeto SDC a nivel de persona</p>
 </div>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="caso-de-estudio.html#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
-<span id="cb250-2"><a href="caso-de-estudio.html#cb250-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_rpc&#39;</span>,</span>
-<span id="cb250-3"><a href="caso-de-estudio.html#cb250-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_edad&#39;</span>,</span>
-<span id="cb250-4"><a href="caso-de-estudio.html#cb250-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_sexo&#39;</span>,</span>
-<span id="cb250-5"><a href="caso-de-estudio.html#cb250-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_idgen&#39;</span>,</span>
-<span id="cb250-6"><a href="caso-de-estudio.html#cb250-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_pertenencia_indigena&#39;</span>, </span>
-<span id="cb250-7"><a href="caso-de-estudio.html#cb250-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_nacionalidad&#39;</span>,</span>
-<span id="cb250-8"><a href="caso-de-estudio.html#cb250-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_situacion_ocupacional&#39;</span>) </span>
-<span id="cb250-9"><a href="caso-de-estudio.html#cb250-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-10"><a href="caso-de-estudio.html#cb250-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indica factor de expansión de personas</span></span>
-<span id="cb250-11"><a href="caso-de-estudio.html#cb250-11" aria-hidden="true" tabindex="-1"></a>WeightVarIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Fact_Ind&#39;</span>)</span>
-<span id="cb250-12"><a href="caso-de-estudio.html#cb250-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-13"><a href="caso-de-estudio.html#cb250-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ID Hogares</span></span>
-<span id="cb250-14"><a href="caso-de-estudio.html#cb250-14" aria-hidden="true" tabindex="-1"></a>selectedHouseholdID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>)</span>
-<span id="cb250-15"><a href="caso-de-estudio.html#cb250-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-16"><a href="caso-de-estudio.html#cb250-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales</span></span>
-<span id="cb250-17"><a href="caso-de-estudio.html#cb250-17" aria-hidden="true" tabindex="-1"></a>indVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;enc_idr&quot;</span>, <span class="st">&quot;rph_ID&quot;</span>, selectedKeyVarsIND,WeightVarIND,sensibles) <span class="co"># HID and all non HH variables</span></span>
-<span id="cb250-18"><a href="caso-de-estudio.html#cb250-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-19"><a href="caso-de-estudio.html#cb250-19" aria-hidden="true" tabindex="-1"></a>fileInd <span class="ot">&lt;-</span> file[indVars] <span class="co"># subset of file without HHVars</span></span>
-<span id="cb250-20"><a href="caso-de-estudio.html#cb250-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-21"><a href="caso-de-estudio.html#cb250-21" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(fileInd, <span class="fu">select</span>(fileHH, <span class="sc">-</span>enc_rpc), <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>))</span>
-<span id="cb250-22"><a href="caso-de-estudio.html#cb250-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb250-23"><a href="caso-de-estudio.html#cb250-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileCombined)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="caso-de-estudio.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
+<span id="cb246-2"><a href="caso-de-estudio.html#cb246-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_rpc&#39;</span>,</span>
+<span id="cb246-3"><a href="caso-de-estudio.html#cb246-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_edad&#39;</span>,</span>
+<span id="cb246-4"><a href="caso-de-estudio.html#cb246-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_sexo&#39;</span>,</span>
+<span id="cb246-5"><a href="caso-de-estudio.html#cb246-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_idgen&#39;</span>,</span>
+<span id="cb246-6"><a href="caso-de-estudio.html#cb246-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_pertenencia_indigena&#39;</span>, </span>
+<span id="cb246-7"><a href="caso-de-estudio.html#cb246-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_nacionalidad&#39;</span>,</span>
+<span id="cb246-8"><a href="caso-de-estudio.html#cb246-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_situacion_ocupacional&#39;</span>) </span>
+<span id="cb246-9"><a href="caso-de-estudio.html#cb246-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-10"><a href="caso-de-estudio.html#cb246-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indica factor de expansión de personas</span></span>
+<span id="cb246-11"><a href="caso-de-estudio.html#cb246-11" aria-hidden="true" tabindex="-1"></a>WeightVarIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Fact_Ind&#39;</span>)</span>
+<span id="cb246-12"><a href="caso-de-estudio.html#cb246-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-13"><a href="caso-de-estudio.html#cb246-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ID Hogares</span></span>
+<span id="cb246-14"><a href="caso-de-estudio.html#cb246-14" aria-hidden="true" tabindex="-1"></a>selectedHouseholdID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>)</span>
+<span id="cb246-15"><a href="caso-de-estudio.html#cb246-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-16"><a href="caso-de-estudio.html#cb246-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales</span></span>
+<span id="cb246-17"><a href="caso-de-estudio.html#cb246-17" aria-hidden="true" tabindex="-1"></a>indVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;enc_idr&quot;</span>, <span class="st">&quot;rph_ID&quot;</span>, selectedKeyVarsIND,WeightVarIND,sensibles) <span class="co"># HID and all non HH variables</span></span>
+<span id="cb246-18"><a href="caso-de-estudio.html#cb246-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-19"><a href="caso-de-estudio.html#cb246-19" aria-hidden="true" tabindex="-1"></a>fileInd <span class="ot">&lt;-</span> file[indVars] <span class="co"># subset of file without HHVars</span></span>
+<span id="cb246-20"><a href="caso-de-estudio.html#cb246-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-21"><a href="caso-de-estudio.html#cb246-21" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(fileInd, <span class="fu">select</span>(fileHH, <span class="sc">-</span>enc_rpc), <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>))</span>
+<span id="cb246-22"><a href="caso-de-estudio.html#cb246-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-23"><a href="caso-de-estudio.html#cb246-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileCombined)</span></code></pre></div>
 <pre><code>## [1] 47344    15</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="caso-de-estudio.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetos SDC con todas las variables y variables HH tratadas para</span></span>
-<span id="cb252-2"><a href="caso-de-estudio.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="co"># anonimización de variables de nivel individual</span></span>
-<span id="cb252-3"><a href="caso-de-estudio.html#cb252-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined, <span class="at">keyVars =</span> selectedKeyVarsIND,</span>
-<span id="cb252-4"><a href="caso-de-estudio.html#cb252-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hhId =</span> selectedHouseholdID, <span class="at">weightVar =</span> WeightVarIND,</span>
-<span id="cb252-5"><a href="caso-de-estudio.html#cb252-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
-<p>Primero, revisamos las medidas globales de riesgo. Se observa una cantidad relevante de observaciones con riesgo alto, y también un porcentaje alto de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. Esta supera el umbral establecido de no más del 10%.</p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="caso-de-estudio.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetos SDC con todas las variables y variables HH tratadas para</span></span>
+<span id="cb248-2"><a href="caso-de-estudio.html#cb248-2" aria-hidden="true" tabindex="-1"></a><span class="co"># anonimización de variables de nivel individual</span></span>
+<span id="cb248-3"><a href="caso-de-estudio.html#cb248-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined, <span class="at">keyVars =</span> selectedKeyVarsIND,</span>
+<span id="cb248-4"><a href="caso-de-estudio.html#cb248-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hhId =</span> selectedHouseholdID, <span class="at">weightVar =</span> WeightVarIND,</span>
+<span id="cb248-5"><a href="caso-de-estudio.html#cb248-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
+<p>Primero, revisamos las medidas globales de riesgo. Se observa que existen casos de observaciones con riesgo alto, y también un porcentaje de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. No obstante, a nivel global, esta no supera el umbral establecido de no más del 10%.</p>
 <div class="example">
 <p><span id="exm:bloque49nbm" class="example"><strong>Bloque 11.48  </strong></span>Medidas globales de riesgo</p>
 </div>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="caso-de-estudio.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="caso-de-estudio.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 3108
@@ -1347,57 +1338,45 @@ Riesgo individual
 ## Information on hierarchical risk:
 ## Expected number of re-identifications: 5412.30 (11.43 %)
 ## ----------------------------------------------------------------------</code></pre>
-<p>Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 261 observaciones con riesgo superior al 50%.</p>
+<p>Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 141 observaciones con riesgo superior al 50%.</p>
 <div class="example">
 <p><span id="exm:bloque50nbm" class="example"><strong>Bloque 11.49  </strong></span>Riesgo individual</p>
 </div>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="caso-de-estudio.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
-<span id="cb255-2"><a href="caso-de-estudio.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="caso-de-estudio.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
+<span id="cb251-2"><a href="caso-de-estudio.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 43123</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="caso-de-estudio.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
-<span id="cb257-2"><a href="caso-de-estudio.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,]) </span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="caso-de-estudio.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
+<span id="cb253-2"><a href="caso-de-estudio.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,]) </span></code></pre></div>
 <pre><code>## [1] 8862</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="caso-de-estudio.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
-<span id="cb259-2"><a href="caso-de-estudio.html#cb259-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,]) </span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="caso-de-estudio.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
+<span id="cb255-2"><a href="caso-de-estudio.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,]) </span></code></pre></div>
 <pre><code>## [1] 812</code></pre>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="caso-de-estudio.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
-<span id="cb261-2"><a href="caso-de-estudio.html#cb261-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,]) </span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="caso-de-estudio.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
+<span id="cb257-2"><a href="caso-de-estudio.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,]) </span></code></pre></div>
 <pre><code>## [1] 261</code></pre>
-<p>Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casos que incumplen el k-anonimato, incluso con ponderación.</p>
+<p>Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casi la mitad de los casos incumplen el 2-anonimato a nivel muestral.</p>
 <div class="example">
 <p><span id="exm:bloque51nbm" class="example"><strong>Bloque 11.50  </strong></span>K-anonimato</p>
 </div>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="caso-de-estudio.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-anonimato</span></span>
-<span id="cb263-2"><a href="caso-de-estudio.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## [1] 153
-## attr(,&quot;k&quot;)
-## [1] 2
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="caso-de-estudio.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3-anonimato</span></span>
-<span id="cb265-2"><a href="caso-de-estudio.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">3</span>) </span></code></pre></div>
-<pre><code>## [1] 225
-## attr(,&quot;k&quot;)
-## [1] 3
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="caso-de-estudio.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-anonimato</span></span>
-<span id="cb267-2"><a href="caso-de-estudio.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>## [1] 388
-## attr(,&quot;k&quot;)
-## [1] 5
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="caso-de-estudio.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
+<pre><code>## Infos on 2/3-Anonymity:
+## 
+## Number of observations violating
+##   - 2-anonymity: 45168 (95.404%)
+##   - 3-anonymity: 47222 (99.742%)
+##   - 5-anonymity: 47344 (100.000%)
+## 
+## ----------------------------------------------------------------------</code></pre>
 <p>Finalmente, medimos el <em>l-diversity</em>, que es una medida complementaria al k-anonimato. Esta indica cuantos valores de respuesta tienen las variables sensibles para cada combinación de las variables clave. Se espera obtener valores superiores a 1, dado que este valor indica que hay una única respuesta para cada combinación, lo que implica que un intruso podría saber el valor de respuesta a pesar de que se cumplan los umbrales de k-anonimato. En este sentido, esta métrica de riesgo es complementaria y da respaldo a lo evaluado a partir del k-anonimato.</p>
 <div class="example">
 <p><span id="exm:bloque52nbm" class="example"><strong>Bloque 11.51  </strong></span>L-Diversity</p>
 </div>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="caso-de-estudio.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
-<span id="cb269-2"><a href="caso-de-estudio.html#cb269-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
-<span id="cb269-3"><a href="caso-de-estudio.html#cb269-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
-<span id="cb269-4"><a href="caso-de-estudio.html#cb269-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb269-5"><a href="caso-de-estudio.html#cb269-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
-<span id="cb269-6"><a href="caso-de-estudio.html#cb269-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="caso-de-estudio.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
+<span id="cb261-2"><a href="caso-de-estudio.html#cb261-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
+<span id="cb261-3"><a href="caso-de-estudio.html#cb261-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
+<span id="cb261-4"><a href="caso-de-estudio.html#cb261-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb261-5"><a href="caso-de-estudio.html#cb261-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
+<span id="cb261-6"><a href="caso-de-estudio.html#cb261-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
 <pre><code>## --------------------------</code></pre>
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
@@ -1415,7 +1394,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div id="evaluación-de-riesgos-de-divulgación" class="section level3 hasAnchor" number="11.3.3">
 <h3><span class="header-section-number">11.3.3</span> Evaluación de riesgos de divulgación<a href="caso-de-estudio.html#evaluación-de-riesgos-de-divulgación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>CONCLUSIÓN DE LA EVALUACIÓN DE RIESGOS</strong></p>
-<p>Dado que, a nivel jerárquico, considerando hasta el nivel de persona, se incumplen los umbrales requeridos por el estándar de anonimización a nivel global, individual y de k-anonimato, además de que se observa un valor riesgoso en el <em>l-diversity</em>, se confirma la necesidad de aplicar métodos SDC para asegurar la confidencialidad de los datos.</p>
+<p>Dado que, a nivel jerárquico, considerando hasta el nivel de persona, se incumplen los umbrales requeridos por el estándar de anonimización a nivel individual y de k-anonimato, además de que se observa un valor riesgoso en el <em>l-diversity</em>, se confirma la necesidad de aplicar métodos SDC para asegurar la confidencialidad de los datos.</p>
 <p>Estos métodos se continúan aplicando sobre el nivel de personas del conjunto de datos, dado que a nivel hogares ya se cumplen los umbrales requeridos.</p>
 </div>
 </div>
@@ -1430,20 +1409,20 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque53nbm" class="example"><strong>Bloque 11.52  </strong></span>Recodificar edad</p>
 </div>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="caso-de-estudio.html#cb274-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
-<span id="cb274-2"><a href="caso-de-estudio.html#cb274-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
-<span id="cb274-3"><a href="caso-de-estudio.html#cb274-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">24</span>,<span class="dv">29</span>,<span class="dv">39</span>,<span class="dv">49</span>,<span class="dv">59</span>,<span class="dv">69</span>,<span class="dv">79</span>,<span class="dv">89</span>,<span class="dv">120</span>),</span>
-<span id="cb274-4"><a href="caso-de-estudio.html#cb274-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="caso-de-estudio.html#cb266-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
+<span id="cb266-2"><a href="caso-de-estudio.html#cb266-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
+<span id="cb266-3"><a href="caso-de-estudio.html#cb266-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">24</span>,<span class="dv">29</span>,<span class="dv">39</span>,<span class="dv">49</span>,<span class="dv">59</span>,<span class="dv">69</span>,<span class="dv">79</span>,<span class="dv">89</span>,<span class="dv">120</span>),</span>
+<span id="cb266-4"><a href="caso-de-estudio.html#cb266-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
 <p>Alternativamente, se podría simplemente haber ocupado otras funciones de <code>R base</code> o de <code>Tidyverse</code> para recodificar esta variable en tramos, como, por ejemplo, las funciones <code>ifelse()</code> o <code>case_when()</code>. Sin embargo, esta aproximación tiene la desventaja de que requiere generar nuevamente el objeto SDC por completo, por lo que se pierde la trazabilidad de las ediciones realizadas y de la reducción del riesgo desde la línea base inicial. Por este motivo, es que se recomienda usar <code>globalRecode()</code>.</p>
 <p>Luego de haber aplicado este método SDC, procedemos a medir el impacto de esta modificación en las medidas de riesgo.</p>
 </div>
 <div id="re-medición-del-riesgo-para-primer-conjunto-de-métodos" class="section level3 hasAnchor" number="11.4.2">
 <h3><span class="header-section-number">11.4.2</span> Re-medición del riesgo para primer conjunto de métodos<a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando a umbrales aceptables (&lt;10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.</p>
+<p>Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando nuevamente a umbrales aceptables (&lt;10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.</p>
 <div class="example">
 <p><span id="exm:bloque54nbm" class="example"><strong>Bloque 11.53  </strong></span>Riesgo global</p>
 </div>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="caso-de-estudio.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="caso-de-estudio.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 
@@ -1458,57 +1437,45 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ##   in modified data: 4006.48 (8.46 %)
 ##   in original data: 5412.30 (11.43 %)
 ## ----------------------------------------------------------------------</code></pre>
-<p>Ahora medimos el riesgo de manera individual. Se observa que 30.922 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad importante de observaciones con riesgo altísimo, con 189 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.</p>
+<p>Ahora medimos el riesgo de manera individual. Se observa que 8.759 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad menor de observaciones con riesgo altísimo, con 52 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.</p>
 <div class="example">
 <p><span id="exm:bloque55nbm" class="example"><strong>Bloque 11.54  </strong></span>Riesgo individual</p>
 </div>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="caso-de-estudio.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
-<span id="cb277-2"><a href="caso-de-estudio.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="caso-de-estudio.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
+<span id="cb269-2"><a href="caso-de-estudio.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 30922</code></pre>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="caso-de-estudio.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
-<span id="cb279-2"><a href="caso-de-estudio.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="caso-de-estudio.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
+<span id="cb271-2"><a href="caso-de-estudio.html#cb271-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
 <pre><code>## [1] 6169</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="caso-de-estudio.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
-<span id="cb281-2"><a href="caso-de-estudio.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="caso-de-estudio.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
+<span id="cb273-2"><a href="caso-de-estudio.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
 <pre><code>## [1] 569</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="caso-de-estudio.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
-<span id="cb283-2"><a href="caso-de-estudio.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="caso-de-estudio.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
+<span id="cb275-2"><a href="caso-de-estudio.html#cb275-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
 <pre><code>## [1] 189</code></pre>
-<p>Revisamos el k-anonimato para los casos ponderados. Aún se observan 116 casos que incumplen el 2-anonimato.</p>
+<p>Revisamos el k-anonimato para los casos a nivel muestral. Aún se observa un muy alto porcentaje de casos que incumplen el 2-anonimato.</p>
 <div class="example">
 <p><span id="exm:bloque56nbm" class="example"><strong>Bloque 11.55  </strong></span>K-anonimato</p>
 </div>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="caso-de-estudio.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-anonimato</span></span>
-<span id="cb285-2"><a href="caso-de-estudio.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## [1] 116
-## attr(,&quot;k&quot;)
-## [1] 2
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="caso-de-estudio.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3-anonimato</span></span>
-<span id="cb287-2"><a href="caso-de-estudio.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">3</span>) </span></code></pre></div>
-<pre><code>## [1] 166
-## attr(,&quot;k&quot;)
-## [1] 3
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="caso-de-estudio.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-anonimato</span></span>
-<span id="cb289-2"><a href="caso-de-estudio.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>## [1] 280
-## attr(,&quot;k&quot;)
-## [1] 5
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<p>Luego medimos el <em>l-diversity</em>, donde observamos aún valores muy cercanos a 1, para las tres variables sensibles.</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="caso-de-estudio.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
+<pre><code>## Infos on 2/3-Anonymity:
+## 
+## Number of observations violating
+##   - 2-anonymity: 31932 (67.447%) | in original data: 45168 (95.404%)
+##   - 3-anonymity: 40354 (85.236%) | in original data: 47222 (99.742%)
+##   - 5-anonymity: 45431 (95.959%) | in original data: 47344 (100.000%)
+## 
+## ----------------------------------------------------------------------</code></pre>
+<p>Luego medimos el <em>l-diversity</em>, donde observamos mejores valores que se alejan de 1, para las tres variables sensibles.</p>
 <div class="example">
 <p><span id="exm:bloque57nbm" class="example"><strong>Bloque 11.56  </strong></span>L-diveristy</p>
 </div>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="caso-de-estudio.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
-<span id="cb291-2"><a href="caso-de-estudio.html#cb291-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
-<span id="cb291-3"><a href="caso-de-estudio.html#cb291-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
-<span id="cb291-4"><a href="caso-de-estudio.html#cb291-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb291-5"><a href="caso-de-estudio.html#cb291-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
-<span id="cb291-6"><a href="caso-de-estudio.html#cb291-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="caso-de-estudio.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
+<span id="cb279-2"><a href="caso-de-estudio.html#cb279-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
+<span id="cb279-3"><a href="caso-de-estudio.html#cb279-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
+<span id="cb279-4"><a href="caso-de-estudio.html#cb279-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-5"><a href="caso-de-estudio.html#cb279-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
+<span id="cb279-6"><a href="caso-de-estudio.html#cb279-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
 <pre><code>## --------------------------</code></pre>
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
@@ -1519,7 +1486,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ##  Mean   :1.219           Mean   :1.252           Mean   :1.229                
 ##  3rd Qu.:1.000           3rd Qu.:1.000           3rd Qu.:1.000                
 ##  Max.   :6.000           Max.   :6.000           Max.   :6.000</code></pre>
-<p>En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual, el k-anonimato y el <em>l-diversity</em> nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.</p>
+<p>En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual y el k-anonimato nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.</p>
 </div>
 <div id="segundo-conjunto-de-métodos-sdc" class="section level3 hasAnchor" number="11.4.3">
 <h3><span class="header-section-number">11.4.3</span> Segundo conjunto de métodos SDC<a href="caso-de-estudio.html#segundo-conjunto-de-métodos-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1529,43 +1496,43 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque58nbm" class="example"><strong>Bloque 11.57  </strong></span>Reconstruir el objeto SDC a nivel persona con variable región</p>
 </div>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="caso-de-estudio.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
-<span id="cb296-2"><a href="caso-de-estudio.html#cb296-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_region&#39;</span>,</span>
-<span id="cb296-3"><a href="caso-de-estudio.html#cb296-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_edad&#39;</span>,</span>
-<span id="cb296-4"><a href="caso-de-estudio.html#cb296-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_sexo&#39;</span>,</span>
-<span id="cb296-5"><a href="caso-de-estudio.html#cb296-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_idgen&#39;</span>,</span>
-<span id="cb296-6"><a href="caso-de-estudio.html#cb296-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_pertenencia_indigena&#39;</span>, </span>
-<span id="cb296-7"><a href="caso-de-estudio.html#cb296-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_nacionalidad&#39;</span>,</span>
-<span id="cb296-8"><a href="caso-de-estudio.html#cb296-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_situacion_ocupacional&#39;</span>) </span>
-<span id="cb296-9"><a href="caso-de-estudio.html#cb296-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-10"><a href="caso-de-estudio.html#cb296-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indica factor de expansión de personas</span></span>
-<span id="cb296-11"><a href="caso-de-estudio.html#cb296-11" aria-hidden="true" tabindex="-1"></a>WeightVarIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Fact_Ind&#39;</span>)</span>
-<span id="cb296-12"><a href="caso-de-estudio.html#cb296-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-13"><a href="caso-de-estudio.html#cb296-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ID Hogares</span></span>
-<span id="cb296-14"><a href="caso-de-estudio.html#cb296-14" aria-hidden="true" tabindex="-1"></a>selectedHouseholdID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>)</span>
-<span id="cb296-15"><a href="caso-de-estudio.html#cb296-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-16"><a href="caso-de-estudio.html#cb296-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales</span></span>
-<span id="cb296-17"><a href="caso-de-estudio.html#cb296-17" aria-hidden="true" tabindex="-1"></a>indVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;enc_idr&quot;</span>, <span class="st">&quot;rph_ID&quot;</span>, selectedKeyVarsIND,WeightVarIND,sensibles) <span class="co"># HID and all non HH variables</span></span>
-<span id="cb296-18"><a href="caso-de-estudio.html#cb296-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-19"><a href="caso-de-estudio.html#cb296-19" aria-hidden="true" tabindex="-1"></a>fileInd <span class="ot">&lt;-</span> file[indVars] <span class="co"># subset of file without HHVars</span></span>
-<span id="cb296-20"><a href="caso-de-estudio.html#cb296-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-21"><a href="caso-de-estudio.html#cb296-21" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(fileInd, <span class="fu">select</span>(fileHH, <span class="sc">-</span>enc_rpc), <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>))</span>
-<span id="cb296-22"><a href="caso-de-estudio.html#cb296-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb296-23"><a href="caso-de-estudio.html#cb296-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileCombined)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="caso-de-estudio.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
+<span id="cb284-2"><a href="caso-de-estudio.html#cb284-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_region&#39;</span>,</span>
+<span id="cb284-3"><a href="caso-de-estudio.html#cb284-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_edad&#39;</span>,</span>
+<span id="cb284-4"><a href="caso-de-estudio.html#cb284-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_sexo&#39;</span>,</span>
+<span id="cb284-5"><a href="caso-de-estudio.html#cb284-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_idgen&#39;</span>,</span>
+<span id="cb284-6"><a href="caso-de-estudio.html#cb284-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&#39;rph_pertenencia_indigena&#39;</span>, </span>
+<span id="cb284-7"><a href="caso-de-estudio.html#cb284-7" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_nacionalidad&#39;</span>,</span>
+<span id="cb284-8"><a href="caso-de-estudio.html#cb284-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">&#39;rph_situacion_ocupacional&#39;</span>) </span>
+<span id="cb284-9"><a href="caso-de-estudio.html#cb284-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-10"><a href="caso-de-estudio.html#cb284-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indica factor de expansión de personas</span></span>
+<span id="cb284-11"><a href="caso-de-estudio.html#cb284-11" aria-hidden="true" tabindex="-1"></a>WeightVarIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Fact_Ind&#39;</span>)</span>
+<span id="cb284-12"><a href="caso-de-estudio.html#cb284-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-13"><a href="caso-de-estudio.html#cb284-13" aria-hidden="true" tabindex="-1"></a><span class="co"># ID Hogares</span></span>
+<span id="cb284-14"><a href="caso-de-estudio.html#cb284-14" aria-hidden="true" tabindex="-1"></a>selectedHouseholdID <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>)</span>
+<span id="cb284-15"><a href="caso-de-estudio.html#cb284-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-16"><a href="caso-de-estudio.html#cb284-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recombinación de conjuntos de datos HH anónimos y variables de nivel individuales</span></span>
+<span id="cb284-17"><a href="caso-de-estudio.html#cb284-17" aria-hidden="true" tabindex="-1"></a>indVars <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;enc_idr&quot;</span>, <span class="st">&quot;rph_ID&quot;</span>, selectedKeyVarsIND,WeightVarIND,sensibles) <span class="co"># HID and all non HH variables</span></span>
+<span id="cb284-18"><a href="caso-de-estudio.html#cb284-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-19"><a href="caso-de-estudio.html#cb284-19" aria-hidden="true" tabindex="-1"></a>fileInd <span class="ot">&lt;-</span> file[indVars] <span class="co"># subset of file without HHVars</span></span>
+<span id="cb284-20"><a href="caso-de-estudio.html#cb284-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-21"><a href="caso-de-estudio.html#cb284-21" aria-hidden="true" tabindex="-1"></a>fileCombined <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">inner_join</span>(fileInd, <span class="fu">select</span>(fileHH, <span class="sc">-</span>enc_rpc), <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&#39;enc_idr&#39;</span>))</span>
+<span id="cb284-22"><a href="caso-de-estudio.html#cb284-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb284-23"><a href="caso-de-estudio.html#cb284-23" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(fileCombined)</span></code></pre></div>
 <pre><code>## [1] 47344    15</code></pre>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="caso-de-estudio.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetos SDC con todas las variables y variables HH tratadas para</span></span>
-<span id="cb298-2"><a href="caso-de-estudio.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="co"># anonimización de variables de nivel individual</span></span>
-<span id="cb298-3"><a href="caso-de-estudio.html#cb298-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined, <span class="at">keyVars =</span> selectedKeyVarsIND,</span>
-<span id="cb298-4"><a href="caso-de-estudio.html#cb298-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hhId =</span> selectedHouseholdID, <span class="at">weightVar =</span> WeightVarIND,</span>
-<span id="cb298-5"><a href="caso-de-estudio.html#cb298-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="caso-de-estudio.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Objetos SDC con todas las variables y variables HH tratadas para</span></span>
+<span id="cb286-2"><a href="caso-de-estudio.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="co"># anonimización de variables de nivel individual</span></span>
+<span id="cb286-3"><a href="caso-de-estudio.html#cb286-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">createSdcObj</span>(<span class="at">dat =</span> fileCombined, <span class="at">keyVars =</span> selectedKeyVarsIND,</span>
+<span id="cb286-4"><a href="caso-de-estudio.html#cb286-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hhId =</span> selectedHouseholdID, <span class="at">weightVar =</span> WeightVarIND,</span>
+<span id="cb286-5"><a href="caso-de-estudio.html#cb286-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
 <p>Además, como en este caso fue necesario crear nuevamente el objeto SDC, hay que aplicar nuevamente la recodificación de la variable edad con la función <code>globalRecode()</code>.</p>
 <div class="example">
 <p><span id="exm:bloque59nbm" class="example"><strong>Bloque 11.58  </strong></span>Recodificar edad nuevamente</p>
 </div>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="caso-de-estudio.html#cb299-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
-<span id="cb299-2"><a href="caso-de-estudio.html#cb299-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
-<span id="cb299-3"><a href="caso-de-estudio.html#cb299-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">24</span>,<span class="dv">29</span>,<span class="dv">39</span>,<span class="dv">49</span>,<span class="dv">59</span>,<span class="dv">69</span>,<span class="dv">79</span>,<span class="dv">89</span>,<span class="dv">120</span>),</span>
-<span id="cb299-4"><a href="caso-de-estudio.html#cb299-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="caso-de-estudio.html#cb287-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
+<span id="cb287-2"><a href="caso-de-estudio.html#cb287-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
+<span id="cb287-3"><a href="caso-de-estudio.html#cb287-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="dv">14</span>,<span class="dv">19</span>,<span class="dv">24</span>,<span class="dv">29</span>,<span class="dv">39</span>,<span class="dv">49</span>,<span class="dv">59</span>,<span class="dv">69</span>,<span class="dv">79</span>,<span class="dv">89</span>,<span class="dv">120</span>),</span>
+<span id="cb287-4"><a href="caso-de-estudio.html#cb287-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
 </div>
 <div id="re-medición-del-riesgo-para-segundo-conjunto-de-métodos" class="section level3 hasAnchor" number="11.4.4">
 <h3><span class="header-section-number">11.4.4</span> Re-medición del riesgo para segundo conjunto de métodos<a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1573,7 +1540,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque60nbm" class="example"><strong>Bloque 11.59  </strong></span>Riesgo global</p>
 </div>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="caso-de-estudio.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="caso-de-estudio.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 
@@ -1588,57 +1555,45 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ##   in modified data: 2216.99 (4.68 %)
 ##   in original data: 4524.60 (9.56 %)
 ## ----------------------------------------------------------------------</code></pre>
-<p>Ahora medimos el riesgo de manera individual. Se observa que 15.463 de los casos (32,7% del total) presentan un riesgo superior al 1%, lo que aún incumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 3.000 de las personas (6,3% del total) presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 286 y un 92 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.</p>
+<p>Ahora medimos el riesgo de manera individual. Se observa que 2.902 de los casos presentan un riesgo superior al 1%, lo que aún cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 517 de las personas presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 50 y un 17 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.</p>
 <div class="example">
 <p><span id="exm:bloque61nbm" class="example"><strong>Bloque 11.60  </strong></span>Riesgo individual</p>
 </div>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="caso-de-estudio.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
-<span id="cb302-2"><a href="caso-de-estudio.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="caso-de-estudio.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
+<span id="cb290-2"><a href="caso-de-estudio.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 15463</code></pre>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="caso-de-estudio.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
-<span id="cb304-2"><a href="caso-de-estudio.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="caso-de-estudio.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
+<span id="cb292-2"><a href="caso-de-estudio.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
 <pre><code>## [1] 3000</code></pre>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="caso-de-estudio.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
-<span id="cb306-2"><a href="caso-de-estudio.html#cb306-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="caso-de-estudio.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
+<span id="cb294-2"><a href="caso-de-estudio.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
 <pre><code>## [1] 286</code></pre>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="caso-de-estudio.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
-<span id="cb308-2"><a href="caso-de-estudio.html#cb308-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="caso-de-estudio.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
+<span id="cb296-2"><a href="caso-de-estudio.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
 <pre><code>## [1] 92</code></pre>
-<p>Revisamos el k-anonimato para los casos ponderados. Aún hay 54 casos que incumplen el 2-anonimato.</p>
+<p>Revisamos el k-anonimato para los casos no ponderados, es decir a nivel muestral. Aún hay 2.886 casos que incumplen el 2-anonimato.</p>
 <div class="example">
 <p><span id="exm:bloque62nbm" class="example"><strong>Bloque 11.61  </strong></span>K-anonimato</p>
 </div>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="caso-de-estudio.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-anonimato</span></span>
-<span id="cb310-2"><a href="caso-de-estudio.html#cb310-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## [1] 54
-## attr(,&quot;k&quot;)
-## [1] 2
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="caso-de-estudio.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3-anonimato</span></span>
-<span id="cb312-2"><a href="caso-de-estudio.html#cb312-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">3</span>) </span></code></pre></div>
-<pre><code>## [1] 85
-## attr(,&quot;k&quot;)
-## [1] 3
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="caso-de-estudio.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-anonimato</span></span>
-<span id="cb314-2"><a href="caso-de-estudio.html#cb314-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>## [1] 132
-## attr(,&quot;k&quot;)
-## [1] 5
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<p>Luego medimos el <em>l-diversity</em>. Se observa una leve mejora en el <em>l-diversity</em>, al observarse ahora una diversidad de 2 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="caso-de-estudio.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
+<pre><code>## Infos on 2/3-Anonymity:
+## 
+## Number of observations violating
+##   - 2-anonymity: 15773 (33.316%) | in original data: 36576 (77.256%)
+##   - 3-anonymity: 22691 (47.928%) | in original data: 44316 (93.604%)
+##   - 5-anonymity: 31934 (67.451%) | in original data: 47047 (99.373%)
+## 
+## ----------------------------------------------------------------------</code></pre>
+<p>Luego medimos el <em>l-diversity</em>. Se observa una importante mejora en el <em>l-diversity</em>, al observarse ahora una diversidad de 30 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.</p>
 <div class="example">
 <p><span id="exm:bloque63nbm" class="example"><strong>Bloque 11.62  </strong></span>L-diversity</p>
 </div>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="caso-de-estudio.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
-<span id="cb316-2"><a href="caso-de-estudio.html#cb316-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
-<span id="cb316-3"><a href="caso-de-estudio.html#cb316-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
-<span id="cb316-4"><a href="caso-de-estudio.html#cb316-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb316-5"><a href="caso-de-estudio.html#cb316-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
-<span id="cb316-6"><a href="caso-de-estudio.html#cb316-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="caso-de-estudio.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
+<span id="cb300-2"><a href="caso-de-estudio.html#cb300-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
+<span id="cb300-3"><a href="caso-de-estudio.html#cb300-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
+<span id="cb300-4"><a href="caso-de-estudio.html#cb300-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb300-5"><a href="caso-de-estudio.html#cb300-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
+<span id="cb300-6"><a href="caso-de-estudio.html#cb300-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
 <pre><code>## --------------------------</code></pre>
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
@@ -1649,7 +1604,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ##  Mean   : 2.2            Mean   : 2.4            Mean   : 2.27                
 ##  3rd Qu.: 3.0            3rd Qu.: 3.0            3rd Qu.: 3.00                
 ##  Max.   :13.0            Max.   :14.0            Max.   :13.00</code></pre>
-<p>En suma, debido a los riesgos individuales, k-anonimato y <em>l-diversity</em>, aún se requiere seguir aplicando métodos SDC.</p>
+<p>En suma, debido a que persiste cierto grado de riesgos individuales e incumplimiento de k-anonimato aún se requiere seguir aplicando métodos SDC.</p>
 </div>
 <div id="tercer-conjunto-de-métodos-sdc" class="section level3 hasAnchor" number="11.4.5">
 <h3><span class="header-section-number">11.4.5</span> Tercer conjunto de métodos SDC<a href="caso-de-estudio.html#tercer-conjunto-de-métodos-sdc" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1658,26 +1613,32 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque64nbm" class="example"><strong>Bloque 11.63  </strong></span>Recodificar de variables</p>
 </div>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="caso-de-estudio.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos pertenencia indígena</span></span>
-<span id="cb321-2"><a href="caso-de-estudio.html#cb321-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_pertenencia_indigena&quot;</span>,</span>
-<span id="cb321-3"><a href="caso-de-estudio.html#cb321-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">1</span>))</span>
-<span id="cb321-4"><a href="caso-de-estudio.html#cb321-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb321-5"><a href="caso-de-estudio.html#cb321-5" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_pertenencia_indigena&quot;</span>,</span>
-<span id="cb321-6"><a href="caso-de-estudio.html#cb321-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">10</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">2</span>))</span>
-<span id="cb321-7"><a href="caso-de-estudio.html#cb321-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb321-8"><a href="caso-de-estudio.html#cb321-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos nacionalidad</span></span>
-<span id="cb321-9"><a href="caso-de-estudio.html#cb321-9" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_nacionalidad&quot;</span>,</span>
-<span id="cb321-10"><a href="caso-de-estudio.html#cb321-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="caso-de-estudio.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos pertenencia indígena</span></span>
+<span id="cb305-2"><a href="caso-de-estudio.html#cb305-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_pertenencia_indigena&quot;</span>,</span>
+<span id="cb305-3"><a href="caso-de-estudio.html#cb305-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">1</span>))</span>
+<span id="cb305-4"><a href="caso-de-estudio.html#cb305-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-5"><a href="caso-de-estudio.html#cb305-5" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_pertenencia_indigena&quot;</span>,</span>
+<span id="cb305-6"><a href="caso-de-estudio.html#cb305-6" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">11</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">2</span>))</span>
+<span id="cb305-7"><a href="caso-de-estudio.html#cb305-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-8"><a href="caso-de-estudio.html#cb305-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos nacionalidad</span></span>
+<span id="cb305-9"><a href="caso-de-estudio.html#cb305-9" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_nacionalidad&quot;</span>,</span>
+<span id="cb305-10"><a href="caso-de-estudio.html#cb305-10" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">2</span>))</span>
+<span id="cb305-11"><a href="caso-de-estudio.html#cb305-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb305-12"><a href="caso-de-estudio.html#cb305-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos situacion_ocupacional</span></span>
+<span id="cb305-13"><a href="caso-de-estudio.html#cb305-13" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_situacion_ocupacional&quot;</span>,</span>
+<span id="cb305-14"><a href="caso-de-estudio.html#cb305-14" aria-hidden="true" tabindex="-1"></a>                              <span class="at">before=</span><span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">after=</span><span class="fu">c</span>(<span class="dv">3</span>))</span></code></pre></div>
 <p>Luego, se aplica supresión local en las variables de menor prioridad. Se seleccionan estas variables cuidadosamente, dado que se aplicará un método drástico como es la supresión local, teniendo como criterio las propiedades estadísticas que se buscan preservar en la base de datos.</p>
 <p>Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro <code>threshold</code> dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.</p>
 <div class="example">
 <p><span id="exm:bloque65nbm" class="example"><strong>Bloque 11.64  </strong></span>Supresión local</p>
 </div>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="caso-de-estudio.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># supresión local para riesgos globales e individuales</span></span>
-<span id="cb322-2"><a href="caso-de-estudio.html#cb322-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_idgen&#39;</span>, <span class="at">threshold=</span><span class="fl">0.1</span>)</span>
-<span id="cb322-3"><a href="caso-de-estudio.html#cb322-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_pertenencia_indigena&#39;</span>, <span class="at">threshold=</span><span class="fl">0.1</span>)</span>
-<span id="cb322-4"><a href="caso-de-estudio.html#cb322-4" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_nacionalidad&#39;</span>, <span class="at">threshold=</span><span class="fl">0.1</span>)</span>
-<span id="cb322-5"><a href="caso-de-estudio.html#cb322-5" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_situacion_ocupacional&#39;</span>, <span class="at">threshold=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="caso-de-estudio.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="co"># supresión local para riesgos globales e individuales</span></span>
+<span id="cb306-2"><a href="caso-de-estudio.html#cb306-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_idgen&#39;</span>, <span class="at">threshold=</span><span class="fl">0.01</span>)</span>
+<span id="cb306-3"><a href="caso-de-estudio.html#cb306-3" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_pertenencia_indigena&#39;</span>, <span class="at">threshold=</span><span class="fl">0.01</span>)</span>
+<span id="cb306-4"><a href="caso-de-estudio.html#cb306-4" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_nacionalidad&#39;</span>, <span class="at">threshold=</span><span class="fl">0.01</span>)</span>
+<span id="cb306-5"><a href="caso-de-estudio.html#cb306-5" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_situacion_ocupacional&#39;</span>, <span class="at">threshold=</span><span class="fl">0.01</span>)</span>
+<span id="cb306-6"><a href="caso-de-estudio.html#cb306-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb306-7"><a href="caso-de-estudio.html#cb306-7" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSuppression</span>(sdcCombined,<span class="at">importance =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">k =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>Como veremos en el siguiente paso,los métodos aplicados en esta tercera iteración logran alcanzar los umbrales requeridos. Con esto, podemos pasar al Paso Cinco y evaluar de forma completa el proceso SDC, consirando tanto la evaluación del riesgo como de la utilidad.</p>
 </div>
 </div>
@@ -1689,82 +1650,70 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque66nbm" class="example"><strong>Bloque 11.65  </strong></span>Riesgo global</p>
 </div>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="caso-de-estudio.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="caso-de-estudio.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 
 ##   in modified data: 0
 ##   in original data: 2471
 ## Expected number of re-identifications: 
-##   in modified data: 151.03 (0.32 %)
+##   in modified data: 25.14 (0.05 %)
 ##   in original data: 1683.54 (3.56 %)
 ## 
 ## Information on hierarchical risk:
 ## Expected number of re-identifications: 
-##   in modified data: 459.40 (0.97 %)
+##   in modified data: 73.90 (0.16 %)
 ##   in original data: 4524.60 (9.56 %)
 ## ----------------------------------------------------------------------</code></pre>
-<p>Ahora medimos el riesgo de manera individual. Se observa que el 19,3% de los casos presentan un riesgo superior al 1%, lo que cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que hay 1.078 registros con riesgo individual superior al 5%, lo que equivale al 2,3% de los casos, lo que cumple con el umbral establecido (&lt;15%). Finalmente, no se observan casos con riesgo individual superior al 25%.</p>
+<p>Ahora medimos el riesgo de manera individual. Se observa que no hay casos que excedan estos niveles de riesgo luego de los últimos tratamientos a los datos.</p>
 <div class="example">
 <p><span id="exm:bloque67nbm" class="example"><strong>Bloque 11.66  </strong></span>Riesgo individual</p>
 </div>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="caso-de-estudio.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
-<span id="cb325-2"><a href="caso-de-estudio.html#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
-<pre><code>## [1] 3970</code></pre>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="caso-de-estudio.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
-<span id="cb327-2"><a href="caso-de-estudio.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
-<pre><code>## [1] 480</code></pre>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="caso-de-estudio.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
-<span id="cb329-2"><a href="caso-de-estudio.html#cb329-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="caso-de-estudio.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
+<span id="cb309-2"><a href="caso-de-estudio.html#cb309-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="caso-de-estudio.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
-<span id="cb331-2"><a href="caso-de-estudio.html#cb331-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="caso-de-estudio.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
+<span id="cb311-2"><a href="caso-de-estudio.html#cb311-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de k-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="caso-de-estudio.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
+<span id="cb313-2"><a href="caso-de-estudio.html#cb313-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="caso-de-estudio.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
+<span id="cb315-2"><a href="caso-de-estudio.html#cb315-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de 2-anonimato y una cantidad aceptable de casos que incumplen el 3-anonimato y 5-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.</p>
 <div class="example">
 <p><span id="exm:bloque68nbm" class="example"><strong>Bloque 11.67  </strong></span>K-anonimato</p>
 </div>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="caso-de-estudio.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2-anonimato</span></span>
-<span id="cb333-2"><a href="caso-de-estudio.html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">2</span>) </span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 2
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="caso-de-estudio.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3-anonimato</span></span>
-<span id="cb335-2"><a href="caso-de-estudio.html#cb335-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">3</span>) </span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 3
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="caso-de-estudio.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5-anonimato</span></span>
-<span id="cb337-2"><a href="caso-de-estudio.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kAnon_violations</span>(sdcCombined, <span class="at">weighted =</span> T, <span class="at">k =</span> <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>## [1] 0
-## attr(,&quot;k&quot;)
-## [1] 5
-## attr(,&quot;weighted&quot;)
-## [1] TRUE</code></pre>
-<p>Luego medimos el <em>l-diversity</em>. Se observa que los valores de promedio y mediana de <em>l-diversity</em> son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Si bien estos no son valores ideales, se decide no proseguir con métodos SDC para no perder más utilidad de los datos.</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="caso-de-estudio.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
+<pre><code>## Infos on 2/3-Anonymity:
+## 
+## Number of observations violating
+##   - 2-anonymity: 0 (0.000%) | in original data: 36576 (77.256%)
+##   - 3-anonymity: 1169 (2.469%) | in original data: 44316 (93.604%)
+##   - 5-anonymity: 5373 (11.349%) | in original data: 47047 (99.373%)
+## 
+## ----------------------------------------------------------------------</code></pre>
+<p>Luego medimos el <em>l-diversity</em>. Se observa que los valores de promedio y mediana de <em>l-diversity</em> son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Dado que se obtienen buenos resultados, se decide no proseguir con métodos SDC para no perder más utilidad de los datos.</p>
 <div class="example">
 <p><span id="exm:bloque69nbm" class="example"><strong>Bloque 11.68  </strong></span>L-diversity</p>
 </div>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="caso-de-estudio.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
-<span id="cb339-2"><a href="caso-de-estudio.html#cb339-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
-<span id="cb339-3"><a href="caso-de-estudio.html#cb339-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
-<span id="cb339-4"><a href="caso-de-estudio.html#cb339-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb339-5"><a href="caso-de-estudio.html#cb339-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
-<span id="cb339-6"><a href="caso-de-estudio.html#cb339-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="caso-de-estudio.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
+<span id="cb319-2"><a href="caso-de-estudio.html#cb319-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
+<span id="cb319-3"><a href="caso-de-estudio.html#cb319-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">l_recurs_c =</span> <span class="dv">2</span>, <span class="at">missing =</span> <span class="cn">NA</span>)</span>
+<span id="cb319-4"><a href="caso-de-estudio.html#cb319-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb319-5"><a href="caso-de-estudio.html#cb319-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisamos las medidas de riesgo de l-diversity</span></span>
+<span id="cb319-6"><a href="caso-de-estudio.html#cb319-6" aria-hidden="true" tabindex="-1"></a>med_riesgo<span class="sc">@</span>risk<span class="sc">$</span>ldiversity</span></code></pre></div>
 <pre><code>## --------------------------</code></pre>
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
 <pre><code>##  P17_Distinct_Ldiversity P24_Distinct_Ldiversity DEN_AGREG_Distinct_Ldiversity
-##  Min.   : 1.000          Min.   : 1.000          Min.   : 1.000               
-##  1st Qu.: 1.000          1st Qu.: 1.000          1st Qu.: 1.000               
-##  Median : 5.000          Median : 6.000          Median : 5.000               
-##  Mean   : 9.127          Mean   : 9.608          Mean   : 9.429               
-##  3rd Qu.:14.000          3rd Qu.:14.000          3rd Qu.:14.000               
-##  Max.   :70.000          Max.   :71.000          Max.   :71.000</code></pre>
+##  Min.   : 1.00           Min.   : 1.00           Min.   : 1.00                
+##  1st Qu.: 2.00           1st Qu.: 2.00           1st Qu.: 2.00                
+##  Median : 7.00           Median : 8.00           Median : 8.00                
+##  Mean   :11.12           Mean   :11.67           Mean   :11.48                
+##  3rd Qu.:17.00           3rd Qu.:17.00           3rd Qu.:17.00                
+##  Max.   :80.00           Max.   :81.00           Max.   :81.00</code></pre>
 <p>Los resultados aquí expuestos cumplen con los umbrales, por lo que ahora corresponde volver a medir la utilidad.</p>
 </div>
 <div id="evaluar-proceso-sdc---volver-a-medir-utilidad" class="section level3 hasAnchor" number="11.5.2">
@@ -1775,17 +1724,17 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque70nbm" class="example"><strong>Bloque 11.69  </strong></span>Extraer datos tratados</p>
 </div>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="caso-de-estudio.html#cb344-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdcCombined)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="caso-de-estudio.html#cb324-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdcCombined)</span></code></pre></div>
 <p>Luego evaluamos cuántos valores perdidos tenemos debido a la supresión local. Para ello, imprimimos el porcentaje de celdas perdidas pre y post anonimización.</p>
 <p>Primero vemos que, por flujo algunas variables tienen celdas vacías. La comparación consiste en ver si luego estos porcentajes aumentan.</p>
 <div class="example">
 <p><span id="exm:bloque71nbm" class="example"><strong>Bloque 11.70  </strong></span>Celdas vacías previo a anomización</p>
 </div>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="caso-de-estudio.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># % de celdas vacías pre-anonimización</span></span>
-<span id="cb345-2"><a href="caso-de-estudio.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileCombined))){</span>
-<span id="cb345-3"><a href="caso-de-estudio.html#cb345-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">names</span>(fileCombined)[i])</span>
-<span id="cb345-4"><a href="caso-de-estudio.html#cb345-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(fileCombined[[<span class="fu">names</span>(fileCombined)[i]]]))<span class="sc">/</span><span class="fu">nrow</span>(fileCombined)<span class="sc">*</span><span class="dv">100</span>)</span>
-<span id="cb345-5"><a href="caso-de-estudio.html#cb345-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="caso-de-estudio.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="co"># % de celdas vacías pre-anonimización</span></span>
+<span id="cb325-2"><a href="caso-de-estudio.html#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileCombined))){</span>
+<span id="cb325-3"><a href="caso-de-estudio.html#cb325-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">names</span>(fileCombined)[i])</span>
+<span id="cb325-4"><a href="caso-de-estudio.html#cb325-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(fileCombined[[<span class="fu">names</span>(fileCombined)[i]]]))<span class="sc">/</span><span class="fu">nrow</span>(fileCombined)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb325-5"><a href="caso-de-estudio.html#cb325-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;enc_idr&quot;
 ## [1] 0
 ## [1] &quot;rph_ID&quot;
@@ -1820,10 +1769,10 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque72nbm" class="example"><strong>Bloque 11.71  </strong></span>Celdas vacías después de anomización</p>
 </div>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="caso-de-estudio.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileTratada))){</span>
-<span id="cb347-2"><a href="caso-de-estudio.html#cb347-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">names</span>(fileTratada)[i])</span>
-<span id="cb347-3"><a href="caso-de-estudio.html#cb347-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(fileTratada[[<span class="fu">names</span>(fileTratada)[i]]]))<span class="sc">/</span><span class="fu">nrow</span>(fileTratada)<span class="sc">*</span><span class="dv">100</span>)</span>
-<span id="cb347-4"><a href="caso-de-estudio.html#cb347-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="caso-de-estudio.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileTratada))){</span>
+<span id="cb327-2"><a href="caso-de-estudio.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">names</span>(fileTratada)[i])</span>
+<span id="cb327-3"><a href="caso-de-estudio.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(fileTratada[[<span class="fu">names</span>(fileTratada)[i]]]))<span class="sc">/</span><span class="fu">nrow</span>(fileTratada)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb327-4"><a href="caso-de-estudio.html#cb327-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;enc_idr&quot;
 ## [1] 0
 ## [1] &quot;rph_ID&quot;
@@ -1835,13 +1784,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## [1] &quot;rph_sexo&quot;
 ## [1] 0
 ## [1] &quot;rph_idgen&quot;
-## [1] 15.40216
+## [1] 19.36254
 ## [1] &quot;rph_pertenencia_indigena&quot;
-## [1] 0.2513518
+## [1] 1.341247
 ## [1] &quot;rph_nacionalidad&quot;
-## [1] 0.084488
+## [1] 0.3569618
 ## [1] &quot;rph_situacion_ocupacional&quot;
-## [1] 14.83821
+## [1] 14.91424
 ## [1] &quot;Fact_Ind&quot;
 ## [1] 0
 ## [1] &quot;P17&quot;
@@ -1863,22 +1812,22 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque73nbm" class="example"><strong>Bloque 11.72  </strong></span>Generar variable de marcas de clase de edad</p>
 </div>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="caso-de-estudio.html#cb349-1" aria-hidden="true" tabindex="-1"></a>fileTratada<span class="sc">$</span>rph_edad_mc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
-<span id="cb349-2"><a href="caso-de-estudio.html#cb349-2" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fl">7.5</span>,</span>
-<span id="cb349-3"><a href="caso-de-estudio.html#cb349-3" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">17</span>,</span>
-<span id="cb349-4"><a href="caso-de-estudio.html#cb349-4" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">22</span>,</span>
-<span id="cb349-5"><a href="caso-de-estudio.html#cb349-5" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">27</span>,</span>
-<span id="cb349-6"><a href="caso-de-estudio.html#cb349-6" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="fl">34.5</span>,</span>
-<span id="cb349-7"><a href="caso-de-estudio.html#cb349-7" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="fl">44.5</span>,</span>
-<span id="cb349-8"><a href="caso-de-estudio.html#cb349-8" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="fl">54.5</span>,</span>
-<span id="cb349-9"><a href="caso-de-estudio.html#cb349-9" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="fl">64.5</span>,</span>
-<span id="cb349-10"><a href="caso-de-estudio.html#cb349-10" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">9</span> <span class="sc">~</span> <span class="fl">74.5</span>,</span>
-<span id="cb349-11"><a href="caso-de-estudio.html#cb349-11" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="fl">84.5</span>,</span>
-<span id="cb349-12"><a href="caso-de-estudio.html#cb349-12" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">90</span></span>
-<span id="cb349-13"><a href="caso-de-estudio.html#cb349-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb349-14"><a href="caso-de-estudio.html#cb349-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb349-15"><a href="caso-de-estudio.html#cb349-15" aria-hidden="true" tabindex="-1"></a>fileTratada<span class="sc">$</span>rph_edad_mc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(fileTratada<span class="sc">$</span>rph_edad_mc)</span>
-<span id="cb349-16"><a href="caso-de-estudio.html#cb349-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(fileTratada<span class="sc">$</span>rph_edad_mc)</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="caso-de-estudio.html#cb329-1" aria-hidden="true" tabindex="-1"></a>fileTratada<span class="sc">$</span>rph_edad_mc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb329-2"><a href="caso-de-estudio.html#cb329-2" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fl">7.5</span>,</span>
+<span id="cb329-3"><a href="caso-de-estudio.html#cb329-3" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">17</span>,</span>
+<span id="cb329-4"><a href="caso-de-estudio.html#cb329-4" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">22</span>,</span>
+<span id="cb329-5"><a href="caso-de-estudio.html#cb329-5" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="dv">27</span>,</span>
+<span id="cb329-6"><a href="caso-de-estudio.html#cb329-6" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="fl">34.5</span>,</span>
+<span id="cb329-7"><a href="caso-de-estudio.html#cb329-7" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="fl">44.5</span>,</span>
+<span id="cb329-8"><a href="caso-de-estudio.html#cb329-8" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="fl">54.5</span>,</span>
+<span id="cb329-9"><a href="caso-de-estudio.html#cb329-9" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="fl">64.5</span>,</span>
+<span id="cb329-10"><a href="caso-de-estudio.html#cb329-10" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">9</span> <span class="sc">~</span> <span class="fl">74.5</span>,</span>
+<span id="cb329-11"><a href="caso-de-estudio.html#cb329-11" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">10</span> <span class="sc">~</span> <span class="fl">84.5</span>,</span>
+<span id="cb329-12"><a href="caso-de-estudio.html#cb329-12" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">90</span></span>
+<span id="cb329-13"><a href="caso-de-estudio.html#cb329-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb329-14"><a href="caso-de-estudio.html#cb329-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb329-15"><a href="caso-de-estudio.html#cb329-15" aria-hidden="true" tabindex="-1"></a>fileTratada<span class="sc">$</span>rph_edad_mc <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(fileTratada<span class="sc">$</span>rph_edad_mc)</span>
+<span id="cb329-16"><a href="caso-de-estudio.html#cb329-16" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(fileTratada<span class="sc">$</span>rph_edad_mc)</span></code></pre></div>
 <pre><code>## 
 ##  7.5   17   22   27 34.5 44.5 54.5 64.5 74.5 84.5   90 
 ## 7012 2216 2228 2114 4324 4282 4274 4304 4397 4348 7845</code></pre>
@@ -1886,85 +1835,85 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque74nbm" class="example"><strong>Bloque 11.73  </strong></span>Añadir variables de diseño muestral</p>
 </div>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="caso-de-estudio.html#cb351-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(fileTratada,</span>
-<span id="cb351-2"><a href="caso-de-estudio.html#cb351-2" aria-hidden="true" tabindex="-1"></a>                                file[,<span class="fu">c</span>(<span class="st">&#39;rph_ID&#39;</span>,<span class="st">&#39;Fact_Pers&#39;</span>,<span class="st">&#39;Fact_Hog&#39;</span>,</span>
-<span id="cb351-3"><a href="caso-de-estudio.html#cb351-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Conglomerado&#39;</span>,<span class="st">&#39;VarStrat&#39;</span>,</span>
-<span id="cb351-4"><a href="caso-de-estudio.html#cb351-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;VA_DC&#39;</span>,<span class="st">&#39;VP_DC&#39;</span>,<span class="st">&#39;Kish&#39;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="caso-de-estudio.html#cb331-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(fileTratada,</span>
+<span id="cb331-2"><a href="caso-de-estudio.html#cb331-2" aria-hidden="true" tabindex="-1"></a>                                file[,<span class="fu">c</span>(<span class="st">&#39;rph_ID&#39;</span>,<span class="st">&#39;Fact_Pers&#39;</span>,<span class="st">&#39;Fact_Hog&#39;</span>,</span>
+<span id="cb331-3"><a href="caso-de-estudio.html#cb331-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;Conglomerado&#39;</span>,<span class="st">&#39;VarStrat&#39;</span>,</span>
+<span id="cb331-4"><a href="caso-de-estudio.html#cb331-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&#39;VA_DC&#39;</span>,<span class="st">&#39;VP_DC&#39;</span>,<span class="st">&#39;Kish&#39;</span>)])</span></code></pre></div>
 <pre><code>## Joining with `by = join_by(rph_ID, Fact_Hog)`</code></pre>
 <p>A continuación, se comparan los resultados de los datos originales con los tratados en lo que refiere al cálculo de indicadores principales con desagregaciones.</p>
 <p>Para ello, primero se establece el diseño complejo para personas y para hogares.</p>
 <div class="example">
 <p><span id="exm:bloque75nbm" class="example"><strong>Bloque 11.74  </strong></span>Declarar diseño complejo</p>
 </div>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="caso-de-estudio.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos un conjunto de datos tratados donde solo tenemos las filas del informante Kish</span></span>
-<span id="cb353-2"><a href="caso-de-estudio.html#cb353-2" aria-hidden="true" tabindex="-1"></a>fileTratada_kish <span class="ot">&lt;-</span> fileTratada[fileTratada<span class="sc">$</span>Kish  <span class="sc">%in%</span> <span class="dv">1</span>,]</span>
-<span id="cb353-3"><a href="caso-de-estudio.html#cb353-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-4"><a href="caso-de-estudio.html#cb353-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fijamos las opciones del diseño complejo</span></span>
-<span id="cb353-5"><a href="caso-de-estudio.html#cb353-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">survey.lonely.psu =</span> <span class="st">&quot;certainty&quot;</span>)</span>
-<span id="cb353-6"><a href="caso-de-estudio.html#cb353-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-7"><a href="caso-de-estudio.html#cb353-7" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos el diseño complejo para el factor de expansión de personas</span></span>
-<span id="cb353-8"><a href="caso-de-estudio.html#cb353-8" aria-hidden="true" tabindex="-1"></a>dc_pers_trat <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span>Conglomerado, </span>
-<span id="cb353-9"><a href="caso-de-estudio.html#cb353-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">strata =</span> <span class="sc">~</span>VarStrat, </span>
-<span id="cb353-10"><a href="caso-de-estudio.html#cb353-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> fileTratada_kish,</span>
-<span id="cb353-11"><a href="caso-de-estudio.html#cb353-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">weights =</span> <span class="sc">~</span>Fact_Pers)</span>
-<span id="cb353-12"><a href="caso-de-estudio.html#cb353-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb353-13"><a href="caso-de-estudio.html#cb353-13" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos el diseño complejo para el factor de expansión de hogares</span></span>
-<span id="cb353-14"><a href="caso-de-estudio.html#cb353-14" aria-hidden="true" tabindex="-1"></a>dc_hog_trat <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span>Conglomerado, </span>
-<span id="cb353-15"><a href="caso-de-estudio.html#cb353-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strata =</span> <span class="sc">~</span>VarStrat, </span>
-<span id="cb353-16"><a href="caso-de-estudio.html#cb353-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> fileTratada_kish,</span>
-<span id="cb353-17"><a href="caso-de-estudio.html#cb353-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">weights =</span> <span class="sc">~</span>Fact_Hog)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="caso-de-estudio.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos un conjunto de datos tratados donde solo tenemos las filas del informante Kish</span></span>
+<span id="cb333-2"><a href="caso-de-estudio.html#cb333-2" aria-hidden="true" tabindex="-1"></a>fileTratada_kish <span class="ot">&lt;-</span> fileTratada[fileTratada<span class="sc">$</span>Kish  <span class="sc">%in%</span> <span class="dv">1</span>,]</span>
+<span id="cb333-3"><a href="caso-de-estudio.html#cb333-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-4"><a href="caso-de-estudio.html#cb333-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fijamos las opciones del diseño complejo</span></span>
+<span id="cb333-5"><a href="caso-de-estudio.html#cb333-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">survey.lonely.psu =</span> <span class="st">&quot;certainty&quot;</span>)</span>
+<span id="cb333-6"><a href="caso-de-estudio.html#cb333-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-7"><a href="caso-de-estudio.html#cb333-7" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos el diseño complejo para el factor de expansión de personas</span></span>
+<span id="cb333-8"><a href="caso-de-estudio.html#cb333-8" aria-hidden="true" tabindex="-1"></a>dc_pers_trat <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span>Conglomerado, </span>
+<span id="cb333-9"><a href="caso-de-estudio.html#cb333-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">strata =</span> <span class="sc">~</span>VarStrat, </span>
+<span id="cb333-10"><a href="caso-de-estudio.html#cb333-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> fileTratada_kish,</span>
+<span id="cb333-11"><a href="caso-de-estudio.html#cb333-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">weights =</span> <span class="sc">~</span>Fact_Pers)</span>
+<span id="cb333-12"><a href="caso-de-estudio.html#cb333-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb333-13"><a href="caso-de-estudio.html#cb333-13" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos el diseño complejo para el factor de expansión de hogares</span></span>
+<span id="cb333-14"><a href="caso-de-estudio.html#cb333-14" aria-hidden="true" tabindex="-1"></a>dc_hog_trat <span class="ot">&lt;-</span> <span class="fu">svydesign</span>(<span class="at">ids =</span> <span class="sc">~</span>Conglomerado, </span>
+<span id="cb333-15"><a href="caso-de-estudio.html#cb333-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">strata =</span> <span class="sc">~</span>VarStrat, </span>
+<span id="cb333-16"><a href="caso-de-estudio.html#cb333-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> fileTratada_kish,</span>
+<span id="cb333-17"><a href="caso-de-estudio.html#cb333-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">weights =</span> <span class="sc">~</span>Fact_Hog)</span></code></pre></div>
 <p>Previamente, calculamos estas desagregaciones con los datos no tratados. A continuación, se recalculan con los datos tratados y se comparan los resultados calculando la diferencia. Esta se visualiza a través de la función <code>summary()</code>.</p>
 <p>Victimización agregada de delitos consumados, desagregado por región:</p>
 <div class="example">
 <p><span id="exm:bloque76nbm" class="example"><strong>Bloque 11.75  </strong></span>Estimar Victimización Agregada a nivel regional, con estandar de calidad INE</p>
 </div>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="caso-de-estudio.html#cb354-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VA_DC&#39;</span>, </span>
-<span id="cb354-2"><a href="caso-de-estudio.html#cb354-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
-<span id="cb354-3"><a href="caso-de-estudio.html#cb354-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_hog_trat)</span>
-<span id="cb354-4"><a href="caso-de-estudio.html#cb354-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb354-5"><a href="caso-de-estudio.html#cb354-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb354-6"><a href="caso-de-estudio.html#cb354-6" aria-hidden="true" tabindex="-1"></a>VA_DC_REG_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
-<span id="cb354-7"><a href="caso-de-estudio.html#cb354-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb354-8"><a href="caso-de-estudio.html#cb354-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VA_DC_REG_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VA_DC_REG_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="caso-de-estudio.html#cb334-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VA_DC&#39;</span>, </span>
+<span id="cb334-2"><a href="caso-de-estudio.html#cb334-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
+<span id="cb334-3"><a href="caso-de-estudio.html#cb334-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_hog_trat)</span>
+<span id="cb334-4"><a href="caso-de-estudio.html#cb334-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb334-5"><a href="caso-de-estudio.html#cb334-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb334-6"><a href="caso-de-estudio.html#cb334-6" aria-hidden="true" tabindex="-1"></a>VA_DC_REG_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
+<span id="cb334-7"><a href="caso-de-estudio.html#cb334-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb334-8"><a href="caso-de-estudio.html#cb334-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VA_DC_REG_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VA_DC_REG_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por sexo:</p>
 <div class="example">
 <p><span id="exm:bloque77nbm" class="example"><strong>Bloque 11.76  </strong></span>Estimar Victimización Personal según sexo, con estandar de calidad INE</p>
 </div>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="caso-de-estudio.html#cb356-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
-<span id="cb356-2"><a href="caso-de-estudio.html#cb356-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo&#39;</span>, </span>
-<span id="cb356-3"><a href="caso-de-estudio.html#cb356-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
-<span id="cb356-4"><a href="caso-de-estudio.html#cb356-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb356-5"><a href="caso-de-estudio.html#cb356-5" aria-hidden="true" tabindex="-1"></a>VP_DC_SEXO_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
-<span id="cb356-6"><a href="caso-de-estudio.html#cb356-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb356-7"><a href="caso-de-estudio.html#cb356-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_SEXO_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_SEXO_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="caso-de-estudio.html#cb336-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
+<span id="cb336-2"><a href="caso-de-estudio.html#cb336-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo&#39;</span>, </span>
+<span id="cb336-3"><a href="caso-de-estudio.html#cb336-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
+<span id="cb336-4"><a href="caso-de-estudio.html#cb336-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-5"><a href="caso-de-estudio.html#cb336-5" aria-hidden="true" tabindex="-1"></a>VP_DC_SEXO_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
+<span id="cb336-6"><a href="caso-de-estudio.html#cb336-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb336-7"><a href="caso-de-estudio.html#cb336-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_SEXO_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_SEXO_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por región:</p>
 <div class="example">
 <p><span id="exm:bloque78nbm" class="example"><strong>Bloque 11.77  </strong></span>Estimar Victimización Personal a nivel regional, con estandar de calidad INE</p>
 </div>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="caso-de-estudio.html#cb358-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
-<span id="cb358-2"><a href="caso-de-estudio.html#cb358-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
-<span id="cb358-3"><a href="caso-de-estudio.html#cb358-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
-<span id="cb358-4"><a href="caso-de-estudio.html#cb358-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb358-5"><a href="caso-de-estudio.html#cb358-5" aria-hidden="true" tabindex="-1"></a>VP_DC_REG_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
-<span id="cb358-6"><a href="caso-de-estudio.html#cb358-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb358-7"><a href="caso-de-estudio.html#cb358-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_REG_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_REG_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="caso-de-estudio.html#cb338-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
+<span id="cb338-2"><a href="caso-de-estudio.html#cb338-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
+<span id="cb338-3"><a href="caso-de-estudio.html#cb338-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
+<span id="cb338-4"><a href="caso-de-estudio.html#cb338-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-5"><a href="caso-de-estudio.html#cb338-5" aria-hidden="true" tabindex="-1"></a>VP_DC_REG_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
+<span id="cb338-6"><a href="caso-de-estudio.html#cb338-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-7"><a href="caso-de-estudio.html#cb338-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_REG_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_REG_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por sexo y región:</p>
 <div class="example">
 <p><span id="exm:bloque79nbm" class="example"><strong>Bloque 11.78  </strong></span>Estimar Victimización Personal a nivel regional y según sexo, con estandar de calidad INE</p>
 </div>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="caso-de-estudio.html#cb360-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
-<span id="cb360-2"><a href="caso-de-estudio.html#cb360-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo+enc_region&#39;</span>, </span>
-<span id="cb360-3"><a href="caso-de-estudio.html#cb360-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
-<span id="cb360-4"><a href="caso-de-estudio.html#cb360-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb360-5"><a href="caso-de-estudio.html#cb360-5" aria-hidden="true" tabindex="-1"></a>VP_DC_REG_SEXO_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
-<span id="cb360-6"><a href="caso-de-estudio.html#cb360-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb360-7"><a href="caso-de-estudio.html#cb360-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_REG_SEXO_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_REG_SEXO_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="caso-de-estudio.html#cb340-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
+<span id="cb340-2"><a href="caso-de-estudio.html#cb340-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo+enc_region&#39;</span>, </span>
+<span id="cb340-3"><a href="caso-de-estudio.html#cb340-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">design =</span>  dc_pers_trat)</span>
+<span id="cb340-4"><a href="caso-de-estudio.html#cb340-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb340-5"><a href="caso-de-estudio.html#cb340-5" aria-hidden="true" tabindex="-1"></a>VP_DC_REG_SEXO_TRAT <span class="ot">&lt;-</span> <span class="fu">assess</span>(insumos_prop)</span>
+<span id="cb340-6"><a href="caso-de-estudio.html#cb340-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb340-7"><a href="caso-de-estudio.html#cb340-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(VP_DC_REG_SEXO_PRE<span class="sc">$</span>objetivo <span class="sc">-</span> VP_DC_REG_SEXO_TRAT<span class="sc">$</span>objetivo)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ## </code></pre>
 <p>En resumen, se cumple para todos los casos que no hay diferencias en las estimaciones al calcular con los datos originales y los tratados.</p>
@@ -1975,27 +1924,27 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque80nbm" class="example"><strong>Bloque 11.79  </strong></span>Generar dataframe para modelo</p>
 </div>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="caso-de-estudio.html#cb362-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> fileTratada_kish</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="caso-de-estudio.html#cb342-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> fileTratada_kish</span></code></pre></div>
 <p><strong>Dividir datos en <code>_training_</code> and <code>_testing_</code> sets</strong></p>
 <p>Luego, se dividen los datos en sets de training y testing.</p>
 <div class="example">
 <p><span id="exm:bloque81nbm" class="example"><strong>Bloque 11.80  </strong></span>Dividir datos en <em>training</em> y <em>testing</em> sets</p>
 </div>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="caso-de-estudio.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools)</span>
-<span id="cb363-2"><a href="caso-de-estudio.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2022</span>)</span>
-<span id="cb363-3"><a href="caso-de-estudio.html#cb363-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb363-4"><a href="caso-de-estudio.html#cb363-4" aria-hidden="true" tabindex="-1"></a>ids_train <span class="ot">&lt;-</span> <span class="fu">sample</span>(data<span class="sc">$</span>rph_ID, <span class="fu">nrow</span>(data)<span class="sc">/</span><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span>)</span>
-<span id="cb363-5"><a href="caso-de-estudio.html#cb363-5" aria-hidden="true" tabindex="-1"></a>training<span class="ot">&lt;-</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>(data[data<span class="sc">$</span>rph_ID <span class="sc">%in%</span> ids_train,])</span>
-<span id="cb363-6"><a href="caso-de-estudio.html#cb363-6" aria-hidden="true" tabindex="-1"></a>testing<span class="ot">&lt;-</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>(data[<span class="sc">!</span>data<span class="sc">$</span>rph_ID <span class="sc">%in%</span> ids_train,])</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="caso-de-estudio.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools)</span>
+<span id="cb343-2"><a href="caso-de-estudio.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2022</span>)</span>
+<span id="cb343-3"><a href="caso-de-estudio.html#cb343-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb343-4"><a href="caso-de-estudio.html#cb343-4" aria-hidden="true" tabindex="-1"></a>ids_train <span class="ot">&lt;-</span> <span class="fu">sample</span>(data<span class="sc">$</span>rph_ID, <span class="fu">nrow</span>(data)<span class="sc">/</span><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span>)</span>
+<span id="cb343-5"><a href="caso-de-estudio.html#cb343-5" aria-hidden="true" tabindex="-1"></a>training<span class="ot">&lt;-</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>(data[data<span class="sc">$</span>rph_ID <span class="sc">%in%</span> ids_train,])</span>
+<span id="cb343-6"><a href="caso-de-estudio.html#cb343-6" aria-hidden="true" tabindex="-1"></a>testing<span class="ot">&lt;-</span> sjlabelled<span class="sc">::</span><span class="fu">remove_all_labels</span>(data[<span class="sc">!</span>data<span class="sc">$</span>rph_ID <span class="sc">%in%</span> ids_train,])</span></code></pre></div>
 <p><strong>Construir modelo</strong></p>
 <p>Luego, construimos el modelo utilizando la función <code>glm()</code>.</p>
 <div class="example">
 <p><span id="exm:bloque82nbm" class="example"><strong>Bloque 11.81  </strong></span>Construir modelo</p>
 </div>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="caso-de-estudio.html#cb364-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="ot">&lt;-</span><span class="fu">glm</span>(VP_DC<span class="sc">~</span>rph_edad_mc, </span>
-<span id="cb364-2"><a href="caso-de-estudio.html#cb364-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>training, </span>
-<span id="cb364-3"><a href="caso-de-estudio.html#cb364-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
-<span id="cb364-4"><a href="caso-de-estudio.html#cb364-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="caso-de-estudio.html#cb344-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="ot">&lt;-</span><span class="fu">glm</span>(VP_DC<span class="sc">~</span>rph_edad_mc, </span>
+<span id="cb344-2"><a href="caso-de-estudio.html#cb344-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>training, </span>
+<span id="cb344-3"><a href="caso-de-estudio.html#cb344-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
+<span id="cb344-4"><a href="caso-de-estudio.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## glm(formula = VP_DC ~ rph_edad_mc, family = &quot;binomial&quot;, data = training)
@@ -2023,18 +1972,18 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque83nbm" class="example"><strong>Bloque 11.82  </strong></span>Validación de modelo</p>
 </div>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="caso-de-estudio.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ResourceSelection)</span>
-<span id="cb366-2"><a href="caso-de-estudio.html#cb366-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(modelo<span class="sc">$</span>y,<span class="fu">fitted</span>(modelo),<span class="at">g=</span><span class="dv">10</span>) <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="caso-de-estudio.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ResourceSelection)</span>
+<span id="cb346-2"><a href="caso-de-estudio.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(modelo<span class="sc">$</span>y,<span class="fu">fitted</span>(modelo),<span class="at">g=</span><span class="dv">10</span>) <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
 <pre><code>## 
 ##  Hosmer and Lemeshow goodness of fit (GOF) test
 ## 
 ## data:  modelo$y, fitted(modelo)
 ## X-squared = 156.47, df = 6, p-value &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="caso-de-estudio.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb368-2"><a href="caso-de-estudio.html#cb368-2" aria-hidden="true" tabindex="-1"></a>indiceC.trainig<span class="ot">&lt;-</span><span class="fu">roc</span>(modelo<span class="sc">$</span>y,<span class="fu">fitted</span>(modelo))     <span class="co"># Curva ROC</span></span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="caso-de-estudio.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb348-2"><a href="caso-de-estudio.html#cb348-2" aria-hidden="true" tabindex="-1"></a>indiceC.trainig<span class="ot">&lt;-</span><span class="fu">roc</span>(modelo<span class="sc">$</span>y,<span class="fu">fitted</span>(modelo))     <span class="co"># Curva ROC</span></span></code></pre></div>
 <pre><code>## Setting levels: control = 0, case = 1</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="caso-de-estudio.html#cb371-1" aria-hidden="true" tabindex="-1"></a>indiceC.trainig</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="caso-de-estudio.html#cb351-1" aria-hidden="true" tabindex="-1"></a>indiceC.trainig</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = modelo$y, predictor = fitted(modelo))
@@ -2046,26 +1995,26 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="example">
 <p><span id="exm:bloque84nbm" class="example"><strong>Bloque 11.83  </strong></span>Calcular punto de corte óptimo</p>
 </div>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="caso-de-estudio.html#cb373-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.training<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.trainig,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,</span>
-<span id="cb373-2"><a href="caso-de-estudio.html#cb373-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,</span>
-<span id="cb373-3"><a href="caso-de-estudio.html#cb373-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">best.method=</span><span class="st">&quot;youden&quot;</span>)</span>
-<span id="cb373-4"><a href="caso-de-estudio.html#cb373-4" aria-hidden="true" tabindex="-1"></a>ptocorteop.training</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="caso-de-estudio.html#cb353-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.training<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.trainig,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,</span>
+<span id="cb353-2"><a href="caso-de-estudio.html#cb353-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,</span>
+<span id="cb353-3"><a href="caso-de-estudio.html#cb353-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">best.method=</span><span class="st">&quot;youden&quot;</span>)</span>
+<span id="cb353-4"><a href="caso-de-estudio.html#cb353-4" aria-hidden="true" tabindex="-1"></a>ptocorteop.training</span></code></pre></div>
 <pre><code>##   threshold specificity sensitivity
 ## 1 0.2636494   0.8235917   0.2524462</code></pre>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="caso-de-estudio.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ROCR)</span>
-<span id="cb375-2"><a href="caso-de-estudio.html#cb375-2" aria-hidden="true" tabindex="-1"></a>ROC.training<span class="ot">&lt;-</span><span class="fu">performance</span>(<span class="at">prediction.obj =</span> <span class="fu">prediction</span>(<span class="at">predictions =</span> <span class="fu">fitted</span>(modelo),</span>
-<span id="cb375-3"><a href="caso-de-estudio.html#cb375-3" aria-hidden="true" tabindex="-1"></a>                                                      <span class="at">labels =</span> <span class="fu">as.factor</span>(modelo<span class="sc">$</span>y)),</span>
-<span id="cb375-4"><a href="caso-de-estudio.html#cb375-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;tpr&quot;</span>,</span>
-<span id="cb375-5"><a href="caso-de-estudio.html#cb375-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="caso-de-estudio.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ROCR)</span>
+<span id="cb355-2"><a href="caso-de-estudio.html#cb355-2" aria-hidden="true" tabindex="-1"></a>ROC.training<span class="ot">&lt;-</span><span class="fu">performance</span>(<span class="at">prediction.obj =</span> <span class="fu">prediction</span>(<span class="at">predictions =</span> <span class="fu">fitted</span>(modelo),</span>
+<span id="cb355-3"><a href="caso-de-estudio.html#cb355-3" aria-hidden="true" tabindex="-1"></a>                                                      <span class="at">labels =</span> <span class="fu">as.factor</span>(modelo<span class="sc">$</span>y)),</span>
+<span id="cb355-4"><a href="caso-de-estudio.html#cb355-4" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;tpr&quot;</span>,</span>
+<span id="cb355-5"><a href="caso-de-estudio.html#cb355-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
 <p>Luego, visualizamos el punto de corte óptimo utilizando la función <code>plot()</code>.</p>
 <div class="example">
 <p><span id="exm:bloque85nbm" class="example"><strong>Bloque 11.84  </strong></span>Visualizar punto de corte óptimo</p>
 </div>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="caso-de-estudio.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
-<span id="cb376-2"><a href="caso-de-estudio.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
-<span id="cb376-3"><a href="caso-de-estudio.html#cb376-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-159-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="caso-de-estudio.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
+<span id="cb356-2"><a href="caso-de-estudio.html#cb356-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
+<span id="cb356-3"><a href="caso-de-estudio.html#cb356-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-160"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-160-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
 <p class="caption">
 Figura 11.3: Punto de corte óptimo con datos tratados
 </p>
@@ -2075,9 +2024,9 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <div class="example">
 <p><span id="exm:bloque86nbm" class="example"><strong>Bloque 11.85  </strong></span>Predicciones y matriz de confusión</p>
 </div>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="caso-de-estudio.html#cb377-1" aria-hidden="true" tabindex="-1"></a>pred.training<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, <span class="at">data=</span>training, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb377-2"><a href="caso-de-estudio.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>training<span class="sc">$</span>VP_DC, </span>
-<span id="cb377-3"><a href="caso-de-estudio.html#cb377-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">PredictValue=</span>pred.training<span class="sc">&gt;</span>ptocorteop.training<span class="sc">$</span>threshold)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="caso-de-estudio.html#cb357-1" aria-hidden="true" tabindex="-1"></a>pred.training<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, <span class="at">data=</span>training, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb357-2"><a href="caso-de-estudio.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>training<span class="sc">$</span>VP_DC, </span>
+<span id="cb357-3"><a href="caso-de-estudio.html#cb357-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">PredictValue=</span>pred.training<span class="sc">&gt;</span>ptocorteop.training<span class="sc">$</span>threshold)</span></code></pre></div>
 <pre><code>##            PredictValue
 ## ActualValue FALSE TRUE
 ##           0  7778 1666
@@ -2088,16 +2037,16 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <div class="example">
 <p><span id="exm:bloque87nbm" class="example"><strong>Bloque 11.86  </strong></span>Validación de modelo con datos de prueba</p>
 </div>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="caso-de-estudio.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(testing<span class="sc">$</span>VP_DC,<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>),<span class="at">g=</span><span class="dv">5</span>)   <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="caso-de-estudio.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(testing<span class="sc">$</span>VP_DC,<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>),<span class="at">g=</span><span class="dv">5</span>)   <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
 <pre><code>## 
 ##  Hosmer and Lemeshow goodness of fit (GOF) test
 ## 
 ## data:  testing$VP_DC, predict(modelo, newdata = testing, type = &quot;response&quot;)
 ## X-squared = 66.467, df = 3, p-value = 2.431e-14</code></pre>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="caso-de-estudio.html#cb381-1" aria-hidden="true" tabindex="-1"></a>indiceC.testing<span class="ot">=</span><span class="fu">roc</span>(testing<span class="sc">$</span>VP_DC,<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)) <span class="co"># Curva ROC</span></span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="caso-de-estudio.html#cb361-1" aria-hidden="true" tabindex="-1"></a>indiceC.testing<span class="ot">=</span><span class="fu">roc</span>(testing<span class="sc">$</span>VP_DC,<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>)) <span class="co"># Curva ROC</span></span></code></pre></div>
 <pre><code>## Setting levels: control = 0, case = 1</code></pre>
 <pre><code>## Setting direction: controls &lt; cases</code></pre>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="caso-de-estudio.html#cb384-1" aria-hidden="true" tabindex="-1"></a>indiceC.testing</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="caso-de-estudio.html#cb364-1" aria-hidden="true" tabindex="-1"></a>indiceC.testing</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## roc.default(response = testing$VP_DC, predictor = predict(modelo,     newdata = testing, type = &quot;response&quot;))
@@ -2109,21 +2058,21 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <div class="example">
 <p><span id="exm:bloque88nbm" class="example"><strong>Bloque 11.87  </strong></span>Calcular de corte óptimo con datos de prueba</p>
 </div>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="caso-de-estudio.html#cb386-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.testing,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,<span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,<span class="at">best.method=</span><span class="st">&quot;youden&quot;</span>)</span>
-<span id="cb386-2"><a href="caso-de-estudio.html#cb386-2" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="caso-de-estudio.html#cb366-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.testing,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,<span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,<span class="at">best.method=</span><span class="st">&quot;youden&quot;</span>)</span>
+<span id="cb366-2"><a href="caso-de-estudio.html#cb366-2" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing</span></code></pre></div>
 <pre><code>##   threshold specificity sensitivity
 ## 1 0.2636494   0.8317617   0.2440252</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="caso-de-estudio.html#cb388-1" aria-hidden="true" tabindex="-1"></a>ROC.testing<span class="ot">&lt;-</span><span class="fu">performance</span>(<span class="fu">prediction</span>(<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>),</span>
-<span id="cb388-2"><a href="caso-de-estudio.html#cb388-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">as.factor</span>(testing<span class="sc">$</span>VP_DC)),<span class="st">&quot;tpr&quot;</span>,<span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="caso-de-estudio.html#cb368-1" aria-hidden="true" tabindex="-1"></a>ROC.testing<span class="ot">&lt;-</span><span class="fu">performance</span>(<span class="fu">prediction</span>(<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>),</span>
+<span id="cb368-2"><a href="caso-de-estudio.html#cb368-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">as.factor</span>(testing<span class="sc">$</span>VP_DC)),<span class="st">&quot;tpr&quot;</span>,<span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
 <p>Luego, visualizamos el punto de corte óptimo utilizando la función <code>plot()</code>.</p>
 <div class="example">
 <p><span id="exm:bloque89nbm" class="example"><strong>Bloque 11.88  </strong></span>Visualizar de corte óptimo con datos de prueba</p>
 </div>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="caso-de-estudio.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
-<span id="cb389-2"><a href="caso-de-estudio.html#cb389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
-<span id="cb389-3"><a href="caso-de-estudio.html#cb389-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-163"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-163-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="caso-de-estudio.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
+<span id="cb369-2"><a href="caso-de-estudio.html#cb369-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
+<span id="cb369-3"><a href="caso-de-estudio.html#cb369-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-164"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-164-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
 <p class="caption">
 Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratados
 </p>
@@ -2133,8 +2082,8 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <div class="example">
 <p><span id="exm:bloque90nbm" class="example"><strong>Bloque 11.89  </strong></span>Predicciones y matriz de confusión con datos de prueba</p>
 </div>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="caso-de-estudio.html#cb390-1" aria-hidden="true" tabindex="-1"></a>pred.testing<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, testing, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb390-2"><a href="caso-de-estudio.html#cb390-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>testing<span class="sc">$</span>VP_DC, <span class="at">PredictValue=</span>pred.testing<span class="sc">&gt;</span>ptocorteop.testing<span class="sc">$</span>threshold)</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="caso-de-estudio.html#cb370-1" aria-hidden="true" tabindex="-1"></a>pred.testing<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, testing, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb370-2"><a href="caso-de-estudio.html#cb370-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>testing<span class="sc">$</span>VP_DC, <span class="at">PredictValue=</span>pred.testing<span class="sc">&gt;</span>ptocorteop.testing<span class="sc">$</span>threshold)</span></code></pre></div>
 <pre><code>##            PredictValue
 ## ActualValue FALSE TRUE
 ##           0  3881  785
@@ -2144,10 +2093,10 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <div class="example">
 <p><span id="exm:bloque91nbm" class="example"><strong>Bloque 11.90  </strong></span>Comparar área bajo la curva, umbral, sensibilidad y especificidad</p>
 </div>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="caso-de-estudio.html#cb392-1" aria-hidden="true" tabindex="-1"></a>auc    <span class="ot">&lt;-</span>indiceC.trainig<span class="sc">$</span>auc              <span class="sc">-</span> indiceC.testing<span class="sc">$</span>auc</span>
-<span id="cb392-2"><a href="caso-de-estudio.html#cb392-2" aria-hidden="true" tabindex="-1"></a>corte  <span class="ot">&lt;-</span>ptocorteop.training<span class="sc">$</span>threshold    <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>threshold</span>
-<span id="cb392-3"><a href="caso-de-estudio.html#cb392-3" aria-hidden="true" tabindex="-1"></a>sens   <span class="ot">&lt;-</span> ptocorteop.training<span class="sc">$</span>sensitivity <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>sensitivity</span>
-<span id="cb392-4"><a href="caso-de-estudio.html#cb392-4" aria-hidden="true" tabindex="-1"></a>spe    <span class="ot">&lt;-</span> ptocorteop.training<span class="sc">$</span>specificity <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>specificity</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="caso-de-estudio.html#cb372-1" aria-hidden="true" tabindex="-1"></a>auc    <span class="ot">&lt;-</span>indiceC.trainig<span class="sc">$</span>auc              <span class="sc">-</span> indiceC.testing<span class="sc">$</span>auc</span>
+<span id="cb372-2"><a href="caso-de-estudio.html#cb372-2" aria-hidden="true" tabindex="-1"></a>corte  <span class="ot">&lt;-</span>ptocorteop.training<span class="sc">$</span>threshold    <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>threshold</span>
+<span id="cb372-3"><a href="caso-de-estudio.html#cb372-3" aria-hidden="true" tabindex="-1"></a>sens   <span class="ot">&lt;-</span> ptocorteop.training<span class="sc">$</span>sensitivity <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>sensitivity</span>
+<span id="cb372-4"><a href="caso-de-estudio.html#cb372-4" aria-hidden="true" tabindex="-1"></a>spe    <span class="ot">&lt;-</span> ptocorteop.training<span class="sc">$</span>specificity <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>specificity</span></code></pre></div>
 <p>La siguiente tabla muestra las estimaciones del coeficiente beta de la variable independiente de edad en los modelos, para los datos originales y los datos tratados. Se observa que ambas estimaciones son equivalentes, sin diferencias estadísticamente significativas a partir de su intervalo de confianza:</p>
 <table>
 <thead>
@@ -2190,46 +2139,46 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <div class="example">
 <p><span id="exm:bloque92nbm" class="example"><strong>Bloque 11.91  </strong></span>Verificar coincidencia de folios</p>
 </div>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="caso-de-estudio.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se espera que esta función regrese TRUE</span></span>
-<span id="cb393-2"><a href="caso-de-estudio.html#cb393-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(file<span class="sc">$</span>rph_ID <span class="sc">==</span> fileTratada<span class="sc">$</span>rph_ID)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="caso-de-estudio.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se espera que esta función regrese TRUE</span></span>
+<span id="cb373-2"><a href="caso-de-estudio.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(file<span class="sc">$</span>rph_ID <span class="sc">==</span> fileTratada<span class="sc">$</span>rph_ID)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Luego, se reemplazan variables tratadas en datos originales y se eliminan las variables que están de más. Estas son, comuna y razón de inactividad, ya que esta última permitiría deshacer la recodificación que se realizó en la variable consolidada de situación ocupacional.</p>
 <div class="example">
 <p><span id="exm:bloque93nbm" class="example"><strong>Bloque 11.92  </strong></span>Eliminar variables</p>
 </div>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="caso-de-estudio.html#cb395-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>enc_rpc <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb395-2"><a href="caso-de-estudio.html#cb395-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p14 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="caso-de-estudio.html#cb375-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>enc_rpc <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb375-2"><a href="caso-de-estudio.html#cb375-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p14 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>Luego, se reemplazan variables tratadas de edad, identidad de género, pertenencia indígena y nacionalidad.</p>
 <div class="example">
 <p><span id="exm:bloque94nbm" class="example"><strong>Bloque 11.93  </strong></span>Reemplazar variables originales por variables tratadas</p>
 </div>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="caso-de-estudio.html#cb396-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_edad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_edad</span>
-<span id="cb396-2"><a href="caso-de-estudio.html#cb396-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_idgen <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_idgen</span>
-<span id="cb396-3"><a href="caso-de-estudio.html#cb396-3" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_pertenencia_indigena <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_pertenencia_indigena</span>
-<span id="cb396-4"><a href="caso-de-estudio.html#cb396-4" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_nacionalidad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_nacionalidad</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="caso-de-estudio.html#cb376-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_edad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_edad</span>
+<span id="cb376-2"><a href="caso-de-estudio.html#cb376-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_idgen <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_idgen</span>
+<span id="cb376-3"><a href="caso-de-estudio.html#cb376-3" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_pertenencia_indigena <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_pertenencia_indigena</span>
+<span id="cb376-4"><a href="caso-de-estudio.html#cb376-4" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_nacionalidad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_nacionalidad</span></code></pre></div>
 <p>Se eliminan los valores de rph_p9 a rph_p13 para los casos suprimidos en situación ocupacional</p>
 <div class="example">
 <p><span id="exm:bloque95nbm" class="example"><strong>Bloque 11.94  </strong></span>Suprimir valores</p>
 </div>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="caso-de-estudio.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eliminan los valores que corresponden</span></span>
-<span id="cb397-2"><a href="caso-de-estudio.html#cb397-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p9[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb397-3"><a href="caso-de-estudio.html#cb397-3" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p10[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb397-4"><a href="caso-de-estudio.html#cb397-4" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p11[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb397-5"><a href="caso-de-estudio.html#cb397-5" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p12[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb397-6"><a href="caso-de-estudio.html#cb397-6" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p13[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb397-7"><a href="caso-de-estudio.html#cb397-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb397-8"><a href="caso-de-estudio.html#cb397-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Luego eliminamos situación ocupacional ya que no se usará más</span></span>
-<span id="cb397-9"><a href="caso-de-estudio.html#cb397-9" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_situacion_ocupacional <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="caso-de-estudio.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eliminan los valores que corresponden</span></span>
+<span id="cb377-2"><a href="caso-de-estudio.html#cb377-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p9[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb377-3"><a href="caso-de-estudio.html#cb377-3" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p10[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb377-4"><a href="caso-de-estudio.html#cb377-4" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p11[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb377-5"><a href="caso-de-estudio.html#cb377-5" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p12[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb377-6"><a href="caso-de-estudio.html#cb377-6" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p13[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb377-7"><a href="caso-de-estudio.html#cb377-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb377-8"><a href="caso-de-estudio.html#cb377-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Luego eliminamos situación ocupacional ya que no se usará más</span></span>
+<span id="cb377-9"><a href="caso-de-estudio.html#cb377-9" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_situacion_ocupacional <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>Luego, se elimina los valores de rph_migración que son acompañados de un NA en nacionalidad, ya que sería un error de flujo de la encuesta mantenerlos.</p>
 <div class="example">
 <p><span id="exm:bloque96nbm" class="example"><strong>Bloque 11.95  </strong></span>Suprimir valores en nacionalidad</p>
 </div>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="caso-de-estudio.html#cb398-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_migracion[<span class="fu">is.na</span>(file<span class="sc">$</span>rph_nacionalidad)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="caso-de-estudio.html#cb378-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_migracion[<span class="fu">is.na</span>(file<span class="sc">$</span>rph_nacionalidad)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p>Por último, se exporta archivo de datos ocupando la librería <code>haven</code>.</p>
 <div class="example">
 <p><span id="exm:bloque97nbm" class="example"><strong>Bloque 11.96  </strong></span>Ejemplo de código para exportar datos anonimizados</p>
 </div>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="caso-de-estudio.html#cb399-1" aria-hidden="true" tabindex="-1"></a><span class="co">#haven::write_sav(file, &#39;ENUSC2020_anonimizada.sav&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="caso-de-estudio.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="co">#haven::write_sav(file, &#39;ENUSC2020_anonimizada.sav&#39;)</span></span></code></pre></div>
 </div>
 <div id="anexo-tablas-de-indicadores-con-desagregaciones" class="section level3 hasAnchor" number="11.6.3">
 <h3><span class="header-section-number">11.6.3</span> Anexo : Tablas de indicadores con desagregaciones<a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -2237,22 +2186,22 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <div class="example">
 <p><span id="exm:bloque98nbm" class="example"><strong>Bloque 11.97  </strong></span>Ejemplo de código para exportar datos de indicadores con datos tratados y no tratados</p>
 </div>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="caso-de-estudio.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co">#anexo &lt;- list(&#39;P1 Regional Original&#39; = P1_REG_PRE,</span></span>
-<span id="cb400-2"><a href="caso-de-estudio.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Tratado&#39; = P1_REG_TRAT,</span></span>
-<span id="cb400-3"><a href="caso-de-estudio.html#cb400-3" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Sexo Original&#39; = P1_SEXO_PRE,</span></span>
-<span id="cb400-4"><a href="caso-de-estudio.html#cb400-4" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Sexo Tratado&#39; = P1_SEXO_TRAT,</span></span>
-<span id="cb400-5"><a href="caso-de-estudio.html#cb400-5" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Sexo Original&#39; = P1_REG_SEXO_PRE,</span></span>
-<span id="cb400-6"><a href="caso-de-estudio.html#cb400-6" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Sexo Tratado&#39; = P1_REG_SEXO_TRAT,</span></span>
-<span id="cb400-7"><a href="caso-de-estudio.html#cb400-7" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Original&#39; = VP_DC_REG_PRE,</span></span>
-<span id="cb400-8"><a href="caso-de-estudio.html#cb400-8" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Tratado&#39; = VP_DC_REG_TRAT,</span></span>
-<span id="cb400-9"><a href="caso-de-estudio.html#cb400-9" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Sexo Original&#39; = VP_DC_SEXO_PRE,</span></span>
-<span id="cb400-10"><a href="caso-de-estudio.html#cb400-10" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Sexo Tratado&#39; = VP_DC_SEXO_TRAT,</span></span>
-<span id="cb400-11"><a href="caso-de-estudio.html#cb400-11" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Sexo Original&#39; = VP_DC_REG_SEXO_PRE,</span></span>
-<span id="cb400-12"><a href="caso-de-estudio.html#cb400-12" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Sexo Tratado&#39; = VP_DC_REG_SEXO_TRAT,</span></span>
-<span id="cb400-13"><a href="caso-de-estudio.html#cb400-13" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Agr. Regional Original&#39; = VA_DC_REG_PRE,</span></span>
-<span id="cb400-14"><a href="caso-de-estudio.html#cb400-14" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Agr. Regional Tratado&#39; = VA_DC_REG_TRAT)</span></span>
-<span id="cb400-15"><a href="caso-de-estudio.html#cb400-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb400-16"><a href="caso-de-estudio.html#cb400-16" aria-hidden="true" tabindex="-1"></a><span class="co">#openxlsx::write.xlsx(anexo, &quot;Anexo_Medicion_Utilidad.xlsx&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="caso-de-estudio.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co">#anexo &lt;- list(&#39;P1 Regional Original&#39; = P1_REG_PRE,</span></span>
+<span id="cb380-2"><a href="caso-de-estudio.html#cb380-2" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Tratado&#39; = P1_REG_TRAT,</span></span>
+<span id="cb380-3"><a href="caso-de-estudio.html#cb380-3" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Sexo Original&#39; = P1_SEXO_PRE,</span></span>
+<span id="cb380-4"><a href="caso-de-estudio.html#cb380-4" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Sexo Tratado&#39; = P1_SEXO_TRAT,</span></span>
+<span id="cb380-5"><a href="caso-de-estudio.html#cb380-5" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Sexo Original&#39; = P1_REG_SEXO_PRE,</span></span>
+<span id="cb380-6"><a href="caso-de-estudio.html#cb380-6" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Sexo Tratado&#39; = P1_REG_SEXO_TRAT,</span></span>
+<span id="cb380-7"><a href="caso-de-estudio.html#cb380-7" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Original&#39; = VP_DC_REG_PRE,</span></span>
+<span id="cb380-8"><a href="caso-de-estudio.html#cb380-8" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Tratado&#39; = VP_DC_REG_TRAT,</span></span>
+<span id="cb380-9"><a href="caso-de-estudio.html#cb380-9" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Sexo Original&#39; = VP_DC_SEXO_PRE,</span></span>
+<span id="cb380-10"><a href="caso-de-estudio.html#cb380-10" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Sexo Tratado&#39; = VP_DC_SEXO_TRAT,</span></span>
+<span id="cb380-11"><a href="caso-de-estudio.html#cb380-11" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Sexo Original&#39; = VP_DC_REG_SEXO_PRE,</span></span>
+<span id="cb380-12"><a href="caso-de-estudio.html#cb380-12" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Pers. Regional Sexo Tratado&#39; = VP_DC_REG_SEXO_TRAT,</span></span>
+<span id="cb380-13"><a href="caso-de-estudio.html#cb380-13" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Agr. Regional Original&#39; = VA_DC_REG_PRE,</span></span>
+<span id="cb380-14"><a href="caso-de-estudio.html#cb380-14" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;Vict. Agr. Regional Tratado&#39; = VA_DC_REG_TRAT)</span></span>
+<span id="cb380-15"><a href="caso-de-estudio.html#cb380-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb380-16"><a href="caso-de-estudio.html#cb380-16" aria-hidden="true" tabindex="-1"></a><span class="co">#openxlsx::write.xlsx(anexo, &quot;Anexo_Medicion_Utilidad.xlsx&quot;)</span></span></code></pre></div>
 </div>
 </div>
 </div>
