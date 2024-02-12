@@ -61,7 +61,7 @@ Se trabaja con la base bruta de la ENUSC, que contiene todas las variables previ
 Indicar el nombre del archivo de datos
 ```
 ```{r, echo=TRUE}
-fname <- "BD_ENUSC_SINTETICA_ETIQUETADA.sav"
+fname <- "data/BD_ENUSC_SINTETICA_ETIQUETADA.sav"
 file <- haven::read_sav(fname)
 ```
 

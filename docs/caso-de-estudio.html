@@ -397,7 +397,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <div class="example">
 <p><span id="exm:bloque2nbm" class="example"><strong>Bloque 11.2  </strong></span>Indicar el nombre del archivo de datos</p>
 </div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="caso-de-estudio.html#cb125-1" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="st">&quot;BD_ENUSC_SINTETICA_ETIQUETADA.sav&quot;</span></span>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="caso-de-estudio.html#cb125-1" aria-hidden="true" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="st">&quot;data/BD_ENUSC_SINTETICA_ETIQUETADA.sav&quot;</span></span>
 <span id="cb125-2"><a href="caso-de-estudio.html#cb125-2" aria-hidden="true" tabindex="-1"></a>file <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_sav</span>(fname)</span></code></pre></div>
 </div>
 <div id="caracterización-de-la-base-de-datos" class="section level4 hasAnchor" number="11.1.2.2">
@@ -760,8 +760,8 @@ Calculado en base a la variable VP_DC, por lo que la base de datos anonimizada d
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="caso-de-estudio.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb162-2"><a href="caso-de-estudio.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb162-3"><a href="caso-de-estudio.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-93"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-93-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-94"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-94-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.1: Punto de corte óptimo con datos no tratados
 </p>
@@ -818,8 +818,8 @@ Figura 11.1: Punto de corte óptimo con datos no tratados
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="caso-de-estudio.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb175-2"><a href="caso-de-estudio.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb175-3"><a href="caso-de-estudio.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-97"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-97-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-98"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-98-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tratados
 </p>
@@ -1103,11 +1103,11 @@ Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tra
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="caso-de-estudio.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>rph_idgen)</span></code></pre></div>
 <pre><code>## 
 ##     1     2     3 
-## 10116 10030 20186</code></pre>
+## 23679 23615    50</code></pre>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="caso-de-estudio.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>rph_pertenencia_indigena)</span></code></pre></div>
 <pre><code>## 
-##    1    2    3    4    5    6    7    8    9   10   11 
-## 4341 4276 4315 4368 4265 4322 4403 4317 4217 4239 4281</code></pre>
+##     1     2     3     4     5     6     7     8     9    10    11 
+##    49    59    51    49    51    35    64    44    50    48 46844</code></pre>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="caso-de-estudio.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(file<span class="sc">$</span>rph_nacionalidad)</span></code></pre></div>
 <pre><code>## 
 ##     1     2     3     4     5     6     7     8     9 
@@ -1325,11 +1325,11 @@ Riesgo individual
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="caso-de-estudio.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
 ## 
-## Number of observations with higher risk than the main part of the data: 3108
-## Expected number of re-identifications: 2048.36 (4.33 %)
+## Number of observations with higher risk than the main part of the data: 1530
+## Expected number of re-identifications: 1117.28 (2.36 %)
 ## 
 ## Information on hierarchical risk:
-## Expected number of re-identifications: 5412.30 (11.43 %)
+## Expected number of re-identifications: 3113.28 (6.58 %)
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 141 observaciones con riesgo superior al 50%.</p>
 <div class="example">
@@ -1337,16 +1337,16 @@ Riesgo individual
 </div>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="caso-de-estudio.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb245-2"><a href="caso-de-estudio.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
-<pre><code>## [1] 43123</code></pre>
+<pre><code>## [1] 22797</code></pre>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="caso-de-estudio.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
 <span id="cb247-2"><a href="caso-de-estudio.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,]) </span></code></pre></div>
-<pre><code>## [1] 8862</code></pre>
+<pre><code>## [1] 4405</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="caso-de-estudio.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
 <span id="cb249-2"><a href="caso-de-estudio.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,]) </span></code></pre></div>
-<pre><code>## [1] 812</code></pre>
+<pre><code>## [1] 409</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="caso-de-estudio.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
 <span id="cb251-2"><a href="caso-de-estudio.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,]) </span></code></pre></div>
-<pre><code>## [1] 261</code></pre>
+<pre><code>## [1] 141</code></pre>
 <p>Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casi la mitad de los casos incumplen el 2-anonimato a nivel muestral.</p>
 <div class="example">
 <p><span id="exm:bloque51nbm" class="example"><strong>Bloque 11.50  </strong></span>K-anonimato</p>
@@ -1355,9 +1355,9 @@ Riesgo individual
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
 ## Number of observations violating
-##   - 2-anonymity: 45168 (95.404%)
-##   - 3-anonymity: 47222 (99.742%)
-##   - 5-anonymity: 47344 (100.000%)
+##   - 2-anonymity: 22806 (48.171%)
+##   - 3-anonymity: 33996 (71.806%)
+##   - 5-anonymity: 44657 (94.325%)
 ## 
 ## ----------------------------------------------------------------------</code></pre>
 <p>Finalmente, medimos el <em>l-diversity</em>, que es una medida complementaria al k-anonimato. Esta indica cuantos valores de respuesta tienen las variables sensibles para cada combinación de las variables clave. Se espera obtener valores superiores a 1, dado que este valor indica que hay una única respuesta para cada combinación, lo que implica que un intruso podría saber el valor de respuesta a pesar de que se cumplan los umbrales de k-anonimato. En este sentido, esta métrica de riesgo es complementaria y da respaldo a lo evaluado a partir del k-anonimato.</p>
@@ -1377,9 +1377,9 @@ Riesgo individual
 ##  Min.   :1.000           Min.   :1.000           Min.   :1.000                
 ##  1st Qu.:1.000           1st Qu.:1.000           1st Qu.:1.000                
 ##  Median :1.000           Median :1.000           Median :1.000                
-##  Mean   :1.021           Mean   :1.024           Mean   :1.022                
-##  3rd Qu.:1.000           3rd Qu.:1.000           3rd Qu.:1.000                
-##  Max.   :3.000           Max.   :3.000           Max.   :3.000</code></pre>
+##  Mean   :1.561           Mean   :1.651           Mean   :1.591                
+##  3rd Qu.:2.000           3rd Qu.:2.000           3rd Qu.:2.000                
+##  Max.   :7.000           Max.   :8.000           Max.   :7.000</code></pre>
 <p>Como se señaló previamente, el valor 1 indica un mínimo nivel de diversidad en las variables sensibles para cada
 combinación de variables clave. En este sentido, el que la media y promedio del <em>l-diversity</em> se aproximen a 1 nos indica que tenemos pocas combinaciones, lo que es señal de un mayor riesgo de que el intruso logre llegar al valor de las variables sensibles.</p>
 </div>
@@ -1419,16 +1419,16 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 
-##   in modified data: 2169
-##   in original data: 3108
+##   in modified data: 612
+##   in original data: 1530
 ## Expected number of re-identifications: 
-##   in modified data: 1488.69 (3.14 %)
-##   in original data: 2048.36 (4.33 %)
+##   in modified data: 435.53 (0.92 %)
+##   in original data: 1117.28 (2.36 %)
 ## 
 ## Information on hierarchical risk:
 ## Expected number of re-identifications: 
-##   in modified data: 4006.48 (8.46 %)
-##   in original data: 5412.30 (11.43 %)
+##   in modified data: 1300.72 (2.75 %)
+##   in original data: 3113.28 (6.58 %)
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que 8.759 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad menor de observaciones con riesgo altísimo, con 52 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.</p>
 <div class="example">
@@ -1436,16 +1436,16 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 </div>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="caso-de-estudio.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb263-2"><a href="caso-de-estudio.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
-<pre><code>## [1] 30922</code></pre>
+<pre><code>## [1] 8759</code></pre>
 <div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="caso-de-estudio.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
 <span id="cb265-2"><a href="caso-de-estudio.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
-<pre><code>## [1] 6169</code></pre>
+<pre><code>## [1] 1713</code></pre>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="caso-de-estudio.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
 <span id="cb267-2"><a href="caso-de-estudio.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
-<pre><code>## [1] 569</code></pre>
+<pre><code>## [1] 178</code></pre>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="caso-de-estudio.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
 <span id="cb269-2"><a href="caso-de-estudio.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
-<pre><code>## [1] 189</code></pre>
+<pre><code>## [1] 52</code></pre>
 <p>Revisamos el k-anonimato para los casos a nivel muestral. Aún se observa un muy alto porcentaje de casos que incumplen el 2-anonimato.</p>
 <div class="example">
 <p><span id="exm:bloque56nbm" class="example"><strong>Bloque 11.55  </strong></span>K-anonimato</p>
@@ -1454,9 +1454,9 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
 ## Number of observations violating
-##   - 2-anonymity: 31932 (67.447%) | in original data: 45168 (95.404%)
-##   - 3-anonymity: 40354 (85.236%) | in original data: 47222 (99.742%)
-##   - 5-anonymity: 45431 (95.959%) | in original data: 47344 (100.000%)
+##   - 2-anonymity: 8936 (18.875%) | in original data: 22806 (48.171%)
+##   - 3-anonymity: 12778 (26.990%) | in original data: 33996 (71.806%)
+##   - 5-anonymity: 16183 (34.182%) | in original data: 44657 (94.325%)
 ## 
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>, donde observamos mejores valores que se alejan de 1, para las tres variables sensibles.</p>
@@ -1473,12 +1473,12 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
 <pre><code>##  P17_Distinct_Ldiversity P24_Distinct_Ldiversity DEN_AGREG_Distinct_Ldiversity
-##  Min.   :1.000           Min.   :1.000           Min.   :1.000                
-##  1st Qu.:1.000           1st Qu.:1.000           1st Qu.:1.000                
-##  Median :1.000           Median :1.000           Median :1.000                
-##  Mean   :1.219           Mean   :1.252           Mean   :1.229                
-##  3rd Qu.:1.000           3rd Qu.:1.000           3rd Qu.:1.000                
-##  Max.   :6.000           Max.   :6.000           Max.   :6.000</code></pre>
+##  Min.   : 1.000          Min.   : 1.000          Min.   : 1.000               
+##  1st Qu.: 1.000          1st Qu.: 1.000          1st Qu.: 1.000               
+##  Median : 4.000          Median : 5.000          Median : 4.000               
+##  Mean   : 5.851          Mean   : 6.327          Mean   : 6.093               
+##  3rd Qu.: 9.000          3rd Qu.:10.000          3rd Qu.:10.000               
+##  Max.   :35.000          Max.   :36.000          Max.   :36.000</code></pre>
 <p>En conclusión, si bien se cumplen los umbrales a nivel global, los umbrales a nivel individual y el k-anonimato nos indican que se requiere aplicar más métodos SDC para asegurar la anonimización de los datos.</p>
 </div>
 <div id="segundo-conjunto-de-métodos-sdc" class="section level3 hasAnchor" number="11.4.3">
@@ -1537,16 +1537,16 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## Risk measures:
 ## 
 ## Number of observations with higher risk than the main part of the data: 
-##   in modified data: 1035
-##   in original data: 2471
+##   in modified data: 178
+##   in original data: 712
 ## Expected number of re-identifications: 
-##   in modified data: 762.14 (1.61 %)
-##   in original data: 1683.54 (3.56 %)
+##   in modified data: 147.03 (0.31 %)
+##   in original data: 529.44 (1.12 %)
 ## 
 ## Information on hierarchical risk:
 ## Expected number of re-identifications: 
-##   in modified data: 2216.99 (4.68 %)
-##   in original data: 4524.60 (9.56 %)
+##   in modified data: 446.46 (0.94 %)
+##   in original data: 1565.30 (3.31 %)
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que 2.902 de los casos presentan un riesgo superior al 1%, lo que aún cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 517 de las personas presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 50 y un 17 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.</p>
 <div class="example">
@@ -1554,16 +1554,16 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 </div>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="caso-de-estudio.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb284-2"><a href="caso-de-estudio.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
-<pre><code>## [1] 15463</code></pre>
+<pre><code>## [1] 2902</code></pre>
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="caso-de-estudio.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 5%:</span></span>
 <span id="cb286-2"><a href="caso-de-estudio.html#cb286-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.05</span>,])</span></code></pre></div>
-<pre><code>## [1] 3000</code></pre>
+<pre><code>## [1] 517</code></pre>
 <div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="caso-de-estudio.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 25%:</span></span>
 <span id="cb288-2"><a href="caso-de-estudio.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.25</span>,])</span></code></pre></div>
-<pre><code>## [1] 286</code></pre>
+<pre><code>## [1] 50</code></pre>
 <div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="caso-de-estudio.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 50%:</span></span>
 <span id="cb290-2"><a href="caso-de-estudio.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.5</span>,])</span></code></pre></div>
-<pre><code>## [1] 92</code></pre>
+<pre><code>## [1] 17</code></pre>
 <p>Revisamos el k-anonimato para los casos no ponderados, es decir a nivel muestral. Aún hay 2.886 casos que incumplen el 2-anonimato.</p>
 <div class="example">
 <p><span id="exm:bloque62nbm" class="example"><strong>Bloque 11.61  </strong></span>K-anonimato</p>
@@ -1572,9 +1572,9 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
 ## Number of observations violating
-##   - 2-anonymity: 15773 (33.316%) | in original data: 36576 (77.256%)
-##   - 3-anonymity: 22691 (47.928%) | in original data: 44316 (93.604%)
-##   - 5-anonymity: 31934 (67.451%) | in original data: 47047 (99.373%)
+##   - 2-anonymity: 2886 (6.096%) | in original data: 10798 (22.808%)
+##   - 3-anonymity: 4994 (10.548%) | in original data: 14650 (30.944%)
+##   - 5-anonymity: 8341 (17.618%) | in original data: 18033 (38.089%)
 ## 
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>. Se observa una importante mejora en el <em>l-diversity</em>, al observarse ahora una diversidad de 30 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.</p>
@@ -1591,12 +1591,12 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
 <pre><code>##  P17_Distinct_Ldiversity P24_Distinct_Ldiversity DEN_AGREG_Distinct_Ldiversity
-##  Min.   : 1.0            Min.   : 1.0            Min.   : 1.00                
-##  1st Qu.: 1.0            1st Qu.: 1.0            1st Qu.: 1.00                
-##  Median : 1.0            Median : 2.0            Median : 1.00                
-##  Mean   : 2.2            Mean   : 2.4            Mean   : 2.27                
-##  3rd Qu.: 3.0            3rd Qu.: 3.0            3rd Qu.: 3.00                
-##  Max.   :13.0            Max.   :14.0            Max.   :13.00</code></pre>
+##  Min.   :  1.00          Min.   :  1.00          Min.   :  1.00               
+##  1st Qu.:  2.00          1st Qu.:  2.00          1st Qu.:  2.00               
+##  Median : 21.00          Median : 22.00          Median : 21.00               
+##  Mean   : 29.58          Mean   : 30.09          Mean   : 30.01               
+##  3rd Qu.: 47.00          3rd Qu.: 48.00          3rd Qu.: 48.00               
+##  Max.   :154.00          Max.   :155.00          Max.   :155.00</code></pre>
 <p>En suma, debido a que persiste cierto grado de riesgos individuales e incumplimiento de k-anonimato aún se requiere seguir aplicando métodos SDC.</p>
 </div>
 <div id="tercer-conjunto-de-métodos-sdc" class="section level3 hasAnchor" number="11.4.5">
@@ -1648,15 +1648,15 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## 
 ## Number of observations with higher risk than the main part of the data: 
 ##   in modified data: 0
-##   in original data: 2471
+##   in original data: 712
 ## Expected number of re-identifications: 
-##   in modified data: 25.14 (0.05 %)
-##   in original data: 1683.54 (3.56 %)
+##   in modified data: 9.15 (0.02 %)
+##   in original data: 529.44 (1.12 %)
 ## 
 ## Information on hierarchical risk:
 ## Expected number of re-identifications: 
-##   in modified data: 73.90 (0.16 %)
-##   in original data: 4524.60 (9.56 %)
+##   in modified data: 26.98 (0.06 %)
+##   in original data: 1565.30 (3.31 %)
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que no hay casos que excedan estos niveles de riesgo luego de los últimos tratamientos a los datos.</p>
 <div class="example">
@@ -1682,9 +1682,9 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## Infos on 2/3-Anonymity:
 ## 
 ## Number of observations violating
-##   - 2-anonymity: 0 (0.000%) | in original data: 36576 (77.256%)
-##   - 3-anonymity: 1169 (2.469%) | in original data: 44316 (93.604%)
-##   - 5-anonymity: 5373 (11.349%) | in original data: 47047 (99.373%)
+##   - 2-anonymity: 0 (0.000%) | in original data: 10798 (22.808%)
+##   - 3-anonymity: 367 (0.775%) | in original data: 14650 (30.944%)
+##   - 5-anonymity: 1281 (2.706%) | in original data: 18033 (38.089%)
 ## 
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>. Se observa que los valores de promedio y mediana de <em>l-diversity</em> son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Dado que se obtienen buenos resultados, se decide no proseguir con métodos SDC para no perder más utilidad de los datos.</p>
@@ -1701,12 +1701,12 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## L-Diversity Measures</code></pre>
 <pre><code>## --------------------------</code></pre>
 <pre><code>##  P17_Distinct_Ldiversity P24_Distinct_Ldiversity DEN_AGREG_Distinct_Ldiversity
-##  Min.   : 1.00           Min.   : 1.00           Min.   : 1.00                
-##  1st Qu.: 2.00           1st Qu.: 2.00           1st Qu.: 2.00                
-##  Median : 7.00           Median : 8.00           Median : 8.00                
-##  Mean   :11.12           Mean   :11.67           Mean   :11.48                
-##  3rd Qu.:17.00           3rd Qu.:17.00           3rd Qu.:17.00                
-##  Max.   :80.00           Max.   :81.00           Max.   :81.00</code></pre>
+##  Min.   :  1.00          Min.   :  1.00          Min.   :  1.00               
+##  1st Qu.:  7.00          1st Qu.:  7.00          1st Qu.:  7.00               
+##  Median : 23.00          Median : 24.00          Median : 24.00               
+##  Mean   : 31.64          Mean   : 32.19          Mean   : 32.11               
+##  3rd Qu.: 47.00          3rd Qu.: 48.00          3rd Qu.: 48.00               
+##  Max.   :154.00          Max.   :155.00          Max.   :155.00</code></pre>
 <p>Los resultados aquí expuestos cumplen con los umbrales, por lo que ahora corresponde volver a medir la utilidad.</p>
 </div>
 <div id="evaluar-proceso-sdc---volver-a-medir-utilidad" class="section level3 hasAnchor" number="11.5.2">
@@ -1739,7 +1739,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## [1] &quot;rph_sexo&quot;
 ## [1] 0
 ## [1] &quot;rph_idgen&quot;
-## [1] 14.81075
+## [1] 0
 ## [1] &quot;rph_pertenencia_indigena&quot;
 ## [1] 0
 ## [1] &quot;rph_nacionalidad&quot;
@@ -1777,13 +1777,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## [1] &quot;rph_sexo&quot;
 ## [1] 0
 ## [1] &quot;rph_idgen&quot;
-## [1] 19.36254
+## [1] 1.203954
 ## [1] &quot;rph_pertenencia_indigena&quot;
-## [1] 1.341247
+## [1] 0.9314802
 ## [1] &quot;rph_nacionalidad&quot;
-## [1] 0.3569618
+## [1] 0.3527374
 ## [1] &quot;rph_situacion_ocupacional&quot;
-## [1] 14.91424
+## [1] 14.872
 ## [1] &quot;Fact_Ind&quot;
 ## [1] 0
 ## [1] &quot;P17&quot;
@@ -2006,8 +2006,8 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="caso-de-estudio.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb350-2"><a href="caso-de-estudio.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb350-3"><a href="caso-de-estudio.html#cb350-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-159-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-160"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-160-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
 <p class="caption">
 Figura 11.3: Punto de corte óptimo con datos tratados
 </p>
@@ -2064,8 +2064,8 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="caso-de-estudio.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb363-2"><a href="caso-de-estudio.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb363-3"><a href="caso-de-estudio.html#cb363-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-163"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-163-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-164"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-164-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
 <p class="caption">
 Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratados
 </p>
