@@ -23,7 +23,7 @@
 <meta name="author" content="Subdepartamento de Investigación Estadística" />
 
 
-<meta name="date" content="2024-02-12" />
+<meta name="date" content="2024-02-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -352,8 +352,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="caso-de-estudio" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Capítulo 11</span> Caso de estudio<a href="caso-de-estudio.html#caso-de-estudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>El objetivo del siguiente proceso de anonimización es ilustrar el proceso SDC establecido en la “Guía para el Control de la Divulgación Estadística en Microdatos (GCDEM)” propuesta por la Mesa de Anonimización INE. Los datos utilizados corresponden a una base de datos sintética que se basa en el diseño de la 17a ENUSC 2020 <span class="citation">(<a href="#ref-manualbdenusc" role="doc-biblioref">Instituto Nacional de Estadísticas de Chile 2021a</a>)</span>.</p>
-<p>El proceso SDC aquí implementado busca producir un archivo de datos PUF (del inglés, <em>Public Use File</em>), que pueda ponerse a disposición de forma pública y para cualquier usuario que lo requiera. Para ello, el proceso SDC aplicado apunta al logro de los umbrales de riesgo establecido por la GCDEM para encuestas de hogares <span class="citation">(<a href="#ref-manualsdcine" role="doc-biblioref">Instituto Nacional de Estadísticas de Chile 2021b</a>)</span>. Simultáneamente, el ejercicio busca mantener la utilidad de los datos, intentando minimizar la intervención de los mismos para que los usuarios puedan replicar las estadísticas priorizadas por esta encuesta.</p>
+<p>El objetivo del siguiente proceso de anonimización es ilustrar el proceso SDC establecido en la GUÍA PARA EL CONTROL DE DIVULGACIÓN ESTADÍSTICA EN MICRODATOS propuesta por la Mesa de Anonimización INE. Los datos utilizados corresponden a una base de datos sintética que se basa en el diseño de la 17a ENUSC 2020 <span class="citation">(<a href="#ref-manualbdenusc" role="doc-biblioref">Instituto Nacional de Estadísticas de Chile 2021a</a>)</span>.</p>
+<p>El proceso SDC aquí implementado pretender generar un archivo de datos PUF (del inglés, <em>Public Use File</em>), que pueda ponerse a disposición de forma pública y para cualquier usuario que lo requiera. Para ello, el proceso SDC aplicado apunta al logro de los umbrales de riesgo establecido por la GUÍA PARA EL CONTROL DE DIVULGACIÓN ESTADÍSTICA EN MICRODATOS para encuestas de hogares <span class="citation">(<a href="#ref-manualsdcine" role="doc-biblioref">Instituto Nacional de Estadísticas de Chile 2021b</a>)</span>. Simultáneamente, el ejercicio busca mantener la utilidad de los datos, intentando minimizar la intervención de los mismos para que los usuarios puedan replicar las estadísticas priorizadas por esta encuesta.</p>
 <p>Los umbrales de riesgo establecidos son los siguientes:</p>
 <p><strong>RIESGO GLOBAL</strong></p>
 <ul>
@@ -375,7 +375,7 @@ div.csl-indent {
 <p><strong>Nota sobre el cálculo del K-ANONIMATO</strong>:
 A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la función <code>Kanon_violations()</code>, se recomienda seguir el estándar del INE, que consiste en calcular el k-anonimato sin ponderadores utilizando el comando <code>print(sdcObject)</code>. En este contexto, ‘sdcObject’ representa el objeto sobre el cual es necesario evaluar el riesgo.</p>
 </blockquote>
-<p>A continuación, la guía presenta un paso a paso de como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.</p>
+<p>A continuación, la guía presenta paso a paso como proceder con este conjunto de datos para lograr el cumplimiento de estos umbrales de riesgo.</p>
 <div id="paso-uno-definiciones-previas-al-proceso-de-anonimización" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Paso Uno: Definiciones previas al proceso de anonimización<a href="caso-de-estudio.html#paso-uno-definiciones-previas-al-proceso-de-anonimización" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="definición-del-equipo-de-trabajo" class="section level3 hasAnchor" number="11.1.1">
@@ -387,7 +387,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 <p>En esta etapa se describe la metodología del producto estadístico, la revisión temática de la base de datos, su caracterización y clasificación de variables, la infraestructura con que se cuenta para el proceso, entre otros elementos que se especifican en el documento adjunto.</p>
 <div id="archivo-de-base-de-datos" class="section level4 hasAnchor" number="11.1.2.1">
 <h4><span class="header-section-number">11.1.2.1</span> Archivo de Base de datos<a href="caso-de-estudio.html#archivo-de-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Antes de cargar los datos, declaramos el directorio de trabajo donde se ubican los archivos donde trabajaremos.</p>
+<p>Antes de cargar los datos, declaramos el directorio de trabajo donde se ubican los archivos con que trabajaremos.</p>
 <div class="example">
 <p><span id="exm:bloque1nbm" class="example"><strong>Bloque 11.1  </strong></span>Indicar el directorio de trabajo</p>
 </div>
@@ -402,7 +402,7 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 </div>
 <div id="caracterización-de-la-base-de-datos" class="section level4 hasAnchor" number="11.1.2.2">
 <h4><span class="header-section-number">11.1.2.2</span> Caracterización de la base de datos<a href="caso-de-estudio.html#caracterización-de-la-base-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Primero revisamos las dimensiones del archivo, es decir, cuantos registros y variables contiene. La base contiene 47.344 registros y 73 variables. Luego, revisamos el nombre de las variables contenidas en la base de datos para verificar que se ajusta a la base con que se requiere trabajar.</p>
+<p>Primero revisamos las dimensiones del archivo, es decir, cuantos registros y variables contiene. La base contiene 47.344 registros y 73 variables. Luego, revisamos el nombre de las variables contenido en la base de datos para verificar que se ajusta a la base con que se requiere trabajar.</p>
 <div class="example">
 <p><span id="exm:bloque3nbm" class="example"><strong>Bloque 11.3  </strong></span>Inspeccionar las dimensiones del conjunto de datos y los nombres de las columnas</p>
 </div>
@@ -435,8 +435,8 @@ A pesar de que en el ejemplo actual se realiza el cálculo de k-anonimato con la
 ## [70] &quot;Fact_Hog&quot;                 &quot;VarStrat&quot;                 &quot;Conglomerado&quot;            
 ## [73] &quot;Fact_Ind&quot;</code></pre>
 <p>Es importante señalar que la base de datos se compone de variables de caracterización de los hogares y las personas (módulo de Registro de Personas en el Hogar o RPH) y variables temáticas de la encuesta referidas a percepción de inseguridad y victimización.</p>
-<p>Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza <code>Fact_Hog</code>, mientras que para el nivel persona se utiliza <code>Fact_Ind</code>.</p>
-<p>Además, la base de datos cuenta con variables de <code>Conglomerado</code> y <code>VarStrat</code>, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.</p>
+<p>Adicionalmente, la base de datos contiene pesos muestrales, que deben ser considerados durante la anonimización. Para el nivel hogar se utiliza Fact_Hog, mientras que para el nivel persona se utiliza Fact_Ind.</p>
+<p>Además, la base de datos cuenta con variables de Conglomerado y VarStrat, que serán utilizadas para declarar el diseño complejo y evaluar la utilidad de los datos antes y después del tratamiento de los mismos.</p>
 <p>El archivo <code>Diccionario de Variables.xlsx</code> contiene la descripción de las variables contenidas en la base de datos.</p>
 </div>
 <div id="clasificación-de-variables-1" class="section level4 hasAnchor" number="11.1.2.3">
@@ -760,8 +760,8 @@ Calculado en base a la variable VP_DC, por lo que la base de datos anonimizada d
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="caso-de-estudio.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb162-2"><a href="caso-de-estudio.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb162-3"><a href="caso-de-estudio.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-94"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-94-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-93"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-93-1.png" alt="Punto de corte óptimo con datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.1: Punto de corte óptimo con datos no tratados
 </p>
@@ -818,8 +818,8 @@ Figura 11.1: Punto de corte óptimo con datos no tratados
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="caso-de-estudio.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb175-2"><a href="caso-de-estudio.html#cb175-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb175-3"><a href="caso-de-estudio.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-98"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-98-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-97"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-97-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos no tratados" width="90%" />
 <p class="caption">
 Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tratados
 </p>
@@ -1261,16 +1261,16 @@ Figura 11.2: Punto de corte óptimo con datos de prueba a partir de datos no tra
 ## 
 ## Number of observations with higher risk than the main part of the data: 0
 ## Expected number of re-identifications: 0.16 (0.00 %)</code></pre>
-<p>Ahora medimos el riesgo de manera individual. Se observan 0 casos con riesgo sobre el 1%.
-::: {.example #bloque46nbm}
-Riesgo individual
-:::</p>
+<p>Ahora medimos el riesgo de manera individual. Se observan 0 casos con riesgo sobre el 1%.</p>
+<div class="example">
+<p><span id="exm:bloque46nbm" class="example"><strong>Bloque 11.46  </strong></span>Riesgo individual</p>
+</div>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="caso-de-estudio.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observations with risk above certain threshold (0.01)</span></span>
 <span id="cb236-2"><a href="caso-de-estudio.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileHH[sdcHH<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>Revisamos el k-anonimato para los casos ponderados.No hay casos que violen ningún nivel de k-anonimato. Para ello, se usa la función <code>kAnon_violations()</code>, indicando <code>TRUE</code> (<code>T</code>) como argumento para el parámetro de pesos (<code>weighted</code>) y el valor de <code>k</code> a evaluar.</p>
 <div class="example">
-<p><span id="exm:bloque47nbm" class="example"><strong>Bloque 11.46  </strong></span>K-anonimato</p>
+<p><span id="exm:bloque47nbm" class="example"><strong>Bloque 11.47  </strong></span>K-anonimato</p>
 </div>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="caso-de-estudio.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcHH)</span></code></pre></div>
 <pre><code>## Infos on 2/3-Anonymity:
@@ -1287,7 +1287,7 @@ Riesgo individual
 <h4><span class="header-section-number">11.3.2.2</span> Medición de riesgos de divulgación a nivel persona<a href="caso-de-estudio.html#medición-de-riesgos-de-divulgación-a-nivel-persona" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>En este siguiente paso, se procede a seleccionar todas las variables de ambos niveles, para crear el objeto <code>sdcMicro</code> considerando la estructura jerárquica hasta el nivel persona.</p>
 <div class="example">
-<p><span id="exm:bloque48nbm" class="example"><strong>Bloque 11.47  </strong></span>Comandos para construir el objeto SDC a nivel de persona</p>
+<p><span id="exm:bloque48nbm" class="example"><strong>Bloque 11.48  </strong></span>Comandos para construir el objeto SDC a nivel de persona</p>
 </div>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="caso-de-estudio.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
 <span id="cb240-2"><a href="caso-de-estudio.html#cb240-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_rpc&#39;</span>,</span>
@@ -1320,7 +1320,7 @@ Riesgo individual
 <span id="cb242-5"><a href="caso-de-estudio.html#cb242-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
 <p>Primero, revisamos las medidas globales de riesgo. Se observa que existen casos de observaciones con riesgo alto, y también un porcentaje de re-identificaciones esperadas, lo que se acentúa al considerar la estructura jerárquica. No obstante, a nivel global, esta no supera el umbral establecido de no más del 10%.</p>
 <div class="example">
-<p><span id="exm:bloque49nbm" class="example"><strong>Bloque 11.48  </strong></span>Medidas globales de riesgo</p>
+<p><span id="exm:bloque49nbm" class="example"><strong>Bloque 11.49  </strong></span>Medidas globales de riesgo</p>
 </div>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="caso-de-estudio.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
@@ -1333,7 +1333,7 @@ Riesgo individual
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Para ello, se revisa la cantidad de observaciones con riesgo mayor a cada umbral de riesgo individual. Se observa que casi todos los casos presentan un riesgo superior al 1%, lo que incumple el umbral establecido. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad muy alta de observaciones con riesgo altísimo, con 141 observaciones con riesgo superior al 50%.</p>
 <div class="example">
-<p><span id="exm:bloque50nbm" class="example"><strong>Bloque 11.49  </strong></span>Riesgo individual</p>
+<p><span id="exm:bloque50nbm" class="example"><strong>Bloque 11.50  </strong></span>Riesgo individual</p>
 </div>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="caso-de-estudio.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb245-2"><a href="caso-de-estudio.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
@@ -1349,7 +1349,7 @@ Riesgo individual
 <pre><code>## [1] 141</code></pre>
 <p>Luego, revisamos el k-anonimato para los casos ponderados. Se detectan casi la mitad de los casos incumplen el 2-anonimato a nivel muestral.</p>
 <div class="example">
-<p><span id="exm:bloque51nbm" class="example"><strong>Bloque 11.50  </strong></span>K-anonimato</p>
+<p><span id="exm:bloque51nbm" class="example"><strong>Bloque 11.51  </strong></span>K-anonimato</p>
 </div>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="caso-de-estudio.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
 <pre><code>## Infos on 2/3-Anonymity:
@@ -1362,7 +1362,7 @@ Riesgo individual
 ## ----------------------------------------------------------------------</code></pre>
 <p>Finalmente, medimos el <em>l-diversity</em>, que es una medida complementaria al k-anonimato. Esta indica cuantos valores de respuesta tienen las variables sensibles para cada combinación de las variables clave. Se espera obtener valores superiores a 1, dado que este valor indica que hay una única respuesta para cada combinación, lo que implica que un intruso podría saber el valor de respuesta a pesar de que se cumplan los umbrales de k-anonimato. En este sentido, esta métrica de riesgo es complementaria y da respaldo a lo evaluado a partir del k-anonimato.</p>
 <div class="example">
-<p><span id="exm:bloque52nbm" class="example"><strong>Bloque 11.51  </strong></span>L-Diversity</p>
+<p><span id="exm:bloque52nbm" class="example"><strong>Bloque 11.52  </strong></span>L-Diversity</p>
 </div>
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="caso-de-estudio.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
 <span id="cb255-2"><a href="caso-de-estudio.html#cb255-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
@@ -1400,7 +1400,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Se procede con este método primero dado que, por experiencia de los analistas de la encuesta, es uno de los que tiene mayor impacto en la reducción de riesgos.</p>
 <p>Para ello, aplicamos la función <code>globalRecode()</code>. Esta función implementa el método de recodificación global descrito en la guía de anonimización. El método toma cuatro argumentos: el objeto SDC, la columna a recodificar, los límites de los intervalos a generar, y las etiquetas que debe asignar a cada tramo.</p>
 <div class="example">
-<p><span id="exm:bloque53nbm" class="example"><strong>Bloque 11.52  </strong></span>Recodificar edad</p>
+<p><span id="exm:bloque53nbm" class="example"><strong>Bloque 11.53  </strong></span>Recodificar edad</p>
 </div>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="caso-de-estudio.html#cb260-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
 <span id="cb260-2"><a href="caso-de-estudio.html#cb260-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
@@ -1413,7 +1413,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <h3><span class="header-section-number">11.4.2</span> Re-medición del riesgo para primer conjunto de métodos<a href="caso-de-estudio.html#re-medición-del-riesgo-para-primer-conjunto-de-métodos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Primero, revisamos las medidas globales de riesgo con los datos tratados. Se observa una mejora en los resultados, llegando nuevamente a umbrales aceptables (&lt;10%). No obstante, es necesario revisar el resto de las métricas, donde se está más lejos de cumplir con los estándares requeridos.</p>
 <div class="example">
-<p><span id="exm:bloque54nbm" class="example"><strong>Bloque 11.53  </strong></span>Riesgo global</p>
+<p><span id="exm:bloque54nbm" class="example"><strong>Bloque 11.54  </strong></span>Riesgo global</p>
 </div>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="caso-de-estudio.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
@@ -1432,7 +1432,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que 8.759 de los casos tiene un riesgo superior al 1%. Al filtrar por porcentajes de riesgo más alto, se observa aún una cantidad menor de observaciones con riesgo altísimo, con 52 observaciones con riesgo superior al 50%, lo que aún es demasiado alto.</p>
 <div class="example">
-<p><span id="exm:bloque55nbm" class="example"><strong>Bloque 11.54  </strong></span>Riesgo individual</p>
+<p><span id="exm:bloque55nbm" class="example"><strong>Bloque 11.55  </strong></span>Riesgo individual</p>
 </div>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="caso-de-estudio.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb263-2"><a href="caso-de-estudio.html#cb263-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
@@ -1448,7 +1448,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## [1] 52</code></pre>
 <p>Revisamos el k-anonimato para los casos a nivel muestral. Aún se observa un muy alto porcentaje de casos que incumplen el 2-anonimato.</p>
 <div class="example">
-<p><span id="exm:bloque56nbm" class="example"><strong>Bloque 11.55  </strong></span>K-anonimato</p>
+<p><span id="exm:bloque56nbm" class="example"><strong>Bloque 11.56  </strong></span>K-anonimato</p>
 </div>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="caso-de-estudio.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
 <pre><code>## Infos on 2/3-Anonymity:
@@ -1461,7 +1461,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>, donde observamos mejores valores que se alejan de 1, para las tres variables sensibles.</p>
 <div class="example">
-<p><span id="exm:bloque57nbm" class="example"><strong>Bloque 11.56  </strong></span>L-diveristy</p>
+<p><span id="exm:bloque57nbm" class="example"><strong>Bloque 11.57  </strong></span>L-diveristy</p>
 </div>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="caso-de-estudio.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
 <span id="cb273-2"><a href="caso-de-estudio.html#cb273-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
@@ -1487,7 +1487,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Retomando el proceso, el segundo método a aplicar es la eliminación de la variable de comuna. En cambio, se incluye la variable de región, ya que deja de ser redundante. Esto, dado que previamente se había retirado en el paso de consolidación de variables puesto que la comuna es una variable anidada en la variable de región.</p>
 <p>Los pasos aplicados en el siguiente bloque de código son los mismos que se aplicaron la primera vez que se construyó el objeto <code>sdcCombined</code>. La única diferencia es que se reemplaza la variable <code>enc_rpc</code> por <code>enc_region</code> dentro del vector de variables clave <code>selectedKeyVarsIND</code>.</p>
 <div class="example">
-<p><span id="exm:bloque58nbm" class="example"><strong>Bloque 11.57  </strong></span>Reconstruir el objeto SDC a nivel persona con variable región</p>
+<p><span id="exm:bloque58nbm" class="example"><strong>Bloque 11.58  </strong></span>Reconstruir el objeto SDC a nivel persona con variable región</p>
 </div>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="caso-de-estudio.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se indican variables clave (nivel individual)</span></span>
 <span id="cb278-2"><a href="caso-de-estudio.html#cb278-2" aria-hidden="true" tabindex="-1"></a>selectedKeyVarsIND <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;enc_region&#39;</span>,</span>
@@ -1520,7 +1520,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <span id="cb280-5"><a href="caso-de-estudio.html#cb280-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sensibleVar =</span> sensibles)</span></code></pre></div>
 <p>Además, como en este caso fue necesario crear nuevamente el objeto SDC, hay que aplicar nuevamente la recodificación de la variable edad con la función <code>globalRecode()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque59nbm" class="example"><strong>Bloque 11.58  </strong></span>Recodificar edad nuevamente</p>
+<p><span id="exm:bloque59nbm" class="example"><strong>Bloque 11.59  </strong></span>Recodificar edad nuevamente</p>
 </div>
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="caso-de-estudio.html#cb281-1" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">globalRecode</span>(sdcCombined,</span>
 <span id="cb281-2"><a href="caso-de-estudio.html#cb281-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">column =</span> <span class="st">&quot;rph_edad&quot;</span>,</span>
@@ -1531,7 +1531,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <h3><span class="header-section-number">11.4.4</span> Re-medición del riesgo para segundo conjunto de métodos<a href="caso-de-estudio.html#re-medición-del-riesgo-para-segundo-conjunto-de-métodos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nuevamente, revisamos las medidas globales de riesgo. Se observa que a nivel global obtenemos valores aceptables de riesgo, ya que se habían logrado en la primera iteración.</p>
 <div class="example">
-<p><span id="exm:bloque60nbm" class="example"><strong>Bloque 11.59  </strong></span>Riesgo global</p>
+<p><span id="exm:bloque60nbm" class="example"><strong>Bloque 11.60  </strong></span>Riesgo global</p>
 </div>
 <div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="caso-de-estudio.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
@@ -1550,7 +1550,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que 2.902 de los casos presentan un riesgo superior al 1%, lo que aún cumple el umbral establecido, que indica el 20% de los casos. Por otro lado, se observa que 517 de las personas presentan un riesgo mayor al 5%, lo que cumple con el umbral (no más de 15%). Por otro lado, se observa que 50 y un 17 de los casos tienen riesgos superiores al 25% y 50%, respectivamente. Esto incumple con los umbrales establecidos ya que se espera que no haya observaciones con estos niveles de riesgo.</p>
 <div class="example">
-<p><span id="exm:bloque61nbm" class="example"><strong>Bloque 11.60  </strong></span>Riesgo individual</p>
+<p><span id="exm:bloque61nbm" class="example"><strong>Bloque 11.61  </strong></span>Riesgo individual</p>
 </div>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="caso-de-estudio.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb284-2"><a href="caso-de-estudio.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
@@ -1566,7 +1566,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## [1] 17</code></pre>
 <p>Revisamos el k-anonimato para los casos no ponderados, es decir a nivel muestral. Aún hay 2.886 casos que incumplen el 2-anonimato.</p>
 <div class="example">
-<p><span id="exm:bloque62nbm" class="example"><strong>Bloque 11.61  </strong></span>K-anonimato</p>
+<p><span id="exm:bloque62nbm" class="example"><strong>Bloque 11.62  </strong></span>K-anonimato</p>
 </div>
 <div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="caso-de-estudio.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
 <pre><code>## Infos on 2/3-Anonymity:
@@ -1579,7 +1579,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>. Se observa una importante mejora en el <em>l-diversity</em>, al observarse ahora una diversidad de 30 en promedio para las distintas combinaciones de variables clave en relación con las variables sensibles.</p>
 <div class="example">
-<p><span id="exm:bloque63nbm" class="example"><strong>Bloque 11.62  </strong></span>L-diversity</p>
+<p><span id="exm:bloque63nbm" class="example"><strong>Bloque 11.63  </strong></span>L-diversity</p>
 </div>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="caso-de-estudio.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
 <span id="cb294-2"><a href="caso-de-estudio.html#cb294-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
@@ -1604,7 +1604,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Como tercera iteración, se aplican varios métodos para poder reducir los riesgos individuales y el incumplimiento de 2-anonimato, que son las métricas que han presentado mayor dificultad para disminuir.</p>
 <p>Primero, se recodifican globalmente las variables de pertenencia indígena y nacionalidad. Para esto se ocupa una función distinta, <code>groupAndRename()</code>, que permite también recodificar variables categóricas. También se fusionan categorías de situación laboral, lo que equivale a posteriormente eliminar la variable de razón de inactividad de la base de datos. Esto porque esta variable corresponde a una consolidación de variables (revisar paso 2.1.4).</p>
 <div class="example">
-<p><span id="exm:bloque64nbm" class="example"><strong>Bloque 11.63  </strong></span>Recodificar de variables</p>
+<p><span id="exm:bloque64nbm" class="example"><strong>Bloque 11.64  </strong></span>Recodificar de variables</p>
 </div>
 <div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="caso-de-estudio.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos pertenencia indígena</span></span>
 <span id="cb299-2"><a href="caso-de-estudio.html#cb299-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">groupAndRename</span>(sdcCombined, <span class="at">var=</span><span class="st">&quot;rph_pertenencia_indigena&quot;</span>,</span>
@@ -1623,7 +1623,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Luego, se aplica supresión local en las variables de menor prioridad. Se seleccionan estas variables cuidadosamente, dado que se aplicará un método drástico como es la supresión local, teniendo como criterio las propiedades estadísticas que se buscan preservar en la base de datos.</p>
 <p>Por otro lado, los umbrales que se entregan como argumento a esta función en el parámetro <code>threshold</code> dependen de la data y se debe probar iterativamente hasta lograr los umbrales deseados. Se debe introducir en los argumentos umbrales de riesgo no tan bajos, evitando sobre-anonimizar, dado que esto nos llevaría a perder más utilidad de la necesaria. En este caso, se indican umbrales de 0.1, es decir, del 10% de riesgo individual como objetivo.</p>
 <div class="example">
-<p><span id="exm:bloque65nbm" class="example"><strong>Bloque 11.64  </strong></span>Supresión local</p>
+<p><span id="exm:bloque65nbm" class="example"><strong>Bloque 11.65  </strong></span>Supresión local</p>
 </div>
 <div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="caso-de-estudio.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="co"># supresión local para riesgos globales e individuales</span></span>
 <span id="cb300-2"><a href="caso-de-estudio.html#cb300-2" aria-hidden="true" tabindex="-1"></a>sdcCombined <span class="ot">&lt;-</span> <span class="fu">localSupp</span>(sdcCombined, <span class="at">keyVar=</span><span class="st">&#39;rph_idgen&#39;</span>, <span class="at">threshold=</span><span class="fl">0.01</span>)</span>
@@ -1641,7 +1641,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <h3><span class="header-section-number">11.5.1</span> Re-medición del riesgo<a href="caso-de-estudio.html#re-medición-del-riesgo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Primero, revisamos las medidas globales de riesgo. Se observa, valores mucho menores de riesgo global, aun cuando esto ya cumplía previamente con los niveles esperados.</p>
 <div class="example">
-<p><span id="exm:bloque66nbm" class="example"><strong>Bloque 11.65  </strong></span>Riesgo global</p>
+<p><span id="exm:bloque66nbm" class="example"><strong>Bloque 11.66  </strong></span>Riesgo global</p>
 </div>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="caso-de-estudio.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined, <span class="st">&quot;risk&quot;</span>)</span></code></pre></div>
 <pre><code>## Risk measures:
@@ -1660,7 +1660,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Ahora medimos el riesgo de manera individual. Se observa que no hay casos que excedan estos niveles de riesgo luego de los últimos tratamientos a los datos.</p>
 <div class="example">
-<p><span id="exm:bloque67nbm" class="example"><strong>Bloque 11.66  </strong></span>Riesgo individual</p>
+<p><span id="exm:bloque67nbm" class="example"><strong>Bloque 11.67  </strong></span>Riesgo individual</p>
 </div>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="caso-de-estudio.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Observaciones con riesgo individual superior al 1%:</span></span>
 <span id="cb303-2"><a href="caso-de-estudio.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(fileCombined[sdcCombined<span class="sc">@</span>risk<span class="sc">$</span>individual[, <span class="st">&quot;risk&quot;</span>] <span class="sc">&gt;</span> <span class="fl">0.01</span>,])</span></code></pre></div>
@@ -1676,7 +1676,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <pre><code>## [1] 0</code></pre>
 <p>Revisamos el k-anonimato para los casos ponderados. Ahora, no hay casos que violen ningún nivel de 2-anonimato y una cantidad aceptable de casos que incumplen el 3-anonimato y 5-anonimato, por lo que se cumpliría de buena forma lo planteado para estos umbrales.</p>
 <div class="example">
-<p><span id="exm:bloque68nbm" class="example"><strong>Bloque 11.67  </strong></span>K-anonimato</p>
+<p><span id="exm:bloque68nbm" class="example"><strong>Bloque 11.68  </strong></span>K-anonimato</p>
 </div>
 <div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="caso-de-estudio.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sdcCombined)</span></code></pre></div>
 <pre><code>## Infos on 2/3-Anonymity:
@@ -1689,7 +1689,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## ----------------------------------------------------------------------</code></pre>
 <p>Luego medimos el <em>l-diversity</em>. Se observa que los valores de promedio y mediana de <em>l-diversity</em> son levemente superiores, lo que indican un menor nivel de riesgo de que el intruso logre acertar a los valores de las variables sensibles. Dado que se obtienen buenos resultados, se decide no proseguir con métodos SDC para no perder más utilidad de los datos.</p>
 <div class="example">
-<p><span id="exm:bloque69nbm" class="example"><strong>Bloque 11.68  </strong></span>L-diversity</p>
+<p><span id="exm:bloque69nbm" class="example"><strong>Bloque 11.69  </strong></span>L-diversity</p>
 </div>
 <div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="caso-de-estudio.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos el objeto de l-diversity</span></span>
 <span id="cb313-2"><a href="caso-de-estudio.html#cb313-2" aria-hidden="true" tabindex="-1"></a>med_riesgo <span class="ot">&lt;-</span> <span class="fu">ldiversity</span>(sdcCombined, <span class="at">ldiv_index =</span> sensibles,</span>
@@ -1715,13 +1715,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <h4><span class="header-section-number">11.5.2.1</span> Extracción de datos tratados y medición de perdida de información.<a href="caso-de-estudio.html#extracción-de-datos-tratados-y-medición-de-perdida-de-información." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Primero, extraemos la data tratada. Para ello se usa la función <code>extractManipData()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque70nbm" class="example"><strong>Bloque 11.69  </strong></span>Extraer datos tratados</p>
+<p><span id="exm:bloque70nbm" class="example"><strong>Bloque 11.70  </strong></span>Extraer datos tratados</p>
 </div>
 <div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="caso-de-estudio.html#cb318-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> <span class="fu">extractManipData</span>(sdcCombined)</span></code></pre></div>
 <p>Luego evaluamos cuántos valores perdidos tenemos debido a la supresión local. Para ello, imprimimos el porcentaje de celdas perdidas pre y post anonimización.</p>
 <p>Primero vemos que, por flujo algunas variables tienen celdas vacías. La comparación consiste en ver si luego estos porcentajes aumentan.</p>
 <div class="example">
-<p><span id="exm:bloque71nbm" class="example"><strong>Bloque 11.70  </strong></span>Celdas vacías previo a anomización</p>
+<p><span id="exm:bloque71nbm" class="example"><strong>Bloque 11.71  </strong></span>Celdas vacías previo a anomización</p>
 </div>
 <div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="caso-de-estudio.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="co"># % de celdas vacías pre-anonimización</span></span>
 <span id="cb319-2"><a href="caso-de-estudio.html#cb319-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileCombined))){</span>
@@ -1760,7 +1760,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## [1] 0</code></pre>
 <p>Acá vemos los porcentajes de valores perdidos en los datos tratados. Vemos que en las variables de identidad de género (<code>rph_idgen</code>), pertenencia indígena (<code>rph_pertenencia_indigena</code>) y nacionalidad (<code>rph_nacionalidad</code>), hay un leve aumento de celdas en blanco. Esto es muy marginal, siendo menos de 2% de celdas vacías adicionales en identidad de género y menos de 1% adicional de celdas vacías en las otras dos variables. Además, se observa que para el caso de situación ocupacional (<code>rph_situacion_ocupacional</code>), el algoritmo de supresión local no eliminó valores, dado que los umbrales ya se habían cumplido.</p>
 <div class="example">
-<p><span id="exm:bloque72nbm" class="example"><strong>Bloque 11.71  </strong></span>Celdas vacías después de anomización</p>
+<p><span id="exm:bloque72nbm" class="example"><strong>Bloque 11.72  </strong></span>Celdas vacías después de anomización</p>
 </div>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="caso-de-estudio.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">names</span>(fileTratada))){</span>
 <span id="cb321-2"><a href="caso-de-estudio.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">names</span>(fileTratada)[i])</span>
@@ -1803,7 +1803,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Ahora, se procede a evaluar si se mantienen las propiedades estadísticas priorizadas de los datos.</p>
 <p>Primero, se genera una variable de edad a partir de la marca de clase de los tramos etarios, para evaluar si se mantiene la relación con los indicadores principales. Esto no se evaluará inmediatamente, pero se genera para uso posterior. Es importante aclarar que esta recodificación se realiza solo con fines analíticos para determinar la utilidad de los datos anonimizados, no siendo utilizada para los datos a liberar (en estos se mantienen los tramos etarios).</p>
 <div class="example">
-<p><span id="exm:bloque73nbm" class="example"><strong>Bloque 11.72  </strong></span>Generar variable de marcas de clase de edad</p>
+<p><span id="exm:bloque73nbm" class="example"><strong>Bloque 11.73  </strong></span>Generar variable de marcas de clase de edad</p>
 </div>
 <div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="caso-de-estudio.html#cb323-1" aria-hidden="true" tabindex="-1"></a>fileTratada<span class="sc">$</span>rph_edad_mc <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
 <span id="cb323-2"><a href="caso-de-estudio.html#cb323-2" aria-hidden="true" tabindex="-1"></a>  fileTratada<span class="sc">$</span>rph_edad <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fl">7.5</span>,</span>
@@ -1826,7 +1826,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## 7012 2216 2228 2114 4324 4282 4274 4304 4397 4348 7845</code></pre>
 <p>Luego, se pegan las variables de diseño muestral e indicadores a evaluar, ya que no se encuentran dentro del conjunto de datos con que se trabajó durante el proceso de anonimización.</p>
 <div class="example">
-<p><span id="exm:bloque74nbm" class="example"><strong>Bloque 11.73  </strong></span>Añadir variables de diseño muestral</p>
+<p><span id="exm:bloque74nbm" class="example"><strong>Bloque 11.74  </strong></span>Añadir variables de diseño muestral</p>
 </div>
 <div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="caso-de-estudio.html#cb325-1" aria-hidden="true" tabindex="-1"></a>fileTratada <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(fileTratada,</span>
 <span id="cb325-2"><a href="caso-de-estudio.html#cb325-2" aria-hidden="true" tabindex="-1"></a>                                file[,<span class="fu">c</span>(<span class="st">&#39;rph_ID&#39;</span>,<span class="st">&#39;Fact_Pers&#39;</span>,<span class="st">&#39;Fact_Hog&#39;</span>,</span>
@@ -1836,7 +1836,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>A continuación, se comparan los resultados de los datos originales con los tratados en lo que refiere al cálculo de indicadores principales con desagregaciones.</p>
 <p>Para ello, primero se establece el diseño complejo para personas y para hogares.</p>
 <div class="example">
-<p><span id="exm:bloque75nbm" class="example"><strong>Bloque 11.74  </strong></span>Declarar diseño complejo</p>
+<p><span id="exm:bloque75nbm" class="example"><strong>Bloque 11.75  </strong></span>Declarar diseño complejo</p>
 </div>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="caso-de-estudio.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generamos un conjunto de datos tratados donde solo tenemos las filas del informante Kish</span></span>
 <span id="cb327-2"><a href="caso-de-estudio.html#cb327-2" aria-hidden="true" tabindex="-1"></a>fileTratada_kish <span class="ot">&lt;-</span> fileTratada[fileTratada<span class="sc">$</span>Kish  <span class="sc">%in%</span> <span class="dv">1</span>,]</span>
@@ -1858,7 +1858,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p>Previamente, calculamos estas desagregaciones con los datos no tratados. A continuación, se recalculan con los datos tratados y se comparan los resultados calculando la diferencia. Esta se visualiza a través de la función <code>summary()</code>.</p>
 <p>Victimización agregada de delitos consumados, desagregado por región:</p>
 <div class="example">
-<p><span id="exm:bloque76nbm" class="example"><strong>Bloque 11.75  </strong></span>Estimar Victimización Agregada a nivel regional, con estandar de calidad INE</p>
+<p><span id="exm:bloque76nbm" class="example"><strong>Bloque 11.76  </strong></span>Estimar Victimización Agregada a nivel regional, con estandar de calidad INE</p>
 </div>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="caso-de-estudio.html#cb328-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VA_DC&#39;</span>, </span>
 <span id="cb328-2"><a href="caso-de-estudio.html#cb328-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
@@ -1872,7 +1872,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por sexo:</p>
 <div class="example">
-<p><span id="exm:bloque77nbm" class="example"><strong>Bloque 11.76  </strong></span>Estimar Victimización Personal según sexo, con estandar de calidad INE</p>
+<p><span id="exm:bloque77nbm" class="example"><strong>Bloque 11.77  </strong></span>Estimar Victimización Personal según sexo, con estandar de calidad INE</p>
 </div>
 <div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="caso-de-estudio.html#cb330-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
 <span id="cb330-2"><a href="caso-de-estudio.html#cb330-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo&#39;</span>, </span>
@@ -1885,7 +1885,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por región:</p>
 <div class="example">
-<p><span id="exm:bloque78nbm" class="example"><strong>Bloque 11.77  </strong></span>Estimar Victimización Personal a nivel regional, con estandar de calidad INE</p>
+<p><span id="exm:bloque78nbm" class="example"><strong>Bloque 11.78  </strong></span>Estimar Victimización Personal a nivel regional, con estandar de calidad INE</p>
 </div>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="caso-de-estudio.html#cb332-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
 <span id="cb332-2"><a href="caso-de-estudio.html#cb332-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;enc_region&#39;</span>, </span>
@@ -1898,7 +1898,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 ## </code></pre>
 <p>Victimización personal de delitos consumados, desagregado por sexo y región:</p>
 <div class="example">
-<p><span id="exm:bloque79nbm" class="example"><strong>Bloque 11.78  </strong></span>Estimar Victimización Personal a nivel regional y según sexo, con estandar de calidad INE</p>
+<p><span id="exm:bloque79nbm" class="example"><strong>Bloque 11.79  </strong></span>Estimar Victimización Personal a nivel regional y según sexo, con estandar de calidad INE</p>
 </div>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="caso-de-estudio.html#cb334-1" aria-hidden="true" tabindex="-1"></a>insumos_prop <span class="ot">&lt;-</span> <span class="fu">create_prop</span>(<span class="at">var =</span> <span class="st">&#39;VP_DC&#39;</span>, </span>
 <span id="cb334-2"><a href="caso-de-estudio.html#cb334-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">domains =</span> <span class="st">&#39;rph_sexo+enc_region&#39;</span>, </span>
@@ -1915,13 +1915,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p><strong>Se genera un <code>dataframe</code> “data” para trabajar con el modelo</strong></p>
 <p>Primero, se cargan los datos, y se filtran dejando solo al informante Kish.</p>
 <div class="example">
-<p><span id="exm:bloque80nbm" class="example"><strong>Bloque 11.79  </strong></span>Generar dataframe para modelo</p>
+<p><span id="exm:bloque80nbm" class="example"><strong>Bloque 11.80  </strong></span>Generar dataframe para modelo</p>
 </div>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="caso-de-estudio.html#cb336-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> fileTratada_kish</span></code></pre></div>
 <p><strong>Dividir datos en <code>_training_</code> and <code>_testing_</code> sets</strong></p>
 <p>Luego, se dividen los datos en sets de training y testing.</p>
 <div class="example">
-<p><span id="exm:bloque81nbm" class="example"><strong>Bloque 11.80  </strong></span>Dividir datos en <em>training</em> y <em>testing</em> sets</p>
+<p><span id="exm:bloque81nbm" class="example"><strong>Bloque 11.81  </strong></span>Dividir datos en <em>training</em> y <em>testing</em> sets</p>
 </div>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="caso-de-estudio.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caTools)</span>
 <span id="cb337-2"><a href="caso-de-estudio.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2022</span>)</span>
@@ -1932,7 +1932,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p><strong>Construir modelo</strong></p>
 <p>Luego, construimos el modelo utilizando la función <code>glm()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque82nbm" class="example"><strong>Bloque 11.81  </strong></span>Construir modelo</p>
+<p><span id="exm:bloque82nbm" class="example"><strong>Bloque 11.82  </strong></span>Construir modelo</p>
 </div>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="caso-de-estudio.html#cb338-1" aria-hidden="true" tabindex="-1"></a>modelo<span class="ot">&lt;-</span><span class="fu">glm</span>(VP_DC<span class="sc">~</span>rph_edad_mc, </span>
 <span id="cb338-2"><a href="caso-de-estudio.html#cb338-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>training, </span>
@@ -1963,7 +1963,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p><strong>Validación de modelo</strong></p>
 <p>Luego aplicamos el test de Hosmer Lemeshow para validar el modelo.</p>
 <div class="example">
-<p><span id="exm:bloque83nbm" class="example"><strong>Bloque 11.82  </strong></span>Validación de modelo</p>
+<p><span id="exm:bloque83nbm" class="example"><strong>Bloque 11.83  </strong></span>Validación de modelo</p>
 </div>
 <div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="caso-de-estudio.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ResourceSelection)</span>
 <span id="cb340-2"><a href="caso-de-estudio.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(modelo<span class="sc">$</span>y,<span class="fu">fitted</span>(modelo),<span class="at">g=</span><span class="dv">10</span>) <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
@@ -1986,7 +1986,7 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <p><strong>Punto de corte óptimo</strong></p>
 <p>Se calcula el punto de corte óptimo utilizando la función <code>coords()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque84nbm" class="example"><strong>Bloque 11.83  </strong></span>Calcular punto de corte óptimo</p>
+<p><span id="exm:bloque84nbm" class="example"><strong>Bloque 11.84  </strong></span>Calcular punto de corte óptimo</p>
 </div>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="caso-de-estudio.html#cb347-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.training<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.trainig,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,</span>
 <span id="cb347-2"><a href="caso-de-estudio.html#cb347-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,</span>
@@ -2001,13 +2001,13 @@ combinación de variables clave. En este sentido, el que la media y promedio del
 <span id="cb349-5"><a href="caso-de-estudio.html#cb349-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
 <p>Luego, visualizamos el punto de corte óptimo utilizando la función <code>plot()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque85nbm" class="example"><strong>Bloque 11.84  </strong></span>Visualizar punto de corte óptimo</p>
+<p><span id="exm:bloque85nbm" class="example"><strong>Bloque 11.85  </strong></span>Visualizar punto de corte óptimo</p>
 </div>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="caso-de-estudio.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.training, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb350-2"><a href="caso-de-estudio.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb350-3"><a href="caso-de-estudio.html#cb350-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.training<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-160"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-160-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-159-1.png" alt="Punto de corte óptimo con datos tratados" width="90%" />
 <p class="caption">
 Figura 11.3: Punto de corte óptimo con datos tratados
 </p>
@@ -2015,7 +2015,7 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <p><strong>Predicciones y matriz de confusión</strong></p>
 <p>Se realizan predicciones y se genera una matriz de confusión.</p>
 <div class="example">
-<p><span id="exm:bloque86nbm" class="example"><strong>Bloque 11.85  </strong></span>Predicciones y matriz de confusión</p>
+<p><span id="exm:bloque86nbm" class="example"><strong>Bloque 11.86  </strong></span>Predicciones y matriz de confusión</p>
 </div>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="caso-de-estudio.html#cb351-1" aria-hidden="true" tabindex="-1"></a>pred.training<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, <span class="at">data=</span>training, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb351-2"><a href="caso-de-estudio.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>training<span class="sc">$</span>VP_DC, </span>
@@ -2028,7 +2028,7 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <p><strong>Validación de modelo (con datos de prueba)</strong></p>
 <p>Aplicamos nuevamente la validación con el test de Hosmer Lemeshow, esta vez con los datos de prueba.</p>
 <div class="example">
-<p><span id="exm:bloque87nbm" class="example"><strong>Bloque 11.86  </strong></span>Validación de modelo con datos de prueba</p>
+<p><span id="exm:bloque87nbm" class="example"><strong>Bloque 11.87  </strong></span>Validación de modelo con datos de prueba</p>
 </div>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="caso-de-estudio.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hoslem.test</span>(testing<span class="sc">$</span>VP_DC,<span class="fu">predict</span>(modelo,<span class="at">newdata=</span>testing,<span class="at">type=</span><span class="st">&quot;response&quot;</span>),<span class="at">g=</span><span class="dv">5</span>)   <span class="co"># Test de Hosmer Lemeshow</span></span></code></pre></div>
 <pre><code>## 
@@ -2049,7 +2049,7 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <p><strong>Punto de corte óptimo (con datos de prueba)</strong></p>
 <p>Se calcula el punto de corte óptimo utilizando la función <code>coords()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque88nbm" class="example"><strong>Bloque 11.87  </strong></span>Calcular de corte óptimo con datos de prueba</p>
+<p><span id="exm:bloque88nbm" class="example"><strong>Bloque 11.88  </strong></span>Calcular de corte óptimo con datos de prueba</p>
 </div>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="caso-de-estudio.html#cb360-1" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing<span class="ot">&lt;-</span><span class="fu">coords</span>(indiceC.testing,<span class="at">x=</span><span class="st">&quot;best&quot;</span>,<span class="at">input=</span><span class="st">&quot;threshold&quot;</span>,<span class="at">best.method=</span><span class="st">&quot;youden&quot;</span>)</span>
 <span id="cb360-2"><a href="caso-de-estudio.html#cb360-2" aria-hidden="true" tabindex="-1"></a>ptocorteop.testing</span></code></pre></div>
@@ -2059,13 +2059,13 @@ Figura 11.3: Punto de corte óptimo con datos tratados
 <span id="cb362-2"><a href="caso-de-estudio.html#cb362-2" aria-hidden="true" tabindex="-1"></a>                                    <span class="fu">as.factor</span>(testing<span class="sc">$</span>VP_DC)),<span class="st">&quot;tpr&quot;</span>,<span class="st">&quot;fpr&quot;</span>)</span></code></pre></div>
 <p>Luego, visualizamos el punto de corte óptimo utilizando la función <code>plot()</code>.</p>
 <div class="example">
-<p><span id="exm:bloque89nbm" class="example"><strong>Bloque 11.88  </strong></span>Visualizar de corte óptimo con datos de prueba</p>
+<p><span id="exm:bloque89nbm" class="example"><strong>Bloque 11.89  </strong></span>Visualizar de corte óptimo con datos de prueba</p>
 </div>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="caso-de-estudio.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ROC.testing, <span class="at">colorize=</span><span class="cn">TRUE</span>, <span class="at">print.cutoffs.at=</span><span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="at">by=</span><span class="fl">0.1</span>))</span>
 <span id="cb363-2"><a href="caso-de-estudio.html#cb363-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a=</span><span class="dv">0</span>,<span class="at">b=</span><span class="dv">1</span>)</span>
 <span id="cb363-3"><a href="caso-de-estudio.html#cb363-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span>ptocorteop.testing<span class="sc">$</span>threshold,<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-164"></span>
-<img src="bookdown-demo_files/figure-html/unnamed-chunk-164-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-163"></span>
+<img src="bookdown-demo_files/figure-html/unnamed-chunk-163-1.png" alt="Punto de corte óptimo con datos de prueba a partir de datos tratados" width="90%" />
 <p class="caption">
 Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratados
 </p>
@@ -2073,7 +2073,7 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <p><strong>Predicciones y matriz de confusión (con datos de prueba)</strong></p>
 <p>Se realizan predicciones y se genera una matriz de confusión.</p>
 <div class="example">
-<p><span id="exm:bloque90nbm" class="example"><strong>Bloque 11.89  </strong></span>Predicciones y matriz de confusión con datos de prueba</p>
+<p><span id="exm:bloque90nbm" class="example"><strong>Bloque 11.90  </strong></span>Predicciones y matriz de confusión con datos de prueba</p>
 </div>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="caso-de-estudio.html#cb364-1" aria-hidden="true" tabindex="-1"></a>pred.testing<span class="ot">&lt;-</span><span class="fu">predict</span>(modelo, testing, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb364-2"><a href="caso-de-estudio.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">ActualValue=</span>testing<span class="sc">$</span>VP_DC, <span class="at">PredictValue=</span>pred.testing<span class="sc">&gt;</span>ptocorteop.testing<span class="sc">$</span>threshold)</span></code></pre></div>
@@ -2084,7 +2084,7 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <p><strong>Compara área bajo la curva, umbral, sensibilidad y especificidad</strong></p>
 <p>Finalmente, comparamos el área bajo la curva, umbral, sensibilidad y especificidad, a partir de los resultados del modelo con los datos de entrenamiento y con los datos de prueba.</p>
 <div class="example">
-<p><span id="exm:bloque91nbm" class="example"><strong>Bloque 11.90  </strong></span>Comparar área bajo la curva, umbral, sensibilidad y especificidad</p>
+<p><span id="exm:bloque91nbm" class="example"><strong>Bloque 11.91  </strong></span>Comparar área bajo la curva, umbral, sensibilidad y especificidad</p>
 </div>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="caso-de-estudio.html#cb366-1" aria-hidden="true" tabindex="-1"></a>auc    <span class="ot">&lt;-</span>indiceC.trainig<span class="sc">$</span>auc              <span class="sc">-</span> indiceC.testing<span class="sc">$</span>auc</span>
 <span id="cb366-2"><a href="caso-de-estudio.html#cb366-2" aria-hidden="true" tabindex="-1"></a>corte  <span class="ot">&lt;-</span>ptocorteop.training<span class="sc">$</span>threshold    <span class="sc">-</span> ptocorteop.testing<span class="sc">$</span>threshold</span>
@@ -2130,20 +2130,20 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <p>A partir del objeto <code>file</code>, que son los datos originales, se genera un objeto <code>data.frame</code> para su exportación como archivo de datos que será liberado.</p>
 <p>Primero se verifica que el orden de registros sea idéntico entra datos originales y tratados. Esto permite sobre-escribir columnas completas, sabiendo que los registros coincidirán bien. En este caso, es importante usar el folio que corresponde a persona, ya que cada fila es una persona (en contraposición al folio de viviendas que cubre varias filas dependiendo de las personas que las componen).</p>
 <div class="example">
-<p><span id="exm:bloque92nbm" class="example"><strong>Bloque 11.91  </strong></span>Verificar coincidencia de folios</p>
+<p><span id="exm:bloque92nbm" class="example"><strong>Bloque 11.92  </strong></span>Verificar coincidencia de folios</p>
 </div>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="caso-de-estudio.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se espera que esta función regrese TRUE</span></span>
 <span id="cb367-2"><a href="caso-de-estudio.html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(file<span class="sc">$</span>rph_ID <span class="sc">==</span> fileTratada<span class="sc">$</span>rph_ID)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Luego, se reemplazan variables tratadas en datos originales y se eliminan las variables que están de más. Estas son, comuna y razón de inactividad, ya que esta última permitiría deshacer la recodificación que se realizó en la variable consolidada de situación ocupacional.</p>
 <div class="example">
-<p><span id="exm:bloque93nbm" class="example"><strong>Bloque 11.92  </strong></span>Eliminar variables</p>
+<p><span id="exm:bloque93nbm" class="example"><strong>Bloque 11.93  </strong></span>Eliminar variables</p>
 </div>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="caso-de-estudio.html#cb369-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>enc_rpc <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="cb369-2"><a href="caso-de-estudio.html#cb369-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p14 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>Luego, se reemplazan variables tratadas de edad, identidad de género, pertenencia indígena y nacionalidad.</p>
 <div class="example">
-<p><span id="exm:bloque94nbm" class="example"><strong>Bloque 11.93  </strong></span>Reemplazar variables originales por variables tratadas</p>
+<p><span id="exm:bloque94nbm" class="example"><strong>Bloque 11.94  </strong></span>Reemplazar variables originales por variables tratadas</p>
 </div>
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="caso-de-estudio.html#cb370-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_edad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_edad</span>
 <span id="cb370-2"><a href="caso-de-estudio.html#cb370-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_idgen <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_idgen</span>
@@ -2151,7 +2151,7 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <span id="cb370-4"><a href="caso-de-estudio.html#cb370-4" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_nacionalidad <span class="ot">&lt;-</span> fileTratada<span class="sc">$</span>rph_nacionalidad</span></code></pre></div>
 <p>Se eliminan los valores de rph_p9 a rph_p13 para los casos suprimidos en situación ocupacional</p>
 <div class="example">
-<p><span id="exm:bloque95nbm" class="example"><strong>Bloque 11.94  </strong></span>Suprimir valores</p>
+<p><span id="exm:bloque95nbm" class="example"><strong>Bloque 11.95  </strong></span>Suprimir valores</p>
 </div>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="caso-de-estudio.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="co"># se eliminan los valores que corresponden</span></span>
 <span id="cb371-2"><a href="caso-de-estudio.html#cb371-2" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_p9[<span class="fu">is.na</span>(fileTratada<span class="sc">$</span>rph_situacion_ocupacional)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
@@ -2164,12 +2164,12 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <span id="cb371-9"><a href="caso-de-estudio.html#cb371-9" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_situacion_ocupacional <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>Luego, se elimina los valores de rph_migración que son acompañados de un NA en nacionalidad, ya que sería un error de flujo de la encuesta mantenerlos.</p>
 <div class="example">
-<p><span id="exm:bloque96nbm" class="example"><strong>Bloque 11.95  </strong></span>Suprimir valores en nacionalidad</p>
+<p><span id="exm:bloque96nbm" class="example"><strong>Bloque 11.96  </strong></span>Suprimir valores en nacionalidad</p>
 </div>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="caso-de-estudio.html#cb372-1" aria-hidden="true" tabindex="-1"></a>file<span class="sc">$</span>rph_migracion[<span class="fu">is.na</span>(file<span class="sc">$</span>rph_nacionalidad)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <p>Por último, se exporta archivo de datos ocupando la librería <code>haven</code>.</p>
 <div class="example">
-<p><span id="exm:bloque97nbm" class="example"><strong>Bloque 11.96  </strong></span>Ejemplo de código para exportar datos anonimizados</p>
+<p><span id="exm:bloque97nbm" class="example"><strong>Bloque 11.97  </strong></span>Ejemplo de código para exportar datos anonimizados</p>
 </div>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="caso-de-estudio.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co">#haven::write_sav(file, &#39;ENUSC2020_anonimizada.sav&#39;)</span></span></code></pre></div>
 </div>
@@ -2177,7 +2177,7 @@ Figura 11.4: Punto de corte óptimo con datos de prueba a partir de datos tratad
 <h3><span class="header-section-number">11.6.3</span> Anexo : Tablas de indicadores con desagregaciones<a href="caso-de-estudio.html#anexo-tablas-de-indicadores-con-desagregaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se deja como anexo los tabulados con datos tratados y no tratados por si se considera necesario compararlos de forma manual.</p>
 <div class="example">
-<p><span id="exm:bloque98nbm" class="example"><strong>Bloque 11.97  </strong></span>Ejemplo de código para exportar datos de indicadores con datos tratados y no tratados</p>
+<p><span id="exm:bloque98nbm" class="example"><strong>Bloque 11.98  </strong></span>Ejemplo de código para exportar datos de indicadores con datos tratados y no tratados</p>
 </div>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="caso-de-estudio.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co">#anexo &lt;- list(&#39;P1 Regional Original&#39; = P1_REG_PRE,</span></span>
 <span id="cb374-2"><a href="caso-de-estudio.html#cb374-2" aria-hidden="true" tabindex="-1"></a><span class="co">#              &#39;P1 Regional Tratado&#39; = P1_REG_TRAT,</span></span>
